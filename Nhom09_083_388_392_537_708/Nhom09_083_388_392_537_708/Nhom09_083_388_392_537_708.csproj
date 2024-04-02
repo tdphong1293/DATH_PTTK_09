@@ -46,16 +46,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NHANVIEN.cs">
+    <Compile Include="DSDoanhNghiepTiemNang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NHANVIEN.Designer.cs">
-      <DependentUpon>NHANVIEN.cs</DependentUpon>
+    <Compile Include="DSDoanhNghiepTiemNang.Designer.cs">
+      <DependentUpon>DSDoanhNghiepTiemNang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="THANHTOAN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="THANHTOAN.Designer.cs">
+      <DependentUpon>THANHTOAN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XULYHOSOUNGTUYEN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XULYHOSOUNGTUYEN.Designer.cs">
+      <DependentUpon>XULYHOSOUNGTUYEN.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="NHANVIEN.resx">
-      <DependentUpon>NHANVIEN.cs</DependentUpon>
+    <EmbeddedResource Include="XULYHOSOUNGTUYEN.resx">
+      <DependentUpon>XULYHOSOUNGTUYEN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
