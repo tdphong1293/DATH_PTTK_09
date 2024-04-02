@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Nhom09_083_388_392_537_708
 {
-    public partial class Form1 : Form
+    public partial class NHANVIEN : Form
     {
-        public Form1()
+        public NHANVIEN()
         {
             InitializeComponent();
         }
