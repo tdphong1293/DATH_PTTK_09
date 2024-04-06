@@ -52,12 +52,25 @@
     <Compile Include="DSDoanhNghiepTiemNang.Designer.cs">
       <DependentUpon>DSDoanhNghiepTiemNang.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDangNhap.Designer.cs">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenuForm.Designer.cs">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="THANHTOAN.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="THANHTOAN.Designer.cs">
       <DependentUpon>THANHTOAN.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThemeColor.cs" />
     <Compile Include="XULYHOSOUNGTUYEN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +79,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormDangNhap.resx">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenuForm.resx">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="XULYHOSOUNGTUYEN.resx">
       <DependentUpon>XULYHOSOUNGTUYEN.cs</DependentUpon>
     </EmbeddedResource>
