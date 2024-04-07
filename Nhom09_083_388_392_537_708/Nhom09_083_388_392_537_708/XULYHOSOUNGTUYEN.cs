@@ -17,6 +17,9 @@ namespace Nhom09_083_388_392_537_708
             InitializeComponent();
         }
 
-        
+        private void btn_Duyet_Click(object sender, EventArgs e)
+        {
+            // Text account
+        }
     }
 }

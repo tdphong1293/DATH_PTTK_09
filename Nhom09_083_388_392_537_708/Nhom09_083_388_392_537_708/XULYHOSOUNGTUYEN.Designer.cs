@@ -328,6 +328,7 @@
             this.btn_Duyet.TabIndex = 14;
             this.btn_Duyet.Text = "DUYỆT";
             this.btn_Duyet.UseVisualStyleBackColor = true;
+            this.btn_Duyet.Click += new System.EventHandler(this.btn_Duyet_Click);
             // 
             // lb_TimKiemDoanhNghiep
             // 
