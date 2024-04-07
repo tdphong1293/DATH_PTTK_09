@@ -46,11 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DN_TIEMNANG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DN_TIEMNANG.Designer.cs">
+      <DependentUpon>DN_TIEMNANG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOANHNGHIEP_TIEMNANG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOANHNGHIEP_TIEMNANG.Designer.cs">
+      <DependentUpon>DOANHNGHIEP_TIEMNANG.cs</DependentUpon>
+    </Compile>
     <Compile Include="DSDoanhNghiepTiemNang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DSDoanhNghiepTiemNang.Designer.cs">
       <DependentUpon>DSDoanhNghiepTiemNang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DUYET_HS_UNGTUYEN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DUYET_HS_UNGTUYEN.Designer.cs">
+      <DependentUpon>DUYET_HS_UNGTUYEN.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDangNhap.cs">
       <SubType>Form</SubType>
@@ -79,6 +97,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DOANHNGHIEP_TIEMNANG.resx">
+      <DependentUpon>DOANHNGHIEP_TIEMNANG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DUYET_HS_UNGTUYEN.resx">
+      <DependentUpon>DUYET_HS_UNGTUYEN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
