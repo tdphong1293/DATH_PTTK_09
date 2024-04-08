@@ -46,10 +46,9 @@
             // 
             this.lbNHSUT.AutoSize = true;
             this.lbNHSUT.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNHSUT.Location = new System.Drawing.Point(515, 9);
-            this.lbNHSUT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbNHSUT.Location = new System.Drawing.Point(391, 19);
             this.lbNHSUT.Name = "lbNHSUT";
-            this.lbNHSUT.Size = new System.Drawing.Size(269, 30);
+            this.lbNHSUT.Size = new System.Drawing.Size(343, 38);
             this.lbNHSUT.TabIndex = 0;
             this.lbNHSUT.Text = "NỘP HỒ SƠ ỨNG TUYỂN";
             // 
@@ -57,10 +56,9 @@
             // 
             this.lbTenUV.AutoSize = true;
             this.lbTenUV.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenUV.Location = new System.Drawing.Point(22, 107);
-            this.lbTenUV.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbTenUV.Location = new System.Drawing.Point(29, 132);
             this.lbTenUV.Name = "lbTenUV";
-            this.lbTenUV.Size = new System.Drawing.Size(124, 20);
+            this.lbTenUV.Size = new System.Drawing.Size(149, 25);
             this.lbTenUV.TabIndex = 1;
             this.lbTenUV.Text = "Họ Tên Ứng Viên:";
             // 
@@ -68,11 +66,11 @@
             // 
             this.txtTenUV.Enabled = false;
             this.txtTenUV.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenUV.Location = new System.Drawing.Point(180, 102);
-            this.txtTenUV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTenUV.Location = new System.Drawing.Point(240, 126);
+            this.txtTenUV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTenUV.Name = "txtTenUV";
             this.txtTenUV.ReadOnly = true;
-            this.txtTenUV.Size = new System.Drawing.Size(278, 27);
+            this.txtTenUV.Size = new System.Drawing.Size(369, 31);
             this.txtTenUV.TabIndex = 2;
             this.txtTenUV.Text = "Nguyễn Văn A";
             // 
@@ -80,11 +78,11 @@
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(180, 160);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Location = new System.Drawing.Point(240, 197);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(278, 27);
+            this.textBox1.Size = new System.Drawing.Size(369, 31);
             this.textBox1.TabIndex = 4;
             this.textBox1.Text = "Gout Goo";
             // 
@@ -92,10 +90,9 @@
             // 
             this.lbCTUT.AutoSize = true;
             this.lbCTUT.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCTUT.Location = new System.Drawing.Point(22, 162);
-            this.lbCTUT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbCTUT.Location = new System.Drawing.Point(29, 199);
             this.lbCTUT.Name = "lbCTUT";
-            this.lbCTUT.Size = new System.Drawing.Size(137, 20);
+            this.lbCTUT.Size = new System.Drawing.Size(170, 25);
             this.lbCTUT.TabIndex = 3;
             this.lbCTUT.Text = "Công ty ứng tuyển: ";
             // 
@@ -103,10 +100,9 @@
             // 
             this.lbVTUT.AutoSize = true;
             this.lbVTUT.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbVTUT.Location = new System.Drawing.Point(22, 221);
-            this.lbVTUT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbVTUT.Location = new System.Drawing.Point(29, 272);
             this.lbVTUT.Name = "lbVTUT";
-            this.lbVTUT.Size = new System.Drawing.Size(113, 20);
+            this.lbVTUT.Size = new System.Drawing.Size(138, 25);
             this.lbVTUT.TabIndex = 5;
             this.lbVTUT.Text = "Vị trí ứng tuyển:";
             // 
@@ -119,30 +115,29 @@
             "Front End",
             "BackEnd",
             "DevOps"});
-            this.cbVTUT.Location = new System.Drawing.Point(180, 219);
-            this.cbVTUT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbVTUT.Location = new System.Drawing.Point(240, 270);
+            this.cbVTUT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbVTUT.Name = "cbVTUT";
-            this.cbVTUT.Size = new System.Drawing.Size(92, 27);
+            this.cbVTUT.Size = new System.Drawing.Size(121, 33);
             this.cbVTUT.TabIndex = 6;
             // 
             // lbHSDK
             // 
             this.lbHSDK.AutoSize = true;
             this.lbHSDK.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHSDK.Location = new System.Drawing.Point(22, 282);
-            this.lbHSDK.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbHSDK.Location = new System.Drawing.Point(29, 347);
             this.lbHSDK.Name = "lbHSDK";
-            this.lbHSDK.Size = new System.Drawing.Size(115, 20);
+            this.lbHSDK.Size = new System.Drawing.Size(142, 25);
             this.lbHSDK.TabIndex = 7;
             this.lbHSDK.Text = "Đính kèm hồ sơ:";
             // 
             // btnBrowse
             // 
             this.btnBrowse.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBrowse.Location = new System.Drawing.Point(379, 278);
-            this.btnBrowse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBrowse.Location = new System.Drawing.Point(505, 342);
+            this.btnBrowse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(78, 28);
+            this.btnBrowse.Size = new System.Drawing.Size(104, 34);
             this.btnBrowse.TabIndex = 8;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
@@ -151,10 +146,10 @@
             // btnHuyNHS
             // 
             this.btnHuyNHS.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHuyNHS.Location = new System.Drawing.Point(1078, 668);
-            this.btnHuyNHS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHuyNHS.Location = new System.Drawing.Point(1024, 654);
+            this.btnHuyNHS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHuyNHS.Name = "btnHuyNHS";
-            this.btnHuyNHS.Size = new System.Drawing.Size(61, 28);
+            this.btnHuyNHS.Size = new System.Drawing.Size(81, 34);
             this.btnHuyNHS.TabIndex = 10;
             this.btnHuyNHS.Text = "Huỷ";
             this.btnHuyNHS.UseVisualStyleBackColor = true;
@@ -163,10 +158,10 @@
             // btnXNNopHS
             // 
             this.btnXNNopHS.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXNNopHS.Location = new System.Drawing.Point(1143, 668);
-            this.btnXNNopHS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXNNopHS.Location = new System.Drawing.Point(1111, 654);
+            this.btnXNNopHS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXNNopHS.Name = "btnXNNopHS";
-            this.btnXNNopHS.Size = new System.Drawing.Size(86, 28);
+            this.btnXNNopHS.Size = new System.Drawing.Size(115, 34);
             this.btnXNNopHS.TabIndex = 11;
             this.btnXNNopHS.Text = "Xác nhận";
             this.btnXNNopHS.UseVisualStyleBackColor = true;
@@ -176,17 +171,16 @@
             // 
             this.llbFileName.AutoSize = true;
             this.llbFileName.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llbFileName.Location = new System.Drawing.Point(176, 282);
-            this.llbFileName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.llbFileName.Location = new System.Drawing.Point(235, 347);
             this.llbFileName.Name = "llbFileName";
-            this.llbFileName.Size = new System.Drawing.Size(0, 20);
+            this.llbFileName.Size = new System.Drawing.Size(0, 25);
             this.llbFileName.TabIndex = 12;
             // 
             // NopHoSoUngTuyen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 707);
+            this.ClientSize = new System.Drawing.Size(1238, 699);
             this.Controls.Add(this.llbFileName);
             this.Controls.Add(this.btnXNNopHS);
             this.Controls.Add(this.btnHuyNHS);
@@ -199,7 +193,7 @@
             this.Controls.Add(this.txtTenUV);
             this.Controls.Add(this.lbTenUV);
             this.Controls.Add(this.lbNHSUT);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "NopHoSoUngTuyen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "NopHoSoUngTuyen";
