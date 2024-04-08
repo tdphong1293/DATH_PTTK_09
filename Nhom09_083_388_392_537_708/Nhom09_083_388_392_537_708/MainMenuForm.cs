@@ -16,7 +16,7 @@ namespace Nhom09_083_388_392_537_708
         private Random random;
         private int tempIndex;
         private Form activeForm;
-        Font SegoeUISemibold = new Font("Segoe UI Semibold", 10F);
+        Font SegoeUISemibold = new Font("Segoe UI Semibold", 9.75F);
         Font SegoeUIBold = new Font("Segoe UI", 10.5F, FontStyle.Bold);
 
         public MainMenuForm()
