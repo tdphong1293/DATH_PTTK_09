@@ -177,12 +177,10 @@
     <None Include="Resources\User_Icon.png" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <None Include="Resources\login.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\login2.png" />
-=======
     <None Include="Resources\logo.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -190,7 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo_ABC.png" />
->>>>>>> be8aaf9032cab271add1cfe9266cd30c1da0e919
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

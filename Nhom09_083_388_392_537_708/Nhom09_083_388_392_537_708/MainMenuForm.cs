@@ -18,8 +18,8 @@ namespace Nhom09_083_388_392_537_708
         private int tempIndex;
         private Form activeForm;
         private FormDangNhap loginForm;
-        Font SegoeUISemibold = new Font("Segoe UI Semibold", 9.75F);
-        Font SegoeUIBold = new Font("Segoe UI", 10.5F, FontStyle.Bold);
+        Font SegoeUISemibold = new Font("Segoe UI Semibold", 11F);
+        Font SegoeUIBold = new Font("Segoe UI", 12F, FontStyle.Bold);
 
         public MainMenuForm()
         {
@@ -122,6 +122,7 @@ namespace Nhom09_083_388_392_537_708
                     btnDangTuyenDung.Visible = false;
                     btnDuyetHSDaQuaXL.Visible = false;
                     btnGiaHanHD.Visible = false;
+                    btnLogout.Visible = true;
                     XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen();
                     xpdt.TopLevel = false;
                     xpdt.FormBorderStyle = FormBorderStyle.None;
@@ -141,6 +142,7 @@ namespace Nhom09_083_388_392_537_708
                     btnXLHSUngTuyen.Visible = false;
                     btnThanhToan.Visible = false;
                     btnGiaHanHD.Visible = false;
+                    btnLogout.Visible = true;
                     XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen();
                     xpdt.TopLevel = false;
                     xpdt.FormBorderStyle = FormBorderStyle.None;
@@ -182,11 +184,8 @@ namespace Nhom09_083_388_392_537_708
         private void btnXLHSUngTuyen_Click(object sender, EventArgs e)
         {
             OpenChildForm(new XULYHOSOUNGTUYEN(), sender);
-<<<<<<< HEAD
             CenterLabelInPanel(lblTitle, pnlTitle);
-=======
 
->>>>>>> be8aaf9032cab271add1cfe9266cd30c1da0e919
         }
 
         private void btnXemPDT_Click(object sender, EventArgs e)
@@ -195,7 +194,6 @@ namespace Nhom09_083_388_392_537_708
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
 
-<<<<<<< HEAD
         
         private void btnXLDTD_Click(object sender, EventArgs e)
         {
@@ -206,6 +204,5 @@ namespace Nhom09_083_388_392_537_708
         {
 
         }
->>>>>>> be8aaf9032cab271add1cfe9266cd30c1da0e919
     }
 }
