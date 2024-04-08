@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Nhom09_083_388_392_537_708
 {
-    public partial class XULYHOSOUNGTUYEN : Form
+    public partial class DUYET_HS_UNGTUYEN : Form
     {
-        public XULYHOSOUNGTUYEN()
+        public DUYET_HS_UNGTUYEN()
         {
             InitializeComponent();
-        }
-
-        private void btn_Duyet_Click(object sender, EventArgs e)
-        {
-            // Text account
         }
     }
 }
