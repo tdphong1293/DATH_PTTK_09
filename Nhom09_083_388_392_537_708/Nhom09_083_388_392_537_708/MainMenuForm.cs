@@ -104,5 +104,10 @@ namespace Nhom09_083_388_392_537_708
         {
             OpenChildForm(new XULYHOSOUNGTUYEN(), sender);
         }
+
+        private void btnXemPDT_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new XemPhieuDangTuyen(), sender);
+        }
     }
 }

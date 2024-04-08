@@ -65,9 +65,9 @@
             this.pnlMenu.Controls.Add(this.pnlHome);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
-            this.pnlMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(170, 839);
+            this.pnlMenu.Size = new System.Drawing.Size(227, 1033);
             this.pnlMenu.TabIndex = 0;
             // 
             // btnLogout
@@ -76,10 +76,10 @@
             this.btnLogout.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Location = new System.Drawing.Point(0, 750);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogout.Location = new System.Drawing.Point(0, 924);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(170, 73);
+            this.btnLogout.Size = new System.Drawing.Size(227, 90);
             this.btnLogout.TabIndex = 10;
             this.btnLogout.Text = "Đăng xuất";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -90,10 +90,10 @@
             this.btnGiaHanHD.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnGiaHanHD.FlatAppearance.BorderSize = 0;
             this.btnGiaHanHD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGiaHanHD.Location = new System.Drawing.Point(0, 677);
-            this.btnGiaHanHD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGiaHanHD.Location = new System.Drawing.Point(0, 834);
+            this.btnGiaHanHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGiaHanHD.Name = "btnGiaHanHD";
-            this.btnGiaHanHD.Size = new System.Drawing.Size(170, 73);
+            this.btnGiaHanHD.Size = new System.Drawing.Size(227, 90);
             this.btnGiaHanHD.TabIndex = 9;
             this.btnGiaHanHD.Text = "Gia hạn hợp đồng";
             this.btnGiaHanHD.UseVisualStyleBackColor = false;
@@ -104,10 +104,10 @@
             this.btnThanhToan.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnThanhToan.FlatAppearance.BorderSize = 0;
             this.btnThanhToan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThanhToan.Location = new System.Drawing.Point(0, 604);
-            this.btnThanhToan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThanhToan.Location = new System.Drawing.Point(0, 744);
+            this.btnThanhToan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(170, 73);
+            this.btnThanhToan.Size = new System.Drawing.Size(227, 90);
             this.btnThanhToan.TabIndex = 8;
             this.btnThanhToan.Text = "Thanh toán";
             this.btnThanhToan.UseVisualStyleBackColor = false;
@@ -118,10 +118,10 @@
             this.btnXLHSUngTuyen.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnXLHSUngTuyen.FlatAppearance.BorderSize = 0;
             this.btnXLHSUngTuyen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXLHSUngTuyen.Location = new System.Drawing.Point(0, 531);
-            this.btnXLHSUngTuyen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXLHSUngTuyen.Location = new System.Drawing.Point(0, 654);
+            this.btnXLHSUngTuyen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXLHSUngTuyen.Name = "btnXLHSUngTuyen";
-            this.btnXLHSUngTuyen.Size = new System.Drawing.Size(170, 73);
+            this.btnXLHSUngTuyen.Size = new System.Drawing.Size(227, 90);
             this.btnXLHSUngTuyen.TabIndex = 7;
             this.btnXLHSUngTuyen.Text = "Xử lý hồ sơ ứng tuyển";
             this.btnXLHSUngTuyen.UseVisualStyleBackColor = false;
@@ -133,10 +133,10 @@
             this.btnXLDTD.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnXLDTD.FlatAppearance.BorderSize = 0;
             this.btnXLDTD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXLDTD.Location = new System.Drawing.Point(0, 458);
-            this.btnXLDTD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXLDTD.Location = new System.Drawing.Point(0, 564);
+            this.btnXLDTD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXLDTD.Name = "btnXLDTD";
-            this.btnXLDTD.Size = new System.Drawing.Size(170, 73);
+            this.btnXLDTD.Size = new System.Drawing.Size(227, 90);
             this.btnXLDTD.TabIndex = 6;
             this.btnXLDTD.Text = "Xử lý đăng tuyển dụng";
             this.btnXLDTD.UseVisualStyleBackColor = false;
@@ -147,10 +147,10 @@
             this.btnDuyetHSDaQuaXL.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDuyetHSDaQuaXL.FlatAppearance.BorderSize = 0;
             this.btnDuyetHSDaQuaXL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDuyetHSDaQuaXL.Location = new System.Drawing.Point(0, 385);
-            this.btnDuyetHSDaQuaXL.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDuyetHSDaQuaXL.Location = new System.Drawing.Point(0, 474);
+            this.btnDuyetHSDaQuaXL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDuyetHSDaQuaXL.Name = "btnDuyetHSDaQuaXL";
-            this.btnDuyetHSDaQuaXL.Size = new System.Drawing.Size(170, 73);
+            this.btnDuyetHSDaQuaXL.Size = new System.Drawing.Size(227, 90);
             this.btnDuyetHSDaQuaXL.TabIndex = 5;
             this.btnDuyetHSDaQuaXL.Text = "Duyệt hồ sơ";
             this.btnDuyetHSDaQuaXL.UseVisualStyleBackColor = false;
@@ -161,13 +161,14 @@
             this.btnXemPDT.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnXemPDT.FlatAppearance.BorderSize = 0;
             this.btnXemPDT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXemPDT.Location = new System.Drawing.Point(0, 312);
-            this.btnXemPDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXemPDT.Location = new System.Drawing.Point(0, 384);
+            this.btnXemPDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemPDT.Name = "btnXemPDT";
-            this.btnXemPDT.Size = new System.Drawing.Size(170, 73);
+            this.btnXemPDT.Size = new System.Drawing.Size(227, 90);
             this.btnXemPDT.TabIndex = 4;
             this.btnXemPDT.Text = "Xem phiếu đăng tuyển";
             this.btnXemPDT.UseVisualStyleBackColor = false;
+            this.btnXemPDT.Click += new System.EventHandler(this.btnXemPDT_Click);
             // 
             // btnDangTuyenDung
             // 
@@ -175,10 +176,10 @@
             this.btnDangTuyenDung.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDangTuyenDung.FlatAppearance.BorderSize = 0;
             this.btnDangTuyenDung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangTuyenDung.Location = new System.Drawing.Point(0, 239);
-            this.btnDangTuyenDung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDangTuyenDung.Location = new System.Drawing.Point(0, 294);
+            this.btnDangTuyenDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDangTuyenDung.Name = "btnDangTuyenDung";
-            this.btnDangTuyenDung.Size = new System.Drawing.Size(170, 73);
+            this.btnDangTuyenDung.Size = new System.Drawing.Size(227, 90);
             this.btnDangTuyenDung.TabIndex = 3;
             this.btnDangTuyenDung.Text = "Đăng tuyển dụng";
             this.btnDangTuyenDung.UseVisualStyleBackColor = false;
@@ -189,10 +190,10 @@
             this.btnSignup.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSignup.FlatAppearance.BorderSize = 0;
             this.btnSignup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSignup.Location = new System.Drawing.Point(0, 166);
-            this.btnSignup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSignup.Location = new System.Drawing.Point(0, 204);
+            this.btnSignup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSignup.Name = "btnSignup";
-            this.btnSignup.Size = new System.Drawing.Size(170, 73);
+            this.btnSignup.Size = new System.Drawing.Size(227, 90);
             this.btnSignup.TabIndex = 2;
             this.btnSignup.Text = "Đăng ký thành viên";
             this.btnSignup.UseVisualStyleBackColor = false;
@@ -203,10 +204,10 @@
             this.btnLogin.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Location = new System.Drawing.Point(0, 93);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogin.Location = new System.Drawing.Point(0, 114);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(170, 73);
+            this.btnLogin.Size = new System.Drawing.Size(227, 90);
             this.btnLogin.TabIndex = 1;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -218,19 +219,18 @@
             this.pnlHome.Controls.Add(this.lblHome);
             this.pnlHome.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHome.Location = new System.Drawing.Point(0, 0);
-            this.pnlHome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlHome.Name = "pnlHome";
-            this.pnlHome.Size = new System.Drawing.Size(170, 93);
+            this.pnlHome.Size = new System.Drawing.Size(227, 114);
             this.pnlHome.TabIndex = 0;
             // 
             // lblHome
             // 
             this.lblHome.AutoSize = true;
             this.lblHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHome.Location = new System.Drawing.Point(46, 35);
-            this.lblHome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblHome.Location = new System.Drawing.Point(61, 43);
             this.lblHome.Name = "lblHome";
-            this.lblHome.Size = new System.Drawing.Size(79, 22);
+            this.lblHome.Size = new System.Drawing.Size(97, 26);
             this.lblHome.TabIndex = 0;
             this.lblHome.Text = "NHÓM 9";
             // 
@@ -239,20 +239,19 @@
             this.pnlTitle.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.pnlTitle.Controls.Add(this.lblTitle);
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTitle.Location = new System.Drawing.Point(170, 0);
-            this.pnlTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlTitle.Location = new System.Drawing.Point(227, 0);
+            this.pnlTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(1256, 93);
+            this.pnlTitle.Size = new System.Drawing.Size(1674, 114);
             this.pnlTitle.TabIndex = 1;
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(328, 35);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitle.Location = new System.Drawing.Point(437, 43);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(279, 26);
+            this.lblTitle.Size = new System.Drawing.Size(346, 31);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "HỆ THỐNG TUYỂN DỤNG";
             // 
@@ -260,22 +259,22 @@
             // 
             this.pnlHomeChange.BackColor = System.Drawing.SystemColors.MenuBar;
             this.pnlHomeChange.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlHomeChange.Location = new System.Drawing.Point(170, 93);
-            this.pnlHomeChange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlHomeChange.Location = new System.Drawing.Point(227, 114);
+            this.pnlHomeChange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlHomeChange.Name = "pnlHomeChange";
-            this.pnlHomeChange.Size = new System.Drawing.Size(1256, 746);
+            this.pnlHomeChange.Size = new System.Drawing.Size(1674, 919);
             this.pnlHomeChange.TabIndex = 2;
             // 
             // MainMenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1426, 839);
+            this.ClientSize = new System.Drawing.Size(1901, 1033);
             this.Controls.Add(this.pnlHomeChange);
             this.Controls.Add(this.pnlTitle);
             this.Controls.Add(this.pnlMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainMenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenuForm";
