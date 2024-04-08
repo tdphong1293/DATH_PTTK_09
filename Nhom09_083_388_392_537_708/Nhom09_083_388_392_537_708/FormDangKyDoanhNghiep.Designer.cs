@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.panel_FormDangKyDoanhNghiep = new System.Windows.Forms.Panel();
+            this.txt_diachi_dn = new System.Windows.Forms.TextBox();
+            this.txt_daidien_dn = new System.Windows.Forms.TextBox();
+            this.txt_tax_dn = new System.Windows.Forms.TextBox();
+            this.lb_diachi_dn = new System.Windows.Forms.Label();
+            this.lb_daidien_dn = new System.Windows.Forms.Label();
+            this.lb_tax_dn = new System.Windows.Forms.Label();
             this.txt_email_dn = new System.Windows.Forms.TextBox();
             this.txt_name_dn = new System.Windows.Forms.TextBox();
             this.txt_repassword_dn = new System.Windows.Forms.TextBox();
@@ -41,12 +47,6 @@
             this.lb_password_dn = new System.Windows.Forms.Label();
             this.lb_username_dn = new System.Windows.Forms.Label();
             this.lb_FormDangKyDoanhNghiep = new System.Windows.Forms.Label();
-            this.lb_tax_dn = new System.Windows.Forms.Label();
-            this.lb_daidien_dn = new System.Windows.Forms.Label();
-            this.lb_diachi_dn = new System.Windows.Forms.Label();
-            this.txt_tax_dn = new System.Windows.Forms.TextBox();
-            this.txt_daidien_dn = new System.Windows.Forms.TextBox();
-            this.txt_diachi_dn = new System.Windows.Forms.TextBox();
             this.panel_FormDangKyDoanhNghiep.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,13 +76,67 @@
             this.panel_FormDangKyDoanhNghiep.Size = new System.Drawing.Size(1240, 707);
             this.panel_FormDangKyDoanhNghiep.TabIndex = 18;
             // 
+            // txt_diachi_dn
+            // 
+            this.txt_diachi_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txt_diachi_dn.Location = new System.Drawing.Point(451, 506);
+            this.txt_diachi_dn.Name = "txt_diachi_dn";
+            this.txt_diachi_dn.Size = new System.Drawing.Size(473, 27);
+            this.txt_diachi_dn.TabIndex = 7;
+            // 
+            // txt_daidien_dn
+            // 
+            this.txt_daidien_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txt_daidien_dn.Location = new System.Drawing.Point(451, 458);
+            this.txt_daidien_dn.Name = "txt_daidien_dn";
+            this.txt_daidien_dn.Size = new System.Drawing.Size(473, 27);
+            this.txt_daidien_dn.TabIndex = 6;
+            // 
+            // txt_tax_dn
+            // 
+            this.txt_tax_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txt_tax_dn.Location = new System.Drawing.Point(451, 410);
+            this.txt_tax_dn.Name = "txt_tax_dn";
+            this.txt_tax_dn.Size = new System.Drawing.Size(473, 27);
+            this.txt_tax_dn.TabIndex = 5;
+            // 
+            // lb_diachi_dn
+            // 
+            this.lb_diachi_dn.AutoSize = true;
+            this.lb_diachi_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lb_diachi_dn.Location = new System.Drawing.Point(279, 506);
+            this.lb_diachi_dn.Name = "lb_diachi_dn";
+            this.lb_diachi_dn.Size = new System.Drawing.Size(108, 20);
+            this.lb_diachi_dn.TabIndex = 31;
+            this.lb_diachi_dn.Text = "Địa chỉ công ty";
+            // 
+            // lb_daidien_dn
+            // 
+            this.lb_daidien_dn.AutoSize = true;
+            this.lb_daidien_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lb_daidien_dn.Location = new System.Drawing.Point(280, 458);
+            this.lb_daidien_dn.Name = "lb_daidien_dn";
+            this.lb_daidien_dn.Size = new System.Drawing.Size(109, 20);
+            this.lb_daidien_dn.TabIndex = 30;
+            this.lb_daidien_dn.Text = "Người đại diện";
+            // 
+            // lb_tax_dn
+            // 
+            this.lb_tax_dn.AutoSize = true;
+            this.lb_tax_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lb_tax_dn.Location = new System.Drawing.Point(280, 410);
+            this.lb_tax_dn.Name = "lb_tax_dn";
+            this.lb_tax_dn.Size = new System.Drawing.Size(82, 20);
+            this.lb_tax_dn.TabIndex = 29;
+            this.lb_tax_dn.Text = "Mã số thuế";
+            // 
             // txt_email_dn
             // 
             this.txt_email_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txt_email_dn.Location = new System.Drawing.Point(451, 361);
             this.txt_email_dn.Name = "txt_email_dn";
             this.txt_email_dn.Size = new System.Drawing.Size(473, 27);
-            this.txt_email_dn.TabIndex = 28;
+            this.txt_email_dn.TabIndex = 4;
             // 
             // txt_name_dn
             // 
@@ -90,7 +144,7 @@
             this.txt_name_dn.Location = new System.Drawing.Point(451, 312);
             this.txt_name_dn.Name = "txt_name_dn";
             this.txt_name_dn.Size = new System.Drawing.Size(473, 27);
-            this.txt_name_dn.TabIndex = 27;
+            this.txt_name_dn.TabIndex = 3;
             // 
             // txt_repassword_dn
             // 
@@ -98,7 +152,7 @@
             this.txt_repassword_dn.Location = new System.Drawing.Point(451, 260);
             this.txt_repassword_dn.Name = "txt_repassword_dn";
             this.txt_repassword_dn.Size = new System.Drawing.Size(473, 27);
-            this.txt_repassword_dn.TabIndex = 26;
+            this.txt_repassword_dn.TabIndex = 2;
             // 
             // txt_password_dn
             // 
@@ -106,7 +160,7 @@
             this.txt_password_dn.Location = new System.Drawing.Point(451, 212);
             this.txt_password_dn.Name = "txt_password_dn";
             this.txt_password_dn.Size = new System.Drawing.Size(473, 27);
-            this.txt_password_dn.TabIndex = 25;
+            this.txt_password_dn.TabIndex = 1;
             // 
             // txt_username_dn
             // 
@@ -114,7 +168,7 @@
             this.txt_username_dn.Location = new System.Drawing.Point(451, 167);
             this.txt_username_dn.Name = "txt_username_dn";
             this.txt_username_dn.Size = new System.Drawing.Size(473, 27);
-            this.txt_username_dn.TabIndex = 24;
+            this.txt_username_dn.TabIndex = 0;
             // 
             // btn_DangKyDoanhNghiep
             // 
@@ -122,7 +176,7 @@
             this.btn_DangKyDoanhNghiep.Location = new System.Drawing.Point(553, 572);
             this.btn_DangKyDoanhNghiep.Name = "btn_DangKyDoanhNghiep";
             this.btn_DangKyDoanhNghiep.Size = new System.Drawing.Size(150, 50);
-            this.btn_DangKyDoanhNghiep.TabIndex = 23;
+            this.btn_DangKyDoanhNghiep.TabIndex = 8;
             this.btn_DangKyDoanhNghiep.Text = "Đăng ký";
             this.btn_DangKyDoanhNghiep.UseVisualStyleBackColor = true;
             // 
@@ -185,60 +239,6 @@
             this.lb_FormDangKyDoanhNghiep.Size = new System.Drawing.Size(302, 30);
             this.lb_FormDangKyDoanhNghiep.TabIndex = 17;
             this.lb_FormDangKyDoanhNghiep.Text = "Form Đăng Ký Doanh Nghiệp";
-            // 
-            // lb_tax_dn
-            // 
-            this.lb_tax_dn.AutoSize = true;
-            this.lb_tax_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_tax_dn.Location = new System.Drawing.Point(280, 410);
-            this.lb_tax_dn.Name = "lb_tax_dn";
-            this.lb_tax_dn.Size = new System.Drawing.Size(82, 20);
-            this.lb_tax_dn.TabIndex = 29;
-            this.lb_tax_dn.Text = "Mã số thuế";
-            // 
-            // lb_daidien_dn
-            // 
-            this.lb_daidien_dn.AutoSize = true;
-            this.lb_daidien_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_daidien_dn.Location = new System.Drawing.Point(280, 458);
-            this.lb_daidien_dn.Name = "lb_daidien_dn";
-            this.lb_daidien_dn.Size = new System.Drawing.Size(109, 20);
-            this.lb_daidien_dn.TabIndex = 30;
-            this.lb_daidien_dn.Text = "Người đại diện";
-            // 
-            // lb_diachi_dn
-            // 
-            this.lb_diachi_dn.AutoSize = true;
-            this.lb_diachi_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_diachi_dn.Location = new System.Drawing.Point(279, 506);
-            this.lb_diachi_dn.Name = "lb_diachi_dn";
-            this.lb_diachi_dn.Size = new System.Drawing.Size(108, 20);
-            this.lb_diachi_dn.TabIndex = 31;
-            this.lb_diachi_dn.Text = "Địa chỉ công ty";
-            // 
-            // txt_tax_dn
-            // 
-            this.txt_tax_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_tax_dn.Location = new System.Drawing.Point(451, 410);
-            this.txt_tax_dn.Name = "txt_tax_dn";
-            this.txt_tax_dn.Size = new System.Drawing.Size(473, 27);
-            this.txt_tax_dn.TabIndex = 33;
-            // 
-            // txt_daidien_dn
-            // 
-            this.txt_daidien_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_daidien_dn.Location = new System.Drawing.Point(451, 458);
-            this.txt_daidien_dn.Name = "txt_daidien_dn";
-            this.txt_daidien_dn.Size = new System.Drawing.Size(473, 27);
-            this.txt_daidien_dn.TabIndex = 34;
-            // 
-            // txt_diachi_dn
-            // 
-            this.txt_diachi_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_diachi_dn.Location = new System.Drawing.Point(451, 506);
-            this.txt_diachi_dn.Name = "txt_diachi_dn";
-            this.txt_diachi_dn.Size = new System.Drawing.Size(473, 27);
-            this.txt_diachi_dn.TabIndex = 35;
             // 
             // FormDangKyDoanhNghiep
             // 

@@ -74,7 +74,7 @@
             this.dtp_birth_uv.Location = new System.Drawing.Point(726, 421);
             this.dtp_birth_uv.Name = "dtp_birth_uv";
             this.dtp_birth_uv.Size = new System.Drawing.Size(200, 27);
-            this.dtp_birth_uv.TabIndex = 31;
+            this.dtp_birth_uv.TabIndex = 5;
             // 
             // lb_birth_uv
             // 
@@ -92,7 +92,7 @@
             this.txt_email_uv.Location = new System.Drawing.Point(453, 370);
             this.txt_email_uv.Name = "txt_email_uv";
             this.txt_email_uv.Size = new System.Drawing.Size(473, 27);
-            this.txt_email_uv.TabIndex = 28;
+            this.txt_email_uv.TabIndex = 4;
             // 
             // txt_name_uv
             // 
@@ -100,7 +100,7 @@
             this.txt_name_uv.Location = new System.Drawing.Point(453, 321);
             this.txt_name_uv.Name = "txt_name_uv";
             this.txt_name_uv.Size = new System.Drawing.Size(473, 27);
-            this.txt_name_uv.TabIndex = 27;
+            this.txt_name_uv.TabIndex = 3;
             // 
             // txt_repassword_uv
             // 
@@ -108,7 +108,7 @@
             this.txt_repassword_uv.Location = new System.Drawing.Point(453, 269);
             this.txt_repassword_uv.Name = "txt_repassword_uv";
             this.txt_repassword_uv.Size = new System.Drawing.Size(473, 27);
-            this.txt_repassword_uv.TabIndex = 26;
+            this.txt_repassword_uv.TabIndex = 2;
             // 
             // txt_password_uv
             // 
@@ -116,7 +116,7 @@
             this.txt_password_uv.Location = new System.Drawing.Point(453, 221);
             this.txt_password_uv.Name = "txt_password_uv";
             this.txt_password_uv.Size = new System.Drawing.Size(473, 27);
-            this.txt_password_uv.TabIndex = 25;
+            this.txt_password_uv.TabIndex = 1;
             // 
             // txt_username_uv
             // 
@@ -124,7 +124,7 @@
             this.txt_username_uv.Location = new System.Drawing.Point(453, 176);
             this.txt_username_uv.Name = "txt_username_uv";
             this.txt_username_uv.Size = new System.Drawing.Size(473, 27);
-            this.txt_username_uv.TabIndex = 24;
+            this.txt_username_uv.TabIndex = 0;
             // 
             // btn_DangKyUngVien
             // 
@@ -132,7 +132,7 @@
             this.btn_DangKyUngVien.Location = new System.Drawing.Point(553, 532);
             this.btn_DangKyUngVien.Name = "btn_DangKyUngVien";
             this.btn_DangKyUngVien.Size = new System.Drawing.Size(150, 50);
-            this.btn_DangKyUngVien.TabIndex = 23;
+            this.btn_DangKyUngVien.TabIndex = 6;
             this.btn_DangKyUngVien.Text = "Đăng ký";
             this.btn_DangKyUngVien.UseVisualStyleBackColor = true;
             // 
