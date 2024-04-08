@@ -52,6 +52,18 @@
     <Compile Include="DOANHNGHIEP_TIEMNANG.Designer.cs">
       <DependentUpon>DOANHNGHIEP_TIEMNANG.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDangKyDoanhNghiep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDangKyDoanhNghiep.Designer.cs">
+      <DependentUpon>FormDangKyDoanhNghiep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDangKyUngVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDangKyUngVien.Designer.cs">
+      <DependentUpon>FormDangKyUngVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="NopHoSoUngTuyen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +109,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormDangKyDoanhNghiep.resx">
+      <DependentUpon>FormDangKyDoanhNghiep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDangKyUngVien.resx">
+      <DependentUpon>FormDangKyUngVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NopHoSoUngTuyen.resx">
       <DependentUpon>NopHoSoUngTuyen.cs</DependentUpon>
     </EmbeddedResource>
