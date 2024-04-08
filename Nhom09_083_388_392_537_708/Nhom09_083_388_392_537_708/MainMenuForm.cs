@@ -18,22 +18,13 @@ namespace Nhom09_083_388_392_537_708
         private int tempIndex;
         private Form activeForm;
         private FormDangNhap loginForm;
+        Font SegoeUISemibold = new Font("Segoe UI Semibold", 9.75F);
+        Font SegoeUIBold = new Font("Segoe UI", 10.5F, FontStyle.Bold);
+
         public MainMenuForm()
         {
             InitializeComponent();
             random = new Random();
-        }
-
-        private Color SelectThemeColor()
-        {
-            int index = random.Next(ThemeColor.ColorList.Count);
-            while (tempIndex == index)
-            {
-                index = random.Next(ThemeColor.ColorList.Count);
-            }
-            tempIndex = index;
-            string color = ThemeColor.ColorList[index];
-            return ColorTranslator.FromHtml(color);
         }
 
         private void ActivateButton(object btnSender)
@@ -43,15 +34,14 @@ namespace Nhom09_083_388_392_537_708
                 if (currentButton != (Button)btnSender)
                 {
                     DisableButton();
-                    Color color = SelectThemeColor();
                     currentButton = (Button)btnSender;
-                    currentButton.BackColor = color;
-                    currentButton.ForeColor = Color.Black;
-                    currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    currentButton.BackColor = Color.MediumSlateBlue;
+                    currentButton.ForeColor = Color.White;
+                    currentButton.Font = SegoeUIBold;
                     //panelTitleBar.BackColor = color;
                     //panelLogo.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-                    ThemeColor.PrimaryColor = color;
-                    ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
+                    //ThemeColor.PrimaryColor = color;
+                    //ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
                     //btnCloseChildForm.Visible = true;
                 }
             }
@@ -63,9 +53,9 @@ namespace Nhom09_083_388_392_537_708
             {
                 if (previousBtn.GetType() == typeof(Button))
                 {
-                    previousBtn.BackColor = Color.FromArgb(191, 205, 219);
-                    previousBtn.ForeColor = Color.Black;
-                    previousBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    previousBtn.BackColor = Color.Navy;
+                    previousBtn.ForeColor = Color.White;
+                    previousBtn.Font = SegoeUISemibold;
                 }
             }
         }
@@ -192,7 +182,11 @@ namespace Nhom09_083_388_392_537_708
         private void btnXLHSUngTuyen_Click(object sender, EventArgs e)
         {
             OpenChildForm(new XULYHOSOUNGTUYEN(), sender);
+<<<<<<< HEAD
             CenterLabelInPanel(lblTitle, pnlTitle);
+=======
+
+>>>>>>> be8aaf9032cab271add1cfe9266cd30c1da0e919
         }
 
         private void btnXemPDT_Click(object sender, EventArgs e)
@@ -201,6 +195,17 @@ namespace Nhom09_083_388_392_537_708
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
 
+<<<<<<< HEAD
         
+        private void btnXLDTD_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+
+        }
+>>>>>>> be8aaf9032cab271add1cfe9266cd30c1da0e919
     }
 }
