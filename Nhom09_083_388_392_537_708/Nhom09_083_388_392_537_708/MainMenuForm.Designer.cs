@@ -249,7 +249,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(437, 43);
+            this.lblTitle.Location = new System.Drawing.Point(471, 41);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(346, 31);
             this.lblTitle.TabIndex = 0;
@@ -278,6 +278,7 @@
             this.Name = "MainMenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenuForm";
+            this.Load += new System.EventHandler(this.MainMenuForm_Load);
             this.pnlMenu.ResumeLayout(false);
             this.pnlHome.ResumeLayout(false);
             this.pnlHome.PerformLayout();

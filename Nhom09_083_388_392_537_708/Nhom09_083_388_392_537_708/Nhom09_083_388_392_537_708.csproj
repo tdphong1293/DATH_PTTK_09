@@ -94,12 +94,14 @@
     <Compile Include="MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServerConnection.cs" />
     <Compile Include="THANHTOAN.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="THANHTOAN.Designer.cs">
       <DependentUpon>THANHTOAN.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserRole.cs" />
     <Compile Include="XemPhieuDangTuyen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +175,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\User_Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
