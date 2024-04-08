@@ -89,7 +89,7 @@
             this.btn_luudiscount.Location = new System.Drawing.Point(898, 464);
             this.btn_luudiscount.Name = "btn_luudiscount";
             this.btn_luudiscount.Size = new System.Drawing.Size(150, 50);
-            this.btn_luudiscount.TabIndex = 66;
+            this.btn_luudiscount.TabIndex = 2;
             this.btn_luudiscount.Text = "Lưu ưu đãi";
             this.btn_luudiscount.UseVisualStyleBackColor = true;
             // 
@@ -127,7 +127,7 @@
             this.txt_discount_dn.Location = new System.Drawing.Point(905, 379);
             this.txt_discount_dn.Name = "txt_discount_dn";
             this.txt_discount_dn.Size = new System.Drawing.Size(307, 27);
-            this.txt_discount_dn.TabIndex = 49;
+            this.txt_discount_dn.TabIndex = 1;
             // 
             // lb_discount_dn
             // 
@@ -245,7 +245,7 @@
             this.txt_timkiem_dn.Location = new System.Drawing.Point(528, 101);
             this.txt_timkiem_dn.Name = "txt_timkiem_dn";
             this.txt_timkiem_dn.Size = new System.Drawing.Size(169, 27);
-            this.txt_timkiem_dn.TabIndex = 48;
+            this.txt_timkiem_dn.TabIndex = 0;
             // 
             // lb_dtgv_dn
             // 
