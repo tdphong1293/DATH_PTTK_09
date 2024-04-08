@@ -39,14 +39,14 @@
             this.btnDangTuyenDung = new System.Windows.Forms.Button();
             this.btnSignup = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.pnlHome = new System.Windows.Forms.Panel();
-            this.btnLogo = new System.Windows.Forms.Button();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlHomeChange = new System.Windows.Forms.Panel();
+            this.pnlHome = new System.Windows.Forms.Panel();
+            this.btnLogo = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
-            this.pnlHome.SuspendLayout();
             this.pnlTitle.SuspendLayout();
+            this.pnlHome.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -234,6 +234,39 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // pnlTitle
+            // 
+            this.pnlTitle.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.pnlTitle.Controls.Add(this.lblTitle);
+            this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTitle.Location = new System.Drawing.Point(170, 0);
+            this.pnlTitle.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlTitle.Name = "pnlTitle";
+            this.pnlTitle.Size = new System.Drawing.Size(1256, 93);
+            this.pnlTitle.TabIndex = 1;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(445, 24);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(337, 37);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "HỆ THỐNG TUYỂN DỤNG";
+            // 
+            // pnlHomeChange
+            // 
+            this.pnlHomeChange.BackColor = System.Drawing.Color.White;
+            this.pnlHomeChange.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlHomeChange.Location = new System.Drawing.Point(170, 93);
+            this.pnlHomeChange.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlHomeChange.Name = "pnlHomeChange";
+            this.pnlHomeChange.Size = new System.Drawing.Size(1256, 730);
+            this.pnlHomeChange.TabIndex = 2;
+            // 
             // pnlHome
             // 
             this.pnlHome.BackColor = System.Drawing.Color.Navy;
@@ -251,7 +284,7 @@
             // 
             // btnLogo
             // 
-            this.btnLogo.BackgroundImage = global::Nhom09_083_388_392_537_708.Properties.Resources.logo1;
+            this.btnLogo.BackgroundImage = global::Nhom09_083_388_392_537_708.Properties.Resources.Logo_ABC;
             this.btnLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLogo.Location = new System.Drawing.Point(0, 0);
             this.btnLogo.Name = "btnLogo";
@@ -259,39 +292,6 @@
             this.btnLogo.TabIndex = 0;
             this.btnLogo.UseVisualStyleBackColor = true;
             this.btnLogo.Click += new System.EventHandler(this.btnHome_Click);
-            // 
-            // pnlTitle
-            // 
-            this.pnlTitle.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.pnlTitle.Controls.Add(this.lblTitle);
-            this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTitle.Location = new System.Drawing.Point(170, 0);
-            this.pnlTitle.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(1256, 93);
-            this.pnlTitle.TabIndex = 1;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(334, 24);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(337, 37);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "HỆ THỐNG TUYỂN DỤNG";
-            // 
-            // pnlHomeChange
-            // 
-            this.pnlHomeChange.BackColor = System.Drawing.Color.White;
-            this.pnlHomeChange.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlHomeChange.Location = new System.Drawing.Point(170, 93);
-            this.pnlHomeChange.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlHomeChange.Name = "pnlHomeChange";
-            this.pnlHomeChange.Size = new System.Drawing.Size(1256, 730);
-            this.pnlHomeChange.TabIndex = 2;
             // 
             // MainMenuForm
             // 
@@ -307,9 +307,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenuForm";
             this.pnlMenu.ResumeLayout(false);
-            this.pnlHome.ResumeLayout(false);
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
+            this.pnlHome.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
