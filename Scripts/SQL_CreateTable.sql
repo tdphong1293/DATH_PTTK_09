@@ -72,8 +72,8 @@ CREATE TABLE BANGCAP (
 );
 
 CREATE TABLE UNGTUYEN (
-  IdDoanhNghiep INT,
   IdHoSo INT,
+  IdDoanhNghiep INT,
   NgayUngTuyen DATE,
   ViTriUngTuyen VARCHAR(50),
   DiemDanhGia INT
@@ -83,6 +83,7 @@ CREATE TABLE PHIEUDANGTUYEN (
   IdPhieuDangTuyen INT IDENTITY(1,1) NOT NULL, 
   ViTriDangTuyen VARCHAR(50),
   SoLuongTuyenDung INT,
+  IdDoanhNghiep INT,
   PRIMARY KEY (IdPhieuDangTuyen)
 );
 
@@ -142,3 +143,7 @@ REFERENCES PHIEUDANGTUYEN(IdPhieuDangTuyen);
 ALTER TABLE PHIEUQUANGCAO
 ADD CONSTRAINT FK_PhieuQuangCao_PhieuDangTuyen FOREIGN KEY (IdPhieuDangTuyen)
 REFERENCES PHIEUDANGTUYEN(IdPhieuDangTuyen);
+
+ALTER TABLE PHIEUDANGTUYEN
+ADD CONSTRAINT FK_PhieuDangTuyen_DoanhNghiep FOREIGN KEY (IdDoanhNghiep)
+REFERENCES DOANHNGHIEP(IdThanhVien);

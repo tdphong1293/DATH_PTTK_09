@@ -18,6 +18,7 @@ namespace Nhom09_083_388_392_537_708
         private int tempIndex;
         private Form activeForm;
         private FormDangNhap loginForm;
+        private FormDangKyUngVien formDangKyUngVien;
         Font SegoeUISemibold = new Font("Segoe UI Semibold", 11F);
         Font SegoeUIBold = new Font("Segoe UI", 12F, FontStyle.Bold);
 
@@ -95,7 +96,7 @@ namespace Nhom09_083_388_392_537_708
             btnGiaHanHD.Visible = false;
             btnLogout.Visible = false;
             ActivateButton(btnLogin);
-            //CenterLabelInPanel(lblTitle, pnlTitle);
+            CenterLabelInPanel(lblTitle, pnlTitle);
             loginForm = new FormDangNhap();
             loginForm.ButtonClicked += UI_After_Login;
             loginForm.TopLevel = false;
@@ -103,6 +104,7 @@ namespace Nhom09_083_388_392_537_708
             loginForm.Dock = DockStyle.Fill;
             pnlHomeChange.Controls.Add(loginForm);
             loginForm.Show();
+
         }
 
         private void UI_After_Login(object sender, EventArgs e)
@@ -207,7 +209,8 @@ namespace Nhom09_083_388_392_537_708
 
         private void btnSignup_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new FormDangKyDoanhNghiep(), sender);
+            CenterLabelInPanel(lblTitle, pnlTitle);
         }
 
         private void btnDangTuyenDung_Click(object sender, EventArgs e)
