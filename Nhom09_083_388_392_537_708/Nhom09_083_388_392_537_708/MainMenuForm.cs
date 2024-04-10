@@ -209,5 +209,11 @@ namespace Nhom09_083_388_392_537_708
         {
 
         }
+
+        private void btnDangTuyenDung_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormDangTuyenDung(), sender);
+            CenterLabelInPanel(lblTitle, pnlTitle);
+        }
     }
 }

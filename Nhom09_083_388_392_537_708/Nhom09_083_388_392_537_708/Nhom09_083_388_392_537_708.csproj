@@ -64,6 +64,12 @@
     <Compile Include="FormDangKyUngVien.Designer.cs">
       <DependentUpon>FormDangKyUngVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDangTuyenDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDangTuyenDung.Designer.cs">
+      <DependentUpon>FormDangTuyenDung.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGiaHanHopDong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDangKyUngVien.resx">
       <DependentUpon>FormDangKyUngVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDangTuyenDung.resx">
+      <DependentUpon>FormDangTuyenDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGiaHanHopDong.resx">
       <DependentUpon>FormGiaHanHopDong.cs</DependentUpon>

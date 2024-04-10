@@ -109,7 +109,7 @@
             this.panel1.Controls.Add(this.txtTenUV);
             this.panel1.Controls.Add(this.lbTenUV);
             this.panel1.Controls.Add(this.lbCTUT);
-            this.panel1.Location = new System.Drawing.Point(765, 11);
+            this.panel1.Location = new System.Drawing.Point(828, 12);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(461, 677);
@@ -155,14 +155,14 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(737, 513);
+            this.dataGridView1.Size = new System.Drawing.Size(797, 513);
             this.dataGridView1.TabIndex = 16;
             // 
             // XemPhieuDangTuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1238, 699);
+            this.ClientSize = new System.Drawing.Size(1301, 699);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbNHSUT);
