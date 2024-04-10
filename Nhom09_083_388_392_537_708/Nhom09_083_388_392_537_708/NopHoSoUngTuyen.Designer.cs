@@ -40,6 +40,7 @@
             this.btnHuyNHS = new System.Windows.Forms.Button();
             this.btnXNNopHS = new System.Windows.Forms.Button();
             this.llbFileName = new System.Windows.Forms.LinkLabel();
+            this.btnOpenFolder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbNHSUT
@@ -176,11 +177,24 @@
             this.llbFileName.Size = new System.Drawing.Size(0, 25);
             this.llbFileName.TabIndex = 12;
             // 
+            // btnOpenFolder
+            // 
+            this.btnOpenFolder.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenFolder.Location = new System.Drawing.Point(659, 347);
+            this.btnOpenFolder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnOpenFolder.Name = "btnOpenFolder";
+            this.btnOpenFolder.Size = new System.Drawing.Size(104, 34);
+            this.btnOpenFolder.TabIndex = 13;
+            this.btnOpenFolder.Text = "Open";
+            this.btnOpenFolder.UseVisualStyleBackColor = true;
+            this.btnOpenFolder.Click += new System.EventHandler(this.btnOpenFolder_Click);
+            // 
             // NopHoSoUngTuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1237, 699);
+            this.Controls.Add(this.btnOpenFolder);
             this.Controls.Add(this.llbFileName);
             this.Controls.Add(this.btnXNNopHS);
             this.Controls.Add(this.btnHuyNHS);
@@ -216,5 +230,6 @@
         private System.Windows.Forms.Button btnHuyNHS;
         private System.Windows.Forms.Button btnXNNopHS;
         private System.Windows.Forms.LinkLabel llbFileName;
+        private System.Windows.Forms.Button btnOpenFolder;
     }
 }
