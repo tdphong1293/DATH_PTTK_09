@@ -12,7 +12,7 @@ CREATE TABLE THANHVIEN (
   Ten VARCHAR(50),
   Email VARCHAR(30),
   MatKhau VARCHAR(20) NOT NULL,
-  LoaiThanhVien VARCHAR(20),
+  LoaiThanhVien VARCHAR(20) CHECK (LoaiThanhVien IN ('DOANHNGHIEP', 'UNGVIEN', 'NHANVIEN')),
   PRIMARY KEY (IdThanhVien)
 );
 
