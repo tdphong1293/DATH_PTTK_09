@@ -28,12 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.lb_titleBienLaiThanhToan = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // lb_titleBienLaiThanhToan
+            // 
+            this.lb_titleBienLaiThanhToan.AutoSize = true;
+            this.lb_titleBienLaiThanhToan.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_titleBienLaiThanhToan.Location = new System.Drawing.Point(477, 53);
+            this.lb_titleBienLaiThanhToan.Name = "lb_titleBienLaiThanhToan";
+            this.lb_titleBienLaiThanhToan.Size = new System.Drawing.Size(247, 30);
+            this.lb_titleBienLaiThanhToan.TabIndex = 0;
+            this.lb_titleBienLaiThanhToan.Text = "BIÊN LAI THANH TOÁN";
+            // 
+            // THANHTOAN
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1240, 707);
+            this.Controls.Add(this.lb_titleBienLaiThanhToan);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Name = "THANHTOAN";
             this.Text = "THANHTOAN";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lb_titleBienLaiThanhToan;
     }
 }
