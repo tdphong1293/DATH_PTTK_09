@@ -207,7 +207,8 @@ namespace Nhom09_083_388_392_537_708
 
         private void btnSignup_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new FormDangKyDoanhNghiep(), sender);
+            CenterLabelInPanel(lblTitle, pnlTitle);
         }
     }
 }
