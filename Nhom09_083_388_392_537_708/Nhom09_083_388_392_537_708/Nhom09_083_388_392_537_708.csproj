@@ -107,6 +107,12 @@
     <Compile Include="THANHTOAN.Designer.cs">
       <DependentUpon>THANHTOAN.cs</DependentUpon>
     </Compile>
+    <Compile Include="THEMBANGCAP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="THEMBANGCAP.Designer.cs">
+      <DependentUpon>THEMBANGCAP.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserRole.cs" />
     <Compile Include="XemPhieuDangTuyen.cs">
       <SubType>Form</SubType>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="THANHTOAN.resx">
       <DependentUpon>THANHTOAN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="THEMBANGCAP.resx">
+      <DependentUpon>THEMBANGCAP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XemPhieuDangTuyen.resx">
       <DependentUpon>XemPhieuDangTuyen.cs</DependentUpon>
@@ -200,6 +209,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo_ABC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_plus.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
