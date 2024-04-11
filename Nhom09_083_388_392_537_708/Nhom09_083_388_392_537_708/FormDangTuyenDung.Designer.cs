@@ -36,10 +36,10 @@
             this.tbxSLTD = new System.Windows.Forms.TextBox();
             this.tbxMoTa = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpNBD = new System.Windows.Forms.DateTimePicker();
             this.lblNBD = new System.Windows.Forms.Label();
             this.lblNKT = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpNKT = new System.Windows.Forms.DateTimePicker();
             this.lblHTDT = new System.Windows.Forms.Label();
             this.cbxHTDT = new System.Windows.Forms.ComboBox();
             this.lblHTTT = new System.Windows.Forms.Label();
@@ -125,10 +125,10 @@
             this.groupBox1.Controls.Add(this.lblHTTT);
             this.groupBox1.Controls.Add(this.cbxHTDT);
             this.groupBox1.Controls.Add(this.lblHTDT);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.dtpNKT);
             this.groupBox1.Controls.Add(this.lblNKT);
             this.groupBox1.Controls.Add(this.lblNBD);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtpNBD);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(714, 106);
             this.groupBox1.Name = "groupBox1";
@@ -137,12 +137,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thời gian và thanh toán";
             // 
-            // dateTimePicker1
+            // dtpNBD
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(178, 59);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(336, 28);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dtpNBD.Location = new System.Drawing.Point(178, 59);
+            this.dtpNBD.Name = "dtpNBD";
+            this.dtpNBD.Size = new System.Drawing.Size(336, 28);
+            this.dtpNBD.TabIndex = 0;
             // 
             // lblNBD
             // 
@@ -162,12 +162,12 @@
             this.lblNKT.TabIndex = 7;
             this.lblNKT.Text = "Ngày kết thúc";
             // 
-            // dateTimePicker2
+            // dtpNKT
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(178, 144);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(336, 28);
-            this.dateTimePicker2.TabIndex = 8;
+            this.dtpNKT.Location = new System.Drawing.Point(178, 144);
+            this.dtpNKT.Name = "dtpNKT";
+            this.dtpNKT.Size = new System.Drawing.Size(336, 28);
+            this.dtpNKT.TabIndex = 8;
             // 
             // lblHTDT
             // 
@@ -280,10 +280,10 @@
         private System.Windows.Forms.TextBox tbxVTTD;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblHTDT;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpNKT;
         private System.Windows.Forms.Label lblNKT;
         private System.Windows.Forms.Label lblNBD;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpNBD;
         private System.Windows.Forms.ComboBox cbxHTDT;
         private System.Windows.Forms.Label lblHTTT;
         private System.Windows.Forms.ComboBox cbxHTTT;
