@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel_FormDangKyUngVien = new System.Windows.Forms.Panel();
+            this.panel1_FormDangKyUngVien = new System.Windows.Forms.Panel();
+            this.panel2_DangKyUV = new System.Windows.Forms.Panel();
             this.dtp_birth_uv = new System.Windows.Forms.DateTimePicker();
             this.lb_birth_uv = new System.Windows.Forms.Label();
             this.txt_email_uv = new System.Windows.Forms.TextBox();
@@ -43,35 +44,46 @@
             this.lb_password_uv = new System.Windows.Forms.Label();
             this.lb_username_uv = new System.Windows.Forms.Label();
             this.lb_FormDangKyUngVien = new System.Windows.Forms.Label();
-            this.panel_FormDangKyUngVien.SuspendLayout();
+            this.panel1_FormDangKyUngVien.SuspendLayout();
+            this.panel2_DangKyUV.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel_FormDangKyUngVien
+            // panel1_FormDangKyUngVien
             // 
-            this.panel_FormDangKyUngVien.Controls.Add(this.dtp_birth_uv);
-            this.panel_FormDangKyUngVien.Controls.Add(this.lb_birth_uv);
-            this.panel_FormDangKyUngVien.Controls.Add(this.txt_email_uv);
-            this.panel_FormDangKyUngVien.Controls.Add(this.txt_name_uv);
-            this.panel_FormDangKyUngVien.Controls.Add(this.txt_repassword_uv);
-            this.panel_FormDangKyUngVien.Controls.Add(this.txt_password_uv);
-            this.panel_FormDangKyUngVien.Controls.Add(this.txt_username_uv);
-            this.panel_FormDangKyUngVien.Controls.Add(this.btn_DangKyUngVien);
-            this.panel_FormDangKyUngVien.Controls.Add(this.lb_email_uv);
-            this.panel_FormDangKyUngVien.Controls.Add(this.lb_name_uv);
-            this.panel_FormDangKyUngVien.Controls.Add(this.lb_repassword_uv);
-            this.panel_FormDangKyUngVien.Controls.Add(this.lb_password_uv);
-            this.panel_FormDangKyUngVien.Controls.Add(this.lb_username_uv);
-            this.panel_FormDangKyUngVien.Controls.Add(this.lb_FormDangKyUngVien);
-            this.panel_FormDangKyUngVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_FormDangKyUngVien.Location = new System.Drawing.Point(0, 0);
-            this.panel_FormDangKyUngVien.Name = "panel_FormDangKyUngVien";
-            this.panel_FormDangKyUngVien.Size = new System.Drawing.Size(1240, 707);
-            this.panel_FormDangKyUngVien.TabIndex = 17;
+            this.panel1_FormDangKyUngVien.BackColor = System.Drawing.Color.SlateBlue;
+            this.panel1_FormDangKyUngVien.Controls.Add(this.panel2_DangKyUV);
+            this.panel1_FormDangKyUngVien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1_FormDangKyUngVien.Location = new System.Drawing.Point(0, 0);
+            this.panel1_FormDangKyUngVien.Name = "panel1_FormDangKyUngVien";
+            this.panel1_FormDangKyUngVien.Size = new System.Drawing.Size(1240, 707);
+            this.panel1_FormDangKyUngVien.TabIndex = 17;
+            // 
+            // panel2_DangKyUV
+            // 
+            this.panel2_DangKyUV.BackColor = System.Drawing.Color.OldLace;
+            this.panel2_DangKyUV.Controls.Add(this.dtp_birth_uv);
+            this.panel2_DangKyUV.Controls.Add(this.lb_birth_uv);
+            this.panel2_DangKyUV.Controls.Add(this.txt_email_uv);
+            this.panel2_DangKyUV.Controls.Add(this.txt_name_uv);
+            this.panel2_DangKyUV.Controls.Add(this.txt_repassword_uv);
+            this.panel2_DangKyUV.Controls.Add(this.txt_password_uv);
+            this.panel2_DangKyUV.Controls.Add(this.txt_username_uv);
+            this.panel2_DangKyUV.Controls.Add(this.btn_DangKyUngVien);
+            this.panel2_DangKyUV.Controls.Add(this.lb_email_uv);
+            this.panel2_DangKyUV.Controls.Add(this.lb_name_uv);
+            this.panel2_DangKyUV.Controls.Add(this.lb_repassword_uv);
+            this.panel2_DangKyUV.Controls.Add(this.lb_password_uv);
+            this.panel2_DangKyUV.Controls.Add(this.lb_username_uv);
+            this.panel2_DangKyUV.Controls.Add(this.lb_FormDangKyUngVien);
+            this.panel2_DangKyUV.Location = new System.Drawing.Point(240, 25);
+            this.panel2_DangKyUV.Name = "panel2_DangKyUV";
+            this.panel2_DangKyUV.Size = new System.Drawing.Size(761, 657);
+            this.panel2_DangKyUV.TabIndex = 30;
             // 
             // dtp_birth_uv
             // 
             this.dtp_birth_uv.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dtp_birth_uv.Location = new System.Drawing.Point(726, 421);
+            this.dtp_birth_uv.Location = new System.Drawing.Point(497, 454);
             this.dtp_birth_uv.Name = "dtp_birth_uv";
             this.dtp_birth_uv.Size = new System.Drawing.Size(200, 27);
             this.dtp_birth_uv.TabIndex = 5;
@@ -80,16 +92,16 @@
             // 
             this.lb_birth_uv.AutoSize = true;
             this.lb_birth_uv.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_birth_uv.Location = new System.Drawing.Point(282, 421);
+            this.lb_birth_uv.Location = new System.Drawing.Point(53, 454);
             this.lb_birth_uv.Name = "lb_birth_uv";
             this.lb_birth_uv.Size = new System.Drawing.Size(76, 20);
-            this.lb_birth_uv.TabIndex = 29;
+            this.lb_birth_uv.TabIndex = 43;
             this.lb_birth_uv.Text = "Ngày Sinh";
             // 
             // txt_email_uv
             // 
             this.txt_email_uv.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_email_uv.Location = new System.Drawing.Point(453, 370);
+            this.txt_email_uv.Location = new System.Drawing.Point(224, 403);
             this.txt_email_uv.Name = "txt_email_uv";
             this.txt_email_uv.Size = new System.Drawing.Size(473, 27);
             this.txt_email_uv.TabIndex = 4;
@@ -97,7 +109,7 @@
             // txt_name_uv
             // 
             this.txt_name_uv.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_name_uv.Location = new System.Drawing.Point(453, 321);
+            this.txt_name_uv.Location = new System.Drawing.Point(224, 354);
             this.txt_name_uv.Name = "txt_name_uv";
             this.txt_name_uv.Size = new System.Drawing.Size(473, 27);
             this.txt_name_uv.TabIndex = 3;
@@ -105,114 +117,122 @@
             // txt_repassword_uv
             // 
             this.txt_repassword_uv.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_repassword_uv.Location = new System.Drawing.Point(453, 269);
+            this.txt_repassword_uv.Location = new System.Drawing.Point(224, 302);
             this.txt_repassword_uv.Name = "txt_repassword_uv";
             this.txt_repassword_uv.Size = new System.Drawing.Size(473, 27);
             this.txt_repassword_uv.TabIndex = 2;
+            this.txt_repassword_uv.UseSystemPasswordChar = true;
             // 
             // txt_password_uv
             // 
             this.txt_password_uv.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_password_uv.Location = new System.Drawing.Point(453, 221);
+            this.txt_password_uv.Location = new System.Drawing.Point(224, 254);
             this.txt_password_uv.Name = "txt_password_uv";
             this.txt_password_uv.Size = new System.Drawing.Size(473, 27);
             this.txt_password_uv.TabIndex = 1;
+            this.txt_password_uv.UseSystemPasswordChar = true;
             // 
             // txt_username_uv
             // 
             this.txt_username_uv.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_username_uv.Location = new System.Drawing.Point(453, 176);
+            this.txt_username_uv.Location = new System.Drawing.Point(224, 209);
             this.txt_username_uv.Name = "txt_username_uv";
             this.txt_username_uv.Size = new System.Drawing.Size(473, 27);
             this.txt_username_uv.TabIndex = 0;
             // 
             // btn_DangKyUngVien
             // 
-            this.btn_DangKyUngVien.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DangKyUngVien.Location = new System.Drawing.Point(553, 532);
+            this.btn_DangKyUngVien.BackColor = System.Drawing.Color.SpringGreen;
+            this.btn_DangKyUngVien.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DangKyUngVien.Location = new System.Drawing.Point(306, 547);
             this.btn_DangKyUngVien.Name = "btn_DangKyUngVien";
             this.btn_DangKyUngVien.Size = new System.Drawing.Size(150, 50);
             this.btn_DangKyUngVien.TabIndex = 6;
             this.btn_DangKyUngVien.Text = "Đăng ký";
-            this.btn_DangKyUngVien.UseVisualStyleBackColor = true;
+            this.btn_DangKyUngVien.UseVisualStyleBackColor = false;
+            this.btn_DangKyUngVien.Click += new System.EventHandler(this.btn_DangKyUngVien_Click);
             // 
             // lb_email_uv
             // 
             this.lb_email_uv.AutoSize = true;
             this.lb_email_uv.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_email_uv.Location = new System.Drawing.Point(282, 370);
+            this.lb_email_uv.Location = new System.Drawing.Point(53, 403);
             this.lb_email_uv.Name = "lb_email_uv";
             this.lb_email_uv.Size = new System.Drawing.Size(46, 20);
-            this.lb_email_uv.TabIndex = 22;
+            this.lb_email_uv.TabIndex = 42;
             this.lb_email_uv.Text = "Email";
             // 
             // lb_name_uv
             // 
             this.lb_name_uv.AutoSize = true;
             this.lb_name_uv.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_name_uv.Location = new System.Drawing.Point(282, 321);
+            this.lb_name_uv.Location = new System.Drawing.Point(53, 354);
             this.lb_name_uv.Name = "lb_name_uv";
             this.lb_name_uv.Size = new System.Drawing.Size(93, 20);
-            this.lb_name_uv.TabIndex = 21;
+            this.lb_name_uv.TabIndex = 41;
             this.lb_name_uv.Text = "Tên ứng viên";
             // 
             // lb_repassword_uv
             // 
             this.lb_repassword_uv.AutoSize = true;
             this.lb_repassword_uv.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_repassword_uv.Location = new System.Drawing.Point(282, 269);
+            this.lb_repassword_uv.Location = new System.Drawing.Point(53, 302);
             this.lb_repassword_uv.Name = "lb_repassword_uv";
             this.lb_repassword_uv.Size = new System.Drawing.Size(130, 20);
-            this.lb_repassword_uv.TabIndex = 20;
+            this.lb_repassword_uv.TabIndex = 40;
             this.lb_repassword_uv.Text = "Nhập lại mật khẩu";
             // 
             // lb_password_uv
             // 
             this.lb_password_uv.AutoSize = true;
             this.lb_password_uv.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_password_uv.Location = new System.Drawing.Point(282, 221);
+            this.lb_password_uv.Location = new System.Drawing.Point(53, 254);
             this.lb_password_uv.Name = "lb_password_uv";
             this.lb_password_uv.Size = new System.Drawing.Size(70, 20);
-            this.lb_password_uv.TabIndex = 19;
+            this.lb_password_uv.TabIndex = 39;
             this.lb_password_uv.Text = "Mật khẩu";
             // 
             // lb_username_uv
             // 
             this.lb_username_uv.AutoSize = true;
             this.lb_username_uv.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_username_uv.Location = new System.Drawing.Point(282, 176);
+            this.lb_username_uv.Location = new System.Drawing.Point(53, 209);
             this.lb_username_uv.Name = "lb_username_uv";
             this.lb_username_uv.Size = new System.Drawing.Size(107, 20);
-            this.lb_username_uv.TabIndex = 18;
+            this.lb_username_uv.TabIndex = 38;
             this.lb_username_uv.Text = "Tên đăng nhập";
             // 
             // lb_FormDangKyUngVien
             // 
             this.lb_FormDangKyUngVien.AutoSize = true;
             this.lb_FormDangKyUngVien.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_FormDangKyUngVien.Location = new System.Drawing.Point(503, 57);
+            this.lb_FormDangKyUngVien.Location = new System.Drawing.Point(279, 90);
             this.lb_FormDangKyUngVien.Name = "lb_FormDangKyUngVien";
-            this.lb_FormDangKyUngVien.Size = new System.Drawing.Size(250, 30);
-            this.lb_FormDangKyUngVien.TabIndex = 17;
-            this.lb_FormDangKyUngVien.Text = "Form Đăng Ký Ứng Viên";
+            this.lb_FormDangKyUngVien.Size = new System.Drawing.Size(193, 30);
+            this.lb_FormDangKyUngVien.TabIndex = 37;
+            this.lb_FormDangKyUngVien.Text = "Đăng Ký Ứng Viên";
             // 
             // FormDangKyUngVien
             // 
+            this.AcceptButton = this.btn_DangKyUngVien;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1240, 707);
-            this.Controls.Add(this.panel_FormDangKyUngVien);
+            this.Controls.Add(this.panel1_FormDangKyUngVien);
             this.Name = "FormDangKyUngVien";
-            this.Text = "FormDangKyUngVien";
-            this.panel_FormDangKyUngVien.ResumeLayout(false);
-            this.panel_FormDangKyUngVien.PerformLayout();
+            this.Text = "Đăng Ký Ứng Viên";
+            this.panel1_FormDangKyUngVien.ResumeLayout(false);
+            this.panel2_DangKyUV.ResumeLayout(false);
+            this.panel2_DangKyUV.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel_FormDangKyUngVien;
+        private System.Windows.Forms.Panel panel1_FormDangKyUngVien;
+        private System.Windows.Forms.Panel panel2_DangKyUV;
+        private System.Windows.Forms.DateTimePicker dtp_birth_uv;
         private System.Windows.Forms.Label lb_birth_uv;
         private System.Windows.Forms.TextBox txt_email_uv;
         private System.Windows.Forms.TextBox txt_name_uv;
@@ -226,6 +246,5 @@
         private System.Windows.Forms.Label lb_password_uv;
         private System.Windows.Forms.Label lb_username_uv;
         private System.Windows.Forms.Label lb_FormDangKyUngVien;
-        private System.Windows.Forms.DateTimePicker dtp_birth_uv;
     }
 }
