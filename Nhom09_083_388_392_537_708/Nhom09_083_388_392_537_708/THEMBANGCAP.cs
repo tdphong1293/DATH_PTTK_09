@@ -10,15 +10,16 @@ using System.Windows.Forms;
 
 namespace Nhom09_083_388_392_537_708
 {
-    public partial class FormDangKyUngVien : Form
+    public partial class THEMBANGCAP : Form
     {
-        public FormDangKyUngVien()
+        public THEMBANGCAP()
         {
             InitializeComponent();
         }
-        private void btn_DangKyUngVien_Click(object sender, EventArgs e)
+
+        private void btn_XacNhan_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("test DKUV");
+            this.Close();
         }
     }
 }

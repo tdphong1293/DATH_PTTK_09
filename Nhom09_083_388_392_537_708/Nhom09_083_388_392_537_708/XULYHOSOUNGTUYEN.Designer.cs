@@ -42,8 +42,13 @@
             this.tb_Email = new System.Windows.Forms.TextBox();
             this.tb_NgaySinh = new System.Windows.Forms.TextBox();
             this.tb_HoTen = new System.Windows.Forms.TextBox();
-            this.lb_title_ThongTinHoSoUngTuyen = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lb_OutOf10 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lb_FileCV = new System.Windows.Forms.Label();
+            this.gb_BangCap = new System.Windows.Forms.GroupBox();
+            this.btn_ThemBangCap = new System.Windows.Forms.Button();
+            this.dtgv_BangCap = new System.Windows.Forms.DataGridView();
             this.tb_DoanhNghiep = new System.Windows.Forms.TextBox();
             this.lb_TenDoanhNghiep = new System.Windows.Forms.Label();
             this.tb_DiemDanhGia = new System.Windows.Forms.TextBox();
@@ -57,16 +62,17 @@
             this.lb_TimKiemDoanhNghiep = new System.Windows.Forms.Label();
             this.tb_SearchHSChoDuyet = new System.Windows.Forms.TextBox();
             this.gb_HSChoDuyet = new System.Windows.Forms.GroupBox();
-            this.tb_BangCap = new System.Windows.Forms.TextBox();
-            this.lb_BangCap = new System.Windows.Forms.Label();
             this.gb_HSDaDuyet = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tb_SearchHSDaDuyet = new System.Windows.Forms.TextBox();
             this.lb_TimKiemTenDoanhNghiep = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_HSChoDuyet)).BeginInit();
             this.pnl_TTCaNhan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.gb_BangCap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_BangCap)).BeginInit();
             this.gb_HSChoDuyet.SuspendLayout();
             this.gb_HSDaDuyet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -87,73 +93,73 @@
             // lb_HoTen
             // 
             this.lb_HoTen.AutoSize = true;
-            this.lb_HoTen.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_HoTen.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_HoTen.ForeColor = System.Drawing.Color.White;
             this.lb_HoTen.Location = new System.Drawing.Point(157, 13);
             this.lb_HoTen.Name = "lb_HoTen";
-            this.lb_HoTen.Size = new System.Drawing.Size(60, 20);
+            this.lb_HoTen.Size = new System.Drawing.Size(59, 20);
             this.lb_HoTen.TabIndex = 1;
             this.lb_HoTen.Text = "Họ tên:";
             // 
             // lb_NgaySinh
             // 
             this.lb_NgaySinh.AutoSize = true;
-            this.lb_NgaySinh.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NgaySinh.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_NgaySinh.ForeColor = System.Drawing.Color.White;
             this.lb_NgaySinh.Location = new System.Drawing.Point(157, 56);
             this.lb_NgaySinh.Name = "lb_NgaySinh";
-            this.lb_NgaySinh.Size = new System.Drawing.Size(83, 20);
+            this.lb_NgaySinh.Size = new System.Drawing.Size(82, 20);
             this.lb_NgaySinh.TabIndex = 2;
             this.lb_NgaySinh.Text = "Ngày sinh:";
             // 
             // lb_Email
             // 
             this.lb_Email.AutoSize = true;
-            this.lb_Email.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Email.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Email.ForeColor = System.Drawing.Color.White;
             this.lb_Email.Location = new System.Drawing.Point(157, 98);
             this.lb_Email.Name = "lb_Email";
-            this.lb_Email.Size = new System.Drawing.Size(51, 20);
+            this.lb_Email.Size = new System.Drawing.Size(50, 20);
             this.lb_Email.TabIndex = 3;
             this.lb_Email.Text = "Email:";
             // 
             // lb_IDHoSo
             // 
             this.lb_IDHoSo.AutoSize = true;
-            this.lb_IDHoSo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_IDHoSo.Location = new System.Drawing.Point(28, 26);
+            this.lb_IDHoSo.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_IDHoSo.Location = new System.Drawing.Point(28, 17);
             this.lb_IDHoSo.Name = "lb_IDHoSo";
-            this.lb_IDHoSo.Size = new System.Drawing.Size(74, 20);
+            this.lb_IDHoSo.Size = new System.Drawing.Size(73, 20);
             this.lb_IDHoSo.TabIndex = 4;
             this.lb_IDHoSo.Text = "ID Hồ Sơ:";
             // 
             // lb_TinhTrang
             // 
             this.lb_TinhTrang.AutoSize = true;
-            this.lb_TinhTrang.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TinhTrang.Location = new System.Drawing.Point(28, 59);
+            this.lb_TinhTrang.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TinhTrang.Location = new System.Drawing.Point(28, 50);
             this.lb_TinhTrang.Name = "lb_TinhTrang";
-            this.lb_TinhTrang.Size = new System.Drawing.Size(128, 20);
+            this.lb_TinhTrang.Size = new System.Drawing.Size(125, 20);
             this.lb_TinhTrang.TabIndex = 5;
             this.lb_TinhTrang.Text = "Tình trạng hồ sơ:";
             // 
             // lb_NgayUngTuyen
             // 
             this.lb_NgayUngTuyen.AutoSize = true;
-            this.lb_NgayUngTuyen.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_NgayUngTuyen.Location = new System.Drawing.Point(28, 133);
+            this.lb_NgayUngTuyen.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NgayUngTuyen.Location = new System.Drawing.Point(28, 124);
             this.lb_NgayUngTuyen.Name = "lb_NgayUngTuyen";
-            this.lb_NgayUngTuyen.Size = new System.Drawing.Size(126, 20);
+            this.lb_NgayUngTuyen.Size = new System.Drawing.Size(124, 20);
             this.lb_NgayUngTuyen.TabIndex = 6;
             this.lb_NgayUngTuyen.Text = "Ngày ứng tuyển:";
             // 
             // lb_ViTriUngTuyen
             // 
             this.lb_ViTriUngTuyen.AutoSize = true;
-            this.lb_ViTriUngTuyen.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_ViTriUngTuyen.Location = new System.Drawing.Point(28, 175);
+            this.lb_ViTriUngTuyen.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_ViTriUngTuyen.Location = new System.Drawing.Point(28, 166);
             this.lb_ViTriUngTuyen.Name = "lb_ViTriUngTuyen";
-            this.lb_ViTriUngTuyen.Size = new System.Drawing.Size(123, 20);
+            this.lb_ViTriUngTuyen.Size = new System.Drawing.Size(120, 20);
             this.lb_ViTriUngTuyen.TabIndex = 7;
             this.lb_ViTriUngTuyen.Text = "Vị trí ứng tuyển:";
             // 
@@ -161,7 +167,8 @@
             // 
             this.lb_DiemDanhGia.AutoSize = true;
             this.lb_DiemDanhGia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_DiemDanhGia.Location = new System.Drawing.Point(28, 255);
+            this.lb_DiemDanhGia.ForeColor = System.Drawing.Color.Red;
+            this.lb_DiemDanhGia.Location = new System.Drawing.Point(211, 425);
             this.lb_DiemDanhGia.Name = "lb_DiemDanhGia";
             this.lb_DiemDanhGia.Size = new System.Drawing.Size(114, 20);
             this.lb_DiemDanhGia.TabIndex = 8;
@@ -178,7 +185,7 @@
             this.pnl_TTCaNhan.Controls.Add(this.lb_NgaySinh);
             this.pnl_TTCaNhan.Controls.Add(this.lb_Email);
             this.pnl_TTCaNhan.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnl_TTCaNhan.Location = new System.Drawing.Point(746, 119);
+            this.pnl_TTCaNhan.Location = new System.Drawing.Point(726, 30);
             this.pnl_TTCaNhan.Name = "pnl_TTCaNhan";
             this.pnl_TTCaNhan.Size = new System.Drawing.Size(416, 138);
             this.pnl_TTCaNhan.TabIndex = 9;
@@ -195,44 +202,41 @@
             // 
             // tb_Email
             // 
+            this.tb_Email.Enabled = false;
             this.tb_Email.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_Email.Location = new System.Drawing.Point(248, 95);
             this.tb_Email.Name = "tb_Email";
+            this.tb_Email.ReadOnly = true;
             this.tb_Email.Size = new System.Drawing.Size(138, 27);
             this.tb_Email.TabIndex = 13;
             // 
             // tb_NgaySinh
             // 
+            this.tb_NgaySinh.Enabled = false;
             this.tb_NgaySinh.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_NgaySinh.Location = new System.Drawing.Point(248, 53);
             this.tb_NgaySinh.Name = "tb_NgaySinh";
+            this.tb_NgaySinh.ReadOnly = true;
             this.tb_NgaySinh.Size = new System.Drawing.Size(138, 27);
             this.tb_NgaySinh.TabIndex = 12;
             // 
             // tb_HoTen
             // 
+            this.tb_HoTen.Enabled = false;
             this.tb_HoTen.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_HoTen.Location = new System.Drawing.Point(248, 10);
             this.tb_HoTen.Name = "tb_HoTen";
+            this.tb_HoTen.ReadOnly = true;
             this.tb_HoTen.Size = new System.Drawing.Size(138, 27);
             this.tb_HoTen.TabIndex = 11;
-            // 
-            // lb_title_ThongTinHoSoUngTuyen
-            // 
-            this.lb_title_ThongTinHoSoUngTuyen.AutoSize = true;
-            this.lb_title_ThongTinHoSoUngTuyen.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_title_ThongTinHoSoUngTuyen.ForeColor = System.Drawing.Color.SlateBlue;
-            this.lb_title_ThongTinHoSoUngTuyen.Location = new System.Drawing.Point(799, 78);
-            this.lb_title_ThongTinHoSoUngTuyen.Name = "lb_title_ThongTinHoSoUngTuyen";
-            this.lb_title_ThongTinHoSoUngTuyen.Size = new System.Drawing.Size(299, 25);
-            this.lb_title_ThongTinHoSoUngTuyen.TabIndex = 10;
-            this.lb_title_ThongTinHoSoUngTuyen.Text = "THÔNG TIN HỒ SƠ ỨNG TUYỂN";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.OldLace;
-            this.panel1.Controls.Add(this.tb_BangCap);
-            this.panel1.Controls.Add(this.lb_BangCap);
+            this.panel1.Controls.Add(this.lb_OutOf10);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.lb_FileCV);
+            this.panel1.Controls.Add(this.gb_BangCap);
             this.panel1.Controls.Add(this.tb_DoanhNghiep);
             this.panel1.Controls.Add(this.lb_TenDoanhNghiep);
             this.panel1.Controls.Add(this.tb_DiemDanhGia);
@@ -245,24 +249,92 @@
             this.panel1.Controls.Add(this.lb_NgayUngTuyen);
             this.panel1.Controls.Add(this.lb_DiemDanhGia);
             this.panel1.Controls.Add(this.lb_ViTriUngTuyen);
-            this.panel1.Location = new System.Drawing.Point(746, 256);
+            this.panel1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(726, 167);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(416, 308);
+            this.panel1.Size = new System.Drawing.Size(416, 463);
             this.panel1.TabIndex = 11;
+            // 
+            // lb_OutOf10
+            // 
+            this.lb_OutOf10.AutoSize = true;
+            this.lb_OutOf10.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_OutOf10.Location = new System.Drawing.Point(357, 425);
+            this.lb_OutOf10.Name = "lb_OutOf10";
+            this.lb_OutOf10.Size = new System.Drawing.Size(29, 20);
+            this.lb_OutOf10.TabIndex = 24;
+            this.lb_OutOf10.Text = "/10";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(285, 204);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 32);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Mở file ⏬";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // lb_FileCV
+            // 
+            this.lb_FileCV.AutoSize = true;
+            this.lb_FileCV.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_FileCV.Location = new System.Drawing.Point(28, 206);
+            this.lb_FileCV.Name = "lb_FileCV";
+            this.lb_FileCV.Size = new System.Drawing.Size(124, 20);
+            this.lb_FileCV.TabIndex = 22;
+            this.lb_FileCV.Text = "File CV ứng viên:";
+            // 
+            // gb_BangCap
+            // 
+            this.gb_BangCap.Controls.Add(this.btn_ThemBangCap);
+            this.gb_BangCap.Controls.Add(this.dtgv_BangCap);
+            this.gb_BangCap.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gb_BangCap.Location = new System.Drawing.Point(22, 242);
+            this.gb_BangCap.Name = "gb_BangCap";
+            this.gb_BangCap.Size = new System.Drawing.Size(364, 173);
+            this.gb_BangCap.TabIndex = 21;
+            this.gb_BangCap.TabStop = false;
+            this.gb_BangCap.Text = "Bằng cấp";
+            // 
+            // btn_ThemBangCap
+            // 
+            this.btn_ThemBangCap.BackgroundImage = global::Nhom09_083_388_392_537_708.Properties.Resources.btn_plus;
+            this.btn_ThemBangCap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ThemBangCap.Location = new System.Drawing.Point(334, 16);
+            this.btn_ThemBangCap.Name = "btn_ThemBangCap";
+            this.btn_ThemBangCap.Size = new System.Drawing.Size(24, 24);
+            this.btn_ThemBangCap.TabIndex = 24;
+            this.btn_ThemBangCap.UseVisualStyleBackColor = true;
+            this.btn_ThemBangCap.Click += new System.EventHandler(this.btn_ThemBangCap_Click);
+            // 
+            // dtgv_BangCap
+            // 
+            this.dtgv_BangCap.AllowUserToAddRows = false;
+            this.dtgv_BangCap.AllowUserToDeleteRows = false;
+            this.dtgv_BangCap.BackgroundColor = System.Drawing.Color.White;
+            this.dtgv_BangCap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_BangCap.Location = new System.Drawing.Point(10, 45);
+            this.dtgv_BangCap.Name = "dtgv_BangCap";
+            this.dtgv_BangCap.ReadOnly = true;
+            this.dtgv_BangCap.Size = new System.Drawing.Size(348, 121);
+            this.dtgv_BangCap.TabIndex = 24;
             // 
             // tb_DoanhNghiep
             // 
+            this.tb_DoanhNghiep.Enabled = false;
             this.tb_DoanhNghiep.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_DoanhNghiep.Location = new System.Drawing.Point(212, 92);
+            this.tb_DoanhNghiep.Location = new System.Drawing.Point(212, 83);
             this.tb_DoanhNghiep.Name = "tb_DoanhNghiep";
+            this.tb_DoanhNghiep.ReadOnly = true;
             this.tb_DoanhNghiep.Size = new System.Drawing.Size(174, 27);
             this.tb_DoanhNghiep.TabIndex = 20;
             // 
             // lb_TenDoanhNghiep
             // 
             this.lb_TenDoanhNghiep.AutoSize = true;
-            this.lb_TenDoanhNghiep.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TenDoanhNghiep.Location = new System.Drawing.Point(28, 94);
+            this.lb_TenDoanhNghiep.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TenDoanhNghiep.Location = new System.Drawing.Point(28, 85);
             this.lb_TenDoanhNghiep.Name = "lb_TenDoanhNghiep";
             this.lb_TenDoanhNghiep.Size = new System.Drawing.Size(111, 20);
             this.lb_TenDoanhNghiep.TabIndex = 19;
@@ -271,40 +343,48 @@
             // tb_DiemDanhGia
             // 
             this.tb_DiemDanhGia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_DiemDanhGia.Location = new System.Drawing.Point(212, 253);
+            this.tb_DiemDanhGia.Location = new System.Drawing.Point(331, 422);
             this.tb_DiemDanhGia.Name = "tb_DiemDanhGia";
-            this.tb_DiemDanhGia.Size = new System.Drawing.Size(174, 27);
+            this.tb_DiemDanhGia.Size = new System.Drawing.Size(27, 27);
             this.tb_DiemDanhGia.TabIndex = 18;
             // 
             // tb_ViTriUngTuyen
             // 
+            this.tb_ViTriUngTuyen.Enabled = false;
             this.tb_ViTriUngTuyen.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_ViTriUngTuyen.Location = new System.Drawing.Point(212, 173);
+            this.tb_ViTriUngTuyen.Location = new System.Drawing.Point(212, 164);
             this.tb_ViTriUngTuyen.Name = "tb_ViTriUngTuyen";
+            this.tb_ViTriUngTuyen.ReadOnly = true;
             this.tb_ViTriUngTuyen.Size = new System.Drawing.Size(174, 27);
             this.tb_ViTriUngTuyen.TabIndex = 17;
             // 
             // tb_NgayUngTuyen
             // 
+            this.tb_NgayUngTuyen.Enabled = false;
             this.tb_NgayUngTuyen.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_NgayUngTuyen.Location = new System.Drawing.Point(212, 131);
+            this.tb_NgayUngTuyen.Location = new System.Drawing.Point(212, 122);
             this.tb_NgayUngTuyen.Name = "tb_NgayUngTuyen";
+            this.tb_NgayUngTuyen.ReadOnly = true;
             this.tb_NgayUngTuyen.Size = new System.Drawing.Size(174, 27);
             this.tb_NgayUngTuyen.TabIndex = 16;
             // 
             // tb_TinhTrangHoSo
             // 
+            this.tb_TinhTrangHoSo.Enabled = false;
             this.tb_TinhTrangHoSo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_TinhTrangHoSo.Location = new System.Drawing.Point(212, 57);
+            this.tb_TinhTrangHoSo.Location = new System.Drawing.Point(212, 48);
             this.tb_TinhTrangHoSo.Name = "tb_TinhTrangHoSo";
+            this.tb_TinhTrangHoSo.ReadOnly = true;
             this.tb_TinhTrangHoSo.Size = new System.Drawing.Size(174, 27);
             this.tb_TinhTrangHoSo.TabIndex = 15;
             // 
             // tb_IDHoSo
             // 
+            this.tb_IDHoSo.Enabled = false;
             this.tb_IDHoSo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_IDHoSo.Location = new System.Drawing.Point(212, 24);
+            this.tb_IDHoSo.Location = new System.Drawing.Point(212, 15);
             this.tb_IDHoSo.Name = "tb_IDHoSo";
+            this.tb_IDHoSo.ReadOnly = true;
             this.tb_IDHoSo.Size = new System.Drawing.Size(174, 27);
             this.tb_IDHoSo.TabIndex = 14;
             // 
@@ -312,7 +392,7 @@
             // 
             this.btn_Loai.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Loai.ForeColor = System.Drawing.Color.Red;
-            this.btn_Loai.Location = new System.Drawing.Point(1021, 570);
+            this.btn_Loai.Location = new System.Drawing.Point(1003, 636);
             this.btn_Loai.Name = "btn_Loai";
             this.btn_Loai.Size = new System.Drawing.Size(92, 35);
             this.btn_Loai.TabIndex = 12;
@@ -323,7 +403,7 @@
             // 
             this.btn_DanhGia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_DanhGia.ForeColor = System.Drawing.Color.DarkOrange;
-            this.btn_DanhGia.Location = new System.Drawing.Point(891, 570);
+            this.btn_DanhGia.Location = new System.Drawing.Point(873, 636);
             this.btn_DanhGia.Name = "btn_DanhGia";
             this.btn_DanhGia.Size = new System.Drawing.Size(124, 35);
             this.btn_DanhGia.TabIndex = 13;
@@ -334,7 +414,7 @@
             // 
             this.btn_Duyet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Duyet.ForeColor = System.Drawing.Color.ForestGreen;
-            this.btn_Duyet.Location = new System.Drawing.Point(793, 570);
+            this.btn_Duyet.Location = new System.Drawing.Point(775, 636);
             this.btn_Duyet.Name = "btn_Duyet";
             this.btn_Duyet.Size = new System.Drawing.Size(92, 35);
             this.btn_Duyet.TabIndex = 14;
@@ -345,10 +425,10 @@
             // lb_TimKiemDoanhNghiep
             // 
             this.lb_TimKiemDoanhNghiep.AutoSize = true;
-            this.lb_TimKiemDoanhNghiep.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TimKiemDoanhNghiep.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_TimKiemDoanhNghiep.Location = new System.Drawing.Point(219, 46);
             this.lb_TimKiemDoanhNghiep.Name = "lb_TimKiemDoanhNghiep";
-            this.lb_TimKiemDoanhNghiep.Size = new System.Drawing.Size(167, 20);
+            this.lb_TimKiemDoanhNghiep.Size = new System.Drawing.Size(164, 20);
             this.lb_TimKiemDoanhNghiep.TabIndex = 21;
             this.lb_TimKiemDoanhNghiep.Text = "Tìm tên doanh nghiệp:";
             // 
@@ -366,30 +446,12 @@
             this.gb_HSChoDuyet.Controls.Add(this.tb_SearchHSChoDuyet);
             this.gb_HSChoDuyet.Controls.Add(this.lb_TimKiemDoanhNghiep);
             this.gb_HSChoDuyet.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gb_HSChoDuyet.Location = new System.Drawing.Point(117, 36);
+            this.gb_HSChoDuyet.Location = new System.Drawing.Point(99, 36);
             this.gb_HSChoDuyet.Name = "gb_HSChoDuyet";
             this.gb_HSChoDuyet.Size = new System.Drawing.Size(555, 305);
             this.gb_HSChoDuyet.TabIndex = 22;
             this.gb_HSChoDuyet.TabStop = false;
             this.gb_HSChoDuyet.Text = "Hồ sơ ứng tuyển chờ duyệt";
-            // 
-            // tb_BangCap
-            // 
-            this.tb_BangCap.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_BangCap.Location = new System.Drawing.Point(212, 212);
-            this.tb_BangCap.Name = "tb_BangCap";
-            this.tb_BangCap.Size = new System.Drawing.Size(174, 27);
-            this.tb_BangCap.TabIndex = 22;
-            // 
-            // lb_BangCap
-            // 
-            this.lb_BangCap.AutoSize = true;
-            this.lb_BangCap.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_BangCap.Location = new System.Drawing.Point(28, 214);
-            this.lb_BangCap.Name = "lb_BangCap";
-            this.lb_BangCap.Size = new System.Drawing.Size(77, 20);
-            this.lb_BangCap.TabIndex = 21;
-            this.lb_BangCap.Text = "Bằng cấp:";
             // 
             // gb_HSDaDuyet
             // 
@@ -397,7 +459,7 @@
             this.gb_HSDaDuyet.Controls.Add(this.tb_SearchHSDaDuyet);
             this.gb_HSDaDuyet.Controls.Add(this.lb_TimKiemTenDoanhNghiep);
             this.gb_HSDaDuyet.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gb_HSDaDuyet.Location = new System.Drawing.Point(117, 360);
+            this.gb_HSDaDuyet.Location = new System.Drawing.Point(99, 360);
             this.gb_HSDaDuyet.Name = "gb_HSDaDuyet";
             this.gb_HSDaDuyet.Size = new System.Drawing.Size(555, 305);
             this.gb_HSDaDuyet.TabIndex = 23;
@@ -427,10 +489,10 @@
             // lb_TimKiemTenDoanhNghiep
             // 
             this.lb_TimKiemTenDoanhNghiep.AutoSize = true;
-            this.lb_TimKiemTenDoanhNghiep.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TimKiemTenDoanhNghiep.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_TimKiemTenDoanhNghiep.Location = new System.Drawing.Point(219, 46);
             this.lb_TimKiemTenDoanhNghiep.Name = "lb_TimKiemTenDoanhNghiep";
-            this.lb_TimKiemTenDoanhNghiep.Size = new System.Drawing.Size(167, 20);
+            this.lb_TimKiemTenDoanhNghiep.Size = new System.Drawing.Size(164, 20);
             this.lb_TimKiemTenDoanhNghiep.TabIndex = 21;
             this.lb_TimKiemTenDoanhNghiep.Text = "Tìm tên doanh nghiệp:";
             // 
@@ -445,7 +507,6 @@
             this.Controls.Add(this.btn_DanhGia);
             this.Controls.Add(this.btn_Loai);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.lb_title_ThongTinHoSoUngTuyen);
             this.Controls.Add(this.pnl_TTCaNhan);
             this.Name = "XULYHOSOUNGTUYEN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -456,13 +517,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.gb_BangCap.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_BangCap)).EndInit();
             this.gb_HSChoDuyet.ResumeLayout(false);
             this.gb_HSChoDuyet.PerformLayout();
             this.gb_HSDaDuyet.ResumeLayout(false);
             this.gb_HSDaDuyet.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -478,7 +540,6 @@
         private System.Windows.Forms.Label lb_ViTriUngTuyen;
         private System.Windows.Forms.Label lb_DiemDanhGia;
         private System.Windows.Forms.Panel pnl_TTCaNhan;
-        private System.Windows.Forms.Label lb_title_ThongTinHoSoUngTuyen;
         private System.Windows.Forms.TextBox tb_Email;
         private System.Windows.Forms.TextBox tb_NgaySinh;
         private System.Windows.Forms.TextBox tb_HoTen;
@@ -497,12 +558,17 @@
         private System.Windows.Forms.Label lb_TimKiemDoanhNghiep;
         private System.Windows.Forms.TextBox tb_SearchHSChoDuyet;
         private System.Windows.Forms.GroupBox gb_HSChoDuyet;
-        private System.Windows.Forms.TextBox tb_BangCap;
-        private System.Windows.Forms.Label lb_BangCap;
         private System.Windows.Forms.GroupBox gb_HSDaDuyet;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox tb_SearchHSDaDuyet;
         private System.Windows.Forms.Label lb_TimKiemTenDoanhNghiep;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox gb_BangCap;
+        private System.Windows.Forms.DataGridView dtgv_BangCap;
+        private System.Windows.Forms.Button btn_ThemBangCap;
+        private System.Windows.Forms.Label lb_FileCV;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lb_OutOf10;
     }
 }
 
