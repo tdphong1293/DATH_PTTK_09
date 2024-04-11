@@ -16,5 +16,9 @@ namespace Nhom09_083_388_392_537_708
         {
             InitializeComponent();
         }
+        private void btn_DangKyUngVien_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("test DKUV");
+        }
     }
 }
