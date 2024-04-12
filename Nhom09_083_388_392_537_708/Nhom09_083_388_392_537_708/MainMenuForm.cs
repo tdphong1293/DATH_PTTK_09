@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
@@ -19,13 +20,25 @@ namespace Nhom09_083_388_392_537_708
         private Form activeForm;
         private FormDangNhap loginForm;
         private FormDangKyUngVien formDangKyUngVien;
+        public string username = "";
+        public string role = "";
+        public string id = "";
         Font SegoeUISemibold = new Font("Segoe UI Semibold", 11F);
         Font SegoeUIBold = new Font("Segoe UI", 12F, FontStyle.Bold);
-
+        public static SqlConnection con = FormDangNhap.conn;
         public MainMenuForm()
         {
             InitializeComponent();
             random = new Random();
+        }
+
+        public MainMenuForm(string username, string role, string id)
+        {
+            InitializeComponent();
+            random = new Random();
+            this.username = username;
+            this.role = role;
+            this.id = id;
         }
 
         private void ActivateButton(object btnSender)
@@ -69,8 +82,8 @@ namespace Nhom09_083_388_392_537_708
             }
             else
             {
-                if (activeForm != null)
-                    activeForm.Close();
+                //if (activeForm != null)
+                //    activeForm.Close();
 
                 ActivateButton(btnSender);
                 activeForm = childForm;
@@ -95,6 +108,7 @@ namespace Nhom09_083_388_392_537_708
             btnThanhToan.Visible = false;
             btnGiaHanHD.Visible = false;
             btnNHSTD.Visible = false;
+            btnLogout.Visible = false;
             ActivateButton(btnLogin);
             CenterLabelInPanel(lblTitle, pnlTitle);
             loginForm = new FormDangNhap();
@@ -104,7 +118,6 @@ namespace Nhom09_083_388_392_537_708
             loginForm.Dock = DockStyle.Fill;
             pnlHomeChange.Controls.Add(loginForm);
             loginForm.Show();
-
         }
 
         private void UI_After_Login(object sender, EventArgs e)
@@ -112,6 +125,8 @@ namespace Nhom09_083_388_392_537_708
             if (e is RoleEventArgs roleEventArgs)
             {
                 string role = roleEventArgs.Role;
+                username = roleEventArgs.username;
+                id = roleEventArgs.id;
                 if (role == "NHANVIEN")
                 {                   
                     pnlHomeChange.Controls.Clear();
@@ -120,11 +135,13 @@ namespace Nhom09_083_388_392_537_708
                     btnXLHSUngTuyen.Visible=true;
                     btnThanhToan.Visible = true;
                     btnLogin.Visible = false;
-                    btnSignup.Visible = false;
+                    btnSignupUV.Visible = false;
+                    btnSignupDN.Visible = false;
                     btnDangTuyenDung.Visible = false;
                     btnDuyetHSDaQuaXL.Visible = false;
                     btnGiaHanHD.Visible = false;
-                    btnNHSTD.Visible = true;
+                    btnNHSTD.Visible = false;   
+                    btnLogout.Visible = true;
                     XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen();
                     xpdt.TopLevel = false;
                     xpdt.FormBorderStyle = FormBorderStyle.None;
@@ -140,17 +157,20 @@ namespace Nhom09_083_388_392_537_708
                     btnDuyetHSDaQuaXL.Visible = true;
                     btnXemPDT.Visible = true;
                     btnLogin.Visible = false;
-                    btnSignup.Visible = false;
+                    btnSignupUV.Visible = false;
+                    btnSignupDN.Visible = false;
                     btnXLHSUngTuyen.Visible = false;
                     btnThanhToan.Visible = false;
                     btnGiaHanHD.Visible = false;
-                    btnNHSTD.Visible = true;
+                    btnNHSTD.Visible = false;
+                    btnLogout.Visible = true;
                     XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen();
                     xpdt.TopLevel = false;
                     xpdt.FormBorderStyle = FormBorderStyle.None;
                     xpdt.Dock = DockStyle.Fill;
                     pnlHomeChange.Controls.Add(xpdt);
                     xpdt.Show();
+                    //MessageBox.Show(id);
                 }
 
                 else if (role == "UNGVIEN")
@@ -158,14 +178,15 @@ namespace Nhom09_083_388_392_537_708
                     pnlHomeChange.Controls.Clear();
                     btnDangTuyenDung.Visible = false;
                     btnDuyetHSDaQuaXL.Visible = false;
-                    btnXemPDT.Visible = false;
+                    btnXemPDT.Visible = true;
                     btnLogin.Visible = false;
-                    btnSignup.Visible = false;
+                    btnSignupUV.Visible = false;
+                    btnSignupDN.Visible = false;
                     btnXLHSUngTuyen.Visible = false;
                     btnThanhToan.Visible = false;
                     btnGiaHanHD.Visible = false;
-                    btn
                     btnNHSTD.Visible = true;
+                    btnLogout.Visible = true;
                     XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen();
                     xpdt.TopLevel = false;
                     xpdt.FormBorderStyle = FormBorderStyle.None;
@@ -230,13 +251,18 @@ namespace Nhom09_083_388_392_537_708
 
         private void btnSignup_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormDangKyDoanhNghiep(), sender);
-            CenterLabelInPanel(lblTitle, pnlTitle);
+            
         }
 
         private void btnDangTuyenDung_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormDangTuyenDung(), sender);
+            OpenChildForm(new FormDangTuyenDung(username), sender);
+            CenterLabelInPanel(lblTitle, pnlTitle);
+        }
+
+        private void btnSignupDN_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormDangKyDoanhNghiep(), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
     }

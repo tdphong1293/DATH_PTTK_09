@@ -9,10 +9,14 @@ namespace Nhom09_083_388_392_537_708
     public class RoleEventArgs : EventArgs
     {
         public string Role { get; }
+        public string username { get; }
 
-        public RoleEventArgs(string role)
+        public string id { get; }
+        public RoleEventArgs(string role, string username, string id)
         {
-            Role = role;
+            this.Role = role;
+            this.username = username;
+            this.id = id;
         }
     }
 }
