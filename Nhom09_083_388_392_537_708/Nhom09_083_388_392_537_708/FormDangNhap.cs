@@ -16,11 +16,15 @@ namespace Nhom09_083_388_392_537_708
     public partial class FormDangNhap : Form
     {
         public event EventHandler ButtonClicked;
+<<<<<<< HEAD
         public string role = "";
         public static SqlConnection conn = new SqlConnection();
         public string username = "";
         public string id = "";
 
+=======
+        public string role;
+>>>>>>> 3d169ae2ac51f5b933528b51bc177a67695a54e1
         public FormDangNhap()
         {
             InitializeComponent();
@@ -103,7 +107,10 @@ namespace Nhom09_083_388_392_537_708
             }
             else
             {
+<<<<<<< HEAD
                 role = checkLogin(tbxUsername.Text, tbxPassword.Text);
+=======
+>>>>>>> 3d169ae2ac51f5b933528b51bc177a67695a54e1
                 if (string.IsNullOrEmpty(role))
                 {
                     MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác!!!");

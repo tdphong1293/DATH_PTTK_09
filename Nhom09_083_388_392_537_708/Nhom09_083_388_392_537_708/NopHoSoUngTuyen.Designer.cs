@@ -37,10 +37,8 @@
             this.cbVTUT = new System.Windows.Forms.ComboBox();
             this.lbHSDK = new System.Windows.Forms.Label();
             this.btnBrowse = new System.Windows.Forms.Button();
-            this.btnHuyNHS = new System.Windows.Forms.Button();
             this.btnXNNopHS = new System.Windows.Forms.Button();
             this.llbFileName = new System.Windows.Forms.LinkLabel();
-            this.btnOpenFolder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbNHSUT
@@ -144,18 +142,6 @@
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
-            // btnHuyNHS
-            // 
-            this.btnHuyNHS.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHuyNHS.Location = new System.Drawing.Point(1024, 654);
-            this.btnHuyNHS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnHuyNHS.Name = "btnHuyNHS";
-            this.btnHuyNHS.Size = new System.Drawing.Size(81, 34);
-            this.btnHuyNHS.TabIndex = 10;
-            this.btnHuyNHS.Text = "Huỷ";
-            this.btnHuyNHS.UseVisualStyleBackColor = true;
-            this.btnHuyNHS.Click += new System.EventHandler(this.btnHuyNHS_Click);
-            // 
             // btnXNNopHS
             // 
             this.btnXNNopHS.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -177,27 +163,13 @@
             this.llbFileName.Size = new System.Drawing.Size(0, 25);
             this.llbFileName.TabIndex = 12;
             // 
-            // btnOpenFolder
-            // 
-            this.btnOpenFolder.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenFolder.Location = new System.Drawing.Point(659, 347);
-            this.btnOpenFolder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnOpenFolder.Name = "btnOpenFolder";
-            this.btnOpenFolder.Size = new System.Drawing.Size(104, 34);
-            this.btnOpenFolder.TabIndex = 13;
-            this.btnOpenFolder.Text = "Open";
-            this.btnOpenFolder.UseVisualStyleBackColor = true;
-            this.btnOpenFolder.Click += new System.EventHandler(this.btnOpenFolder_Click);
-            // 
             // NopHoSoUngTuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1237, 699);
-            this.Controls.Add(this.btnOpenFolder);
             this.Controls.Add(this.llbFileName);
             this.Controls.Add(this.btnXNNopHS);
-            this.Controls.Add(this.btnHuyNHS);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.lbHSDK);
             this.Controls.Add(this.cbVTUT);
@@ -227,9 +199,7 @@
         private System.Windows.Forms.ComboBox cbVTUT;
         private System.Windows.Forms.Label lbHSDK;
         private System.Windows.Forms.Button btnBrowse;
-        private System.Windows.Forms.Button btnHuyNHS;
         private System.Windows.Forms.Button btnXNNopHS;
         private System.Windows.Forms.LinkLabel llbFileName;
-        private System.Windows.Forms.Button btnOpenFolder;
     }
 }
