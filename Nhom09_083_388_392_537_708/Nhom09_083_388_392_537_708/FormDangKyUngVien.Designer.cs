@@ -84,9 +84,11 @@
             // 
             this.dtp_birth_uv.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtp_birth_uv.Location = new System.Drawing.Point(497, 454);
+            this.dtp_birth_uv.MaxDate = new System.DateTime(2024, 4, 12, 15, 52, 38, 0);
             this.dtp_birth_uv.Name = "dtp_birth_uv";
             this.dtp_birth_uv.Size = new System.Drawing.Size(200, 27);
             this.dtp_birth_uv.TabIndex = 5;
+            this.dtp_birth_uv.Value = new System.DateTime(2024, 4, 12, 0, 0, 0, 0);
             // 
             // lb_birth_uv
             // 
