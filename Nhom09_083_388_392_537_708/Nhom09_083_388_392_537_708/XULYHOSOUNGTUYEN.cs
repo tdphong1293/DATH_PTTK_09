@@ -48,6 +48,16 @@ namespace Nhom09_083_388_392_537_708
             }
         }
 
+        private void tb_SearchDN1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgv_HSChoDuyet_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         
     }
 }
