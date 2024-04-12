@@ -31,6 +31,9 @@
             this.lbVTDT = new System.Windows.Forms.Label();
             this.lbNHSUT = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnXoaPDT = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtSLTD = new System.Windows.Forms.TextBox();
             this.lbYCCV = new System.Windows.Forms.Label();
             this.dgc_YCCongViec = new System.Windows.Forms.DataGridView();
@@ -41,11 +44,9 @@
             this.lbTheoVT = new System.Windows.Forms.Label();
             this.txtTimTenCty = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.lbTenCTy = new System.Windows.Forms.Label();
-            this.btnXoaPDT = new System.Windows.Forms.Button();
+            this.btnNopHSUT = new System.Windows.Forms.Button();
+            this.txtTimVTDT = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgc_YCCongViec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DSDangTuyen)).BeginInit();
@@ -74,6 +75,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.OldLace;
+            this.panel1.Controls.Add(this.btnNopHSUT);
             this.panel1.Controls.Add(this.btnXoaPDT);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label2);
@@ -89,6 +91,40 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(461, 677);
             this.panel1.TabIndex = 15;
+            // 
+            // btnXoaPDT
+            // 
+            this.btnXoaPDT.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaPDT.ForeColor = System.Drawing.Color.Red;
+            this.btnXoaPDT.Location = new System.Drawing.Point(8, 634);
+            this.btnXoaPDT.Margin = new System.Windows.Forms.Padding(4);
+            this.btnXoaPDT.Name = "btnXoaPDT";
+            this.btnXoaPDT.Size = new System.Drawing.Size(119, 39);
+            this.btnXoaPDT.TabIndex = 28;
+            this.btnXoaPDT.Text = "XOÁ";
+            this.btnXoaPDT.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(196, 218);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(248, 31);
+            this.textBox1.TabIndex = 26;
+            this.textBox1.Text = "HTML, CSS, ReacJS, English";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 221);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(124, 25);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Mô tả yêu cầu";
             // 
             // txtSLTD
             // 
@@ -197,43 +233,6 @@
             this.btnSearch.Text = "Tìm";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Front End",
-            "BackEnd",
-            "DevOps"});
-            this.comboBox1.Location = new System.Drawing.Point(533, 129);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(157, 33);
-            this.comboBox1.TabIndex = 19;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(196, 218);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(248, 31);
-            this.textBox1.TabIndex = 26;
-            this.textBox1.Text = "HTML, CSS, ReacJS, English";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 221);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 25);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Mô tả yêu cầu";
-            // 
             // lbTenCTy
             // 
             this.lbTenCTy.AutoSize = true;
@@ -244,25 +243,35 @@
             this.lbTenCTy.TabIndex = 27;
             this.lbTenCTy.Text = "Tên công ty";
             // 
-            // btnXoaPDT
+            // btnNopHSUT
             // 
-            this.btnXoaPDT.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaPDT.ForeColor = System.Drawing.Color.Red;
-            this.btnXoaPDT.Location = new System.Drawing.Point(338, 635);
-            this.btnXoaPDT.Margin = new System.Windows.Forms.Padding(4);
-            this.btnXoaPDT.Name = "btnXoaPDT";
-            this.btnXoaPDT.Size = new System.Drawing.Size(119, 39);
-            this.btnXoaPDT.TabIndex = 28;
-            this.btnXoaPDT.Text = "XOÁ";
-            this.btnXoaPDT.UseVisualStyleBackColor = true;
+            this.btnNopHSUT.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNopHSUT.ForeColor = System.Drawing.Color.Navy;
+            this.btnNopHSUT.Location = new System.Drawing.Point(333, 634);
+            this.btnNopHSUT.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNopHSUT.Name = "btnNopHSUT";
+            this.btnNopHSUT.Size = new System.Drawing.Size(119, 39);
+            this.btnNopHSUT.TabIndex = 29;
+            this.btnNopHSUT.Text = "NỘP";
+            this.btnNopHSUT.UseVisualStyleBackColor = true;
+            // 
+            // txtTimVTDT
+            // 
+            this.txtTimVTDT.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimVTDT.Location = new System.Drawing.Point(533, 129);
+            this.txtTimVTDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTimVTDT.Name = "txtTimVTDT";
+            this.txtTimVTDT.Size = new System.Drawing.Size(157, 31);
+            this.txtTimVTDT.TabIndex = 28;
+            this.txtTimVTDT.Text = "DevOps";
             // 
             // XemPhieuDangTuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1301, 699);
+            this.Controls.Add(this.txtTimVTDT);
             this.Controls.Add(this.lbTenCTy);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtTimTenCty);
             this.Controls.Add(this.lbTheoVT);
@@ -292,7 +301,6 @@
         private System.Windows.Forms.Label lbTheoVT;
         private System.Windows.Forms.TextBox txtTimTenCty;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lbYCCV;
         private System.Windows.Forms.DataGridView dgc_YCCongViec;
         private System.Windows.Forms.TextBox txtSLTD;
@@ -300,5 +308,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbTenCTy;
         private System.Windows.Forms.Button btnXoaPDT;
+        private System.Windows.Forms.Button btnNopHSUT;
+        private System.Windows.Forms.TextBox txtTimVTDT;
     }
 }
