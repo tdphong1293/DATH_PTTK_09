@@ -8,19 +8,19 @@ GO
 
 CREATE TABLE THANHVIEN (
   IDThanhVien INT IDENTITY(1,1) NOT NULL,
-  TenDangNhap VARCHAR(30) UNIQUE,
-  Ten VARCHAR(50),
-  Email VARCHAR(30),
-  MatKhau VARCHAR(20) NOT NULL,
-  LoaiThanhVien VARCHAR(20) CHECK (LoaiThanhVien IN ('DOANHNGHIEP', 'UNGVIEN', 'NHANVIEN')),
+  TenDangNhap CHAR(30) UNIQUE,
+  Ten NVARCHAR(50),
+  Email CHAR(50),
+  MatKhau CHAR(30) NOT NULL,
+  LoaiThanhVien CHAR(20) CHECK (LoaiThanhVien IN ('DOANHNGHIEP', 'UNGVIEN', 'NHANVIEN')),
   PRIMARY KEY (IDThanhVien)
 );
 
 CREATE TABLE DOANHNGHIEP (
   IDDoanhNghiep INT PRIMARY KEY,
   MaSoThue INT,
-  NguoiDaiDien VARCHAR(50),
-  DiaChi VARCHAR(100),
+  NguoiDaiDien NVARCHAR(50),
+  DiaChi NVARCHAR(100),
   UuDai FLOAT
 );
 
@@ -31,13 +31,13 @@ CREATE TABLE UNGVIEN (
 
 CREATE TABLE NHANVIEN (
   IDNhanVien INT PRIMARY KEY,
-  VaiTro VARCHAR(50) CHECK (VaiTro IN ('Ban Lãnh Đạo', 'Nhân Viên Cơ Bản'))
+  VaiTro NVARCHAR(50) CHECK (VaiTro IN (N'Ban lãnh đạo', N'Nhân viên cơ bản'))
 );
 
 CREATE TABLE THANHTOAN (
   IDThanhToan INT IDENTITY(1,1) NOT NULL,
   NgayGiaoDich DATE,
-  HinhThucTT VARCHAR(50),
+  HinhThucTT VARCHAR(10) CHECK (HinhThucTT IN('cash', 'card')),
   SoTienCanThanhToan BIGINT,
   Dot INT,
   IDHoaDon INT,
@@ -49,19 +49,19 @@ CREATE TABLE HOADON (
   IDHoaDon INT IDENTITY(1,1) NOT NULL,
   TongTien BIGINT,
   DaTra BIGINT,
-  LoaiHinhThanhToan VARCHAR(50),
+  LoaiHinhThanhToan NVARCHAR(50) CHECK (LoaiHinhThanhToan IN(N'Toàn bộ', N'Theo đợt')),
   NgayLap DATE,
-  TrangThaiHoanThanh VARCHAR(50),
+  TrangThaiHoanThanh NVARCHAR(50) CHECK (TrangThaiHoanThanh IN(N'Chưa hoàn thành', N'Đã hoàn thành')),
   IDDoanhNghiep INT,
   PRIMARY KEY (IDHoaDon)
 );
 
 CREATE TABLE BANGCAP (
   IDBang INT IDENTITY(1,1) NOT NULL,
-  TenBang VARCHAR(50),
+  TenBang NVARCHAR(100),
   CapBac VARCHAR(50),
   NgayCap DATE,
-  DonViCap VARCHAR(100),
+  DonViCap NVARCHAR(100),
   IDUngVien INT,
   PRIMARY KEY (IDBang)
 );
@@ -70,14 +70,15 @@ CREATE TABLE HOSOUNGTUYEN (
   IDDoanhNghiep INT,
   IDUngVien INT,
   NgayUngTuyen DATE,
-  ViTriUngTuyen VARCHAR(50),
-  DiemDanhGia INT
+  TinhTrangUngTuyen NVARCHAR(50) CHECK (TinhTrangUngTuyen IN (N'Chưa đủ điều kiện', N'Đang xử lý', N'Đủ điều kiện')),
+  ViTriUngTuyen NVARCHAR(50),
+  DiemDanhGia INT CHECK (DiemDanhGia IN(1,2,3,4,5,6,7,8,9,10))
   PRIMARY KEY (IDDoanhNghiep, IDUngVien)
 );
 
 CREATE TABLE PHIEUDANGTUYEN (
   IDPhieuDangTuyen INT IDENTITY(1,1) NOT NULL, 
-  ViTriDangTuyen VARCHAR(50),
+  ViTriDangTuyen NVARCHAR(50),
   SoLuongTuyenDung INT,
   IDDoanhNghiep INT,
   IDPhieuQuangCao INT,
@@ -87,7 +88,7 @@ CREATE TABLE PHIEUDANGTUYEN (
 CREATE TABLE YEUCAUCV (
   IDYeuCau INT IDENTITY(1,1) NOT NULL, 
   IDPhieuDangTuyen INT,
-  MoTa VARCHAR(1000),
+  MoTa NVARCHAR(1000),
   PRIMARY KEY (IDYeuCau, IDPhieuDangTuyen)
 );
 
@@ -95,7 +96,7 @@ CREATE TABLE PHIEUQUANGCAO (
   IDPhieuQuangCao INT IDENTITY(1,1) NOT NULL, 
   NgayBatDau DATE,
   NgayKetThuc DATE,
-  HinhThucDangTuyen VARCHAR(50),
+  HinhThucDangTuyen NVARCHAR(50) check (HinhThucDangTuyen IN(N'Báo giấy', N'Banner quảng cáo', N'Trang mạng')),
   TongTienQuangCao BIGINT,
   PRIMARY KEY (IDPhieuQuangCao)
 );
