@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.btnLogout = new System.Windows.Forms.Button();
+            this.btnNHSTD = new System.Windows.Forms.Button();
             this.btnGiaHanHD = new System.Windows.Forms.Button();
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.btnXLHSUngTuyen = new System.Windows.Forms.Button();
@@ -44,8 +44,8 @@
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlHomeChange = new System.Windows.Forms.Panel();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
-            this.pnlHome.SuspendLayout();
             this.pnlTitle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,7 @@
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.Navy;
             this.pnlMenu.Controls.Add(this.btnLogout);
+            this.pnlMenu.Controls.Add(this.btnNHSTD);
             this.pnlMenu.Controls.Add(this.btnGiaHanHD);
             this.pnlMenu.Controls.Add(this.btnThanhToan);
             this.pnlMenu.Controls.Add(this.btnXLHSUngTuyen);
@@ -62,34 +63,31 @@
             this.pnlMenu.Controls.Add(this.btnDangTuyenDung);
             this.pnlMenu.Controls.Add(this.btnSignup);
             this.pnlMenu.Controls.Add(this.btnLogin);
-            this.pnlMenu.Controls.Add(this.pnlHome);
-            this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(227, 853);
             this.pnlMenu.TabIndex = 0;
             // 
-            // btnLogout
+            // btnNHSTD
             // 
-            this.btnLogout.BackColor = System.Drawing.Color.Navy;
-            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(0, 924);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(227, 90);
-            this.btnLogout.TabIndex = 10;
-            this.btnLogout.Text = "Đăng xuất";
-            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnNHSTD.BackColor = System.Drawing.Color.Navy;
+            this.btnNHSTD.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNHSTD.FlatAppearance.BorderSize = 0;
+            this.btnNHSTD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNHSTD.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNHSTD.ForeColor = System.Drawing.Color.White;
+            this.btnNHSTD.Location = new System.Drawing.Point(0, 720);
+            this.btnNHSTD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNHSTD.Name = "btnNHSTD";
+            this.btnNHSTD.Size = new System.Drawing.Size(227, 90);
+            this.btnNHSTD.TabIndex = 10;
+            this.btnNHSTD.Text = "Nộp hồ sơ tuyển dụng";
+            this.btnNHSTD.UseVisualStyleBackColor = false;
             // 
             // btnGiaHanHD
             // 
             this.btnGiaHanHD.BackColor = System.Drawing.Color.Navy;
-            this.btnGiaHanHD.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnGiaHanHD.FlatAppearance.BorderSize = 0;
             this.btnGiaHanHD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGiaHanHD.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,7 +108,7 @@
             this.btnThanhToan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThanhToan.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThanhToan.ForeColor = System.Drawing.Color.White;
-            this.btnThanhToan.Location = new System.Drawing.Point(0, 744);
+            this.btnThanhToan.Location = new System.Drawing.Point(0, 630);
             this.btnThanhToan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(227, 90);
@@ -126,7 +124,7 @@
             this.btnXLHSUngTuyen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXLHSUngTuyen.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXLHSUngTuyen.ForeColor = System.Drawing.Color.White;
-            this.btnXLHSUngTuyen.Location = new System.Drawing.Point(0, 654);
+            this.btnXLHSUngTuyen.Location = new System.Drawing.Point(0, 540);
             this.btnXLHSUngTuyen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXLHSUngTuyen.Name = "btnXLHSUngTuyen";
             this.btnXLHSUngTuyen.Size = new System.Drawing.Size(227, 90);
@@ -143,7 +141,7 @@
             this.btnXLDTD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXLDTD.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXLDTD.ForeColor = System.Drawing.Color.White;
-            this.btnXLDTD.Location = new System.Drawing.Point(0, 564);
+            this.btnXLDTD.Location = new System.Drawing.Point(0, 450);
             this.btnXLDTD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXLDTD.Name = "btnXLDTD";
             this.btnXLDTD.Size = new System.Drawing.Size(227, 90);
@@ -160,7 +158,7 @@
             this.btnDuyetHSDaQuaXL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDuyetHSDaQuaXL.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDuyetHSDaQuaXL.ForeColor = System.Drawing.Color.White;
-            this.btnDuyetHSDaQuaXL.Location = new System.Drawing.Point(0, 474);
+            this.btnDuyetHSDaQuaXL.Location = new System.Drawing.Point(0, 360);
             this.btnDuyetHSDaQuaXL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDuyetHSDaQuaXL.Name = "btnDuyetHSDaQuaXL";
             this.btnDuyetHSDaQuaXL.Size = new System.Drawing.Size(227, 90);
@@ -176,7 +174,7 @@
             this.btnXemPDT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXemPDT.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXemPDT.ForeColor = System.Drawing.Color.White;
-            this.btnXemPDT.Location = new System.Drawing.Point(0, 384);
+            this.btnXemPDT.Location = new System.Drawing.Point(0, 270);
             this.btnXemPDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemPDT.Name = "btnXemPDT";
             this.btnXemPDT.Size = new System.Drawing.Size(227, 90);
@@ -193,7 +191,7 @@
             this.btnDangTuyenDung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangTuyenDung.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangTuyenDung.ForeColor = System.Drawing.Color.White;
-            this.btnDangTuyenDung.Location = new System.Drawing.Point(0, 294);
+            this.btnDangTuyenDung.Location = new System.Drawing.Point(0, 180);
             this.btnDangTuyenDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDangTuyenDung.Name = "btnDangTuyenDung";
             this.btnDangTuyenDung.Size = new System.Drawing.Size(227, 90);
@@ -210,7 +208,7 @@
             this.btnSignup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSignup.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignup.ForeColor = System.Drawing.Color.White;
-            this.btnSignup.Location = new System.Drawing.Point(0, 204);
+            this.btnSignup.Location = new System.Drawing.Point(0, 90);
             this.btnSignup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(227, 90);
@@ -227,7 +225,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(0, 114);
+            this.btnLogin.Location = new System.Drawing.Point(0, 0);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(227, 90);
@@ -241,11 +239,9 @@
             this.pnlHome.BackColor = System.Drawing.Color.Navy;
             this.pnlHome.BackgroundImage = global::Nhom09_083_388_392_537_708.Properties.Resources.logo1;
             this.pnlHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlHome.Controls.Add(this.btnLogo);
-            this.pnlHome.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHome.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlHome.ForeColor = System.Drawing.Color.White;
-            this.pnlHome.Location = new System.Drawing.Point(0, 0);
+            this.pnlHome.Location = new System.Drawing.Point(627, 130);
             this.pnlHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlHome.Name = "pnlHome";
             this.pnlHome.Size = new System.Drawing.Size(227, 114);
@@ -256,8 +252,8 @@
             this.btnLogo.BackgroundImage = global::Nhom09_083_388_392_537_708.Properties.Resources.Logo_ABC;
             this.btnLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogo.Location = new System.Drawing.Point(0, 0);
-            this.btnLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogo.Location = new System.Drawing.Point(334, 130);
+            this.btnLogo.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogo.Name = "btnLogo";
             this.btnLogo.Size = new System.Drawing.Size(227, 114);
             this.btnLogo.TabIndex = 0;
@@ -269,10 +265,10 @@
             this.pnlTitle.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.pnlTitle.Controls.Add(this.lblTitle);
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTitle.Location = new System.Drawing.Point(227, 0);
+            this.pnlTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(1355, 114);
+            this.pnlTitle.Size = new System.Drawing.Size(1582, 114);
             this.pnlTitle.TabIndex = 1;
             // 
             // lblTitle
@@ -289,21 +285,38 @@
             // pnlHomeChange
             // 
             this.pnlHomeChange.BackColor = System.Drawing.Color.White;
-            this.pnlHomeChange.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlHomeChange.Location = new System.Drawing.Point(227, 114);
+            this.pnlHomeChange.Location = new System.Drawing.Point(318, 174);
             this.pnlHomeChange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlHomeChange.Name = "pnlHomeChange";
             this.pnlHomeChange.Size = new System.Drawing.Size(1355, 739);
             this.pnlHomeChange.TabIndex = 2;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.Navy;
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Location = new System.Drawing.Point(0, 810);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(227, 90);
+            this.btnLogout.TabIndex = 11;
+            this.btnLogout.Text = "Đăng xuất";
+            this.btnLogout.UseVisualStyleBackColor = false;
             // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1582, 853);
+            this.Controls.Add(this.btnLogo);
             this.Controls.Add(this.pnlHomeChange);
             this.Controls.Add(this.pnlTitle);
             this.Controls.Add(this.pnlMenu);
+            this.Controls.Add(this.pnlHome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainMenuForm";
@@ -311,7 +324,6 @@
             this.Text = "MainMenuForm";
             this.Load += new System.EventHandler(this.MainMenuForm_Load);
             this.pnlMenu.ResumeLayout(false);
-            this.pnlHome.ResumeLayout(false);
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
             this.ResumeLayout(false);
@@ -323,7 +335,7 @@
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Panel pnlHome;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button btnNHSTD;
         private System.Windows.Forms.Button btnGiaHanHD;
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.Button btnXLHSUngTuyen;
@@ -336,5 +348,6 @@
         private System.Windows.Forms.Panel pnlHomeChange;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnLogo;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

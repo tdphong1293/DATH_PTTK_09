@@ -94,7 +94,7 @@ namespace Nhom09_083_388_392_537_708
             btnXLHSUngTuyen.Visible = false;
             btnThanhToan.Visible = false;
             btnGiaHanHD.Visible = false;
-            btnLogout.Visible = false;
+            btnNHSTD.Visible = false;
             ActivateButton(btnLogin);
             CenterLabelInPanel(lblTitle, pnlTitle);
             loginForm = new FormDangNhap();
@@ -112,7 +112,7 @@ namespace Nhom09_083_388_392_537_708
             if (e is RoleEventArgs roleEventArgs)
             {
                 string role = roleEventArgs.Role;
-                if (role == "NVCOBAN")
+                if (role == "NHANVIEN")
                 {                   
                     pnlHomeChange.Controls.Clear();
                     btnXemPDT.Visible = true;
@@ -124,7 +124,7 @@ namespace Nhom09_083_388_392_537_708
                     btnDangTuyenDung.Visible = false;
                     btnDuyetHSDaQuaXL.Visible = false;
                     btnGiaHanHD.Visible = false;
-                    btnLogout.Visible = true;
+                    btnNHSTD.Visible = true;
                     XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen();
                     xpdt.TopLevel = false;
                     xpdt.FormBorderStyle = FormBorderStyle.None;
@@ -144,7 +144,28 @@ namespace Nhom09_083_388_392_537_708
                     btnXLHSUngTuyen.Visible = false;
                     btnThanhToan.Visible = false;
                     btnGiaHanHD.Visible = false;
-                    btnLogout.Visible = true;
+                    btnNHSTD.Visible = true;
+                    XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen();
+                    xpdt.TopLevel = false;
+                    xpdt.FormBorderStyle = FormBorderStyle.None;
+                    xpdt.Dock = DockStyle.Fill;
+                    pnlHomeChange.Controls.Add(xpdt);
+                    xpdt.Show();
+                }
+
+                else if (role == "UNGVIEN")
+                {
+                    pnlHomeChange.Controls.Clear();
+                    btnDangTuyenDung.Visible = false;
+                    btnDuyetHSDaQuaXL.Visible = false;
+                    btnXemPDT.Visible = false;
+                    btnLogin.Visible = false;
+                    btnSignup.Visible = false;
+                    btnXLHSUngTuyen.Visible = false;
+                    btnThanhToan.Visible = false;
+                    btnGiaHanHD.Visible = false;
+                    btn
+                    btnNHSTD.Visible = true;
                     XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen();
                     xpdt.TopLevel = false;
                     xpdt.FormBorderStyle = FormBorderStyle.None;
