@@ -59,7 +59,7 @@ namespace Nhom09_083_388_392_537_708
                     MessageBox.Show("Tên không hợp lệ");
                 }
                 else if (string.IsNullOrEmpty(txt_email_dn.Text) || (txt_email_dn.Text).Length > 50)
-                {55
+                {
                     MessageBox.Show("Email không hợp lệ");
                 }
                 else if (string.IsNullOrEmpty(txt_tax_dn.Text) || (txt_tax_dn.Text).Length != 10)
