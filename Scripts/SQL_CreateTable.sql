@@ -38,7 +38,7 @@ CREATE TABLE THANHTOAN (
   IDThanhToan INT IDENTITY(1,1) NOT NULL,
   NgayGiaoDich DATE,
   HinhThucTT VARCHAR(10) CHECK (HinhThucTT IN('cash', 'card')),
-  SoTienCanThanhToan BIGINT,
+  SoTienCanThanhToan FLOAT,
   Dot INT,
   IDHoaDon INT,
   IDNhanVien INT,
@@ -47,8 +47,8 @@ CREATE TABLE THANHTOAN (
 
 CREATE TABLE HOADON (
   IDHoaDon INT IDENTITY(1,1) NOT NULL,
-  TongTien BIGINT,
-  DaTra BIGINT,
+  TongTien FLOAT,
+  DaTra FLOAT,
   LoaiHinhThanhToan NVARCHAR(50) CHECK (LoaiHinhThanhToan IN(N'Toàn bộ', N'Theo đợt')),
   NgayLap DATE,
   TrangThaiHoanThanh NVARCHAR(50) CHECK (TrangThaiHoanThanh IN(N'Chưa hoàn thành', N'Đã hoàn thành')),
@@ -97,7 +97,7 @@ CREATE TABLE PHIEUQUANGCAO (
   NgayBatDau DATE,
   NgayKetThuc DATE,
   HinhThucDangTuyen NVARCHAR(50) check (HinhThucDangTuyen IN(N'Báo giấy', N'Banner quảng cáo', N'Trang mạng')),
-  TongTienQuangCao BIGINT,
+  TongTienQuangCao FLOAT,
   PRIMARY KEY (IDPhieuQuangCao)
 );
 
