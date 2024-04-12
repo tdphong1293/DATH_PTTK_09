@@ -16,7 +16,6 @@ namespace Nhom09_083_388_392_537_708
     {
         public event EventHandler ButtonClicked;
         public string role;
-        ServerConnection conn = new ServerConnection();
         public FormDangNhap()
         {
             InitializeComponent();
@@ -32,7 +31,6 @@ namespace Nhom09_083_388_392_537_708
             }
             else
             {
-                role = conn.checkLogin(tbxUsername.Text, tbxPassword.Text);
                 if (string.IsNullOrEmpty(role))
                 {
                     MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác!!!");
