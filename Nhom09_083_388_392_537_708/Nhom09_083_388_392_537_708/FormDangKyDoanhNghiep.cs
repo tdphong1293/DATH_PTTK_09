@@ -38,11 +38,11 @@ namespace Nhom09_083_388_392_537_708
             }
         }
 
-        private void btn_DangKyUngVien_Click(object sender, EventArgs e)
+        private void btn_DangKyDoanhNghiep_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!ValidateInputString(txt_name_dn.Text))
+                if (!ValidateInputString(txt_username_dn.Text))
                 {
                     MessageBox.Show("Tên đăng nhập không hợp lệ");
                 }
@@ -56,7 +56,7 @@ namespace Nhom09_083_388_392_537_708
                 }
                 else if (string.IsNullOrEmpty(txt_name_dn.Text) || (txt_name_dn.Text).Length > 50)
                 {
-                    MessageBox.Show("Tên không hợp lệ");
+                    MessageBox.Show("Tên công ty không hợp lệ");
                 }
                 else if (string.IsNullOrEmpty(txt_email_dn.Text) || (txt_email_dn.Text).Length > 50)
                 {

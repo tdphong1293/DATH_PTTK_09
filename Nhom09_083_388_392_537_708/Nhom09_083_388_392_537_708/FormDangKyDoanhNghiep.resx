@@ -117,4 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="txt_inputvalidation.Text" xml:space="preserve">
+    <value>* Lưu ý: 
+Tên đăng nhập và mật khẩu chỉ chấp nhận kí tự chữ và số, có độ dài không quá 30 ký tự
+
+Mã số thuế không được để trống và phải có đủ 10 ký tự
+
+Địa chỉ công ty không được để trống và độ dài không quá 100 ký tự
+
+Các trường còn lại không được để trống và độ dài không quá 50 ký tự</value>
+  </data>
 </root>

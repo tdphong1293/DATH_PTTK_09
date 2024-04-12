@@ -42,7 +42,7 @@ namespace Nhom09_083_388_392_537_708
         {
             try
             {
-                if (!ValidateInputString(txt_name_uv.Text))
+                if (!ValidateInputString(txt_username_uv.Text))
                 {
                     MessageBox.Show("Tên đăng nhập không hợp lệ");
                 }
@@ -56,7 +56,7 @@ namespace Nhom09_083_388_392_537_708
                 }
                 else if (string.IsNullOrEmpty(txt_name_uv.Text) || (txt_name_uv.Text).Length > 50)
                 {
-                    MessageBox.Show("Tên không hợp lệ");
+                    MessageBox.Show("Tên ứng viên không hợp lệ");
                 }
                 else if (string.IsNullOrEmpty(txt_email_uv.Text) || (txt_email_uv.Text).Length > 50)
                 {
