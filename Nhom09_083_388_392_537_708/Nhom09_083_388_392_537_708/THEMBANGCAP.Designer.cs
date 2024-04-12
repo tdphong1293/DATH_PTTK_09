@@ -33,10 +33,10 @@
             this.lb_DonViCap = new System.Windows.Forms.Label();
             this.lb_NgayCap = new System.Windows.Forms.Label();
             this.lb_titleNhapTTBangCap = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tb_TenBang = new System.Windows.Forms.TextBox();
+            this.dtpk_NgayCap = new System.Windows.Forms.DateTimePicker();
+            this.tb_CapBac = new System.Windows.Forms.TextBox();
+            this.tb_DonViCap = new System.Windows.Forms.TextBox();
             this.btn_XacNhan = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -87,33 +87,33 @@
             this.lb_titleNhapTTBangCap.TabIndex = 4;
             this.lb_titleNhapTTBangCap.Text = "Nhập thông tin bằng cấp";
             // 
-            // textBox1
+            // tb_TenBang
             // 
-            this.textBox1.Location = new System.Drawing.Point(140, 90);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(238, 27);
-            this.textBox1.TabIndex = 5;
+            this.tb_TenBang.Location = new System.Drawing.Point(140, 90);
+            this.tb_TenBang.Name = "tb_TenBang";
+            this.tb_TenBang.Size = new System.Drawing.Size(238, 27);
+            this.tb_TenBang.TabIndex = 5;
             // 
-            // dateTimePicker1
+            // dtpk_NgayCap
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(140, 174);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(238, 27);
-            this.dateTimePicker1.TabIndex = 6;
+            this.dtpk_NgayCap.Location = new System.Drawing.Point(140, 174);
+            this.dtpk_NgayCap.Name = "dtpk_NgayCap";
+            this.dtpk_NgayCap.Size = new System.Drawing.Size(238, 27);
+            this.dtpk_NgayCap.TabIndex = 6;
             // 
-            // textBox2
+            // tb_CapBac
             // 
-            this.textBox2.Location = new System.Drawing.Point(140, 132);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(238, 27);
-            this.textBox2.TabIndex = 7;
+            this.tb_CapBac.Location = new System.Drawing.Point(140, 132);
+            this.tb_CapBac.Name = "tb_CapBac";
+            this.tb_CapBac.Size = new System.Drawing.Size(238, 27);
+            this.tb_CapBac.TabIndex = 7;
             // 
-            // textBox3
+            // tb_DonViCap
             // 
-            this.textBox3.Location = new System.Drawing.Point(140, 213);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(238, 27);
-            this.textBox3.TabIndex = 8;
+            this.tb_DonViCap.Location = new System.Drawing.Point(140, 213);
+            this.tb_DonViCap.Name = "tb_DonViCap";
+            this.tb_DonViCap.Size = new System.Drawing.Size(238, 27);
+            this.tb_DonViCap.TabIndex = 8;
             // 
             // btn_XacNhan
             // 
@@ -134,10 +134,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 339);
             this.Controls.Add(this.btn_XacNhan);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tb_DonViCap);
+            this.Controls.Add(this.tb_CapBac);
+            this.Controls.Add(this.dtpk_NgayCap);
+            this.Controls.Add(this.tb_TenBang);
             this.Controls.Add(this.lb_titleNhapTTBangCap);
             this.Controls.Add(this.lb_NgayCap);
             this.Controls.Add(this.lb_DonViCap);
@@ -160,10 +160,10 @@
         private System.Windows.Forms.Label lb_DonViCap;
         private System.Windows.Forms.Label lb_NgayCap;
         private System.Windows.Forms.Label lb_titleNhapTTBangCap;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tb_TenBang;
+        private System.Windows.Forms.DateTimePicker dtpk_NgayCap;
+        private System.Windows.Forms.TextBox tb_CapBac;
+        private System.Windows.Forms.TextBox tb_DonViCap;
         private System.Windows.Forms.Button btn_XacNhan;
     }
 }
