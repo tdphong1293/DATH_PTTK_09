@@ -11,6 +11,7 @@
 *.sln.docstates
 
 Nhom09_083_388_392_537_708/obj
+ServerConnection.cs
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
