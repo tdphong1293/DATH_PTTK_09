@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.gbxTttd = new System.Windows.Forms.GroupBox();
-            this.lblVttd = new System.Windows.Forms.Label();
-            this.lblSltd = new System.Windows.Forms.Label();
-            this.lblMota = new System.Windows.Forms.Label();
-            this.tbxVTTD = new System.Windows.Forms.TextBox();
-            this.tbxSLTD = new System.Windows.Forms.TextBox();
             this.tbxMoTa = new System.Windows.Forms.TextBox();
+            this.tbxSLTD = new System.Windows.Forms.TextBox();
+            this.tbxVTTD = new System.Windows.Forms.TextBox();
+            this.lblMota = new System.Windows.Forms.Label();
+            this.lblSltd = new System.Windows.Forms.Label();
+            this.lblVttd = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dtpNBD = new System.Windows.Forms.DateTimePicker();
-            this.lblNBD = new System.Windows.Forms.Label();
-            this.lblNKT = new System.Windows.Forms.Label();
-            this.dtpNKT = new System.Windows.Forms.DateTimePicker();
-            this.lblHTDT = new System.Windows.Forms.Label();
-            this.cbxHTDT = new System.Windows.Forms.ComboBox();
-            this.lblHTTT = new System.Windows.Forms.Label();
-            this.cbxHTTT = new System.Windows.Forms.ComboBox();
-            this.lblTongTien = new System.Windows.Forms.Label();
             this.tbxTongTien = new System.Windows.Forms.TextBox();
+            this.lblTongTien = new System.Windows.Forms.Label();
+            this.cbxHTTT = new System.Windows.Forms.ComboBox();
+            this.lblHTTT = new System.Windows.Forms.Label();
+            this.cbxHTDT = new System.Windows.Forms.ComboBox();
+            this.lblHTDT = new System.Windows.Forms.Label();
+            this.dtpNKT = new System.Windows.Forms.DateTimePicker();
+            this.lblNKT = new System.Windows.Forms.Label();
+            this.lblNBD = new System.Windows.Forms.Label();
+            this.dtpNBD = new System.Windows.Forms.DateTimePicker();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.lblDTD = new System.Windows.Forms.Label();
             this.gbxTttd.SuspendLayout();
@@ -68,23 +68,27 @@
             this.gbxTttd.TabStop = false;
             this.gbxTttd.Text = "Thông tin tuyển dụng";
             // 
-            // lblVttd
+            // tbxMoTa
             // 
-            this.lblVttd.AutoSize = true;
-            this.lblVttd.Location = new System.Drawing.Point(6, 52);
-            this.lblVttd.Name = "lblVttd";
-            this.lblVttd.Size = new System.Drawing.Size(146, 24);
-            this.lblVttd.TabIndex = 0;
-            this.lblVttd.Text = "Vị trí tuyển dụng";
+            this.tbxMoTa.Location = new System.Drawing.Point(6, 222);
+            this.tbxMoTa.Multiline = true;
+            this.tbxMoTa.Name = "tbxMoTa";
+            this.tbxMoTa.Size = new System.Drawing.Size(602, 254);
+            this.tbxMoTa.TabIndex = 5;
             // 
-            // lblSltd
+            // tbxSLTD
             // 
-            this.lblSltd.AutoSize = true;
-            this.lblSltd.Location = new System.Drawing.Point(6, 122);
-            this.lblSltd.Name = "lblSltd";
-            this.lblSltd.Size = new System.Drawing.Size(186, 24);
-            this.lblSltd.TabIndex = 1;
-            this.lblSltd.Text = "Số lượng tuyển dụng";
+            this.tbxSLTD.Location = new System.Drawing.Point(226, 119);
+            this.tbxSLTD.Name = "tbxSLTD";
+            this.tbxSLTD.Size = new System.Drawing.Size(382, 28);
+            this.tbxSLTD.TabIndex = 4;
+            // 
+            // tbxVTTD
+            // 
+            this.tbxVTTD.Location = new System.Drawing.Point(226, 49);
+            this.tbxVTTD.Name = "tbxVTTD";
+            this.tbxVTTD.Size = new System.Drawing.Size(382, 28);
+            this.tbxVTTD.TabIndex = 3;
             // 
             // lblMota
             // 
@@ -95,27 +99,23 @@
             this.lblMota.TabIndex = 2;
             this.lblMota.Text = "Mô tả";
             // 
-            // tbxVTTD
+            // lblSltd
             // 
-            this.tbxVTTD.Location = new System.Drawing.Point(226, 49);
-            this.tbxVTTD.Name = "tbxVTTD";
-            this.tbxVTTD.Size = new System.Drawing.Size(382, 28);
-            this.tbxVTTD.TabIndex = 3;
+            this.lblSltd.AutoSize = true;
+            this.lblSltd.Location = new System.Drawing.Point(6, 122);
+            this.lblSltd.Name = "lblSltd";
+            this.lblSltd.Size = new System.Drawing.Size(186, 24);
+            this.lblSltd.TabIndex = 1;
+            this.lblSltd.Text = "Số lượng tuyển dụng";
             // 
-            // tbxSLTD
+            // lblVttd
             // 
-            this.tbxSLTD.Location = new System.Drawing.Point(226, 119);
-            this.tbxSLTD.Name = "tbxSLTD";
-            this.tbxSLTD.Size = new System.Drawing.Size(382, 28);
-            this.tbxSLTD.TabIndex = 4;
-            // 
-            // tbxMoTa
-            // 
-            this.tbxMoTa.Location = new System.Drawing.Point(6, 222);
-            this.tbxMoTa.Multiline = true;
-            this.tbxMoTa.Name = "tbxMoTa";
-            this.tbxMoTa.Size = new System.Drawing.Size(602, 254);
-            this.tbxMoTa.TabIndex = 5;
+            this.lblVttd.AutoSize = true;
+            this.lblVttd.Location = new System.Drawing.Point(6, 52);
+            this.lblVttd.Name = "lblVttd";
+            this.lblVttd.Size = new System.Drawing.Size(146, 24);
+            this.lblVttd.TabIndex = 0;
+            this.lblVttd.Text = "Vị trí tuyển dụng";
             // 
             // groupBox1
             // 
@@ -137,81 +137,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thời gian và thanh toán";
             // 
-            // dtpNBD
-            // 
-            this.dtpNBD.Location = new System.Drawing.Point(178, 59);
-            this.dtpNBD.Name = "dtpNBD";
-            this.dtpNBD.Size = new System.Drawing.Size(336, 28);
-            this.dtpNBD.TabIndex = 0;
-            // 
-            // lblNBD
-            // 
-            this.lblNBD.AutoSize = true;
-            this.lblNBD.Location = new System.Drawing.Point(19, 59);
-            this.lblNBD.Name = "lblNBD";
-            this.lblNBD.Size = new System.Drawing.Size(122, 24);
-            this.lblNBD.TabIndex = 6;
-            this.lblNBD.Text = "Ngày bắt đầu";
-            // 
-            // lblNKT
-            // 
-            this.lblNKT.AutoSize = true;
-            this.lblNKT.Location = new System.Drawing.Point(19, 149);
-            this.lblNKT.Name = "lblNKT";
-            this.lblNKT.Size = new System.Drawing.Size(124, 24);
-            this.lblNKT.TabIndex = 7;
-            this.lblNKT.Text = "Ngày kết thúc";
-            // 
-            // dtpNKT
-            // 
-            this.dtpNKT.Location = new System.Drawing.Point(178, 144);
-            this.dtpNKT.Name = "dtpNKT";
-            this.dtpNKT.Size = new System.Drawing.Size(336, 28);
-            this.dtpNKT.TabIndex = 8;
-            // 
-            // lblHTDT
-            // 
-            this.lblHTDT.AutoSize = true;
-            this.lblHTDT.Location = new System.Drawing.Point(19, 245);
-            this.lblHTDT.Name = "lblHTDT";
-            this.lblHTDT.Size = new System.Drawing.Size(191, 24);
-            this.lblHTDT.TabIndex = 9;
-            this.lblHTDT.Text = "Hình thức đăng tuyển";
-            // 
-            // cbxHTDT
-            // 
-            this.cbxHTDT.FormattingEnabled = true;
-            this.cbxHTDT.Location = new System.Drawing.Point(229, 242);
-            this.cbxHTDT.Name = "cbxHTDT";
-            this.cbxHTDT.Size = new System.Drawing.Size(285, 30);
-            this.cbxHTDT.TabIndex = 10;
-            // 
-            // lblHTTT
-            // 
-            this.lblHTTT.AutoSize = true;
-            this.lblHTTT.Location = new System.Drawing.Point(19, 337);
-            this.lblHTTT.Name = "lblHTTT";
-            this.lblHTTT.Size = new System.Drawing.Size(184, 24);
-            this.lblHTTT.TabIndex = 11;
-            this.lblHTTT.Text = "Hình thức thanh toán";
-            // 
-            // cbxHTTT
-            // 
-            this.cbxHTTT.FormattingEnabled = true;
-            this.cbxHTTT.Location = new System.Drawing.Point(229, 334);
-            this.cbxHTTT.Name = "cbxHTTT";
-            this.cbxHTTT.Size = new System.Drawing.Size(285, 30);
-            this.cbxHTTT.TabIndex = 12;
-            // 
-            // lblTongTien
-            // 
-            this.lblTongTien.AutoSize = true;
-            this.lblTongTien.Location = new System.Drawing.Point(19, 424);
-            this.lblTongTien.Name = "lblTongTien";
-            this.lblTongTien.Size = new System.Drawing.Size(90, 24);
-            this.lblTongTien.TabIndex = 13;
-            this.lblTongTien.Text = "Tổng tiền";
-            // 
             // tbxTongTien
             // 
             this.tbxTongTien.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -222,6 +147,89 @@
             this.tbxTongTien.ReadOnly = true;
             this.tbxTongTien.Size = new System.Drawing.Size(285, 28);
             this.tbxTongTien.TabIndex = 6;
+            // 
+            // lblTongTien
+            // 
+            this.lblTongTien.AutoSize = true;
+            this.lblTongTien.Location = new System.Drawing.Point(19, 424);
+            this.lblTongTien.Name = "lblTongTien";
+            this.lblTongTien.Size = new System.Drawing.Size(90, 24);
+            this.lblTongTien.TabIndex = 13;
+            this.lblTongTien.Text = "Tổng tiền";
+            // 
+            // cbxHTTT
+            // 
+            this.cbxHTTT.FormattingEnabled = true;
+            this.cbxHTTT.Items.AddRange(new object[] {
+            "Trực tiếp",
+            "Thẻ"});
+            this.cbxHTTT.Location = new System.Drawing.Point(229, 334);
+            this.cbxHTTT.Name = "cbxHTTT";
+            this.cbxHTTT.Size = new System.Drawing.Size(285, 30);
+            this.cbxHTTT.TabIndex = 12;
+            this.cbxHTTT.SelectedValueChanged += new System.EventHandler(this.cbxHTTT_SelectedValueChanged);
+            // 
+            // lblHTTT
+            // 
+            this.lblHTTT.AutoSize = true;
+            this.lblHTTT.Location = new System.Drawing.Point(19, 337);
+            this.lblHTTT.Name = "lblHTTT";
+            this.lblHTTT.Size = new System.Drawing.Size(184, 24);
+            this.lblHTTT.TabIndex = 11;
+            this.lblHTTT.Text = "Hình thức thanh toán";
+            // 
+            // cbxHTDT
+            // 
+            this.cbxHTDT.FormattingEnabled = true;
+            this.cbxHTDT.Items.AddRange(new object[] {
+            "Đăng tuyển trên báo giấy",
+            "Đăng banner quảng cáo",
+            "Đăng trên các trang mạng"});
+            this.cbxHTDT.Location = new System.Drawing.Point(229, 242);
+            this.cbxHTDT.Name = "cbxHTDT";
+            this.cbxHTDT.Size = new System.Drawing.Size(285, 30);
+            this.cbxHTDT.TabIndex = 10;
+            // 
+            // lblHTDT
+            // 
+            this.lblHTDT.AutoSize = true;
+            this.lblHTDT.Location = new System.Drawing.Point(19, 245);
+            this.lblHTDT.Name = "lblHTDT";
+            this.lblHTDT.Size = new System.Drawing.Size(191, 24);
+            this.lblHTDT.TabIndex = 9;
+            this.lblHTDT.Text = "Hình thức đăng tuyển";
+            // 
+            // dtpNKT
+            // 
+            this.dtpNKT.Location = new System.Drawing.Point(178, 144);
+            this.dtpNKT.Name = "dtpNKT";
+            this.dtpNKT.Size = new System.Drawing.Size(336, 28);
+            this.dtpNKT.TabIndex = 8;
+            // 
+            // lblNKT
+            // 
+            this.lblNKT.AutoSize = true;
+            this.lblNKT.Location = new System.Drawing.Point(19, 149);
+            this.lblNKT.Name = "lblNKT";
+            this.lblNKT.Size = new System.Drawing.Size(124, 24);
+            this.lblNKT.TabIndex = 7;
+            this.lblNKT.Text = "Ngày kết thúc";
+            // 
+            // lblNBD
+            // 
+            this.lblNBD.AutoSize = true;
+            this.lblNBD.Location = new System.Drawing.Point(19, 59);
+            this.lblNBD.Name = "lblNBD";
+            this.lblNBD.Size = new System.Drawing.Size(122, 24);
+            this.lblNBD.TabIndex = 6;
+            this.lblNBD.Text = "Ngày bắt đầu";
+            // 
+            // dtpNBD
+            // 
+            this.dtpNBD.Location = new System.Drawing.Point(178, 59);
+            this.dtpNBD.Name = "dtpNBD";
+            this.dtpNBD.Size = new System.Drawing.Size(336, 28);
+            this.dtpNBD.TabIndex = 0;
             // 
             // btnXacNhan
             // 
