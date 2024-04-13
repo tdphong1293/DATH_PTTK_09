@@ -52,7 +52,6 @@ namespace Nhom09_083_388_392_537_708
                 SqlCommand cmdGetID = new SqlCommand(que, conn);
                 cmdGetID.Parameters.AddWithValue("@username", username);
                 object result = cmdGetID.ExecuteScalar();
-
                 if (result != null)
                 {
                     this.id = result.ToString();
@@ -72,7 +71,7 @@ namespace Nhom09_083_388_392_537_708
                     if (reader.Read()) 
                     {
                         role = reader["LoaiThanhVien"].ToString();
-                        this.username = username;                        
+                        this.username = username;
                         return role;
                     }
                     else

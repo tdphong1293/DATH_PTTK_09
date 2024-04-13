@@ -124,9 +124,9 @@ namespace Nhom09_083_388_392_537_708
         {
             if (e is RoleEventArgs roleEventArgs)
             {
-                string role = roleEventArgs.Role;
-                username = roleEventArgs.username;
-                id = roleEventArgs.id;
+                role = roleEventArgs.Role.Trim();
+                username = roleEventArgs.username.Trim();
+                id = roleEventArgs.id.Trim();
                 if (role == "NHANVIEN")
                 {                   
                     pnlHomeChange.Controls.Clear();

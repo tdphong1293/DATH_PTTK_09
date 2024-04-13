@@ -29,7 +29,7 @@ namespace Nhom09_083_388_392_537_708
         public double LayUuDai(string username)
         {
             //Sửa lại nếu chạy lại script
-            string query = $"select UuDai from THANHVIEN tv, DOANHNGHIEP dn where tv.IDThanhVien = dn.IdThanhVien and TenDangNhap = '{username}';";
+            string query = $"select UuDai from THANHVIEN tv, DOANHNGHIEP dn where tv.IDThanhVien = dn.IdDoanhNghiep and TenDangNhap = '{username}';";
             SqlCommand cmd = new SqlCommand(query, con);
             double UD = (double)cmd.ExecuteScalar();
             return UD;
