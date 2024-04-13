@@ -265,5 +265,44 @@ namespace Nhom09_083_388_392_537_708
             OpenChildForm(new FormDangKyDoanhNghiep(), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            con.Close();
+            pnlHomeChange.Controls.Clear();
+            btnDangTuyenDung.Visible = false;
+            btnXemPDT.Visible = false;
+            btnDuyetHSDaQuaXL.Visible = false;
+            btnXLDTD.Visible = false;
+            btnXLHSUngTuyen.Visible = false;
+            btnThanhToan.Visible = false;
+            btnGiaHanHD.Visible = false;
+            btnNHSTD.Visible = false;
+            btnLogout.Visible = false;
+            btnLogin.Visible = true;
+            btnSignupDN.Visible = true;
+            btnSignupUV.Visible = true;
+            ActivateButton(btnLogin);
+            CenterLabelInPanel(lblTitle, pnlTitle);
+            loginForm = new FormDangNhap();
+            loginForm.ButtonClicked += UI_After_Login;
+            loginForm.TopLevel = false;
+            loginForm.FormBorderStyle = FormBorderStyle.None;
+            loginForm.Dock = DockStyle.Fill;
+            pnlHomeChange.Controls.Add(loginForm);
+            loginForm.Show();
+        }
+
+        //private void MainMenuForm_FormClosing(object sender, FormClosingEventArgs e)
+        //{
+        //    foreach (Form form in Application.OpenForms)
+        //    {
+        //        //MessageBox.Show(form.ToString());
+        //        if (form.Visible)
+        //        {
+        //            form.Close();
+        //        }
+        //    }
+        //}
     }
 }
