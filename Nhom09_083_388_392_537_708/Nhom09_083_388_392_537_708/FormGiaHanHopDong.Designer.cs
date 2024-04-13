@@ -15,6 +15,7 @@
         {
             if (disposing && (components != null))
             {
+                debounceTimer.Dispose();
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -43,18 +44,21 @@
             this.lb_email_dn = new System.Windows.Forms.Label();
             this.lb_name_dn = new System.Windows.Forms.Label();
             this.btn_luudiscount = new System.Windows.Forms.Button();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.status_bar = new System.Windows.Forms.StatusStrip();
             this.status_itemselect = new System.Windows.Forms.ToolStripStatusLabel();
             this.lb_timkiem_dn = new System.Windows.Forms.Label();
-            this.txt_timkiem_dn = new System.Windows.Forms.TextBox();
-            this.lb_dtgv_dn = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txt_timkiem = new System.Windows.Forms.TextBox();
+            this.lb_dtgv = new System.Windows.Forms.Label();
+            this.dtgv_KetQuaTuyenDung = new System.Windows.Forms.DataGridView();
+            this.Col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lb_explain = new System.Windows.Forms.Label();
             this.lb_FormGiaHanHopDong = new System.Windows.Forms.Label();
             this.panel_FormGiaHanHopDong.SuspendLayout();
             this.grpbox_dn.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.status_bar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_KetQuaTuyenDung)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_FormGiaHanHopDong
@@ -62,11 +66,11 @@
             this.panel_FormGiaHanHopDong.BackColor = System.Drawing.Color.OldLace;
             this.panel_FormGiaHanHopDong.Controls.Add(this.grpbox_dn);
             this.panel_FormGiaHanHopDong.Controls.Add(this.btn_luudiscount);
-            this.panel_FormGiaHanHopDong.Controls.Add(this.statusStrip1);
+            this.panel_FormGiaHanHopDong.Controls.Add(this.status_bar);
             this.panel_FormGiaHanHopDong.Controls.Add(this.lb_timkiem_dn);
-            this.panel_FormGiaHanHopDong.Controls.Add(this.txt_timkiem_dn);
-            this.panel_FormGiaHanHopDong.Controls.Add(this.lb_dtgv_dn);
-            this.panel_FormGiaHanHopDong.Controls.Add(this.dataGridView1);
+            this.panel_FormGiaHanHopDong.Controls.Add(this.txt_timkiem);
+            this.panel_FormGiaHanHopDong.Controls.Add(this.lb_dtgv);
+            this.panel_FormGiaHanHopDong.Controls.Add(this.dtgv_KetQuaTuyenDung);
             this.panel_FormGiaHanHopDong.Controls.Add(this.lb_explain);
             this.panel_FormGiaHanHopDong.Controls.Add(this.lb_FormGiaHanHopDong);
             this.panel_FormGiaHanHopDong.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -90,7 +94,7 @@
             this.grpbox_dn.Controls.Add(this.txt_name_dn);
             this.grpbox_dn.Controls.Add(this.lb_email_dn);
             this.grpbox_dn.Controls.Add(this.lb_name_dn);
-            this.grpbox_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpbox_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbox_dn.Location = new System.Drawing.Point(716, 101);
             this.grpbox_dn.Name = "grpbox_dn";
             this.grpbox_dn.Size = new System.Drawing.Size(501, 325);
@@ -112,9 +116,9 @@
             this.lb_discount_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lb_discount_dn.Location = new System.Drawing.Point(11, 277);
             this.lb_discount_dn.Name = "lb_discount_dn";
-            this.lb_discount_dn.Size = new System.Drawing.Size(79, 20);
+            this.lb_discount_dn.Size = new System.Drawing.Size(131, 20);
             this.lb_discount_dn.TabIndex = 75;
-            this.lb_discount_dn.Text = "Ưu đãi (%)";
+            this.lb_discount_dn.Text = "Ưu đãi (%) (0 - 50)";
             // 
             // txt_diachi_dn
             // 
@@ -224,6 +228,7 @@
             // btn_luudiscount
             // 
             this.btn_luudiscount.BackColor = System.Drawing.Color.SpringGreen;
+            this.btn_luudiscount.Enabled = false;
             this.btn_luudiscount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_luudiscount.Location = new System.Drawing.Point(898, 464);
             this.btn_luudiscount.Name = "btn_luudiscount";
@@ -231,23 +236,24 @@
             this.btn_luudiscount.TabIndex = 2;
             this.btn_luudiscount.Text = "Lưu ưu đãi";
             this.btn_luudiscount.UseVisualStyleBackColor = false;
+            this.btn_luudiscount.Click += new System.EventHandler(this.btn_luudiscount_Click);
             // 
-            // statusStrip1
+            // status_bar
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.status_bar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.status_itemselect});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 682);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1240, 25);
-            this.statusStrip1.TabIndex = 65;
-            this.statusStrip1.Text = "statusStrip1";
+            this.status_bar.Location = new System.Drawing.Point(0, 682);
+            this.status_bar.Name = "status_bar";
+            this.status_bar.Size = new System.Drawing.Size(1240, 25);
+            this.status_bar.TabIndex = 65;
+            this.status_bar.Text = "statusStrip1";
             // 
             // status_itemselect
             // 
             this.status_itemselect.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.status_itemselect.Name = "status_itemselect";
-            this.status_itemselect.Size = new System.Drawing.Size(131, 20);
-            this.status_itemselect.Text = "Đã chọn công ty A";
+            this.status_itemselect.Size = new System.Drawing.Size(161, 20);
+            this.status_itemselect.Text = "Chưa chọn công ty nào";
             this.status_itemselect.ToolTipText = "Hiển thị tên công ty đang được chọn";
             // 
             // lb_timkiem_dn
@@ -260,31 +266,56 @@
             this.lb_timkiem_dn.TabIndex = 64;
             this.lb_timkiem_dn.Text = "Tìm kiếm";
             // 
-            // txt_timkiem_dn
+            // txt_timkiem
             // 
-            this.txt_timkiem_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_timkiem_dn.Location = new System.Drawing.Point(528, 101);
-            this.txt_timkiem_dn.Name = "txt_timkiem_dn";
-            this.txt_timkiem_dn.Size = new System.Drawing.Size(169, 27);
-            this.txt_timkiem_dn.TabIndex = 0;
+            this.txt_timkiem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txt_timkiem.Location = new System.Drawing.Point(528, 101);
+            this.txt_timkiem.Name = "txt_timkiem";
+            this.txt_timkiem.Size = new System.Drawing.Size(169, 27);
+            this.txt_timkiem.TabIndex = 0;
+            this.txt_timkiem.TextChanged += new System.EventHandler(this.txt_timkiem_dn_TextChanged);
             // 
-            // lb_dtgv_dn
+            // lb_dtgv
             // 
-            this.lb_dtgv_dn.AutoSize = true;
-            this.lb_dtgv_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_dtgv_dn.Location = new System.Drawing.Point(19, 101);
-            this.lb_dtgv_dn.Name = "lb_dtgv_dn";
-            this.lb_dtgv_dn.Size = new System.Drawing.Size(357, 20);
-            this.lb_dtgv_dn.TabIndex = 52;
-            this.lb_dtgv_dn.Text = "Danh sách kết quả tuyển dụng của các doanh nghiệp";
+            this.lb_dtgv.AutoSize = true;
+            this.lb_dtgv.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lb_dtgv.Location = new System.Drawing.Point(19, 101);
+            this.lb_dtgv.Name = "lb_dtgv";
+            this.lb_dtgv.Size = new System.Drawing.Size(375, 20);
+            this.lb_dtgv.TabIndex = 52;
+            this.lb_dtgv.Text = "Danh sách kết quả tuyển dụng của các doanh nghiệp";
             // 
-            // dataGridView1
+            // dtgv_KetQuaTuyenDung
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 134);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(674, 504);
-            this.dataGridView1.TabIndex = 51;
+            this.dtgv_KetQuaTuyenDung.AllowUserToOrderColumns = true;
+            this.dtgv_KetQuaTuyenDung.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_KetQuaTuyenDung.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Col1,
+            this.Column2,
+            this.Column3});
+            this.dtgv_KetQuaTuyenDung.Location = new System.Drawing.Point(23, 134);
+            this.dtgv_KetQuaTuyenDung.MultiSelect = false;
+            this.dtgv_KetQuaTuyenDung.Name = "dtgv_KetQuaTuyenDung";
+            this.dtgv_KetQuaTuyenDung.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dtgv_KetQuaTuyenDung.Size = new System.Drawing.Size(674, 504);
+            this.dtgv_KetQuaTuyenDung.TabIndex = 51;
+            this.dtgv_KetQuaTuyenDung.TabStop = false;
+            this.dtgv_KetQuaTuyenDung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_KetQuaTuyenDung_CellClick);
+            // 
+            // Col1
+            // 
+            this.Col1.HeaderText = "Column1";
+            this.Col1.Name = "Col1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Column2";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Column3";
+            this.Column3.Name = "Column3";
             // 
             // lb_explain
             // 
@@ -319,9 +350,9 @@
             this.panel_FormGiaHanHopDong.PerformLayout();
             this.grpbox_dn.ResumeLayout(false);
             this.grpbox_dn.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.status_bar.ResumeLayout(false);
+            this.status_bar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_KetQuaTuyenDung)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,12 +361,12 @@
 
         private System.Windows.Forms.Panel panel_FormGiaHanHopDong;
         private System.Windows.Forms.Button btn_luudiscount;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip status_bar;
         private System.Windows.Forms.ToolStripStatusLabel status_itemselect;
         private System.Windows.Forms.Label lb_timkiem_dn;
-        private System.Windows.Forms.TextBox txt_timkiem_dn;
-        private System.Windows.Forms.Label lb_dtgv_dn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txt_timkiem;
+        private System.Windows.Forms.Label lb_dtgv;
+        private System.Windows.Forms.DataGridView dtgv_KetQuaTuyenDung;
         private System.Windows.Forms.Label lb_explain;
         private System.Windows.Forms.Label lb_FormGiaHanHopDong;
         private System.Windows.Forms.GroupBox grpbox_dn;
@@ -351,5 +382,8 @@
         private System.Windows.Forms.TextBox txt_name_dn;
         private System.Windows.Forms.Label lb_email_dn;
         private System.Windows.Forms.Label lb_name_dn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }
