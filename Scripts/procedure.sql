@@ -37,6 +37,7 @@ begin
 end
 
 go
+
 create or alter proc ThemYC 
 	@pdt int,
 	@mota nvarchar(1000)
@@ -59,6 +60,7 @@ begin
 end
 go
 
+
 --Phong
 create or alter procedure CreateUngVien
     @username varchar(30),
@@ -71,7 +73,7 @@ as
 begin
     insert into THANHVIEN (TenDangNhap, MatKhau, Ten, Email, LoaiThanhVien) 
         values (@username, @password, @name, @email, 'DOANHNGHIEP') return @returnid;
-    insert into UNGVIEN (ID) values (@returnid, @birth);
+    insert into UNGVIEN (IDUngVien, NgaySinh) values (@returnid, @birth);
 end;
 go
 
@@ -88,7 +90,7 @@ as
 begin
     insert into THANHVIEN (TenDangNhap, MatKhau, Ten, Email, LoaiThanhVien) 
         values (@username, @password, @name, @email, 'UNGVIEN') return @returnid;
-    insert into UNGVIEN values (@returnid, @masothue, @nguoidaidien, @diachi, 0);
+    insert into DOANHNGHIEP values (@returnid, @masothue, @nguoidaidien, @diachi, 0);
 end;
 go
 
