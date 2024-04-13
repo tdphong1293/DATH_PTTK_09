@@ -32,7 +32,8 @@ namespace Nhom09_083_388_392_537_708
             {
                 if (conn.State != ConnectionState.Open)
                 {
-                    string connStr = "Data Source=DESKTOP-OST9FTB; Initial Catalog = PTTK_ABC; User Id = sa; Password = 123;";
+                    //string connStr = "Data Source=DESKTOP-OST9FTB; Initial Catalog=PTTK_ABC; Integrated Security=True"; //trong
+                    string connStr = "Data Source=ShiphuDOTcpp; Initial Catalog=PTTK_ABC; Integrated Security=True"; // Si Phu
                     conn.ConnectionString = connStr;
                     conn.Open();
                 }

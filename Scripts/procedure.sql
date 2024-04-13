@@ -1,6 +1,7 @@
 ﻿USE PTTK_ABC
 GO
 
+--Trong
 CREATE OR ALTER PROCEDURE checkLogin
     @username VARCHAR(30), 
     @password VARCHAR(30)
@@ -13,6 +14,54 @@ BEGIN
 END
 go
 
+create or alter proc ThemPDT 
+	@vtdt varchar(50),
+	@sltd int,
+	@iddn int,
+	@pqc int
+as
+begin
+	insert into PHIEUDANGTUYEN values(@vtdt, @sltd, @iddn, @pqc);
+end
+
+go
+
+create or alter proc ThemPQC
+	@NBD date,
+	@NKT date,
+	@htdt varchar(50),
+	@tongtien float
+as
+begin
+	insert into PHIEUQUANGCAO values (@NBD, @NKT, @htdt, @tongtien);
+end
+
+go
+
+create or alter proc ThemYC 
+	@pdt int,
+	@mota nvarchar(1000)
+as
+begin
+	insert into YEUCAUCV values(@pdt, @mota);
+end
+
+go
+create or alter proc ThemHD
+	@tongtien float,
+	@datra float,
+	@lhtt nvarchar(50),
+	@ngaylap date,
+	@ttht nvarchar(50),
+	@iddn int
+as
+begin
+	insert into HOADON values(@tongtien, @datra, @lhtt, @ngaylap, @ttht, @iddn);
+end
+go
+
+
+--Phong
 create or alter procedure CreateUngVien
     @username varchar(30),
     @password varchar(30),

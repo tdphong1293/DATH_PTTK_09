@@ -41,13 +41,17 @@ namespace Nhom09_083_388_392_537_708
             int TienTheoNgay = 200000;
             TimeSpan songay = dtpNKT.Value.Subtract(dtpNBD.Value);
             int soNgay = (int)songay.TotalDays;
-            if (cbxHTDT.SelectedValue == "Đăng tuyển trên báo giấy")
+            if (cbxHTDT.SelectedItem.ToString() == "Đăng tuyển trên báo giấy")
             {
                 TienTheoHinhThuc = 1.3;
             }
-            else if (cbxHTDT.SelectedValue == "Đăng banner quảng cáo")
+            else if (cbxHTDT.SelectedItem.ToString() == "Đăng banner quảng cáo")
             {
                 TienTheoHinhThuc = 1.5;
+            }
+            else
+            {
+                TienTheoHinhThuc = 1.0;
             }
             double tongtien = TienTheoNgay * soNgay * TienTheoHinhThuc * (1- LayUuDai(username));
             return Math.Round(tongtien, 2);
@@ -60,6 +64,28 @@ namespace Nhom09_083_388_392_537_708
         private void cbxHTTT_SelectedValueChanged(object sender, EventArgs e)
         {
             tbxTongTien.Text = TinhTongTien().ToString();
+        }
+
+        private void cbxHTDT_SelectedValueChanged(object sender, EventArgs e)
+        {
+            tbxTongTien.Text = TinhTongTien().ToString();
+        }
+
+        private void dtpNKT_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpNKT.Value != null && cbxHTDT.SelectedItem != null && cbxHTTT.SelectedItem != null)
+            {
+                tbxTongTien.Text = TinhTongTien().ToString();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void btnXacNhan_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
