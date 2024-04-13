@@ -164,7 +164,6 @@ namespace Nhom09_083_388_392_537_708
                     btnXLHSUngTuyen.Visible = false;
                     btnThanhToan.Visible = false;
                     btnGiaHanHD.Visible = false;
-                    btn
                     btnNHSTD.Visible = true;
                     XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen();
                     xpdt.TopLevel = false;

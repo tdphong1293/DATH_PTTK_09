@@ -16,7 +16,7 @@ namespace Nhom09_083_388_392_537_708
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new XULYHOSOUNGTUYEN());
+            Application.Run(new DUYET_HS_UNGTUYEN());
 
         }
     }
