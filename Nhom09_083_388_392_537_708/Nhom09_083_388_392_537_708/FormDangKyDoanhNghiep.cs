@@ -82,7 +82,7 @@ namespace Nhom09_083_388_392_537_708
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
                         connection.Open();
-                        using (SqlCommand command = new SqlCommand("CreateDoanhNghiep", connection))
+                        using (SqlCommand command = new SqlCommand("ThemDN", connection))
                         {
                             command.CommandType = CommandType.StoredProcedure;
 
