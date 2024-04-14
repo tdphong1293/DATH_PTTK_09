@@ -21,7 +21,7 @@ namespace Nhom09_083_388_392_537_708
             debounceTimer.Interval = 500;
             debounceTimer.Tick += DebounceTimer_Tick;
             dtgv_KetQuaTuyenDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            SearchAndFillData_KetQuaTuyenDung("");
+            SearchAndFillData_KetQuaUngTuyen("");
         }
 
         private void ThongBao(string noidungtb)
@@ -35,7 +35,7 @@ namespace Nhom09_083_388_392_537_708
             debounceTimer.Start();
         }
 
-        private void SearchAndFillData_KetQuaTuyenDung(string searchtext)
+        private void SearchAndFillData_KetQuaUngTuyen(string searchtext)
         {
             string connectionString = "Data Source=P1293; Initial Catalog = PTTK_ABC; User Id = sa; Password = ducphong1293;";
 
@@ -65,7 +65,7 @@ namespace Nhom09_083_388_392_537_708
         private void DebounceTimer_Tick(object sender, EventArgs e)
         {
             debounceTimer.Stop();
-            SearchAndFillData_KetQuaTuyenDung(txt_timkiem.Text);
+            SearchAndFillData_KetQuaUngTuyen(txt_timkiem.Text);
         }
 
         private void DoanhNghiep_TextBox_Changed(int id)
