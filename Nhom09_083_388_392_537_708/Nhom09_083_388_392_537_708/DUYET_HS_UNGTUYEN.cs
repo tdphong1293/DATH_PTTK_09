@@ -19,12 +19,11 @@ namespace Nhom09_083_388_392_537_708
     public partial class DUYET_HS_UNGTUYEN : Form
     {
         public static SqlConnection con = FormDangNhap.conn;
-        private FormDangNhap formDangNhap;
         private string id;
+        private int idungvien;
         public DUYET_HS_UNGTUYEN(string id)
         {
             InitializeComponent();
-            formDangNhap = new FormDangNhap();
             this.id = id;
             dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_hosoungtuyen.DataSource = LoadData_HoSoUngTuyen().Tables[0];
@@ -51,7 +50,16 @@ namespace Nhom09_083_388_392_537_708
         }
         DataSet LoadData_HoSoUngTuyen()
         {
-            string query = $"SELECT hsut.idungvien as IDUngVien, tv.ten as HoTen, hsut.ngayungtuyen as NgayUngTuyen, hsut.vitriungtuyen as ViTriUngTuyen, hsut.diemdanhgia as DiemDanhGia FROM HOSOUNGTUYEN hsut, THANHVIEN tv where hsut.idungvien = tv.idthanhvien and hsut.iddoanhnghiep = {this.id}";
+            string query = $"SELECT hsut.idungvien as IDUngVien, tv.ten as HoTen, hsut.ngayungtuyen as NgayUngTuyen, hsut.vitriungtuyen as ViTriUngTuyen, hsut.diemdanhgia as DiemDanhGia , hsut.tinhtrangungtuyen as TinhTrangUngTuyen FROM HOSOUNGTUYEN hsut, THANHVIEN tv where hsut.idungvien = tv.idthanhvien and hsut.iddoanhnghiep = {this.id}";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataSet data_hsut = new DataSet();
+            adapter.Fill(data_hsut);
+            return data_hsut;
+        }
+        DataSet LoadData_HoSoUngTuyen_DiemDanhGia()
+        {
+            string query = $"SELECT hsut.idungvien as IDUngVien, tv.ten as HoTen, hsut.ngayungtuyen as NgayUngTuyen, hsut.vitriungtuyen as ViTriUngTuyen, hsut.diemdanhgia as DiemDanhGia , hsut.tinhtrangungtuyen as TinhTrangUngTuyen FROM HOSOUNGTUYEN hsut, THANHVIEN tv where hsut.idungvien = tv.idthanhvien and hsut.iddoanhnghiep = {this.id} ORDER BY hsut.diemdanhgia DESC";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataSet data_hsut = new DataSet();
@@ -67,7 +75,16 @@ namespace Nhom09_083_388_392_537_708
             adapter.Fill(data_hsut_theoten);
             return data_hsut_theoten;
         }
-        private void btt_timkiem_Click(object sender, EventArgs e)
+        DataSet LoadData_BangCapUV(int iduv)
+        {
+            string query = $"SELECT TenBang, CapBac, NgayCap, DonViCap from BANGCAP where idungvien = {iduv}";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataSet data_bangcapuv = new DataSet();
+            adapter.Fill(data_bangcapuv);
+            return data_bangcapuv;
+        }
+        private void btn_timkiem_Click(object sender, EventArgs e)
         {
             string name = txt_tenuv.Text;
             dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -78,38 +95,99 @@ namespace Nhom09_083_388_392_537_708
             if (e.RowIndex >= 0 && e.RowIndex < this.dgv_hosoungtuyen.Rows.Count) // Make sure user select at least 1 row 
             {
                 DataGridViewRow row = this.dgv_hosoungtuyen.Rows[e.RowIndex];
-                string query1 = $"select tv.ten, tv.email, uv.ngaysinh from THANHVIEN tv, UNGVIEN uv, where uv.idungvien = tv.idthanhvien and idthanhvien = {row.Cells["IDUngVien"].Value};";
+                string query1 = $"select tv.ten, tv.email, uv.ngaysinh from THANHVIEN tv, UNGVIEN uv where uv.idungvien = tv.idthanhvien and idthanhvien = {row.Cells["IDUngVien"].Value};";
                 SqlCommand cmd1 = new SqlCommand(query1, con);
-                try
+
+                if (con.State != ConnectionState.Open)
                 {
                     con.Open();
-                    SqlDataReader reader = cmd1.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        tb_HoTen.Text = reader["Ten"].ToString();
-                        tb_Email.Text = reader["Email"].ToString();
+                }
 
-                        string dateStr = reader["NgaySinh"].ToString();
-                        DateTime date_ns = DateTime.Parse(dateStr);
-                        tb_NgaySinh.Text = date_ns.ToString("dd/MM/yyyy");
-                        // Continue for all other columns
-                    }
-                }
-                catch (Exception ex)
+                SqlDataReader reader = cmd1.ExecuteReader();
+                if (reader.Read())
                 {
-                    // Handle any errors that might have occurred
-                    Console.WriteLine(ex.Message);
+                    tb_HoTen.Text = reader["ten"].ToString(); // Make sure the column names match the ones in your database
+                    tb_Email.Text = reader["email"].ToString();
+                    string dateStr = reader["ngaysinh"].ToString();
+                    DateTime date_ns = DateTime.Parse(dateStr);
+                    tb_NgaySinh.Text = date_ns.ToString("dd/MM/yyyy");
+                    // Continue for all other columns
                 }
-                finally
+
+                if (con.State != ConnectionState.Closed)
                 {
-                    // Ensure the connection gets closed
                     con.Close();
                 }
                 tb_TinhTrangHoSo.Text = row.Cells["TinhTrangUngTuyen"].Value.ToString();
-                DateTime date_ut = DateTime.Parse(row.Cells["NgayUngTuyen"].Value.ToString()) ;
+                if (tb_TinhTrangHoSo.Text == "Đủ điều kiện")
+                {
+                    tb_TinhTrangHoSo.BackColor = Color.YellowGreen;
+                }
+                else
+                {
+                    tb_TinhTrangHoSo.BackColor = Color.LightCoral;
+                }
+                DateTime date_ut = DateTime.Parse(row.Cells["NgayUngTuyen"].Value.ToString());
+                //MessageBox.Show(date_ut.ToString("dd/MM/yyyy"));
                 tb_NgayUngTuyen.Text = date_ut.ToString("dd/MM/yyyy");
-                tb_ViTriUngTuyen.Text = row.Cells["ViTriUngTuyen"].Value.ToString() ;
+                tb_ViTriUngTuyen.Text = row.Cells["ViTriUngTuyen"].Value.ToString();
+                tb_DiemDanhGia.Text = row.Cells["DiemDanhGia"].Value.ToString();
+
+                this.idungvien = Convert.ToInt32(row.Cells["IDUngVien"].Value);
+                dgv_BangCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgv_BangCap.DataSource = LoadData_BangCapUV(this.idungvien).Tables[0];
             }
+        }
+
+        private void btn_Duyet_Click(object sender, EventArgs e)
+        {
+            // Create the SQL UPDATE query
+            string query = $"UPDATE HOSOUNGTUYEN SET TinhTrangUngTuyen = N'Đủ điều kiện' WHERE idungvien = {this.idungvien}";
+
+            // Create a new SqlCommand
+            SqlCommand cmd = new SqlCommand(query, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+            ThongBao("Đã duyệt thành công!");
+            tb_TinhTrangHoSo.Text = "Đủ điều kiện";
+            tb_TinhTrangHoSo.BackColor = Color.YellowGreen;
+            dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv_hosoungtuyen.DataSource = LoadData_HoSoUngTuyen().Tables[0];
+        }
+
+        public void ThongBao(string tb)
+        {
+            MessageBox.Show(tb);
+        }
+
+        private void btn_Loai_Click(object sender, EventArgs e)
+        {
+            // Create the SQL UPDATE query
+            string query = $"UPDATE HOSOUNGTUYEN SET TinhTrangUngTuyen = N'Chưa đủ điều kiện' WHERE idungvien = {this.idungvien}";
+
+            // Create a new SqlCommand
+            SqlCommand cmd = new SqlCommand(query, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+            ThongBao("Đã loại thành công!");
+            tb_TinhTrangHoSo.Text = "Chưa đủ điều kiện";
+            tb_TinhTrangHoSo.BackColor = Color.LightCoral;
+            dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv_hosoungtuyen.DataSource = LoadData_HoSoUngTuyen().Tables[0];
+        }
+
+        private void btn_sapxep_Click(object sender, EventArgs e)
+        {
+            dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv_hosoungtuyen.DataSource = LoadData_HoSoUngTuyen_DiemDanhGia().Tables[0];
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv_hosoungtuyen.DataSource = LoadData_HoSoUngTuyen().Tables[0];
         }
     }
 }
