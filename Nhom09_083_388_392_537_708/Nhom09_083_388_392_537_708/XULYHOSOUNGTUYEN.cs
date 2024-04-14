@@ -36,6 +36,7 @@ namespace Nhom09_083_388_392_537_708
 
             dtgv_HSChoDuyet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dtgv_HSDaDuyet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgv_BangCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
         }
 
@@ -113,7 +114,6 @@ namespace Nhom09_083_388_392_537_708
 
         private void ReloadDataIntoDTGV(string query, DataGridView dtgv)
         {
-            dangNhap.conServer();
             using (SqlCommand command = new SqlCommand(query, curConn))
             {
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -140,22 +140,7 @@ namespace Nhom09_083_388_392_537_708
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Select a file to upload";
-            openFileDialog.Filter = "All files (.)|*.*";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string selectedFilePath = openFileDialog.FileName;
-                //llbFileName.Text = Path.GetFileName(selectedFilePath);
-                string uploadFolderPath = Path.Combine(Application.StartupPath, "Upload");
-                if (!Directory.Exists(uploadFolderPath))
-                {
-                    Directory.CreateDirectory(uploadFolderPath);
-                }
-                //string destinationFilePath = Path.Combine(uploadFolderPath, llbFileName.Text);
-                //File.Copy(selectedFilePath, destinationFilePath, true);
-            }
+            
         }
 
         
@@ -183,45 +168,61 @@ namespace Nhom09_083_388_392_537_708
                 tb_NgayUngTuyen.Text = row.Cells["NgayUngTuyen"].Value.ToString().Substring(0, viTriKhoangTrang) ?? string.Empty;
                 tb_ViTriUngTuyen.Text = row.Cells["ViTriUngTuyen"].Value.ToString() ?? string.Empty;
 
+                string query_email_ngaysinh = $"select tv.Email, uv.NgaySinh " +
+                    $"from THANHVIEN tv, UNGVIEN uv " +
+                    $"where tv.IDThanhVien = uv.IDUngVien and UPPER(tv.Ten) = UPPER('{tb_HoTen.Text}')";
+                
+                //dangNhap.conServer();
+                using (SqlCommand command = new SqlCommand(query_email_ngaysinh, curConn))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            tb_Email.Text = reader["Email"].ToString();
+                            int space = reader["NgaySinh"].ToString().IndexOf(' ');
+                            tb_NgaySinh.Text = reader["NgaySinh"].ToString().Substring(0, space);
+                        }
+                    }
+                }
+
+                string query_TimKiemBangCap = $"select bc.TenBang as N'Tên bằng', bc.CapBac as N'Cấp bậc', bc.NgayCap as N'Ngày cấp', bc.DonViCap as N'Đơn vị cấp' " +
+                    $"from THANHVIEN tv, BANGCAP bc " +
+                    $"where UPPER(tv.Ten) = UPPER('{tb_HoTen.Text}') and bc.IDUngVien = tv.IDThanhVien ";
+
+                ReloadDataIntoDTGV(query_TimKiemBangCap, dtgv_BangCap);
+
+
                 if (tb_TinhTrangUngTuyen.Text == "Đủ điều kiện")
                 {
                     tb_TinhTrangUngTuyen.BackColor = Color.PaleGreen;
-                    btn_OpenFileCV.Enabled = false;
-                    btn_ThemBangCap.Enabled = false;
-                    btn_Duyet.Enabled = false;
-                    btn_Loai.Enabled = false;
-                    tb_DiemDanhGia.Enabled = false;
+                    enabledButton(false);
                 }
                 else if (tb_TinhTrangUngTuyen.Text == "Chưa đủ điều kiện")
                 {
                     tb_TinhTrangUngTuyen.BackColor = Color.LightSalmon;
-                    btn_OpenFileCV.Enabled = false;
-                    btn_ThemBangCap.Enabled = false;
-                    btn_Duyet.Enabled = false;
-                    btn_Loai.Enabled = false;
-                    tb_DiemDanhGia.Enabled = false;
+                    enabledButton(false);
                 }
                 else if (tb_TinhTrangUngTuyen.Text == "")
                 {
-                    tb_TinhTrangUngTuyen.BackColor = Color.White;
-                    btn_OpenFileCV.Enabled = true;
-                    btn_ThemBangCap.Enabled = true;
-                    btn_Duyet.Enabled = true;
-                    btn_Loai.Enabled = true;
-                    tb_DiemDanhGia.Enabled = true;
+                    tb_TinhTrangUngTuyen.BackColor = Color.LightGray;
+                    enabledButton(true);
                 }
                 else if (tb_TinhTrangUngTuyen.Text == "Đang xử lý")
                 {
                     tb_TinhTrangUngTuyen.BackColor = Color.Yellow;
-                    btn_OpenFileCV.Enabled = false;
-                    btn_ThemBangCap.Enabled = false;
-                    btn_Duyet.Enabled = false;
-                    btn_Loai.Enabled = false;
-                    tb_DiemDanhGia.Enabled = true;
+                    enabledButton(false);
                 }
-
-
             }
+        }
+
+        private void enabledButton(bool flag)
+        {
+            btn_OpenFileCV.Enabled = flag;
+            btn_ThemBangCap.Enabled = flag;
+            btn_Duyet.Enabled = flag;
+            btn_Loai.Enabled = flag;
+            tb_DiemDanhGia.Enabled = flag;
         }
 
 
