@@ -8,11 +8,11 @@ GO
 
 CREATE TABLE THANHVIEN (
   IDThanhVien INT IDENTITY(1,1) NOT NULL,
-  TenDangNhap CHAR(30) UNIQUE,
+  TenDangNhap VARCHAR(30) UNIQUE,
   Ten NVARCHAR(50),
-  Email CHAR(50),
-  MatKhau CHAR(30) NOT NULL,
-  LoaiThanhVien CHAR(20) CHECK (LoaiThanhVien IN ('DOANHNGHIEP', 'UNGVIEN', 'NHANVIEN')),
+  Email VARCHAR(50),
+  MatKhau VARCHAR(30) NOT NULL,
+  LoaiThanhVien VARCHAR(20) CHECK (LoaiThanhVien IN ('DOANHNGHIEP', 'UNGVIEN', 'NHANVIEN')),
   PRIMARY KEY (IDThanhVien)
 );
 
@@ -70,7 +70,7 @@ CREATE TABLE HOSOUNGTUYEN (
   IDDoanhNghiep INT,
   IDUngVien INT,
   NgayUngTuyen DATE,
-  TinhTrangUngTuyen NVARCHAR(50) CHECK (TinhTrangUngTuyen IN (N'Chưa đủ điều kiện', N'Đang xử lý', N'Đủ điều kiện')),
+  TinhTrangUngTuyen NVARCHAR(50) CHECK (TinhTrangUngTuyen IN (N'Chưa đủ điều kiện', N'Đang xử lý', N'Đủ điều kiện') or TinhTrangUngTuyen is NULL),
   ViTriUngTuyen NVARCHAR(50),
   DiemDanhGia INT CHECK (DiemDanhGia IN(1,2,3,4,5,6,7,8,9,10))
   PRIMARY KEY (IDDoanhNghiep, IDUngVien)
