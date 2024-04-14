@@ -243,7 +243,8 @@ namespace Nhom09_083_388_392_537_708
         
         private void btnXLDTD_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new DOANHNGHIEP_TIEMNANG(), sender);
+            CenterLabelInPanel(lblTitle, pnlTitle);
         }
 
         private void btnHome_Click(object sender, EventArgs e)

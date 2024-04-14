@@ -14,8 +14,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Nhom09_083_388_392_537_708
 {
-    //public static SqlConnection con = FormDangNhap.conn;
-
     public partial class DUYET_HS_UNGTUYEN : Form
     {
         public static SqlConnection con = FormDangNhap.conn;
