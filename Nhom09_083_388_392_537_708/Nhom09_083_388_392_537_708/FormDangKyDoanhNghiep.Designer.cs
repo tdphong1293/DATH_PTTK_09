@@ -204,6 +204,8 @@
             // btn_DangKyDoanhNghiep
             // 
             this.btn_DangKyDoanhNghiep.BackColor = System.Drawing.Color.SpringGreen;
+            this.btn_DangKyDoanhNghiep.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_DangKyDoanhNghiep.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
             this.btn_DangKyDoanhNghiep.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_DangKyDoanhNghiep.Location = new System.Drawing.Point(401, 561);
             this.btn_DangKyDoanhNghiep.Name = "btn_DangKyDoanhNghiep";

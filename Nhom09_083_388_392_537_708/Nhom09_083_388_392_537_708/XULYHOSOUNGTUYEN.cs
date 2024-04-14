@@ -136,6 +136,7 @@ namespace Nhom09_083_388_392_537_708
             tHEMBANGCAP.Show();
         }
 
+        
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
@@ -161,9 +162,68 @@ namespace Nhom09_083_388_392_537_708
 
         private void dtgv_HSChoDuyet_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            LoadDataAfterCellClick(sender, e, dtgv_HSChoDuyet);
         }
 
-        
+        private void dtgv_HSDaDuyet_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LoadDataAfterCellClick(sender, e, dtgv_HSDaDuyet);
+        }
+
+        private void LoadDataAfterCellClick(object sender, DataGridViewCellEventArgs e, DataGridView dtgv) 
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dtgv.Rows.Count)
+            {
+
+                DataGridViewRow row = dtgv.Rows[e.RowIndex];
+                int viTriKhoangTrang = row.Cells["NgayUngTuyen"].Value.ToString().IndexOf(' ');
+                tb_HoTen.Text = row.Cells["Ứng viên"].Value.ToString() ?? string.Empty;
+                tb_DoanhNghiepUngTuyen.Text = row.Cells["Doanh nghiệp"].Value.ToString() ?? string.Empty;
+                tb_TinhTrangUngTuyen.Text = row.Cells["TinhTrangUngTuyen"].Value.ToString() ?? string.Empty;
+                tb_NgayUngTuyen.Text = row.Cells["NgayUngTuyen"].Value.ToString().Substring(0, viTriKhoangTrang) ?? string.Empty;
+                tb_ViTriUngTuyen.Text = row.Cells["ViTriUngTuyen"].Value.ToString() ?? string.Empty;
+
+                if (tb_TinhTrangUngTuyen.Text == "Đủ điều kiện")
+                {
+                    tb_TinhTrangUngTuyen.BackColor = Color.PaleGreen;
+                    btn_OpenFileCV.Enabled = false;
+                    btn_ThemBangCap.Enabled = false;
+                    btn_Duyet.Enabled = false;
+                    btn_Loai.Enabled = false;
+                    tb_DiemDanhGia.Enabled = false;
+                }
+                else if (tb_TinhTrangUngTuyen.Text == "Chưa đủ điều kiện")
+                {
+                    tb_TinhTrangUngTuyen.BackColor = Color.LightSalmon;
+                    btn_OpenFileCV.Enabled = false;
+                    btn_ThemBangCap.Enabled = false;
+                    btn_Duyet.Enabled = false;
+                    btn_Loai.Enabled = false;
+                    tb_DiemDanhGia.Enabled = false;
+                }
+                else if (tb_TinhTrangUngTuyen.Text == "")
+                {
+                    tb_TinhTrangUngTuyen.BackColor = Color.White;
+                    btn_OpenFileCV.Enabled = true;
+                    btn_ThemBangCap.Enabled = true;
+                    btn_Duyet.Enabled = true;
+                    btn_Loai.Enabled = true;
+                    tb_DiemDanhGia.Enabled = true;
+                }
+                else if (tb_TinhTrangUngTuyen.Text == "Đang xử lý")
+                {
+                    tb_TinhTrangUngTuyen.BackColor = Color.Yellow;
+                    btn_OpenFileCV.Enabled = false;
+                    btn_ThemBangCap.Enabled = false;
+                    btn_Duyet.Enabled = false;
+                    btn_Loai.Enabled = false;
+                    tb_DiemDanhGia.Enabled = true;
+                }
+
+
+            }
+        }
+
+
     }
 }

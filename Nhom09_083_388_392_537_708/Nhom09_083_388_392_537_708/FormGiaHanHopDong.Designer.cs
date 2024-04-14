@@ -50,9 +50,6 @@
             this.txt_timkiem = new System.Windows.Forms.TextBox();
             this.lb_dtgv = new System.Windows.Forms.Label();
             this.dtgv_KetQuaTuyenDung = new System.Windows.Forms.DataGridView();
-            this.Col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lb_explain = new System.Windows.Forms.Label();
             this.lb_FormGiaHanHopDong = new System.Windows.Forms.Label();
             this.panel_FormGiaHanHopDong.SuspendLayout();
@@ -229,9 +226,12 @@
             // 
             this.btn_luudiscount.BackColor = System.Drawing.Color.SpringGreen;
             this.btn_luudiscount.Enabled = false;
+            this.btn_luudiscount.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_luudiscount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
             this.btn_luudiscount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_luudiscount.Location = new System.Drawing.Point(898, 464);
             this.btn_luudiscount.Name = "btn_luudiscount";
+            this.btn_luudiscount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_luudiscount.Size = new System.Drawing.Size(150, 50);
             this.btn_luudiscount.TabIndex = 2;
             this.btn_luudiscount.Text = "Lưu ưu đãi";
@@ -287,35 +287,19 @@
             // 
             // dtgv_KetQuaTuyenDung
             // 
+            this.dtgv_KetQuaTuyenDung.AllowUserToAddRows = false;
+            this.dtgv_KetQuaTuyenDung.AllowUserToDeleteRows = false;
             this.dtgv_KetQuaTuyenDung.AllowUserToOrderColumns = true;
             this.dtgv_KetQuaTuyenDung.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_KetQuaTuyenDung.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Col1,
-            this.Column2,
-            this.Column3});
             this.dtgv_KetQuaTuyenDung.Location = new System.Drawing.Point(23, 134);
             this.dtgv_KetQuaTuyenDung.MultiSelect = false;
             this.dtgv_KetQuaTuyenDung.Name = "dtgv_KetQuaTuyenDung";
+            this.dtgv_KetQuaTuyenDung.ReadOnly = true;
             this.dtgv_KetQuaTuyenDung.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dtgv_KetQuaTuyenDung.Size = new System.Drawing.Size(674, 504);
             this.dtgv_KetQuaTuyenDung.TabIndex = 51;
             this.dtgv_KetQuaTuyenDung.TabStop = false;
             this.dtgv_KetQuaTuyenDung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_KetQuaTuyenDung_CellClick);
-            // 
-            // Col1
-            // 
-            this.Col1.HeaderText = "Column1";
-            this.Col1.Name = "Col1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Column2";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Column3";
-            this.Column3.Name = "Column3";
             // 
             // lb_explain
             // 
@@ -382,8 +366,5 @@
         private System.Windows.Forms.TextBox txt_name_dn;
         private System.Windows.Forms.Label lb_email_dn;
         private System.Windows.Forms.Label lb_name_dn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

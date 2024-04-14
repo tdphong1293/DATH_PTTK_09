@@ -101,15 +101,18 @@ create or alter procedure LayKetQuaUngTuyen
 as
 begin
     if (@timkiem is NULL)
+	begin
         select * from HOSOUNGTUYEN
-    begin
-        select HS.*, TVUngVien.Ten as N'Tên ứng viên', TVDoanhNghiep.Ten as N'Tên công ty', DN.IDDoanhNghiep
-        from HOSOUNGTUYEN HS
-        left join UNGVIEN UV on HS.IDUngVien = UV.IDUngVien
-        left join THANHVIEN TVUngVien on UV.IDUngVien = TVUngVien.IDThanhVien
-        left join DOANHNGHIEP DN on HS.IDDoanhNghiep = DN.IDDoanhNghiep
-        left join THANHVIEN TVDoanhNghiep on DN.IDDoanhNghiep = TVDoanhNghiep.IDThanhVien
-        WHERE (TVUngVien.Ten like '%' + @timkiem + '%' or TVDoanhNghiep.Ten like '%' + @timkiem + '%')
-    end
+	end
+	else
+	begin
+		select HS.IDUngVien, TVUngVien.Ten as N'Tên ứng viên',  HS.IDDoanhNghiep, TVDoanhNghiep.Ten as N'Tên công ty', HS.NgayUngTuyen, HS.ViTriUngTuyen, HS.DiemDanhGia
+		from HOSOUNGTUYEN HS
+		left join UNGVIEN UV on HS.IDUngVien = UV.IDUngVien
+		left join THANHVIEN TVUngVien on UV.IDUngVien = TVUngVien.IDThanhVien
+		left join DOANHNGHIEP DN on HS.IDDoanhNghiep = DN.IDDoanhNghiep
+		left join THANHVIEN TVDoanhNghiep on DN.IDDoanhNghiep = TVDoanhNghiep.IDThanhVien
+		WHERE TinhTrangUngTuyen = N'Đủ điều kiện' and (TVUngVien.Ten like '%' + @timkiem + '%' or TVDoanhNghiep.Ten like '%' + @timkiem + '%')
+	end
 end;
 go
