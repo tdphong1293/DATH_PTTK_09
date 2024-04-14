@@ -73,25 +73,41 @@ namespace Nhom09_083_388_392_537_708
 
         public void SearchAndReloadHSUT_ChoDuyet(string searchText)
         {
-            string query = string.IsNullOrEmpty(searchText) ? $"select IDUngVien, IDDoanhNghiep, ViTriUngTuyen, TinhTrangUngTuyen from HOSOUNGTUYEN where (TinhTrangUngTuyen = N'Chưa đủ điều kiện' or TinhTrangUngTuyen is Null)" : 
-                $"select hsut.IDUngVien, hsut.IDDoanhNghiep, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen " +
-                $"from HOSOUNGTUYEN hsut, DOANHNGHIEP dn, THANHVIEN tv " +
+            string query = string.IsNullOrEmpty(searchText) ? $"select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen " +
+                $"from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn, UNGVIEN uv, DOANHNGHIEP dn " +
                 $"where hsut.IDDoanhNghiep = dn.IDDoanhNghiep " +
-                       $"and (hsut.TinhTrangUngTuyen = N'Chưa đủ điều kiện' or hsut.TinhTrangUngTuyen is Null) " +
-                       $"and dn.IDDoanhNghiep = tv.IDThanhVien " +
-                       $"and UPPER(tv.Ten) LIKE UPPER('%{searchText}%')";
+                        $"and hsut.IDUngVien = uv.IDUngVien " +
+                        $"and dn.IDDoanhNghiep = tv_dn.IDThanhVien " +
+                        $"and uv.IDUngVien = tv_uv.IDThanhVien " +
+                        $"and (hsut.TinhTrangUngTuyen = N'Chưa đủ điều kiện' or hsut.TinhTrangUngTuyen is Null)" :
+                $"select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen " +
+                $"from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn, UNGVIEN uv, DOANHNGHIEP dn " +
+                $"where hsut.IDDoanhNghiep = dn.IDDoanhNghiep " +
+                        $"and hsut.IDUngVien = uv.IDUngVien " +
+                        $"and dn.IDDoanhNghiep = tv_dn.IDThanhVien " +
+                        $"and uv.IDUngVien = tv_uv.IDThanhVien " +
+                        $"and (hsut.TinhTrangUngTuyen = N'Chưa đủ điều kiện' or hsut.TinhTrangUngTuyen is Null) " +
+                        $"and UPPER(tv_dn.Ten) LIKE UPPER('%{searchText}%')";
             ReloadDataIntoDTGV(query, dtgv_HSChoDuyet);
         }
 
         public void SearchAndReloadHSUT_DaDuyet(string searchText)
         {
-            string query = string.IsNullOrEmpty(searchText) ? $"select IDUngVien, IDDoanhNghiep, ViTriUngTuyen, TinhTrangUngTuyen from HOSOUNGTUYEN where (TinhTrangUngTuyen = N'Đủ điều kiện' or TinhTrangUngTuyen = N'Đang xử lý')" :
-                $"select hsut.IDUngVien, hsut.IDDoanhNghiep, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen " +
-                $"from HOSOUNGTUYEN hsut, DOANHNGHIEP dn, THANHVIEN tv " +
+            string query = string.IsNullOrEmpty(searchText) ? $"select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen " +
+                $"from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn, UNGVIEN uv, DOANHNGHIEP dn " +
                 $"where hsut.IDDoanhNghiep = dn.IDDoanhNghiep " +
-                       $"and (hsut.TinhTrangUngTuyen = N'Đủ điều kiện' or hsut.TinhTrangUngTuyen = N'Đang xử lý') " +
-                       $"and dn.IDDoanhNghiep = tv.IDThanhVien " +
-                       $"and UPPER(tv.Ten) LIKE UPPER('%{searchText}%')";
+                        $"and hsut.IDUngVien = uv.IDUngVien " +
+                        $"and dn.IDDoanhNghiep = tv_dn.IDThanhVien " +
+                        $"and uv.IDUngVien = tv_uv.IDThanhVien " +
+                        $"and (hsut.TinhTrangUngTuyen = N'Đủ điều kiện' or hsut.TinhTrangUngTuyen = N'Đang xử lý')" :
+                $"select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen " +
+                $"from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn, UNGVIEN uv, DOANHNGHIEP dn " +
+                $"where hsut.IDDoanhNghiep = dn.IDDoanhNghiep " +
+                        $"and hsut.IDUngVien = uv.IDUngVien " +
+                        $"and dn.IDDoanhNghiep = tv_dn.IDThanhVien " +
+                        $"and uv.IDUngVien = tv_uv.IDThanhVien " +
+                        $"and (hsut.TinhTrangUngTuyen = N'Đủ điều kiện' or hsut.TinhTrangUngTuyen = N'Đang xử lý') " +
+                        $"and UPPER(tv_dn.Ten) LIKE UPPER('%{searchText}%')";
             ReloadDataIntoDTGV(query, dtgv_HSDaDuyet);
         }
 
