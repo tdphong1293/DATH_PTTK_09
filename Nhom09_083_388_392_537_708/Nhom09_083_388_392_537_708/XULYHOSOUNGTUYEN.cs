@@ -73,25 +73,41 @@ namespace Nhom09_083_388_392_537_708
 
         public void SearchAndReloadHSUT_ChoDuyet(string searchText)
         {
-            string query = string.IsNullOrEmpty(searchText) ? $"select IDUngVien, IDDoanhNghiep, ViTriUngTuyen, TinhTrangUngTuyen from HOSOUNGTUYEN where (TinhTrangUngTuyen = N'Chưa đủ điều kiện' or TinhTrangUngTuyen is Null)" : 
-                $"select hsut.IDUngVien, hsut.IDDoanhNghiep, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen " +
-                $"from HOSOUNGTUYEN hsut, DOANHNGHIEP dn, THANHVIEN tv " +
+            string query = string.IsNullOrEmpty(searchText) ? $"select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen " +
+                $"from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn, UNGVIEN uv, DOANHNGHIEP dn " +
                 $"where hsut.IDDoanhNghiep = dn.IDDoanhNghiep " +
-                       $"and (hsut.TinhTrangUngTuyen = N'Chưa đủ điều kiện' or hsut.TinhTrangUngTuyen is Null) " +
-                       $"and dn.IDDoanhNghiep = tv.IDThanhVien " +
-                       $"and UPPER(tv.Ten) LIKE UPPER('%{searchText}%')";
+                        $"and hsut.IDUngVien = uv.IDUngVien " +
+                        $"and dn.IDDoanhNghiep = tv_dn.IDThanhVien " +
+                        $"and uv.IDUngVien = tv_uv.IDThanhVien " +
+                        $"and (hsut.TinhTrangUngTuyen = N'Chưa đủ điều kiện' or hsut.TinhTrangUngTuyen is Null)" :
+                $"select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen " +
+                $"from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn, UNGVIEN uv, DOANHNGHIEP dn " +
+                $"where hsut.IDDoanhNghiep = dn.IDDoanhNghiep " +
+                        $"and hsut.IDUngVien = uv.IDUngVien " +
+                        $"and dn.IDDoanhNghiep = tv_dn.IDThanhVien " +
+                        $"and uv.IDUngVien = tv_uv.IDThanhVien " +
+                        $"and (hsut.TinhTrangUngTuyen = N'Chưa đủ điều kiện' or hsut.TinhTrangUngTuyen is Null) " +
+                        $"and UPPER(tv_dn.Ten) LIKE UPPER('%{searchText}%')";
             ReloadDataIntoDTGV(query, dtgv_HSChoDuyet);
         }
 
         public void SearchAndReloadHSUT_DaDuyet(string searchText)
         {
-            string query = string.IsNullOrEmpty(searchText) ? $"select IDUngVien, IDDoanhNghiep, ViTriUngTuyen, TinhTrangUngTuyen from HOSOUNGTUYEN where (TinhTrangUngTuyen = N'Đủ điều kiện' or TinhTrangUngTuyen = N'Đang xử lý')" :
-                $"select hsut.IDUngVien, hsut.IDDoanhNghiep, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen " +
-                $"from HOSOUNGTUYEN hsut, DOANHNGHIEP dn, THANHVIEN tv " +
+            string query = string.IsNullOrEmpty(searchText) ? $"select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen " +
+                $"from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn, UNGVIEN uv, DOANHNGHIEP dn " +
                 $"where hsut.IDDoanhNghiep = dn.IDDoanhNghiep " +
-                       $"and (hsut.TinhTrangUngTuyen = N'Đủ điều kiện' or hsut.TinhTrangUngTuyen = N'Đang xử lý') " +
-                       $"and dn.IDDoanhNghiep = tv.IDThanhVien " +
-                       $"and UPPER(tv.Ten) LIKE UPPER('%{searchText}%')";
+                        $"and hsut.IDUngVien = uv.IDUngVien " +
+                        $"and dn.IDDoanhNghiep = tv_dn.IDThanhVien " +
+                        $"and uv.IDUngVien = tv_uv.IDThanhVien " +
+                        $"and (hsut.TinhTrangUngTuyen = N'Đủ điều kiện' or hsut.TinhTrangUngTuyen = N'Đang xử lý')" :
+                $"select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen " +
+                $"from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn, UNGVIEN uv, DOANHNGHIEP dn " +
+                $"where hsut.IDDoanhNghiep = dn.IDDoanhNghiep " +
+                        $"and hsut.IDUngVien = uv.IDUngVien " +
+                        $"and dn.IDDoanhNghiep = tv_dn.IDThanhVien " +
+                        $"and uv.IDUngVien = tv_uv.IDThanhVien " +
+                        $"and (hsut.TinhTrangUngTuyen = N'Đủ điều kiện' or hsut.TinhTrangUngTuyen = N'Đang xử lý') " +
+                        $"and UPPER(tv_dn.Ten) LIKE UPPER('%{searchText}%')";
             ReloadDataIntoDTGV(query, dtgv_HSDaDuyet);
         }
 
@@ -120,6 +136,7 @@ namespace Nhom09_083_388_392_537_708
             tHEMBANGCAP.Show();
         }
 
+        
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
@@ -145,9 +162,68 @@ namespace Nhom09_083_388_392_537_708
 
         private void dtgv_HSChoDuyet_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            LoadDataAfterCellClick(sender, e, dtgv_HSChoDuyet);
         }
 
-        
+        private void dtgv_HSDaDuyet_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LoadDataAfterCellClick(sender, e, dtgv_HSDaDuyet);
+        }
+
+        private void LoadDataAfterCellClick(object sender, DataGridViewCellEventArgs e, DataGridView dtgv) 
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dtgv.Rows.Count)
+            {
+
+                DataGridViewRow row = dtgv.Rows[e.RowIndex];
+                int viTriKhoangTrang = row.Cells["NgayUngTuyen"].Value.ToString().IndexOf(' ');
+                tb_HoTen.Text = row.Cells["Ứng viên"].Value.ToString() ?? string.Empty;
+                tb_DoanhNghiepUngTuyen.Text = row.Cells["Doanh nghiệp"].Value.ToString() ?? string.Empty;
+                tb_TinhTrangUngTuyen.Text = row.Cells["TinhTrangUngTuyen"].Value.ToString() ?? string.Empty;
+                tb_NgayUngTuyen.Text = row.Cells["NgayUngTuyen"].Value.ToString().Substring(0, viTriKhoangTrang) ?? string.Empty;
+                tb_ViTriUngTuyen.Text = row.Cells["ViTriUngTuyen"].Value.ToString() ?? string.Empty;
+
+                if (tb_TinhTrangUngTuyen.Text == "Đủ điều kiện")
+                {
+                    tb_TinhTrangUngTuyen.BackColor = Color.PaleGreen;
+                    btn_OpenFileCV.Enabled = false;
+                    btn_ThemBangCap.Enabled = false;
+                    btn_Duyet.Enabled = false;
+                    btn_Loai.Enabled = false;
+                    tb_DiemDanhGia.Enabled = false;
+                }
+                else if (tb_TinhTrangUngTuyen.Text == "Chưa đủ điều kiện")
+                {
+                    tb_TinhTrangUngTuyen.BackColor = Color.LightSalmon;
+                    btn_OpenFileCV.Enabled = false;
+                    btn_ThemBangCap.Enabled = false;
+                    btn_Duyet.Enabled = false;
+                    btn_Loai.Enabled = false;
+                    tb_DiemDanhGia.Enabled = false;
+                }
+                else if (tb_TinhTrangUngTuyen.Text == "")
+                {
+                    tb_TinhTrangUngTuyen.BackColor = Color.White;
+                    btn_OpenFileCV.Enabled = true;
+                    btn_ThemBangCap.Enabled = true;
+                    btn_Duyet.Enabled = true;
+                    btn_Loai.Enabled = true;
+                    tb_DiemDanhGia.Enabled = true;
+                }
+                else if (tb_TinhTrangUngTuyen.Text == "Đang xử lý")
+                {
+                    tb_TinhTrangUngTuyen.BackColor = Color.Yellow;
+                    btn_OpenFileCV.Enabled = false;
+                    btn_ThemBangCap.Enabled = false;
+                    btn_Duyet.Enabled = false;
+                    btn_Loai.Enabled = false;
+                    tb_DiemDanhGia.Enabled = true;
+                }
+
+
+            }
+        }
+
+
     }
 }
