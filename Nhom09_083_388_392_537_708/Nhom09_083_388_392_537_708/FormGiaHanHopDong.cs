@@ -20,8 +20,13 @@ namespace Nhom09_083_388_392_537_708
             InitializeComponent();
             debounceTimer.Interval = 500;
             debounceTimer.Tick += DebounceTimer_Tick;
-            dtgv_KetQuaTuyenDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgv_KetQuaTuyenDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             SearchAndFillData_KetQuaTuyenDung("");
+        }
+
+        private void ThongBao(string noidungtb)
+        {
+            MessageBox.Show(noidungtb);
         }
 
         private void txt_timkiem_dn_TextChanged(object sender, EventArgs e)
@@ -53,7 +58,7 @@ namespace Nhom09_083_388_392_537_708
                 }
             } catch (Exception ex)
             {
-                MessageBox.Show("Lỗi datagridview: " + ex.Message);
+                ThongBao("Lỗi datagridview: " + ex.Message);
             }
         }
 
@@ -72,8 +77,9 @@ namespace Nhom09_083_388_392_537_708
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "select TV.Ten, TV.Email, DN.MaSoThue, DN.NguoiDaiDien, DN.DiaChi" +
-                        " from THANHVIEN TV join DOANHNGHIEP DN on TV.IDThanhVien = @iddoanhnghiep";
+                    string query = "select TV.Ten, TV.Email, DN.MaSoThue, DN.NguoiDaiDien, DN.DiaChi, DN.UuDai" +
+                        " from THANHVIEN TV join DOANHNGHIEP DN on TV.IDThanhVien = DN.IDDoanhNghiep" +
+                        " where DN.IDDoanhNghiep = @iddoanhnghiep";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@iddoanhnghiep", id);
@@ -85,6 +91,7 @@ namespace Nhom09_083_388_392_537_708
                             txt_tax_dn.Text = reader["MaSoThue"].ToString();
                             txt_daidien_dn.Text = reader["NguoiDaiDien"].ToString();
                             txt_diachi_dn.Text = reader["DiaChi"].ToString();
+                            txt_discount_dn.Text = (float.Parse(reader["UuDai"].ToString()) * 100).ToString();
                         }
                     }
                     connection.Close();
@@ -92,22 +99,28 @@ namespace Nhom09_083_388_392_537_708
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi datagridview: " + ex.Message);
+                ThongBao("Lỗi datagridview: " + ex.Message);
             }
         }
 
         private void dtgv_KetQuaTuyenDung_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && e.RowIndex < dtgv_KetQuaTuyenDung.RowCount)
             {
                 DataGridViewRow row = dtgv_KetQuaTuyenDung.Rows[e.RowIndex];
                 status_bar.Items["status_itemselect"].Text = "Đang chọn công ty " + row.Cells["Tên công ty"].Value.ToString();
                 iddoanhnghiep = int.Parse(row.Cells["IDDoanhNghiep"].Value.ToString());
                 DoanhNghiep_TextBox_Changed(iddoanhnghiep);
+                btn_luudiscount.Enabled = true;
             }
             else
             {
                 status_bar.Items["status_itemselect"].Text = "Chưa chọn công ty nào";
+                txt_name_dn.Text = "";
+                txt_email_dn.Text = "";
+                txt_tax_dn.Text = "";
+                txt_daidien_dn.Text = "";
+                txt_diachi_dn.Text = "";
                 btn_luudiscount.Enabled = false;
             }
         }
@@ -145,22 +158,23 @@ namespace Nhom09_083_388_392_537_708
                                 command.Parameters.AddWithValue("@iddoanhnghiep", iddoanhnghiep);
                                 command.ExecuteNonQuery();
                             }
+                            ThongBao("Cập nhật ưu đãi thành công");
                             connection.Close();
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi datagridview: " + ex.Message);
+                        ThongBao("Lỗi datagridview: " + ex.Message);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng chọn doanh nghiệp để chỉnh sửa mức ưu đãi");
+                    ThongBao("Vui lòng chọn doanh nghiệp để chỉnh sửa mức ưu đãi");
                 }
             }
             else
             {
-                MessageBox.Show("Ưu đãi không hợp lệ");
+                ThongBao("Ưu đãi không hợp lệ");
             }
         }
     }
