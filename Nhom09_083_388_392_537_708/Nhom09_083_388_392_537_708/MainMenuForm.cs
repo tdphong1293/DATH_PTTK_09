@@ -265,5 +265,11 @@ namespace Nhom09_083_388_392_537_708
             OpenChildForm(new FormDangKyDoanhNghiep(), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
+
+        private void btnDuyetHSDaQuaXL_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new DUYET_HS_UNGTUYEN(id), sender);
+            CenterLabelInPanel(lblTitle, pnlTitle);
+        }
     }
 }
