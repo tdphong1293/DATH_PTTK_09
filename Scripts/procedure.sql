@@ -62,7 +62,7 @@ go
 
 
 --Phong
-create or alter procedure CreateUngVien
+create or alter procedure ThemUV
     @username varchar(30),
     @password varchar(30),
     @name nvarchar(50),
@@ -74,11 +74,11 @@ begin
     insert into THANHVIEN (TenDangNhap, MatKhau, Ten, Email, LoaiThanhVien) 
         values (@username, @password, @name, @email, 'UNGVIEN');    
     set @returnid = scope_identity();
-    insert into UNGVIEN (ID) values (@returnid, @birth);
+    insert into UNGVIEN values (@returnid, @birth);
 end;
 go
 
-create or alter procedure CreateDoanhNghiep
+create or alter procedure ThemDN
     @username varchar(30),
     @password varchar(30),
     @name nvarchar(50),
@@ -96,7 +96,7 @@ begin
 end;
 go
 
-create or alter procedure KetQuaTuyenDung
+create or alter procedure LayKetQuaUngTuyen
     @timkiem nvarchar(100)
 as
 begin
