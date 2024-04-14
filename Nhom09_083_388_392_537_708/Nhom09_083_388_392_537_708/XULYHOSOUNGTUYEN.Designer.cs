@@ -253,6 +253,7 @@
             // 
             // btn_OpenFileCV
             // 
+            this.btn_OpenFileCV.Enabled = false;
             this.btn_OpenFileCV.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_OpenFileCV.Location = new System.Drawing.Point(212, 186);
             this.btn_OpenFileCV.Name = "btn_OpenFileCV";
@@ -287,6 +288,7 @@
             // 
             this.btn_ThemBangCap.BackgroundImage = global::Nhom09_083_388_392_537_708.Properties.Resources.btn_plus;
             this.btn_ThemBangCap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ThemBangCap.Enabled = false;
             this.btn_ThemBangCap.Location = new System.Drawing.Point(348, 15);
             this.btn_ThemBangCap.Name = "btn_ThemBangCap";
             this.btn_ThemBangCap.Size = new System.Drawing.Size(24, 24);
@@ -310,6 +312,7 @@
             // 
             this.tb_DoanhNghiepUngTuyen.Enabled = false;
             this.tb_DoanhNghiepUngTuyen.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_DoanhNghiepUngTuyen.ForeColor = System.Drawing.Color.Black;
             this.tb_DoanhNghiepUngTuyen.Location = new System.Drawing.Point(212, 24);
             this.tb_DoanhNghiepUngTuyen.Name = "tb_DoanhNghiepUngTuyen";
             this.tb_DoanhNghiepUngTuyen.ReadOnly = true;
@@ -328,6 +331,7 @@
             // 
             // tb_DiemDanhGia
             // 
+            this.tb_DiemDanhGia.Enabled = false;
             this.tb_DiemDanhGia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_DiemDanhGia.Location = new System.Drawing.Point(331, 408);
             this.tb_DiemDanhGia.Name = "tb_DiemDanhGia";
@@ -356,6 +360,7 @@
             // 
             // tb_TinhTrangUngTuyen
             // 
+            this.tb_TinhTrangUngTuyen.BackColor = System.Drawing.SystemColors.Control;
             this.tb_TinhTrangUngTuyen.Enabled = false;
             this.tb_TinhTrangUngTuyen.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_TinhTrangUngTuyen.Location = new System.Drawing.Point(212, 65);
@@ -366,6 +371,7 @@
             // 
             // btn_Loai
             // 
+            this.btn_Loai.Enabled = false;
             this.btn_Loai.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Loai.ForeColor = System.Drawing.Color.Red;
             this.btn_Loai.Location = new System.Drawing.Point(938, 624);
@@ -377,6 +383,7 @@
             // 
             // btn_Duyet
             // 
+            this.btn_Duyet.Enabled = false;
             this.btn_Duyet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Duyet.ForeColor = System.Drawing.Color.ForestGreen;
             this.btn_Duyet.Location = new System.Drawing.Point(841, 624);
@@ -443,6 +450,7 @@
             this.dtgv_HSDaDuyet.ReadOnly = true;
             this.dtgv_HSDaDuyet.Size = new System.Drawing.Size(522, 216);
             this.dtgv_HSDaDuyet.TabIndex = 0;
+            this.dtgv_HSDaDuyet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_HSDaDuyet_CellClick);
             // 
             // tb_SearchDN2
             // 
