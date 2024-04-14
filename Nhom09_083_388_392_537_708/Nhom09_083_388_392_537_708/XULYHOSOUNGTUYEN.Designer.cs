@@ -451,6 +451,7 @@
             this.tb_SearchDN2.Name = "tb_SearchDN2";
             this.tb_SearchDN2.Size = new System.Drawing.Size(145, 27);
             this.tb_SearchDN2.TabIndex = 21;
+            this.tb_SearchDN2.TextChanged += new System.EventHandler(this.tb_SearchDN2_TextChanged);
             // 
             // lb_TimKiemDoanhNghiep2
             // 

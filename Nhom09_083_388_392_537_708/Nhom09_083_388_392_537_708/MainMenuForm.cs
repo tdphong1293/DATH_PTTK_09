@@ -195,10 +195,7 @@ namespace Nhom09_083_388_392_537_708
                     xpdt.Show();
                 }
             }
-            
-            
         }
-
 
 
         private void Reset()
@@ -229,7 +226,12 @@ namespace Nhom09_083_388_392_537_708
         {
             OpenChildForm(new XULYHOSOUNGTUYEN(), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
+        }
 
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new THANHTOAN(), sender);
+            CenterLabelInPanel(lblTitle, pnlTitle);
         }
 
         private void btnXemPDT_Click(object sender, EventArgs e)
@@ -292,6 +294,8 @@ namespace Nhom09_083_388_392_537_708
             pnlHomeChange.Controls.Add(loginForm);
             loginForm.Show();
         }
+
+        
 
         //private void MainMenuForm_FormClosing(object sender, FormClosingEventArgs e)
         //{

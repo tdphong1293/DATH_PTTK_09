@@ -74,7 +74,7 @@ begin
     insert into THANHVIEN (TenDangNhap, MatKhau, Ten, Email, LoaiThanhVien) 
         values (@username, @password, @name, @email, 'UNGVIEN');    
     set @returnid = scope_identity();
-    insert into UNGVIEN (ID) values (@returnid, @birth);
+    insert into UNGVIEN (IDUngVien, NgaySinh) values (@returnid, @birth);
 end;
 go
 
