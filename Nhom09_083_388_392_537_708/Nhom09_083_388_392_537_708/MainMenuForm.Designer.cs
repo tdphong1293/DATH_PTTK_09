@@ -289,6 +289,7 @@
             this.btnGiaHanHD.TabIndex = 9;
             this.btnGiaHanHD.Text = "Gia hạn hợp đồng";
             this.btnGiaHanHD.UseVisualStyleBackColor = false;
+            this.btnGiaHanHD.Click += new System.EventHandler(this.btnGiaHanHD_Click);
             // 
             // btnSignupUV
             // 
@@ -305,7 +306,7 @@
             this.btnSignupUV.TabIndex = 3;
             this.btnSignupUV.Text = "Đăng ký ứng viên";
             this.btnSignupUV.UseVisualStyleBackColor = false;
-            this.btnSignupUV.Click += new System.EventHandler(this.btnSignup_Click);
+            this.btnSignupUV.Click += new System.EventHandler(this.btnSignupUV_Click);
             // 
             // btnLogin
             // 

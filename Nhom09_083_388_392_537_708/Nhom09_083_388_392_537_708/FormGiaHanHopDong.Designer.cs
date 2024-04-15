@@ -73,7 +73,7 @@
             this.panel_FormGiaHanHopDong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_FormGiaHanHopDong.Location = new System.Drawing.Point(0, 0);
             this.panel_FormGiaHanHopDong.Name = "panel_FormGiaHanHopDong";
-            this.panel_FormGiaHanHopDong.Size = new System.Drawing.Size(1240, 707);
+            this.panel_FormGiaHanHopDong.Size = new System.Drawing.Size(1000, 561);
             this.panel_FormGiaHanHopDong.TabIndex = 0;
             // 
             // grpbox_dn
@@ -92,9 +92,9 @@
             this.grpbox_dn.Controls.Add(this.lb_email_dn);
             this.grpbox_dn.Controls.Add(this.lb_name_dn);
             this.grpbox_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpbox_dn.Location = new System.Drawing.Point(716, 101);
+            this.grpbox_dn.Location = new System.Drawing.Point(570, 134);
             this.grpbox_dn.Name = "grpbox_dn";
-            this.grpbox_dn.Size = new System.Drawing.Size(501, 325);
+            this.grpbox_dn.Size = new System.Drawing.Size(418, 324);
             this.grpbox_dn.TabIndex = 1;
             this.grpbox_dn.TabStop = false;
             this.grpbox_dn.Text = "Thông tin chi tiết Doanh Nghiệp";
@@ -102,9 +102,9 @@
             // txt_discount_dn
             // 
             this.txt_discount_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_discount_dn.Location = new System.Drawing.Point(183, 277);
+            this.txt_discount_dn.Location = new System.Drawing.Point(162, 277);
             this.txt_discount_dn.Name = "txt_discount_dn";
-            this.txt_discount_dn.Size = new System.Drawing.Size(307, 27);
+            this.txt_discount_dn.Size = new System.Drawing.Size(250, 27);
             this.txt_discount_dn.TabIndex = 1;
             // 
             // lb_discount_dn
@@ -121,10 +121,10 @@
             // 
             this.txt_diachi_dn.Cursor = System.Windows.Forms.Cursors.No;
             this.txt_diachi_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_diachi_dn.Location = new System.Drawing.Point(183, 226);
+            this.txt_diachi_dn.Location = new System.Drawing.Point(162, 226);
             this.txt_diachi_dn.Name = "txt_diachi_dn";
             this.txt_diachi_dn.ReadOnly = true;
-            this.txt_diachi_dn.Size = new System.Drawing.Size(307, 27);
+            this.txt_diachi_dn.Size = new System.Drawing.Size(250, 27);
             this.txt_diachi_dn.TabIndex = 69;
             this.txt_diachi_dn.TabStop = false;
             // 
@@ -132,10 +132,10 @@
             // 
             this.txt_daidien_dn.Cursor = System.Windows.Forms.Cursors.No;
             this.txt_daidien_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_daidien_dn.Location = new System.Drawing.Point(183, 178);
+            this.txt_daidien_dn.Location = new System.Drawing.Point(162, 178);
             this.txt_daidien_dn.Name = "txt_daidien_dn";
             this.txt_daidien_dn.ReadOnly = true;
-            this.txt_daidien_dn.Size = new System.Drawing.Size(307, 27);
+            this.txt_daidien_dn.Size = new System.Drawing.Size(250, 27);
             this.txt_daidien_dn.TabIndex = 68;
             this.txt_daidien_dn.TabStop = false;
             // 
@@ -143,10 +143,10 @@
             // 
             this.txt_tax_dn.Cursor = System.Windows.Forms.Cursors.No;
             this.txt_tax_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_tax_dn.Location = new System.Drawing.Point(183, 130);
+            this.txt_tax_dn.Location = new System.Drawing.Point(162, 130);
             this.txt_tax_dn.Name = "txt_tax_dn";
             this.txt_tax_dn.ReadOnly = true;
-            this.txt_tax_dn.Size = new System.Drawing.Size(307, 27);
+            this.txt_tax_dn.Size = new System.Drawing.Size(250, 27);
             this.txt_tax_dn.TabIndex = 67;
             this.txt_tax_dn.TabStop = false;
             // 
@@ -184,10 +184,10 @@
             // 
             this.txt_email_dn.Cursor = System.Windows.Forms.Cursors.No;
             this.txt_email_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_email_dn.Location = new System.Drawing.Point(183, 81);
+            this.txt_email_dn.Location = new System.Drawing.Point(162, 81);
             this.txt_email_dn.Name = "txt_email_dn";
             this.txt_email_dn.ReadOnly = true;
-            this.txt_email_dn.Size = new System.Drawing.Size(307, 27);
+            this.txt_email_dn.Size = new System.Drawing.Size(250, 27);
             this.txt_email_dn.TabIndex = 66;
             this.txt_email_dn.TabStop = false;
             // 
@@ -195,10 +195,10 @@
             // 
             this.txt_name_dn.Cursor = System.Windows.Forms.Cursors.No;
             this.txt_name_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_name_dn.Location = new System.Drawing.Point(183, 32);
+            this.txt_name_dn.Location = new System.Drawing.Point(162, 32);
             this.txt_name_dn.Name = "txt_name_dn";
             this.txt_name_dn.ReadOnly = true;
-            this.txt_name_dn.Size = new System.Drawing.Size(307, 27);
+            this.txt_name_dn.Size = new System.Drawing.Size(250, 27);
             this.txt_name_dn.TabIndex = 65;
             this.txt_name_dn.TabStop = false;
             // 
@@ -229,7 +229,7 @@
             this.btn_luudiscount.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_luudiscount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
             this.btn_luudiscount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_luudiscount.Location = new System.Drawing.Point(898, 464);
+            this.btn_luudiscount.Location = new System.Drawing.Point(704, 474);
             this.btn_luudiscount.Name = "btn_luudiscount";
             this.btn_luudiscount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_luudiscount.Size = new System.Drawing.Size(150, 50);
@@ -242,9 +242,9 @@
             // 
             this.status_bar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.status_itemselect});
-            this.status_bar.Location = new System.Drawing.Point(0, 682);
+            this.status_bar.Location = new System.Drawing.Point(0, 536);
             this.status_bar.Name = "status_bar";
-            this.status_bar.Size = new System.Drawing.Size(1240, 25);
+            this.status_bar.Size = new System.Drawing.Size(1000, 25);
             this.status_bar.TabIndex = 65;
             this.status_bar.Text = "statusStrip1";
             // 
@@ -260,7 +260,7 @@
             // 
             this.lb_timkiem_dn.AutoSize = true;
             this.lb_timkiem_dn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_timkiem_dn.Location = new System.Drawing.Point(452, 101);
+            this.lb_timkiem_dn.Location = new System.Drawing.Point(12, 104);
             this.lb_timkiem_dn.Name = "lb_timkiem_dn";
             this.lb_timkiem_dn.Size = new System.Drawing.Size(70, 20);
             this.lb_timkiem_dn.TabIndex = 64;
@@ -269,9 +269,9 @@
             // txt_timkiem
             // 
             this.txt_timkiem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_timkiem.Location = new System.Drawing.Point(528, 101);
+            this.txt_timkiem.Location = new System.Drawing.Point(88, 101);
             this.txt_timkiem.Name = "txt_timkiem";
-            this.txt_timkiem.Size = new System.Drawing.Size(169, 27);
+            this.txt_timkiem.Size = new System.Drawing.Size(299, 27);
             this.txt_timkiem.TabIndex = 0;
             this.txt_timkiem.TextChanged += new System.EventHandler(this.txt_timkiem_dn_TextChanged);
             // 
@@ -279,7 +279,7 @@
             // 
             this.lb_dtgv.AutoSize = true;
             this.lb_dtgv.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_dtgv.Location = new System.Drawing.Point(19, 101);
+            this.lb_dtgv.Location = new System.Drawing.Point(12, 78);
             this.lb_dtgv.Name = "lb_dtgv";
             this.lb_dtgv.Size = new System.Drawing.Size(375, 20);
             this.lb_dtgv.TabIndex = 52;
@@ -291,12 +291,12 @@
             this.dtgv_KetQuaTuyenDung.AllowUserToDeleteRows = false;
             this.dtgv_KetQuaTuyenDung.AllowUserToOrderColumns = true;
             this.dtgv_KetQuaTuyenDung.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_KetQuaTuyenDung.Location = new System.Drawing.Point(23, 134);
+            this.dtgv_KetQuaTuyenDung.Location = new System.Drawing.Point(12, 134);
             this.dtgv_KetQuaTuyenDung.MultiSelect = false;
             this.dtgv_KetQuaTuyenDung.Name = "dtgv_KetQuaTuyenDung";
             this.dtgv_KetQuaTuyenDung.ReadOnly = true;
             this.dtgv_KetQuaTuyenDung.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dtgv_KetQuaTuyenDung.Size = new System.Drawing.Size(674, 504);
+            this.dtgv_KetQuaTuyenDung.Size = new System.Drawing.Size(552, 390);
             this.dtgv_KetQuaTuyenDung.TabIndex = 51;
             this.dtgv_KetQuaTuyenDung.TabStop = false;
             this.dtgv_KetQuaTuyenDung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_KetQuaTuyenDung_CellClick);
@@ -305,7 +305,7 @@
             // 
             this.lb_explain.AutoSize = true;
             this.lb_explain.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_explain.Location = new System.Drawing.Point(472, 46);
+            this.lb_explain.Location = new System.Drawing.Point(343, 46);
             this.lb_explain.Name = "lb_explain";
             this.lb_explain.Size = new System.Drawing.Size(313, 25);
             this.lb_explain.TabIndex = 50;
@@ -315,7 +315,7 @@
             // 
             this.lb_FormGiaHanHopDong.AutoSize = true;
             this.lb_FormGiaHanHopDong.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_FormGiaHanHopDong.Location = new System.Drawing.Point(520, 16);
+            this.lb_FormGiaHanHopDong.Location = new System.Drawing.Point(400, 9);
             this.lb_FormGiaHanHopDong.Name = "lb_FormGiaHanHopDong";
             this.lb_FormGiaHanHopDong.Size = new System.Drawing.Size(199, 30);
             this.lb_FormGiaHanHopDong.TabIndex = 47;
@@ -326,7 +326,7 @@
             this.AcceptButton = this.btn_luudiscount;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 707);
+            this.ClientSize = new System.Drawing.Size(1000, 561);
             this.Controls.Add(this.panel_FormGiaHanHopDong);
             this.Name = "FormGiaHanHopDong";
             this.Text = "Gia Hạn Hợp Đồng";
