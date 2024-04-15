@@ -43,12 +43,13 @@ namespace Nhom09_083_388_392_537_708
                 using (SqlCommand command = new SqlCommand("LayKetQuaUngTuyen", conn))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-
                     command.Parameters.Add(new SqlParameter("@timkiem", searchtext));
-                    SqlDataReader reader = command.ExecuteReader();
-                    DataTable dataTable = new DataTable();
-                    dataTable.Load(reader);
-                    dtgv_KetQuaTuyenDung.DataSource = dataTable;
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        DataTable dataTable = new DataTable();
+                        dataTable.Load(reader);
+                        dtgv_KetQuaTuyenDung.DataSource = dataTable;
+                    }
                 }
             } 
             catch (Exception ex)
@@ -73,15 +74,17 @@ namespace Nhom09_083_388_392_537_708
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
                     command.Parameters.AddWithValue("@iddoanhnghiep", id);
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        txt_name_dn.Text = reader["Ten"].ToString();
-                        txt_email_dn.Text = reader["Email"].ToString();
-                        txt_tax_dn.Text = reader["MaSoThue"].ToString();
-                        txt_daidien_dn.Text = reader["NguoiDaiDien"].ToString();
-                        txt_diachi_dn.Text = reader["DiaChi"].ToString();
-                        txt_discount_dn.Text = (float.Parse(reader["UuDai"].ToString()) * 100).ToString();
+                        while (reader.Read())
+                        {
+                            txt_name_dn.Text = reader["Ten"].ToString();
+                            txt_email_dn.Text = reader["Email"].ToString();
+                            txt_tax_dn.Text = reader["MaSoThue"].ToString();
+                            txt_daidien_dn.Text = reader["NguoiDaiDien"].ToString();
+                            txt_diachi_dn.Text = reader["DiaChi"].ToString();
+                            txt_discount_dn.Text = (float.Parse(reader["UuDai"].ToString()) * 100).ToString();
+                        }
                     }
                 }
             }
