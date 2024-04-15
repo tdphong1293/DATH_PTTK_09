@@ -13,6 +13,7 @@ namespace Nhom09_083_388_392_537_708
 {
     public partial class FormDangKyDoanhNghiep : Form
     {
+        private static SqlConnection conn = FormDangNhap.conn;
         public FormDangKyDoanhNghiep()
         {
             InitializeComponent();
@@ -83,28 +84,20 @@ namespace Nhom09_083_388_392_537_708
         {
             try
             {
-                string connectionString = "Data Source=P1293; Initial Catalog = PTTK_ABC; User Id = sa; Password = ducphong1293;";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                string query = "select TenDangNhap from THANHVIEN where TenDangNhap = @tendangnhap";
+                using (SqlCommand command = new SqlCommand(query, conn))
                 {
-                    connection.Open();
-                    string query = "select TenDangNhap from THANHVIEN where TenDangNhap = @tendangnhap";
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    command.Parameters.AddWithValue("@tendangnhap", TenDangNhap);
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        command.Parameters.AddWithValue("@tendangnhap", TenDangNhap);
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        if (reader.HasRows)
                         {
-                            if (reader.HasRows)
-                            {
-                                ThongBao("Tên đăng nhập đã tồn tại");
-                                connection.Close();
-                                return false;
-                            }
-                            else
-                            {
-                                connection.Close();
-                                return true;
-                            }
+                            ThongBao("Tên đăng nhập đã tồn tại");
+                            return false;
+                        }
+                        else
+                        {
+                            return true;
                         }
                     }
                 }
@@ -122,37 +115,29 @@ namespace Nhom09_083_388_392_537_708
             {
                if (KiemTraTKMK() && KiemTraDNTonTai(txt_username_dn.Text))
                {
-                    //Chỗ này cho string connection vào
-                    string connectionString = "Data Source=P1293; Initial Catalog = PTTK_ABC; User Id = sa; Password = ducphong1293;";
-
-                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    using (SqlCommand command = new SqlCommand("ThemDN", conn))
                     {
-                        connection.Open();
-                        using (SqlCommand command = new SqlCommand("ThemDN", connection))
-                        {
-                            command.CommandType = CommandType.StoredProcedure;
+                        command.CommandType = CommandType.StoredProcedure;
 
-                            command.Parameters.Add(new SqlParameter("@username", txt_username_dn.Text));
-                            command.Parameters.Add(new SqlParameter("@password", txt_password_dn.Text));
-                            command.Parameters.Add(new SqlParameter("@name", txt_name_dn.Text));
-                            command.Parameters.Add(new SqlParameter("@email", txt_email_dn.Text));
-                            command.Parameters.Add(new SqlParameter("@masothue", txt_tax_dn.Text));
-                            command.Parameters.Add(new SqlParameter("@nguoidaidien", txt_daidien_dn.Text));
-                            command.Parameters.Add(new SqlParameter("@diachi", txt_diachi_dn.Text));
+                        command.Parameters.Add(new SqlParameter("@username", txt_username_dn.Text));
+                        command.Parameters.Add(new SqlParameter("@password", txt_password_dn.Text));
+                        command.Parameters.Add(new SqlParameter("@name", txt_name_dn.Text));
+                        command.Parameters.Add(new SqlParameter("@email", txt_email_dn.Text));
+                        command.Parameters.Add(new SqlParameter("@masothue", txt_tax_dn.Text));
+                        command.Parameters.Add(new SqlParameter("@nguoidaidien", txt_daidien_dn.Text));
+                        command.Parameters.Add(new SqlParameter("@diachi", txt_diachi_dn.Text));
 
-                            command.ExecuteNonQuery();
-                        }
-                        txt_username_dn.Text = "";
-                        txt_password_dn.Text = "";
-                        txt_repassword_dn.Text = "";
-                        txt_name_dn.Text = "";
-                        txt_email_dn.Text = "";
-                        txt_tax_dn.Text = "";
-                        txt_daidien_dn.Text = "";
-                        txt_diachi_dn.Text = "";
-                        ThongBao("Đăng ký Doanh Nghiệp thành công");
-                        connection.Close();
+                        command.ExecuteNonQuery();
                     }
+                    txt_username_dn.Text = "";
+                    txt_password_dn.Text = "";
+                    txt_repassword_dn.Text = "";
+                    txt_name_dn.Text = "";
+                    txt_email_dn.Text = "";
+                    txt_tax_dn.Text = "";
+                    txt_daidien_dn.Text = "";
+                    txt_diachi_dn.Text = "";
+                    ThongBao("Đăng ký Doanh Nghiệp thành công");
                }
             }
             catch (Exception ex)

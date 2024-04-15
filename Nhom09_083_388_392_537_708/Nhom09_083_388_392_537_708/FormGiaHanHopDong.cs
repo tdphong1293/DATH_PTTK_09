@@ -15,6 +15,7 @@ namespace Nhom09_083_388_392_537_708
     {
         private Timer debounceTimer = new Timer();
         private int iddoanhnghiep = -1;
+        private static SqlConnection conn = FormDangNhap.conn;
         public FormGiaHanHopDong()
         {
             InitializeComponent();
@@ -37,26 +38,21 @@ namespace Nhom09_083_388_392_537_708
 
         private void SearchAndFillData_KetQuaUngTuyen(string searchtext)
         {
-            string connectionString = "Data Source=P1293; Initial Catalog = PTTK_ABC; User Id = sa; Password = ducphong1293;";
-
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlCommand command = new SqlCommand("LayKetQuaUngTuyen", conn))
                 {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand("LayKetQuaUngTuyen", connection))
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@timkiem", searchtext));
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.Add(new SqlParameter("@timkiem", searchtext));
-                        SqlDataReader reader = command.ExecuteReader();
                         DataTable dataTable = new DataTable();
                         dataTable.Load(reader);
                         dtgv_KetQuaTuyenDung.DataSource = dataTable;
                     }
-                    connection.Close();
                 }
-            } catch (Exception ex)
+            } 
+            catch (Exception ex)
             {
                 ThongBao("Lỗi datagridview: " + ex.Message);
             }
@@ -70,20 +66,16 @@ namespace Nhom09_083_388_392_537_708
 
         private void DoanhNghiep_TextBox_Changed(int id)
         {
-            string connectionString = "Data Source=P1293; Initial Catalog = PTTK_ABC; User Id = sa; Password = ducphong1293;";
-
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                string query = "select TV.Ten, TV.Email, DN.MaSoThue, DN.NguoiDaiDien, DN.DiaChi, DN.UuDai" +
+                    " from THANHVIEN TV join DOANHNGHIEP DN on TV.IDThanhVien = DN.IDDoanhNghiep" +
+                    " where DN.IDDoanhNghiep = @iddoanhnghiep";
+                using (SqlCommand command = new SqlCommand(query, conn))
                 {
-                    connection.Open();
-                    string query = "select TV.Ten, TV.Email, DN.MaSoThue, DN.NguoiDaiDien, DN.DiaChi, DN.UuDai" +
-                        " from THANHVIEN TV join DOANHNGHIEP DN on TV.IDThanhVien = DN.IDDoanhNghiep" +
-                        " where DN.IDDoanhNghiep = @iddoanhnghiep";
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    command.Parameters.AddWithValue("@iddoanhnghiep", id);
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        command.Parameters.AddWithValue("@iddoanhnghiep", id);
-                        SqlDataReader reader = command.ExecuteReader();
                         while (reader.Read())
                         {
                             txt_name_dn.Text = reader["Ten"].ToString();
@@ -94,7 +86,6 @@ namespace Nhom09_083_388_392_537_708
                             txt_discount_dn.Text = (float.Parse(reader["UuDai"].ToString()) * 100).ToString();
                         }
                     }
-                    connection.Close();
                 }
             }
             catch (Exception ex)

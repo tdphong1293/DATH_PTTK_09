@@ -19,7 +19,6 @@ namespace Nhom09_083_388_392_537_708
         private int tempIndex;
         private Form activeForm;
         private FormDangNhap loginForm;
-        private FormDangKyUngVien formDangKyUngVien;
         public string username = "";
         public string role = "";
         public string id = "";
@@ -291,11 +290,6 @@ namespace Nhom09_083_388_392_537_708
 
         }
 
-        private void btnSignup_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnDangTuyenDung_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormDangTuyenDung(username, id), sender);
@@ -305,6 +299,18 @@ namespace Nhom09_083_388_392_537_708
         private void btnSignupDN_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormDangKyDoanhNghiep(), sender);
+            CenterLabelInPanel(lblTitle, pnlTitle);
+        }
+
+        private void btnSignupUV_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormDangKyUngVien(), sender);
+            CenterLabelInPanel(lblTitle, pnlTitle);
+        }
+
+        private void btnGiaHanHD_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormGiaHanHopDong(), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
 

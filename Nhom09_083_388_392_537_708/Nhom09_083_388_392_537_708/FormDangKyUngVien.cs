@@ -13,6 +13,7 @@ namespace Nhom09_083_388_392_537_708
 {
     public partial class FormDangKyUngVien : Form
     {
+        private static SqlConnection conn = FormDangNhap.conn;
         public FormDangKyUngVien()
         {
             InitializeComponent();
@@ -78,28 +79,20 @@ namespace Nhom09_083_388_392_537_708
         {
             try
             {
-                string connectionString = "Data Source=P1293; Initial Catalog = PTTK_ABC; User Id = sa; Password = ducphong1293;";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                string query = "select TenDangNhap from THANHVIEN where TenDangNhap = @tendangnhap";
+                using (SqlCommand command = new SqlCommand(query, conn))
                 {
-                    connection.Open();
-                    string query = "select TenDangNhap from THANHVIEN where TenDangNhap = @tendangnhap";
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    command.Parameters.AddWithValue("@tendangnhap", TenDangNhap);
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        command.Parameters.AddWithValue("@tendangnhap", TenDangNhap);
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        if (reader.HasRows)
                         {
-                            if (reader.HasRows)
-                            {
-                                ThongBao("Tên đăng nhập đã tồn tại");
-                                connection.Close();
-                                return false;
-                            }
-                            else 
-                            {
-                                connection.Close();
-                                return true;
-                            }
+                            ThongBao("Tên đăng nhập đã tồn tại");
+                            return false;
+                        }
+                        else 
+                        {
+                            return true;
                         }
                     }
                 }
@@ -117,33 +110,26 @@ namespace Nhom09_083_388_392_537_708
             {
                 if (KiemTraUVTonTai(txt_username_uv.Text) && KiemTraTKMK())
                 {
-                    //Chỗ này cho string connection vào
-                    string connectionString = "Data Source=P1293; Initial Catalog = PTTK_ABC; User Id = sa; Password = ducphong1293;";
 
-                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    using (SqlCommand command = new SqlCommand("ThemUV", conn))
                     {
-                        connection.Open();
-                        using (SqlCommand command = new SqlCommand("ThemUV", connection))
-                        {
-                            command.CommandType = CommandType.StoredProcedure;
+                        command.CommandType = CommandType.StoredProcedure;
 
-                            command.Parameters.Add(new SqlParameter("@username", txt_username_uv.Text));
-                            command.Parameters.Add(new SqlParameter("@password", txt_password_uv.Text));
-                            command.Parameters.Add(new SqlParameter("@name", txt_name_uv.Text));
-                            command.Parameters.Add(new SqlParameter("@email", txt_email_uv.Text));
-                            command.Parameters.Add(new SqlParameter("@birth", dtp_birth_uv.Value.ToString("yyyy-MM-dd")));
+                        command.Parameters.Add(new SqlParameter("@username", txt_username_uv.Text));
+                        command.Parameters.Add(new SqlParameter("@password", txt_password_uv.Text));
+                        command.Parameters.Add(new SqlParameter("@name", txt_name_uv.Text));
+                        command.Parameters.Add(new SqlParameter("@email", txt_email_uv.Text));
+                        command.Parameters.Add(new SqlParameter("@birth", dtp_birth_uv.Value.ToString("yyyy-MM-dd")));
 
-                            command.ExecuteNonQuery();
-                        }
-                        txt_username_uv.Text = "";
-                        txt_password_uv.Text = "";
-                        txt_repassword_uv.Text = "";
-                        txt_name_uv.Text = "";
-                        txt_email_uv.Text = "";
-                        ThongBao("Đăng ký Ứng Viên thành công");
-                        connection.Close();
+                        command.ExecuteNonQuery();
                     }
-                }
+                    txt_username_uv.Text = "";
+                    txt_password_uv.Text = "";
+                    txt_repassword_uv.Text = "";
+                    txt_name_uv.Text = "";
+                    txt_email_uv.Text = "";
+                    ThongBao("Đăng ký Ứng Viên thành công");
+                }    
             }
             catch (Exception ex)
             {
