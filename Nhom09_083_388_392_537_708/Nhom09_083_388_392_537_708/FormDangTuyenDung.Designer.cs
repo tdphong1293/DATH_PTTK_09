@@ -182,9 +182,9 @@
             // 
             this.cbxHTDT.FormattingEnabled = true;
             this.cbxHTDT.Items.AddRange(new object[] {
-            "Đăng tuyển trên báo giấy",
-            "Đăng banner quảng cáo",
-            "Đăng trên các trang mạng"});
+            "Báo giấy",
+            "Banner quảng cáo",
+            "Trang mạng"});
             this.cbxHTDT.Location = new System.Drawing.Point(229, 242);
             this.cbxHTDT.Name = "cbxHTDT";
             this.cbxHTDT.Size = new System.Drawing.Size(285, 30);

@@ -14,28 +14,41 @@ BEGIN
 END
 go
 
+create or alter proc checkNhanVien 
+	@id varchar(30)
+AS
+BEGIN
+	select nv.VaiTro from THANHVIEN tv, NHANVIEN nv where tv.IDThanhVien = nv.IDNhanVien and tv.IDThanhVien = @id;
+END
+go
+
 create or alter proc ThemPDT 
 	@vtdt varchar(50),
 	@sltd int,
 	@iddn int,
-	@pqc int
+	@pqc int,
+	@idpdt int output
 as
 begin
+	SET NOCOUNT ON;
 	insert into PHIEUDANGTUYEN values(@vtdt, @sltd, @iddn, @pqc);
+	SET @idpdt = SCOPE_IDENTITY();
 end
-
 go
 
-create or alter proc ThemPQC
-	@NBD date,
-	@NKT date,
-	@htdt varchar(50),
-	@tongtien float
-as
-begin
-	insert into PHIEUQUANGCAO values (@NBD, @NKT, @htdt, @tongtien);
-end
-
+CREATE OR ALTER PROCEDURE ThemPQC
+    @NBD DATE,
+    @NKT DATE,
+    @htdt NVARCHAR(50),
+    @tongtien FLOAT,
+    @IDPhieuQuangCao INT OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    INSERT INTO PHIEUQUANGCAO (NgayBatDau, NgayKetThuc, HinhThucDangTuyen, TongTienQuangCao)
+    VALUES (@NBD, @NKT, @htdt, @tongtien);
+    SET @IDPhieuQuangCao = SCOPE_IDENTITY();
+END
 go
 
 create or alter proc ThemYC 
@@ -47,18 +60,20 @@ begin
 end
 
 go
-create or alter proc ThemHD
-	@tongtien float,
-	@datra float,
-	@lhtt nvarchar(50),
-	@ngaylap date,
-	@ttht nvarchar(50),
-	@iddn int
-as
-begin
-	insert into HOADON values(@tongtien, @datra, @lhtt, @ngaylap, @ttht, @iddn);
-end
-go
+CREATE OR ALTER PROCEDURE ThemHD
+    @tongtien FLOAT,
+    @datra FLOAT,
+    @lhtt NVARCHAR(50),
+    @ngaylap DATE,
+    @ttht NVARCHAR(50),
+    @iddn INT
+AS
+BEGIN
+    INSERT INTO HOADON (TongTien, DaTra, LoaiHinhThanhToan, NgayLap, TrangThaiHoanThanh, IDDoanhNghiep)
+    VALUES (@tongtien, @datra, @lhtt, @ngaylap, @ttht, @iddn);
+END
+GO
+
 
 
 --Phong
