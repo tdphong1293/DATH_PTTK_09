@@ -32,7 +32,7 @@ namespace Nhom09_083_388_392_537_708
             {
                 if (conn.State != ConnectionState.Open)
                 {
-                    string connStr = "Data Source = ShiphuDOTcpp;Initial Catalog=PTTK_ABC;Integrated Security=true;";
+                    string connStr = "Data Source = DESKTOP-U8VK4R9\\MSSQLSERVER2022;Initial Catalog=PTTK_ABC;Integrated Security=true;";
                     conn.ConnectionString = connStr;
                     conn.Open();
                 }
