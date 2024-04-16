@@ -43,7 +43,7 @@ namespace Nhom09_083_388_392_537_708
                 using (SqlCommand command = new SqlCommand("LayViTriDangTuyen", con))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@IDPhieuDangTuyen", IdPDT);
+                    command.Parameters.AddWithValue("@ID", IdPDT);
 
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     adapter.Fill(dt);
@@ -62,7 +62,7 @@ namespace Nhom09_083_388_392_537_708
             SqlCommand commandUngVien = new SqlCommand("LayTTUngVien", con);
             SqlDataReader reader;
             commandUngVien.CommandType = CommandType.StoredProcedure;
-            commandUngVien.Parameters.AddWithValue("@IDUngVien", idUngVien);
+            commandUngVien.Parameters.AddWithValue("@ID", idUngVien);
             reader = commandUngVien.ExecuteReader();
             if (reader.Read())
             {
@@ -76,7 +76,7 @@ namespace Nhom09_083_388_392_537_708
             SqlCommand commandDoanhNghiep = new SqlCommand("LayTTDoanhNghiep", con);
             SqlDataReader reader;
             commandDoanhNghiep.CommandType = CommandType.StoredProcedure;
-            commandDoanhNghiep.Parameters.AddWithValue("@IDDoanhNghiep", idPhieuDangTuyen);
+            commandDoanhNghiep.Parameters.AddWithValue("@ID", idPhieuDangTuyen);
             reader = commandDoanhNghiep.ExecuteReader();
             if (reader.Read())
             {
@@ -132,7 +132,6 @@ namespace Nhom09_083_388_392_537_708
                         command.Parameters.AddWithValue("@IDDoanhNghiep", IdDoanhNghiep);
                         command.Parameters.AddWithValue("@IDUngVien", IdUngVien);
                         command.Parameters.AddWithValue("@NgayUngTuyen", DateTime.Now.Date);
-                        command.Parameters.AddWithValue("@TinhTrangUngTuyen", "Chưa đủ điều kiện");
                         command.Parameters.AddWithValue("@ViTriUngTuyen", viTriUngTuyen);
                         command.ExecuteNonQuery();
                     }
