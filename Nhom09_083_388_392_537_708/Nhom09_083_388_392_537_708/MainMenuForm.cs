@@ -142,7 +142,7 @@ namespace Nhom09_083_388_392_537_708
                     btnGiaHanHD.Visible = false;
                     btnNHSTD.Visible = false;   
                     btnLogout.Visible = true;
-                    XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen();
+                    XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen(id, role);
                     xpdt.TopLevel = false;
                     xpdt.FormBorderStyle = FormBorderStyle.None;
                     xpdt.Dock = DockStyle.Fill;
@@ -164,7 +164,7 @@ namespace Nhom09_083_388_392_537_708
                     btnGiaHanHD.Visible = false;
                     btnNHSTD.Visible = false;
                     btnLogout.Visible = true;
-                    XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen();
+                    XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen(id, role);
                     xpdt.TopLevel = false;
                     xpdt.FormBorderStyle = FormBorderStyle.None;
                     xpdt.Dock = DockStyle.Fill;
@@ -187,7 +187,7 @@ namespace Nhom09_083_388_392_537_708
                     btnGiaHanHD.Visible = false;
                     btnNHSTD.Visible = true;
                     btnLogout.Visible = true;
-                    XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen();
+                    XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen(id, role);
                     xpdt.TopLevel = false;
                     xpdt.FormBorderStyle = FormBorderStyle.None;
                     xpdt.Dock = DockStyle.Fill;
@@ -234,7 +234,7 @@ namespace Nhom09_083_388_392_537_708
 
         private void btnXemPDT_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new XemPhieuDangTuyen(), sender);
+            OpenChildForm(new XemPhieuDangTuyen(id, role), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
 

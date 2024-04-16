@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -14,13 +15,93 @@ namespace Nhom09_083_388_392_537_708
 {
     public partial class NopHoSoUngTuyen : Form
     {
-        public NopHoSoUngTuyen()
+        public static SqlConnection con = FormDangNhap.conn;
+        public string IdUngVien = "";
+        public string IdDoanhNghiep = "";
+        public string IdPDT = "";
+
+        public NopHoSoUngTuyen(string idUser, string idpdt)
         {
             InitializeComponent();
+            this.IdUngVien = idUser;
+            this.IdPDT = idpdt;
+            IdDoanhNghiep = Lay_IdDN_Tu_IDPDT(IdPDT);
         }
 
-        public string IdUngVien = "UV01";
-        public string IdHoSo = "HS05";
+        private void NopHoSoUngTuyen_Load(object sender, EventArgs e)
+        {
+            LayThongTinUngVien(IdUngVien);
+            LayThongTinDoanhNghiep(IdDoanhNghiep);
+            LoadViTriDangTuyen();
+        }
+
+        private void LoadViTriDangTuyen()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                using (SqlCommand command = new SqlCommand("LayViTriDangTuyen", con))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@IDPhieuDangTuyen", IdPDT);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dt);
+                }
+                cbVTUT.DataSource = dt;
+                cbVTUT.DisplayMember = "DanhSachViTriDangTuyen";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách vị trí đăng tuyển: " + ex.Message);
+            }
+        }
+
+        private void LayThongTinUngVien(string idUngVien)
+        {
+            SqlCommand commandUngVien = new SqlCommand("LayTTUngVien", con);
+            SqlDataReader reader;
+            commandUngVien.CommandType = CommandType.StoredProcedure;
+            commandUngVien.Parameters.AddWithValue("@IDUngVien", idUngVien);
+            reader = commandUngVien.ExecuteReader();
+            if (reader.Read())
+            {
+                txtTenUV.Text = reader["Ten"].ToString();
+            }
+            reader.Close();
+        }
+
+        private void LayThongTinDoanhNghiep(string idPhieuDangTuyen)
+        {
+            SqlCommand commandDoanhNghiep = new SqlCommand("LayTTDoanhNghiep", con);
+            SqlDataReader reader;
+            commandDoanhNghiep.CommandType = CommandType.StoredProcedure;
+            commandDoanhNghiep.Parameters.AddWithValue("@IDDoanhNghiep", idPhieuDangTuyen);
+            reader = commandDoanhNghiep.ExecuteReader();
+            if (reader.Read())
+            {
+                txtTenDN.Text = reader["Ten"].ToString();
+                IdDoanhNghiep = reader["IDDoanhNghiep"].ToString();
+            }
+            reader.Close();
+        }
+
+        private string Lay_IdDN_Tu_IDPDT(string idPDT)
+        {
+            string idDoanhNghiep = "";
+            using (SqlCommand command = new SqlCommand("TimIDDoanhNghiepTuIDPDT", con))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@IDPDT", idPDT);
+                SqlParameter outputParam = new SqlParameter("@IDDoanhNghiep", SqlDbType.Int);
+                outputParam.Direction = ParameterDirection.Output;
+                command.Parameters.Add(outputParam);
+                command.ExecuteNonQuery();
+                idDoanhNghiep = command.Parameters["@IDDoanhNghiep"].Value.ToString();
+            }
+            return idDoanhNghiep;
+        }
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
@@ -32,62 +113,41 @@ namespace Nhom09_083_388_392_537_708
             {
                 string selectedFilePath = openFileDialog.FileName;
                 llbFileName.Text = Path.GetFileName(selectedFilePath);
-
-                // Thư mục chứa tất cả các tệp được tải lên
-                string uploadFolderPath = Path.Combine(Application.StartupPath, "Upload");
-
-                // Thư mục chứa tệp của mỗi ID ứng viên
-                string idUngVienFolderPath = Path.Combine(uploadFolderPath, IdUngVien);
-                if (!Directory.Exists(idUngVienFolderPath))
-                {
-                    Directory.CreateDirectory(idUngVienFolderPath);
-                }
-
-                // Thư mục chứa tệp của mỗi ID hồ sơ trong thư mục của ID ứng viên
-                string idHoSoFolderPath = Path.Combine(idUngVienFolderPath, IdHoSo);
-                if (!Directory.Exists(idHoSoFolderPath))
-                {
-                    Directory.CreateDirectory(idHoSoFolderPath);
-                }
-
-                // Tạo đường dẫn tệp đích
-                string destinationFilePath = Path.Combine(idHoSoFolderPath, llbFileName.Text);
-
-                // Sao chép tệp vào thư mục đích
-                File.Copy(selectedFilePath, destinationFilePath, true);
             }
         }
-
 
 
         private void btnXNNopHS_Click(object sender, EventArgs e)
         {
-            if (llbFileName.Text != "" && cbVTUT.Text != "")
+            if (!string.IsNullOrEmpty(llbFileName.Text) && cbVTUT.SelectedItem != null)
             {
-                MessageBox.Show("Nộp hồ sơ thành công");
+                string viTriUngTuyen = cbVTUT.SelectedItem.ToString();
+                try
+                {
+                    // Khởi tạo và thực thi SqlCommand để gọi stored procedure
+                    using (SqlCommand command = new SqlCommand("ThemHoSoUngTuyen", con))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@IDDoanhNghiep", IdDoanhNghiep);
+                        command.Parameters.AddWithValue("@IDUngVien", IdUngVien);
+                        command.Parameters.AddWithValue("@NgayUngTuyen", DateTime.Now.Date);
+                        command.Parameters.AddWithValue("@TinhTrangUngTuyen", "Chưa đủ điều kiện");
+                        command.Parameters.AddWithValue("@ViTriUngTuyen", viTriUngTuyen);
+                        command.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Nộp hồ sơ thành công");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi nộp hồ sơ: " + ex.Message);
+                }
             }
             else
+            {
                 MessageBox.Show("Thông tin không được để trống!");
-        }
-
-        private void btnHuyNHS_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnOpenFolder_Click(object sender, EventArgs e)
-        {
-            // Thư mục chứa tất cả các tệp được tải lên
-            string uploadFolderPath = Path.Combine(Application.StartupPath, "Upload");
-
-            // Thư mục chứa tệp của mỗi ID ứng viên
-            string idUngVienFolderPath = Path.Combine(uploadFolderPath, IdUngVien);
-
-            // Thư mục chứa tệp của mỗi ID hồ sơ trong thư mục của ID ứng viên
-            string idHoSoFolderPath = Path.Combine(idUngVienFolderPath, IdHoSo);
-
-            // Mở thư mục trong File Explorer
-            Process.Start("explorer.exe", idHoSoFolderPath);
+            }
         }
     }
 }
