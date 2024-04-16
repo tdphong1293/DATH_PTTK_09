@@ -32,7 +32,7 @@ namespace Nhom09_083_388_392_537_708
             {
                 if (conn.State != ConnectionState.Open)
                 {
-                    string connStr = "Data Source=HUYNHPHUC; Initial Catalog=PTTK_ABC; Integrated Security=True";
+                    string connStr = "Data Source = HUYNHPHUC;Initial Catalog=PTTK_ABC;Integrated Security=true;";
                     conn.ConnectionString = connStr;
                     conn.Open();
                 }

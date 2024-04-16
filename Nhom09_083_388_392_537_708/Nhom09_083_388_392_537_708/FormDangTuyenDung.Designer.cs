@@ -182,13 +182,14 @@
             // 
             this.cbxHTDT.FormattingEnabled = true;
             this.cbxHTDT.Items.AddRange(new object[] {
-            "Đăng tuyển trên báo giấy",
-            "Đăng banner quảng cáo",
-            "Đăng trên các trang mạng"});
+            "Báo giấy",
+            "Banner quảng cáo",
+            "Trang mạng"});
             this.cbxHTDT.Location = new System.Drawing.Point(229, 242);
             this.cbxHTDT.Name = "cbxHTDT";
             this.cbxHTDT.Size = new System.Drawing.Size(285, 30);
             this.cbxHTDT.TabIndex = 10;
+            this.cbxHTDT.SelectedValueChanged += new System.EventHandler(this.cbxHTDT_SelectedValueChanged);
             // 
             // lblHTDT
             // 
@@ -205,6 +206,7 @@
             this.dtpNKT.Name = "dtpNKT";
             this.dtpNKT.Size = new System.Drawing.Size(336, 28);
             this.dtpNKT.TabIndex = 8;
+            this.dtpNKT.ValueChanged += new System.EventHandler(this.dtpNKT_ValueChanged);
             // 
             // lblNKT
             // 
@@ -244,6 +246,7 @@
             this.btnXacNhan.TabIndex = 9;
             this.btnXacNhan.Text = "XÁC NHẬN";
             this.btnXacNhan.UseVisualStyleBackColor = false;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // lblDTD
             // 

@@ -13,9 +13,16 @@ namespace Nhom09_083_388_392_537_708
 {
     public partial class FormDangKyUngVien : Form
     {
+        private static SqlConnection conn = FormDangNhap.conn;
         public FormDangKyUngVien()
         {
             InitializeComponent();
+            dtp_birth_uv.MaxDate = DateTime.Today;
+        }
+
+        private void ThongBao(string noidungtb)
+        {
+            MessageBox.Show(noidungtb);
         }
 
         private bool ValidateInputString(string input)
@@ -38,57 +45,95 @@ namespace Nhom09_083_388_392_537_708
             }
         }
 
+        private bool KiemTraTKMK()
+        {
+            if (!ValidateInputString(txt_username_uv.Text))
+            {
+                ThongBao("Tên đăng nhập không hợp lệ");
+                return false;
+            }
+            else if (!ValidateInputString(txt_password_uv.Text))
+            {
+                ThongBao("Mật khẩu không hợp lệ");
+                return false;
+            }
+            else if (txt_password_uv.Text != txt_repassword_uv.Text)
+            {
+                ThongBao("Mật khẩu nhập lại không khớp");
+                return false;
+            }
+            else if (string.IsNullOrEmpty(txt_name_uv.Text) || (txt_name_uv.Text).Length > 50)
+            {
+                ThongBao("Tên ứng viên không hợp lệ");
+                return false;
+            }
+            else if (string.IsNullOrEmpty(txt_email_uv.Text) || (txt_email_uv.Text).Length > 50)
+            {
+                ThongBao("Email không hợp lệ");
+                return false;
+            }
+            return true;
+        }
+        
+        private bool KiemTraUVTonTai(string TenDangNhap)
+        {
+            try
+            {
+                string query = "select TenDangNhap from THANHVIEN where TenDangNhap = @tendangnhap";
+                using (SqlCommand command = new SqlCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("@tendangnhap", TenDangNhap);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            ThongBao("Tên đăng nhập đã tồn tại");
+                            return false;
+                        }
+                        else 
+                        {
+                            return true;
+                        }
+                    }
+                }
+            } 
+            catch (Exception ex)
+            {
+                ThongBao("Lỗi kiểm tra tên đăng nhập " + ex.Message);
+                return false;
+            }
+        }
+
         private void btn_DangKyUngVien_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!ValidateInputString(txt_username_uv.Text))
+                if (KiemTraUVTonTai(txt_username_uv.Text) && KiemTraTKMK())
                 {
-                    MessageBox.Show("Tên đăng nhập không hợp lệ");
-                }
-                else if (!ValidateInputString(txt_password_uv.Text))
-                {
-                    MessageBox.Show("Mật khẩu không hợp lệ");
-                }
-                else if (txt_password_uv.Text != txt_repassword_uv.Text)
-                {
-                    MessageBox.Show("Mật khẩu nhập lại không khớp");
-                }
-                else if (string.IsNullOrEmpty(txt_name_uv.Text) || (txt_name_uv.Text).Length > 50)
-                {
-                    MessageBox.Show("Tên ứng viên không hợp lệ");
-                }
-                else if (string.IsNullOrEmpty(txt_email_uv.Text) || (txt_email_uv.Text).Length > 50)
-                {
-                    MessageBox.Show("Email không hợp lệ");
-                }
-                else
-                {
-                    //Chỗ này cho string connection vào
-                    string connectionString = "Data Source=P1293; Initial Catalog = PTTK_ABC; User Id = sa; Password = ducphong1293;";
 
-                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    using (SqlCommand command = new SqlCommand("ThemUV", conn))
                     {
-                        connection.Open();
-                        using (SqlCommand command = new SqlCommand("CreateUngVien", connection))
-                        {
-                            command.CommandType = CommandType.StoredProcedure;
+                        command.CommandType = CommandType.StoredProcedure;
 
-                            command.Parameters.Add(new SqlParameter("@username", txt_username_uv.Text));
-                            command.Parameters.Add(new SqlParameter("@password", txt_password_uv.Text));
-                            command.Parameters.Add(new SqlParameter("@name", txt_name_uv.Text));
-                            command.Parameters.Add(new SqlParameter("@email", txt_email_uv.Text));
-                            command.Parameters.Add(new SqlParameter("@birth", dtp_birth_uv.Value.ToString("yyyy-MM-dd")));
+                        command.Parameters.Add(new SqlParameter("@username", txt_username_uv.Text));
+                        command.Parameters.Add(new SqlParameter("@password", txt_password_uv.Text));
+                        command.Parameters.Add(new SqlParameter("@name", txt_name_uv.Text));
+                        command.Parameters.Add(new SqlParameter("@email", txt_email_uv.Text));
+                        command.Parameters.Add(new SqlParameter("@birth", dtp_birth_uv.Value.ToString("yyyy-MM-dd")));
 
-                            command.ExecuteNonQuery();
-                        }
-                        connection.Close();
+                        command.ExecuteNonQuery();
                     }
-                }
+                    txt_username_uv.Text = "";
+                    txt_password_uv.Text = "";
+                    txt_repassword_uv.Text = "";
+                    txt_name_uv.Text = "";
+                    txt_email_uv.Text = "";
+                    ThongBao("Đăng ký Ứng Viên thành công");
+                }    
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                ThongBao("Lỗi thêm UV " + ex.Message);
             }
         }
     }

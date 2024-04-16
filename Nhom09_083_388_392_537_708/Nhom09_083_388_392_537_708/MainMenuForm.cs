@@ -19,7 +19,6 @@ namespace Nhom09_083_388_392_537_708
         private int tempIndex;
         private Form activeForm;
         private FormDangNhap loginForm;
-        private FormDangKyUngVien formDangKyUngVien;
         public string username = "";
         public string role = "";
         public string id = "";
@@ -128,26 +127,65 @@ namespace Nhom09_083_388_392_537_708
                 username = roleEventArgs.username.Trim();
                 id = roleEventArgs.id.Trim();
                 if (role == "NHANVIEN")
-                {                   
-                    pnlHomeChange.Controls.Clear();
-                    btnXemPDT.Visible = true;
-                    btnXLDTD.Visible = true;
-                    btnXLHSUngTuyen.Visible=true;
-                    btnThanhToan.Visible = true;
-                    btnLogin.Visible = false;
-                    btnSignupUV.Visible = false;
-                    btnSignupDN.Visible = false;
-                    btnDangTuyenDung.Visible = false;
-                    btnDuyetHSDaQuaXL.Visible = false;
-                    btnGiaHanHD.Visible = false;
-                    btnNHSTD.Visible = false;   
-                    btnLogout.Visible = true;
-                    XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen(id, role);
-                    xpdt.TopLevel = false;
-                    xpdt.FormBorderStyle = FormBorderStyle.None;
-                    xpdt.Dock = DockStyle.Fill;
-                    pnlHomeChange.Controls.Add(xpdt);
-                    xpdt.Show();
+                {
+                    string nv_role = "";
+                    using (SqlCommand cmd = new SqlCommand("checkNhanVien", con))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@id", id);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                nv_role = reader["VaiTro"].ToString();
+                            }
+                        }
+                    }
+
+                    if (nv_role == "Nhân viên cơ bản")
+                    {
+                        pnlHomeChange.Controls.Clear();
+                        btnXemPDT.Visible = true;
+                        btnXLDTD.Visible = true;
+                        btnXLHSUngTuyen.Visible = true;
+                        btnThanhToan.Visible = true;
+                        btnLogin.Visible = false;
+                        btnSignupUV.Visible = false;
+                        btnSignupDN.Visible = false;
+                        btnDangTuyenDung.Visible = false;
+                        btnDuyetHSDaQuaXL.Visible = false;
+                        btnGiaHanHD.Visible = false;
+                        btnNHSTD.Visible = false;
+                        btnLogout.Visible = true;
+                        XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen(id, role);
+                        xpdt.TopLevel = false;
+                        xpdt.FormBorderStyle = FormBorderStyle.None;
+                        xpdt.Dock = DockStyle.Fill;
+                        pnlHomeChange.Controls.Add(xpdt);
+                        xpdt.Show();
+                    }
+                    else if (nv_role == "Ban lãnh đạo")
+                    {
+                        pnlHomeChange.Controls.Clear();
+                        btnGiaHanHD.Visible = true;
+                        btnXemPDT.Visible = false;
+                        btnXLDTD.Visible = false;
+                        btnXLHSUngTuyen.Visible = false;
+                        btnThanhToan.Visible = false;
+                        btnLogin.Visible = false;
+                        btnSignupUV.Visible = false;
+                        btnSignupDN.Visible = false;
+                        btnDangTuyenDung.Visible = false;
+                        btnDuyetHSDaQuaXL.Visible = false;
+                        btnNHSTD.Visible = false;
+                        btnLogout.Visible = true;
+                        FormGiaHanHopDong gh = new FormGiaHanHopDong();
+                        gh.TopLevel = false;
+                        gh.FormBorderStyle = FormBorderStyle.None;
+                        gh.Dock = DockStyle.Fill;
+                        pnlHomeChange.Controls.Add(gh);
+                        gh.Show();
+                    }
                 }
 
                 else if (role == "DOANHNGHIEP")
@@ -195,10 +233,7 @@ namespace Nhom09_083_388_392_537_708
                     xpdt.Show();
                 }
             }
-            
-            
         }
-
 
 
         private void Reset()
@@ -229,7 +264,12 @@ namespace Nhom09_083_388_392_537_708
         {
             OpenChildForm(new XULYHOSOUNGTUYEN(), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
+        }
 
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new THANHTOAN(), sender);
+            CenterLabelInPanel(lblTitle, pnlTitle);
         }
 
         private void btnXemPDT_Click(object sender, EventArgs e)
@@ -241,7 +281,8 @@ namespace Nhom09_083_388_392_537_708
         
         private void btnXLDTD_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new DOANHNGHIEP_TIEMNANG(), sender);
+            CenterLabelInPanel(lblTitle, pnlTitle);
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -249,14 +290,9 @@ namespace Nhom09_083_388_392_537_708
 
         }
 
-        private void btnSignup_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnDangTuyenDung_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormDangTuyenDung(username), sender);
+            OpenChildForm(new FormDangTuyenDung(username, id), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
 
@@ -264,6 +300,61 @@ namespace Nhom09_083_388_392_537_708
         {
             OpenChildForm(new FormDangKyDoanhNghiep(), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
+        }
+
+        private void btnSignupUV_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormDangKyUngVien(), sender);
+            CenterLabelInPanel(lblTitle, pnlTitle);
+        }
+
+        private void btnGiaHanHD_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormGiaHanHopDong(), sender);
+            CenterLabelInPanel(lblTitle, pnlTitle);
+        }
+
+        private void btnDuyetHSDaQuaXL_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new DUYET_HS_UNGTUYEN(id), sender);
+            CenterLabelInPanel(lblTitle, pnlTitle);
+        }
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            con.Close();
+            pnlHomeChange.Controls.Clear();
+            btnDangTuyenDung.Visible = false;
+            btnXemPDT.Visible = false;
+            btnDuyetHSDaQuaXL.Visible = false;
+            btnXLDTD.Visible = false;
+            btnXLHSUngTuyen.Visible = false;
+            btnThanhToan.Visible = false;
+            btnGiaHanHD.Visible = false;
+            btnNHSTD.Visible = false;
+            btnLogout.Visible = false;
+            btnLogin.Visible = true;
+            btnSignupDN.Visible = true;
+            btnSignupUV.Visible = true;
+            ActivateButton(btnLogin);
+            CenterLabelInPanel(lblTitle, pnlTitle);
+            loginForm = new FormDangNhap();
+            loginForm.ButtonClicked += UI_After_Login;
+            loginForm.TopLevel = false;
+            loginForm.FormBorderStyle = FormBorderStyle.None;
+            loginForm.Dock = DockStyle.Fill;
+            pnlHomeChange.Controls.Add(loginForm);
+            loginForm.Show();
+        }
+
+
+
+        private void MainMenuForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (con.State == ConnectionState.Open)
+            {
+                con.Close();
+            }
+            Application.Exit();
         }
     }
 }
