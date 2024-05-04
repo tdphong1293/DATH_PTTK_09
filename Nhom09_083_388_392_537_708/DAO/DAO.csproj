@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DoanhNghiepDAO.cs" />
+    <Compile Include="HoSoUngTuyenDAO.cs" />
     <Compile Include="PhieuDangTuyenDAO.cs" />
+    <Compile Include="UngVienDAO.cs" />
     <Compile Include="UserDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

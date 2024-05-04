@@ -3,12 +3,12 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
+using BUS;
 
 namespace GUI
 {
     public partial class frmDangKyUngVien : Form
     {
-        private static SqlConnection conn = frmDangNhap.conn;
         public frmDangKyUngVien()
         {
             InitializeComponent();
@@ -69,62 +69,31 @@ namespace GUI
             }
             return true;
         }
-        
-        private bool KiemTraUVTonTai(string TenDangNhap)
-        {
-            try
-            {
-                string query = "select TenDangNhap from THANHVIEN where TenDangNhap = @tendangnhap";
-                using (SqlCommand command = new SqlCommand(query, conn))
-                {
-                    command.Parameters.AddWithValue("@tendangnhap", TenDangNhap);
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.HasRows)
-                        {
-                            ThongBao("Tên đăng nhập đã tồn tại");
-                            return false;
-                        }
-                        else 
-                        {
-                            return true;
-                        }
-                    }
-                }
-            } 
-            catch (Exception ex)
-            {
-                ThongBao("Lỗi kiểm tra tên đăng nhập " + ex.Message);
-                return false;
-            }
-        }
 
         private void btn_DangKyUngVien_Click(object sender, EventArgs e)
         {
             try
             {
-                if (KiemTraUVTonTai(txt_username_uv.Text) && KiemTraTKMK())
+                if (!KiemTraTKMK())
                 {
+                    return;
+                }
 
-                    using (SqlCommand command = new SqlCommand("ThemUV", conn))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
+                if (!UngVienBUS.KiemTraUVTonTai(txt_username_uv.Text))
+                {
+                    ThongBao("Ứng viên đã tồn tại trong hệ thống. Vui lòng đổi tên đăng nhập khác!");
+                    return;
+                }
 
-                        command.Parameters.Add(new SqlParameter("@username", txt_username_uv.Text));
-                        command.Parameters.Add(new SqlParameter("@password", txt_password_uv.Text));
-                        command.Parameters.Add(new SqlParameter("@name", txt_name_uv.Text));
-                        command.Parameters.Add(new SqlParameter("@email", txt_email_uv.Text));
-                        command.Parameters.Add(new SqlParameter("@birth", dtp_birth_uv.Value.ToString("yyyy-MM-dd")));
-
-                        command.ExecuteNonQuery();
-                    }
+                if (UngVienBUS.ThemUV(txt_username_uv.Text, txt_password_uv.Text, txt_name_uv.Text, txt_email_uv.Text, dtp_birth_uv.Value.ToString("yyyy-MM-dd")))
+                {
                     txt_username_uv.Text = "";
                     txt_password_uv.Text = "";
                     txt_repassword_uv.Text = "";
                     txt_name_uv.Text = "";
                     txt_email_uv.Text = "";
                     ThongBao("Đăng ký Ứng Viên thành công");
-                }    
+                }
             }
             catch (Exception ex)
             {

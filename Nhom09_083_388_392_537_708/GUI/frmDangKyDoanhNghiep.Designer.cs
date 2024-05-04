@@ -90,7 +90,7 @@
             this.txt_inputvalidation.Multiline = true;
             this.txt_inputvalidation.Name = "txt_inputvalidation";
             this.txt_inputvalidation.ReadOnly = true;
-            this.txt_inputvalidation.Size = new System.Drawing.Size(218, 221);
+            this.txt_inputvalidation.Size = new System.Drawing.Size(218, 306);
             this.txt_inputvalidation.TabIndex = 69;
             this.txt_inputvalidation.Text = resources.GetString("txt_inputvalidation.Text");
             // 
@@ -263,13 +263,13 @@
             this.lb_FormDangKyDoanhNghiep.TabIndex = 60;
             this.lb_FormDangKyDoanhNghiep.Text = "Đăng Ký Doanh Nghiệp";
             // 
-            // FormDangKyDoanhNghiep
+            // frmDangKyDoanhNghiep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 561);
             this.Controls.Add(this.panel_FormDangKyDoanhNghiep);
-            this.Name = "FormDangKyDoanhNghiep";
+            this.Name = "frmDangKyDoanhNghiep";
             this.Text = "Đăng Ký Doanh Nghiệp";
             this.panel_FormDangKyDoanhNghiep.ResumeLayout(false);
             this.panel_FormDangKyDoanhNghiep.PerformLayout();

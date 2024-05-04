@@ -3,12 +3,12 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
+using BUS;
 
 namespace GUI
 {
     public partial class frmDangKyDoanhNghiep : Form
     {
-        private static SqlConnection conn = frmDangNhap.conn;
         public frmDangKyDoanhNghiep()
         {
             InitializeComponent();
@@ -75,55 +75,23 @@ namespace GUI
             return true;
         }
 
-        private bool KiemTraDNTonTai(string TenDangNhap)
-        {
-            try
-            {
-                string query = "select TenDangNhap from THANHVIEN where TenDangNhap = @tendangnhap";
-                using (SqlCommand command = new SqlCommand(query, conn))
-                {
-                    command.Parameters.AddWithValue("@tendangnhap", TenDangNhap);
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.HasRows)
-                        {
-                            ThongBao("Tên đăng nhập đã tồn tại");
-                            return false;
-                        }
-                        else
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                ThongBao("Lỗi kiểm tra tên đăng nhập " + ex.Message);
-                return false;
-            }
-        }
-
         private void btn_DangKyDoanhNghiep_Click(object sender, EventArgs e)
         {
             try
             {
-               if (KiemTraTKMK() && KiemTraDNTonTai(txt_username_dn.Text))
-               {
-                    using (SqlCommand command = new SqlCommand("ThemDN", conn))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
+                if (!KiemTraTKMK())
+                {
+                    return;
+                }
 
-                        command.Parameters.Add(new SqlParameter("@username", txt_username_dn.Text));
-                        command.Parameters.Add(new SqlParameter("@password", txt_password_dn.Text));
-                        command.Parameters.Add(new SqlParameter("@name", txt_name_dn.Text));
-                        command.Parameters.Add(new SqlParameter("@email", txt_email_dn.Text));
-                        command.Parameters.Add(new SqlParameter("@masothue", txt_tax_dn.Text));
-                        command.Parameters.Add(new SqlParameter("@nguoidaidien", txt_daidien_dn.Text));
-                        command.Parameters.Add(new SqlParameter("@diachi", txt_diachi_dn.Text));
+                if (!DoanhNghiepBUS.KiemTraDNTonTai(txt_username_dn.Text))
+                {
+                    ThongBao("Doanh Nghiệp đã tồn tại trong hệ thống. Vui lòng đổi tên đăng nhập khác!");
+                    return;
+                }
 
-                        command.ExecuteNonQuery();
-                    }
+                if (DoanhNghiepBUS.ThemDN(txt_username_dn.Text, txt_password_dn.Text, txt_name_dn.Text, txt_email_dn.Text, txt_tax_dn.Text, txt_daidien_dn.Text, txt_diachi_dn.Text))
+                {
                     txt_username_dn.Text = "";
                     txt_password_dn.Text = "";
                     txt_repassword_dn.Text = "";
@@ -133,7 +101,7 @@ namespace GUI
                     txt_daidien_dn.Text = "";
                     txt_diachi_dn.Text = "";
                     ThongBao("Đăng ký Doanh Nghiệp thành công");
-               }
+                }
             }
             catch (Exception ex)
             {

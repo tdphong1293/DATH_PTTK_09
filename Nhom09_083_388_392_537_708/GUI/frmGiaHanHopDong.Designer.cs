@@ -290,6 +290,7 @@
             this.dtgv_KetQuaTuyenDung.AllowUserToAddRows = false;
             this.dtgv_KetQuaTuyenDung.AllowUserToDeleteRows = false;
             this.dtgv_KetQuaTuyenDung.AllowUserToOrderColumns = true;
+            this.dtgv_KetQuaTuyenDung.AllowUserToResizeRows = false;
             this.dtgv_KetQuaTuyenDung.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_KetQuaTuyenDung.Location = new System.Drawing.Point(12, 134);
             this.dtgv_KetQuaTuyenDung.MultiSelect = false;
@@ -322,14 +323,14 @@
             this.lb_FormGiaHanHopDong.TabIndex = 47;
             this.lb_FormGiaHanHopDong.Text = "Gia Hạn Hợp Đồng";
             // 
-            // FormGiaHanHopDong
+            // frmGiaHanHopDong
             // 
             this.AcceptButton = this.btn_luudiscount;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 561);
             this.Controls.Add(this.panel_FormGiaHanHopDong);
-            this.Name = "FormGiaHanHopDong";
+            this.Name = "frmGiaHanHopDong";
             this.Text = "Gia Hạn Hợp Đồng";
             this.panel_FormGiaHanHopDong.ResumeLayout(false);
             this.panel_FormGiaHanHopDong.PerformLayout();

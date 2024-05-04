@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -16,7 +17,7 @@ namespace GUI
             debounceTimer.Interval = 500;
             debounceTimer.Tick += DebounceTimer_Tick;
             dtgv_KetQuaTuyenDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            SearchAndFillData_KetQuaUngTuyen("");
+            dtgv_KetQuaTuyenDung.DataSource = HoSoUngTuyenBUS.LayKetQuaUngTuyen("");
         }
 
         private void ThongBao(string noidungtb)
@@ -30,62 +31,10 @@ namespace GUI
             debounceTimer.Start();
         }
 
-        private void SearchAndFillData_KetQuaUngTuyen(string searchtext)
-        {
-            try
-            {
-                using (SqlCommand command = new SqlCommand("LayKetQuaUngTuyen", conn))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter("@timkiem", searchtext));
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        DataTable dataTable = new DataTable();
-                        dataTable.Load(reader);
-                        dtgv_KetQuaTuyenDung.DataSource = dataTable;
-                    }
-                }
-            } 
-            catch (Exception ex)
-            {
-                ThongBao("Lỗi datagridview: " + ex.Message);
-            }
-        }
-
         private void DebounceTimer_Tick(object sender, EventArgs e)
         {
             debounceTimer.Stop();
-            SearchAndFillData_KetQuaUngTuyen(txt_timkiem.Text);
-        }
-
-        private void DoanhNghiep_TextBox_Changed(int id)
-        {
-            try
-            {
-                string query = "select TV.Ten, TV.Email, DN.MaSoThue, DN.NguoiDaiDien, DN.DiaChi, DN.UuDai" +
-                    " from THANHVIEN TV join DOANHNGHIEP DN on TV.IDThanhVien = DN.IDDoanhNghiep" +
-                    " where DN.IDDoanhNghiep = @iddoanhnghiep";
-                using (SqlCommand command = new SqlCommand(query, conn))
-                {
-                    command.Parameters.AddWithValue("@iddoanhnghiep", id);
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            txt_name_dn.Text = reader["Ten"].ToString();
-                            txt_email_dn.Text = reader["Email"].ToString();
-                            txt_tax_dn.Text = reader["MaSoThue"].ToString();
-                            txt_daidien_dn.Text = reader["NguoiDaiDien"].ToString();
-                            txt_diachi_dn.Text = reader["DiaChi"].ToString();
-                            txt_discount_dn.Text = (float.Parse(reader["UuDai"].ToString()) * 100).ToString();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                ThongBao("Lỗi datagridview: " + ex.Message);
-            }
+            dtgv_KetQuaTuyenDung.DataSource = HoSoUngTuyenBUS.LayKetQuaUngTuyen(txt_timkiem.Text);
         }
 
         private void dtgv_KetQuaTuyenDung_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -93,9 +42,15 @@ namespace GUI
             if (e.RowIndex >= 0 && e.RowIndex < dtgv_KetQuaTuyenDung.RowCount)
             {
                 DataGridViewRow row = dtgv_KetQuaTuyenDung.Rows[e.RowIndex];
-                status_bar.Items["status_itemselect"].Text = "Đang chọn công ty " + row.Cells["Tên công ty"].Value.ToString();
+                status_bar.Items["status_itemselect"].Text = "Đã chọn công ty " + row.Cells["Tên công ty"].Value.ToString();
                 iddoanhnghiep = int.Parse(row.Cells["IDDoanhNghiep"].Value.ToString());
-                DoanhNghiep_TextBox_Changed(iddoanhnghiep);
+                string[] DoanhNghiep = DoanhNghiepBUS.LayThongTinDN(iddoanhnghiep);
+                txt_name_dn.Text = DoanhNghiep[0];
+                txt_email_dn.Text = DoanhNghiep[1];
+                txt_tax_dn.Text = DoanhNghiep[2];
+                txt_daidien_dn.Text = DoanhNghiep[3];
+                txt_diachi_dn.Text = DoanhNghiep[4];
+                txt_discount_dn.Text = DoanhNghiep[5];
                 btn_luudiscount.Enabled = true;
             }
             else
@@ -106,6 +61,7 @@ namespace GUI
                 txt_tax_dn.Text = "";
                 txt_daidien_dn.Text = "";
                 txt_diachi_dn.Text = "";
+                txt_discount_dn.Text = "";
                 btn_luudiscount.Enabled = false;
             }
         }
@@ -129,27 +85,17 @@ namespace GUI
             {
                 if (iddoanhnghiep >= 0)
                 {
-                    string connectionString = "Data Source=P1293; Initial Catalog = PTTK_ABC; User Id = sa; Password = ducphong1293;";
-
                     try
                     {
-                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        if (DoanhNghiepBUS.CapNhatUuDai(iddoanhnghiep, txt_discount_dn.Text))
                         {
-                            connection.Open();
-                            string query = "update DOANHNGHIEP set UuDai = @uudai where IDDoanhNghiep = @iddoanhnghiep";
-                            using (SqlCommand command = new SqlCommand(query, connection))
-                            {
-                                command.Parameters.AddWithValue("@uudai", float.Parse(txt_discount_dn.Text) / 100);
-                                command.Parameters.AddWithValue("@iddoanhnghiep", iddoanhnghiep);
-                                command.ExecuteNonQuery();
-                            }
                             ThongBao("Cập nhật ưu đãi thành công");
-                            connection.Close();
                         }
-                    }
+
+                    } 
                     catch (Exception ex)
                     {
-                        ThongBao("Lỗi datagridview: " + ex.Message);
+                        MessageBox.Show("Lỗi cập nhật ưu đãi: " + ex.Message);
                     }
                 }
                 else
