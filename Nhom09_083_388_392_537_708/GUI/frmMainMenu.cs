@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -16,7 +10,6 @@ namespace GUI
     {
         private Button currentButton;
         private Random random;
-        private int tempIndex;
         private Form activeForm;
         private frmDangNhap loginForm;
         public string username = "";
@@ -156,7 +149,7 @@ namespace GUI
                         btnGiaHanHD.Visible = false;
                         btnLogout.Visible = true;
                         ActivateButton(btnXLDTD);
-                        DOANHNGHIEP_TIEMNANG dntn = new DOANHNGHIEP_TIEMNANG();
+                        frmDoanhNghiepTiemNang dntn = new frmDoanhNghiepTiemNang();
                         dntn.TopLevel = false;
                         dntn.FormBorderStyle = FormBorderStyle.None;
                         dntn.Dock = DockStyle.Fill;
@@ -178,7 +171,7 @@ namespace GUI
                         btnDuyetHSDaQuaXL.Visible = false;
                         btnLogout.Visible = true;
                         ActivateButton(btnGiaHanHD);
-                        FormGiaHanHopDong gh = new FormGiaHanHopDong();
+                        frmGiaHanHopDong gh = new frmGiaHanHopDong();
                         gh.TopLevel = false;
                         gh.FormBorderStyle = FormBorderStyle.None;
                         gh.Dock = DockStyle.Fill;
@@ -201,7 +194,7 @@ namespace GUI
                     btnGiaHanHD.Visible = false;
                     btnLogout.Visible = true;
                     ActivateButton(btnDangTuyenDung);
-                    FormDangTuyenDung formDangTuyenDung = new FormDangTuyenDung(username, id);
+                    frmDangTuyenDung formDangTuyenDung = new frmDangTuyenDung(username, id);
                     formDangTuyenDung.TopLevel = false;
                     formDangTuyenDung.FormBorderStyle = FormBorderStyle.None;
                     formDangTuyenDung.Dock = DockStyle.Fill;
@@ -223,7 +216,7 @@ namespace GUI
                     btnThanhToan.Visible = false;
                     btnGiaHanHD.Visible = false;
                     btnLogout.Visible = true;
-                    XemPhieuDangTuyen pdt = new XemPhieuDangTuyen(id, role);
+                    frmXemPhieuDangTuyen pdt = new frmXemPhieuDangTuyen(id, role);
                     pdt.TopLevel = false;
                     pdt.FormBorderStyle = FormBorderStyle.None;
                     pdt.Dock = DockStyle.Fill;

@@ -1,4 +1,4 @@
-﻿namespace Nhom09_083_388_392_537_708
+﻿namespace GUI
 {
     partial class frmDangNhap
     {

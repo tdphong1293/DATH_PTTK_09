@@ -1,23 +1,21 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using BUS;
+using Utility;
 
-namespace Nhom09_083_388_392_537_708
+namespace GUI
 {
     public partial class frmDangNhap : Form
     {
         public event EventHandler ButtonClicked;
-        public string role = "";
-
-        public string username = "";
-        public string id = "";
+        public static SqlConnection conn = DatabaseProvider.GetConnection();
 
         public frmDangNhap()
         {
             InitializeComponent();
         }
-
-
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -29,17 +27,16 @@ namespace Nhom09_083_388_392_537_708
             }
             else
             {
-                role = checkLogin(tbxUsername.Text, tbxPassword.Text);
-                if (string.IsNullOrEmpty(role))
+                LoggedUser result = UserBUS.CheckLogin(tbxUsername.Text, tbxPassword.Text);
+                if (!string.IsNullOrEmpty(result?.Role))
                 {
-                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác!!!");
+                    ButtonClicked?.Invoke(this, new RoleEventArgs(result.Role, tbxUsername.Text, result.Id));
                 }
                 else
                 {
-                    ButtonClicked?.Invoke(this, new RoleEventArgs(role, username, id));
+                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác!!!");
                 }
-            }   
-            
+            }
         }
     }
 }

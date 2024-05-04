@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using BUS;
+using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
 {
     public partial class frmXemPhieuDangTuyen : Form
     {
-        public static SqlConnection con = frmDangNhap.conn;
         public string UserRole = "";
         public string UserId = "";
         public string IdPDT = "";
@@ -45,29 +39,11 @@ namespace GUI
             LoadDataToDGV();
         }
 
-        private DataSet GetDataSetFromStoredProcedure(string storedProcedureName, params SqlParameter[] parameters)
-        {
-            DataSet dataSet = new DataSet();
-            using (SqlCommand cmd = new SqlCommand(storedProcedureName, con))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                if (parameters != null)
-                {
-                    cmd.Parameters.AddRange(parameters);
-                }
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dataSet);
-            }
-            return dataSet;
-        }
-
-
-
         private void LoadDataToDGV()
         {
             try
             {
-                DataSet dataSet = GetDataSetFromStoredProcedure("LayDanhSachPhieuDangTuyen");
+                DataSet dataSet = PhieuDangTuyenBUS.GetDataSetFromStoredProcedure("LayDanhSachPhieuDangTuyen");
                 dgv_DSDangTuyen.Columns.Clear();
                 dgv_DSDangTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgv_DSDangTuyen.DataSource = dataSet.Tables[0];
@@ -83,7 +59,7 @@ namespace GUI
         {
             try
             {
-                DataSet dataSet = GetDataSetFromStoredProcedure("LayDanhSachPhieuDangTuyenTheoDoanhNghiep",
+                DataSet dataSet = PhieuDangTuyenBUS.GetDataSetFromStoredProcedure("LayDanhSachPhieuDangTuyenTheoDoanhNghiep",
                                                                 new SqlParameter("@ID", UserId));
                 dgv_DSDangTuyen.Columns.Clear();
                 dgv_DSDangTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -95,7 +71,6 @@ namespace GUI
                 MessageBox.Show("Error loading DataGridView: " + ex.Message);
             }
         }
-
 
         private void dgv_DSDangTuyen_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -123,8 +98,7 @@ namespace GUI
             txtVTDT.Text = viTriDangTuyen;
             txtSLTD.Text = soLuongTuyenDung;
 
-            DataSet dataSet = GetDataSetFromStoredProcedure("LayYeuCauCongViec", 
-                                                    new SqlParameter("@ID", IdPDT));
+            DataSet dataSet = PhieuDangTuyenBUS.LayYeuCauCongViec(IdPDT);
             DataTable dataTable = dataSet.Tables[0];
 
             if (dataTable.Rows.Count > 0)
@@ -138,7 +112,6 @@ namespace GUI
             }
         }
 
-
         private void btnNopHSUT_Click(object sender, EventArgs e)
         {
             frmNopHSUngTuyen NopHSUT = new frmNopHSUngTuyen(UserId, IdPDT);
@@ -149,19 +122,8 @@ namespace GUI
         {
             try
             {
-                if (con.State != ConnectionState.Closed)
-                {
-                    con.Close();
-                }
-
-                using (SqlCommand cmd = new SqlCommand("XoaPhieuDangTuyen", con))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@IDPhieuDangTuyen", IdPDT);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Đã xóa phiếu đăng tuyển thành công.");
-                }
+                PhieuDangTuyenBUS.XoaPhieuDangTuyen(IdPDT);
+                MessageBox.Show("Đã xóa phiếu đăng tuyển thành công.");
                 LoadDataToDGV();
             }
             catch (Exception ex)
@@ -180,14 +142,14 @@ namespace GUI
                 DataSet resultDataSet;
                 if (UserRole == "DOANHNGHIEP")
                 {
-                    resultDataSet = GetDataSetFromStoredProcedure("TimKiemPhieuDangTuyen",
+                    resultDataSet = PhieuDangTuyenBUS.GetDataSetFromStoredProcedure("TimKiemPhieuDangTuyen",
                         new SqlParameter("@Ten", tenCty),
                         new SqlParameter("@ViTri", viTri),
                         new SqlParameter("@ID", UserId));
                 }
                 else
                 {
-                    resultDataSet = GetDataSetFromStoredProcedure("TimKiemPhieuDangTuyen",
+                    resultDataSet = PhieuDangTuyenBUS.GetDataSetFromStoredProcedure("TimKiemPhieuDangTuyen",
                         new SqlParameter("@Ten", tenCty),
                         new SqlParameter("@ViTri", viTri));
                 }
@@ -200,7 +162,5 @@ namespace GUI
                 MessageBox.Show("Đã xảy ra lỗi khi tìm kiếm: " + ex.Message);
             }
         }
-
-
     }
 }
