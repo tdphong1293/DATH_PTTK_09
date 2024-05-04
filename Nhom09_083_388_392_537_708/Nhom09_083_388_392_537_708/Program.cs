@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Nhom09_083_388_392_537_708
+namespace GUI
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace Nhom09_083_388_392_537_708
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainMenuForm());
+            Application.Run(new frmMainMenu());
         }
     }
 }
