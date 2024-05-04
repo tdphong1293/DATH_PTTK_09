@@ -106,7 +106,6 @@ namespace Nhom09_083_388_392_537_708
             btnXLHSUngTuyen.Visible = false;
             btnThanhToan.Visible = false;
             btnGiaHanHD.Visible = false;
-            btnNHSTD.Visible = false;
             btnLogout.Visible = false;
             ActivateButton(btnLogin);
             CenterLabelInPanel(lblTitle, pnlTitle);
@@ -155,7 +154,6 @@ namespace Nhom09_083_388_392_537_708
                         btnDangTuyenDung.Visible = false;
                         btnDuyetHSDaQuaXL.Visible = false;
                         btnGiaHanHD.Visible = false;
-                        btnNHSTD.Visible = false;
                         btnLogout.Visible = true;
                         ActivateButton(btnXLDTD);
                         DOANHNGHIEP_TIEMNANG dntn = new DOANHNGHIEP_TIEMNANG();
@@ -178,7 +176,6 @@ namespace Nhom09_083_388_392_537_708
                         btnSignupDN.Visible = false;
                         btnDangTuyenDung.Visible = false;
                         btnDuyetHSDaQuaXL.Visible = false;
-                        btnNHSTD.Visible = false;
                         btnLogout.Visible = true;
                         ActivateButton(btnGiaHanHD);
                         FormGiaHanHopDong gh = new FormGiaHanHopDong();
@@ -202,10 +199,9 @@ namespace Nhom09_083_388_392_537_708
                     btnXLHSUngTuyen.Visible = false;
                     btnThanhToan.Visible = false;
                     btnGiaHanHD.Visible = false;
-                    btnNHSTD.Visible = false;
                     btnLogout.Visible = true;
-                    ActivateButton(btnXemPDT);
-                    FormDangTuyenDung formDangTuyenDung = new FormDangTuyenDung();
+                    ActivateButton(btnDangTuyenDung);
+                    FormDangTuyenDung formDangTuyenDung = new FormDangTuyenDung(username, id);
                     formDangTuyenDung.TopLevel = false;
                     formDangTuyenDung.FormBorderStyle = FormBorderStyle.None;
                     formDangTuyenDung.Dock = DockStyle.Fill;
@@ -226,14 +222,13 @@ namespace Nhom09_083_388_392_537_708
                     btnXLHSUngTuyen.Visible = false;
                     btnThanhToan.Visible = false;
                     btnGiaHanHD.Visible = false;
-                    btnNHSTD.Visible = true;
                     btnLogout.Visible = true;
-                    NopHoSoUngTuyen nhs = new NopHoSoUngTuyen();
-                    nhs.TopLevel = false;
-                    nhs.FormBorderStyle = FormBorderStyle.None;
-                    nhs.Dock = DockStyle.Fill;
-                    pnlHomeChange.Controls.Add(nhs);
-                    nhs.Show();
+                    XemPhieuDangTuyen pdt = new XemPhieuDangTuyen(id, role);
+                    pdt.TopLevel = false;
+                    pdt.FormBorderStyle = FormBorderStyle.None;
+                    pdt.Dock = DockStyle.Fill;
+                    pnlHomeChange.Controls.Add(pdt);
+                    pdt.Show();
                 }
             }
         }
@@ -328,7 +323,6 @@ namespace Nhom09_083_388_392_537_708
             btnXLHSUngTuyen.Visible = false;
             btnThanhToan.Visible = false;
             btnGiaHanHD.Visible = false;
-            btnNHSTD.Visible = false;
             btnLogout.Visible = false;
             btnLogin.Visible = true;
             btnSignupDN.Visible = true;
