@@ -295,6 +295,7 @@
             this.dtgv_KetQuaTuyenDung.MultiSelect = false;
             this.dtgv_KetQuaTuyenDung.Name = "dtgv_KetQuaTuyenDung";
             this.dtgv_KetQuaTuyenDung.ReadOnly = true;
+            this.dtgv_KetQuaTuyenDung.RowHeadersVisible = false;
             this.dtgv_KetQuaTuyenDung.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dtgv_KetQuaTuyenDung.Size = new System.Drawing.Size(552, 390);
             this.dtgv_KetQuaTuyenDung.TabIndex = 51;

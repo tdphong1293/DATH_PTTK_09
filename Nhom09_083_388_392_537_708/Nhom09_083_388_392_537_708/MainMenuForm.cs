@@ -157,12 +157,13 @@ namespace Nhom09_083_388_392_537_708
                         btnGiaHanHD.Visible = false;
                         btnNHSTD.Visible = false;
                         btnLogout.Visible = true;
-                        XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen();
-                        xpdt.TopLevel = false;
-                        xpdt.FormBorderStyle = FormBorderStyle.None;
-                        xpdt.Dock = DockStyle.Fill;
-                        pnlHomeChange.Controls.Add(xpdt);
-                        xpdt.Show();
+                        ActivateButton(btnXLDTD);
+                        DOANHNGHIEP_TIEMNANG dntn = new DOANHNGHIEP_TIEMNANG();
+                        dntn.TopLevel = false;
+                        dntn.FormBorderStyle = FormBorderStyle.None;
+                        dntn.Dock = DockStyle.Fill;
+                        pnlHomeChange.Controls.Add(dntn);
+                        dntn.Show();
                     }
                     else if (nv_role == "Ban lãnh đạo")
                     {
@@ -179,6 +180,7 @@ namespace Nhom09_083_388_392_537_708
                         btnDuyetHSDaQuaXL.Visible = false;
                         btnNHSTD.Visible = false;
                         btnLogout.Visible = true;
+                        ActivateButton(btnGiaHanHD);
                         FormGiaHanHopDong gh = new FormGiaHanHopDong();
                         gh.TopLevel = false;
                         gh.FormBorderStyle = FormBorderStyle.None;
@@ -202,12 +204,13 @@ namespace Nhom09_083_388_392_537_708
                     btnGiaHanHD.Visible = false;
                     btnNHSTD.Visible = false;
                     btnLogout.Visible = true;
-                    XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen();
-                    xpdt.TopLevel = false;
-                    xpdt.FormBorderStyle = FormBorderStyle.None;
-                    xpdt.Dock = DockStyle.Fill;
-                    pnlHomeChange.Controls.Add(xpdt);
-                    xpdt.Show();
+                    ActivateButton(btnXemPDT);
+                    FormDangTuyenDung formDangTuyenDung = new FormDangTuyenDung();
+                    formDangTuyenDung.TopLevel = false;
+                    formDangTuyenDung.FormBorderStyle = FormBorderStyle.None;
+                    formDangTuyenDung.Dock = DockStyle.Fill;
+                    pnlHomeChange.Controls.Add(formDangTuyenDung);
+                    formDangTuyenDung.Show();
                     //MessageBox.Show(id);
                 }
 
@@ -225,12 +228,12 @@ namespace Nhom09_083_388_392_537_708
                     btnGiaHanHD.Visible = false;
                     btnNHSTD.Visible = true;
                     btnLogout.Visible = true;
-                    XemPhieuDangTuyen xpdt = new XemPhieuDangTuyen();
-                    xpdt.TopLevel = false;
-                    xpdt.FormBorderStyle = FormBorderStyle.None;
-                    xpdt.Dock = DockStyle.Fill;
-                    pnlHomeChange.Controls.Add(xpdt);
-                    xpdt.Show();
+                    NopHoSoUngTuyen nhs = new NopHoSoUngTuyen();
+                    nhs.TopLevel = false;
+                    nhs.FormBorderStyle = FormBorderStyle.None;
+                    nhs.Dock = DockStyle.Fill;
+                    pnlHomeChange.Controls.Add(nhs);
+                    nhs.Show();
                 }
             }
         }
@@ -283,11 +286,6 @@ namespace Nhom09_083_388_392_537_708
         {
             OpenChildForm(new DOANHNGHIEP_TIEMNANG(), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
-        }
-
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnDangTuyenDung_Click(object sender, EventArgs e)
