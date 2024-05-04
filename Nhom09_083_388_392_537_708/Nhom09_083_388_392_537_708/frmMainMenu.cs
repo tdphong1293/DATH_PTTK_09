@@ -10,28 +10,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Nhom09_083_388_392_537_708
+namespace GUI
 {
-    public partial class MainMenuForm : Form
+    public partial class frmMainMenu : Form
     {
         private Button currentButton;
         private Random random;
         private int tempIndex;
         private Form activeForm;
-        private FormDangNhap loginForm;
+        private frmDangNhap loginForm;
         public string username = "";
         public string role = "";
         public string id = "";
         Font SegoeUISemibold = new Font("Segoe UI Semibold", 11F);
         Font SegoeUIBold = new Font("Segoe UI", 12F, FontStyle.Bold);
-        public static SqlConnection con = FormDangNhap.conn;
-        public MainMenuForm()
+        public static SqlConnection con = frmDangNhap.conn;
+        public frmMainMenu()
         {
             InitializeComponent();
             random = new Random();
         }
 
-        public MainMenuForm(string username, string role, string id)
+        public frmMainMenu(string username, string role, string id)
         {
             InitializeComponent();
             random = new Random();
@@ -109,7 +109,7 @@ namespace Nhom09_083_388_392_537_708
             btnLogout.Visible = false;
             ActivateButton(btnLogin);
             CenterLabelInPanel(lblTitle, pnlTitle);
-            loginForm = new FormDangNhap();
+            loginForm = new frmDangNhap();
             loginForm.ButtonClicked += UI_After_Login;
             loginForm.TopLevel = false;
             loginForm.FormBorderStyle = FormBorderStyle.None;
@@ -260,56 +260,56 @@ namespace Nhom09_083_388_392_537_708
 
         private void btnXLHSUngTuyen_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new XULYHOSOUNGTUYEN(), sender);
+            OpenChildForm(new frmXuLyHSUngTuyen(), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new THANHTOAN(), sender);
+            OpenChildForm(new frmThanhToan(), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
 
         private void btnXemPDT_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new XemPhieuDangTuyen(id, role), sender);
+            OpenChildForm(new frmXemPhieuDangTuyen(id, role), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
 
         
         private void btnXLDTD_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new DOANHNGHIEP_TIEMNANG(), sender);
+            OpenChildForm(new frmDoanhNghiepTiemNang(), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
 
         private void btnDangTuyenDung_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormDangTuyenDung(username, id), sender);
+            OpenChildForm(new frmDangTuyenDung(username, id), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
 
         private void btnSignupDN_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormDangKyDoanhNghiep(), sender);
+            OpenChildForm(new frmDangKyDoanhNghiep(), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
 
         private void btnSignupUV_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormDangKyUngVien(), sender);
+            OpenChildForm(new frmDangKyUngVien(), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
 
         private void btnGiaHanHD_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormGiaHanHopDong(), sender);
+            OpenChildForm(new frmGiaHanHopDong(), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
 
         private void btnDuyetHSDaQuaXL_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new DUYET_HS_UNGTUYEN(id), sender);
+            OpenChildForm(new frmDuyetHSUngTuyen(id), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
         private void btnLogout_Click(object sender, EventArgs e)
@@ -329,7 +329,7 @@ namespace Nhom09_083_388_392_537_708
             btnSignupUV.Visible = true;
             ActivateButton(btnLogin);
             CenterLabelInPanel(lblTitle, pnlTitle);
-            loginForm = new FormDangNhap();
+            loginForm = new frmDangNhap();
             loginForm.ButtonClicked += UI_After_Login;
             loginForm.TopLevel = false;
             loginForm.FormBorderStyle = FormBorderStyle.None;

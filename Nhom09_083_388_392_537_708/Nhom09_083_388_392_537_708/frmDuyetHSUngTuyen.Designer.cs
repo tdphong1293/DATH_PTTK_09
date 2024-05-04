@@ -1,6 +1,6 @@
-﻿namespace Nhom09_083_388_392_537_708
+﻿namespace GUI
 {
-    partial class DUYET_HS_UNGTUYEN
+    partial class frmDuyetHSUngTuyen
     {
         /// <summary>
         /// Required designer variable.
@@ -365,7 +365,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Nhom09_083_388_392_537_708.Properties.Resources.User_Icon;
+            this.pictureBox1.Image = global::GUI.Properties.Resources.User_Icon;
             this.pictureBox1.Location = new System.Drawing.Point(15, 12);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";

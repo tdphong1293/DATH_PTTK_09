@@ -1,6 +1,6 @@
-﻿namespace Nhom09_083_388_392_537_708
+﻿namespace GUI
 {
-    partial class MainMenuForm
+    partial class frmMainMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainMenu));
             this.btnLogo = new System.Windows.Forms.Button();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -55,7 +55,7 @@
             // 
             // btnLogo
             // 
-            this.btnLogo.BackgroundImage = global::Nhom09_083_388_392_537_708.Properties.Resources.Logo_ABC;
+            this.btnLogo.BackgroundImage = global::GUI.Properties.Resources.Logo_ABC;
             this.btnLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLogo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -311,7 +311,7 @@
             // pnlHome
             // 
             this.pnlHome.BackColor = System.Drawing.Color.Navy;
-            this.pnlHome.BackgroundImage = global::Nhom09_083_388_392_537_708.Properties.Resources.logo1;
+            this.pnlHome.BackgroundImage = global::GUI.Properties.Resources.logo1;
             this.pnlHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlHome.Controls.Add(this.btnLogo);
             this.pnlHome.Dock = System.Windows.Forms.DockStyle.Top;

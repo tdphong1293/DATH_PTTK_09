@@ -9,12 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Nhom09_083_388_392_537_708
+namespace GUI
 {
-    public partial class FormDangKyDoanhNghiep : Form
+    public partial class frmDangKyDoanhNghiep : Form
     {
-        private static SqlConnection conn = FormDangNhap.conn;
-        public FormDangKyDoanhNghiep()
+        private static SqlConnection conn = frmDangNhap.conn;
+        public frmDangKyDoanhNghiep()
         {
             InitializeComponent();
         }

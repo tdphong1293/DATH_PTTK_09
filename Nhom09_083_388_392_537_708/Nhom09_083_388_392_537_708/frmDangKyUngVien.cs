@@ -9,12 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Nhom09_083_388_392_537_708
+namespace GUI
 {
-    public partial class FormDangKyUngVien : Form
+    public partial class frmDangKyUngVien : Form
     {
-        private static SqlConnection conn = FormDangNhap.conn;
-        public FormDangKyUngVien()
+        private static SqlConnection conn = frmDangNhap.conn;
+        public frmDangKyUngVien()
         {
             InitializeComponent();
             dtp_birth_uv.MaxDate = DateTime.Today;

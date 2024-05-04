@@ -1,6 +1,6 @@
-﻿namespace Nhom09_083_388_392_537_708
+﻿namespace GUI
 {
-    partial class XULYHOSOUNGTUYEN
+    partial class frmXuLyHSUngTuyen
     {
         /// <summary>
         /// Required designer variable.
@@ -180,7 +180,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Nhom09_083_388_392_537_708.Properties.Resources.User_Icon;
+            this.pictureBox1.Image = global::GUI.Properties.Resources.User_Icon;
             this.pictureBox1.Location = new System.Drawing.Point(3, 26);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(114, 75);
@@ -285,7 +285,7 @@
             // 
             // btn_ThemBangCap
             // 
-            this.btn_ThemBangCap.BackgroundImage = global::Nhom09_083_388_392_537_708.Properties.Resources.btn_plus;
+            this.btn_ThemBangCap.BackgroundImage = global::GUI.Properties.Resources.btn_plus;
             this.btn_ThemBangCap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_ThemBangCap.Enabled = false;
             this.btn_ThemBangCap.Location = new System.Drawing.Point(358, 15);

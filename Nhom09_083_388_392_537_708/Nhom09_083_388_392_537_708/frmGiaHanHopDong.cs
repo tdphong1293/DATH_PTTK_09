@@ -9,14 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Nhom09_083_388_392_537_708
+namespace GUI
 {
-    public partial class FormGiaHanHopDong : Form
+    public partial class frmGiaHanHopDong : Form
     {
         private Timer debounceTimer = new Timer();
         private int iddoanhnghiep = -1;
-        private static SqlConnection conn = FormDangNhap.conn;
-        public FormGiaHanHopDong()
+        private static SqlConnection conn = frmDangNhap.conn;
+        public frmGiaHanHopDong()
         {
             InitializeComponent();
             debounceTimer.Interval = 500;

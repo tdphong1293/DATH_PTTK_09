@@ -11,16 +11,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Nhom09_083_388_392_537_708
+namespace GUI
 {
-    public partial class NopHoSoUngTuyen : Form
+    public partial class frmNopHSUngTuyen : Form
     {
-        public static SqlConnection con = FormDangNhap.conn;
+        public static SqlConnection con = frmDangNhap.conn;
         public string IdUngVien = "";
         public string IdDoanhNghiep = "";
         public string IdPDT = "";
 
-        public NopHoSoUngTuyen(string idUser, string idpdt)
+        public frmNopHSUngTuyen(string idUser, string idpdt)
         {
             InitializeComponent();
             this.IdUngVien = idUser;

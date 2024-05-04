@@ -11,16 +11,16 @@ using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
 
-namespace Nhom09_083_388_392_537_708
+namespace GUI
 {
-    public partial class XULYHOSOUNGTUYEN : Form
+    public partial class frmXuLyHSUngTuyen : Form
     {
-        FormDangNhap dangNhap = new FormDangNhap();
-        public static SqlConnection curConn = FormDangNhap.conn;
+        frmDangNhap dangNhap = new frmDangNhap();
+        public static SqlConnection curConn = frmDangNhap.conn;
         public static System.Timers.Timer NhaTD1_Timer, NhaTD2_Timer;
         public static string lastSearch_NhaTD1, lastSearch_NhaTD2;
 
-        public XULYHOSOUNGTUYEN()
+        public frmXuLyHSUngTuyen()
         {
             InitializeComponent();
             NhaTD1_Timer = new System.Timers.Timer();
@@ -132,7 +132,7 @@ namespace Nhom09_083_388_392_537_708
 
         private void btn_ThemBangCap_Click(object sender, EventArgs e)
         {
-            THEMBANGCAP tHEMBANGCAP = new THEMBANGCAP();
+            frmThemBangCap tHEMBANGCAP = new frmThemBangCap();
             tHEMBANGCAP.Show();
         }
 

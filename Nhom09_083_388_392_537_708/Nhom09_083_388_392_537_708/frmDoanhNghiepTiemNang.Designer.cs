@@ -1,6 +1,6 @@
-﻿namespace Nhom09_083_388_392_537_708
+﻿namespace GUI
 {
-    partial class DOANHNGHIEP_TIEMNANG
+    partial class frmDoanhNghiepTiemNang
     {
         /// <summary>
         /// Required designer variable.

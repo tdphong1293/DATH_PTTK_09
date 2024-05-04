@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{13E4B18D-40D5-4F3B-A4EE-7F6F6443733E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Nhom09_083_388_392_537_708</RootNamespace>
+    <RootNamespace>GUI</RootNamespace>
     <AssemblyName>Nhom09_083_388_392_537_708</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -35,6 +35,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.6, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.6\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,124 +49,126 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DOANHNGHIEP_TIEMNANG.cs">
+    <Compile Include="frmDoanhNghiepTiemNang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DOANHNGHIEP_TIEMNANG.Designer.cs">
-      <DependentUpon>DOANHNGHIEP_TIEMNANG.cs</DependentUpon>
+    <Compile Include="frmDoanhNghiepTiemNang.Designer.cs">
+      <DependentUpon>frmDoanhNghiepTiemNang.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDangKyDoanhNghiep.cs">
+    <Compile Include="frmDangKyDoanhNghiep.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDangKyDoanhNghiep.Designer.cs">
-      <DependentUpon>FormDangKyDoanhNghiep.cs</DependentUpon>
+    <Compile Include="frmDangKyDoanhNghiep.Designer.cs">
+      <DependentUpon>frmDangKyDoanhNghiep.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDangKyUngVien.cs">
+    <Compile Include="frmDangKyUngVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDangKyUngVien.Designer.cs">
-      <DependentUpon>FormDangKyUngVien.cs</DependentUpon>
+    <Compile Include="frmDangKyUngVien.Designer.cs">
+      <DependentUpon>frmDangKyUngVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDangTuyenDung.cs">
+    <Compile Include="frmDangTuyenDung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDangTuyenDung.Designer.cs">
-      <DependentUpon>FormDangTuyenDung.cs</DependentUpon>
+    <Compile Include="frmDangTuyenDung.Designer.cs">
+      <DependentUpon>frmDangTuyenDung.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGiaHanHopDong.cs">
+    <Compile Include="frmGiaHanHopDong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGiaHanHopDong.Designer.cs">
-      <DependentUpon>FormGiaHanHopDong.cs</DependentUpon>
+    <Compile Include="frmGiaHanHopDong.Designer.cs">
+      <DependentUpon>frmGiaHanHopDong.cs</DependentUpon>
     </Compile>
-    <Compile Include="NopHoSoUngTuyen.cs">
+    <Compile Include="frmNopHSUngTuyen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NopHoSoUngTuyen.Designer.cs">
-      <DependentUpon>NopHoSoUngTuyen.cs</DependentUpon>
+    <Compile Include="frmNopHSUngTuyen.Designer.cs">
+      <DependentUpon>frmNopHSUngTuyen.cs</DependentUpon>
     </Compile>
-    <Compile Include="DUYET_HS_UNGTUYEN.cs">
+    <Compile Include="frmDuyetHSUngTuyen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DUYET_HS_UNGTUYEN.Designer.cs">
-      <DependentUpon>DUYET_HS_UNGTUYEN.cs</DependentUpon>
+    <Compile Include="frmDuyetHSUngTuyen.Designer.cs">
+      <DependentUpon>frmDuyetHSUngTuyen.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDangNhap.cs">
+    <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDangNhap.Designer.cs">
-      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    <Compile Include="frmDangNhap.Designer.cs">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuForm.cs">
+    <Compile Include="frmMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenuForm.Designer.cs">
-      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    <Compile Include="frmMainMenu.Designer.cs">
+      <DependentUpon>frmMainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="THANHTOAN.cs">
+    <Compile Include="frmThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="THANHTOAN.Designer.cs">
-      <DependentUpon>THANHTOAN.cs</DependentUpon>
+    <Compile Include="frmThanhToan.Designer.cs">
+      <DependentUpon>frmThanhToan.cs</DependentUpon>
     </Compile>
-    <Compile Include="THEMBANGCAP.cs">
+    <Compile Include="frmThemBangCap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="THEMBANGCAP.Designer.cs">
-      <DependentUpon>THEMBANGCAP.cs</DependentUpon>
+    <Compile Include="frmThemBangCap.Designer.cs">
+      <DependentUpon>frmThemBangCap.cs</DependentUpon>
     </Compile>
     <Compile Include="UserRole.cs" />
-    <Compile Include="XemPhieuDangTuyen.cs">
+    <Compile Include="frmXemPhieuDangTuyen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="XemPhieuDangTuyen.Designer.cs">
-      <DependentUpon>XemPhieuDangTuyen.cs</DependentUpon>
+    <Compile Include="frmXemPhieuDangTuyen.Designer.cs">
+      <DependentUpon>frmXemPhieuDangTuyen.cs</DependentUpon>
     </Compile>
     <Compile Include="ThemeColor.cs" />
-    <Compile Include="XULYHOSOUNGTUYEN.cs" />
-    <Compile Include="XULYHOSOUNGTUYEN.Designer.cs">
-      <DependentUpon>XULYHOSOUNGTUYEN.cs</DependentUpon>
+    <Compile Include="frmXuLyHSUngTuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXuLyHSUngTuyen.Designer.cs">
+      <DependentUpon>frmXuLyHSUngTuyen.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormDangKyDoanhNghiep.resx">
-      <DependentUpon>FormDangKyDoanhNghiep.cs</DependentUpon>
+    <EmbeddedResource Include="frmDangKyDoanhNghiep.resx">
+      <DependentUpon>frmDangKyDoanhNghiep.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDangKyUngVien.resx">
-      <DependentUpon>FormDangKyUngVien.cs</DependentUpon>
+    <EmbeddedResource Include="frmDangKyUngVien.resx">
+      <DependentUpon>frmDangKyUngVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDangTuyenDung.resx">
-      <DependentUpon>FormDangTuyenDung.cs</DependentUpon>
+    <EmbeddedResource Include="frmDangTuyenDung.resx">
+      <DependentUpon>frmDangTuyenDung.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGiaHanHopDong.resx">
-      <DependentUpon>FormGiaHanHopDong.cs</DependentUpon>
+    <EmbeddedResource Include="frmGiaHanHopDong.resx">
+      <DependentUpon>frmGiaHanHopDong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NopHoSoUngTuyen.resx">
-      <DependentUpon>NopHoSoUngTuyen.cs</DependentUpon>
+    <EmbeddedResource Include="frmNopHSUngTuyen.resx">
+      <DependentUpon>frmNopHSUngTuyen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="THANHTOAN.resx">
-      <DependentUpon>THANHTOAN.cs</DependentUpon>
+    <EmbeddedResource Include="frmThanhToan.resx">
+      <DependentUpon>frmThanhToan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="THEMBANGCAP.resx">
-      <DependentUpon>THEMBANGCAP.cs</DependentUpon>
+    <EmbeddedResource Include="frmThemBangCap.resx">
+      <DependentUpon>frmThemBangCap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="XemPhieuDangTuyen.resx">
-      <DependentUpon>XemPhieuDangTuyen.cs</DependentUpon>
+    <EmbeddedResource Include="frmXemPhieuDangTuyen.resx">
+      <DependentUpon>frmXemPhieuDangTuyen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DOANHNGHIEP_TIEMNANG.resx">
-      <DependentUpon>DOANHNGHIEP_TIEMNANG.cs</DependentUpon>
+    <EmbeddedResource Include="frmDoanhNghiepTiemNang.resx">
+      <DependentUpon>frmDoanhNghiepTiemNang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DUYET_HS_UNGTUYEN.resx">
-      <DependentUpon>DUYET_HS_UNGTUYEN.cs</DependentUpon>
+    <EmbeddedResource Include="frmDuyetHSUngTuyen.resx">
+      <DependentUpon>frmDuyetHSUngTuyen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDangNhap.resx">
-      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    <EmbeddedResource Include="frmDangNhap.resx">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuForm.resx">
-      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    <EmbeddedResource Include="frmMainMenu.resx">
+      <DependentUpon>frmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="XULYHOSOUNGTUYEN.resx">
-      <DependentUpon>XULYHOSOUNGTUYEN.cs</DependentUpon>
+    <EmbeddedResource Include="frmXuLyHSUngTuyen.resx">
+      <DependentUpon>frmXuLyHSUngTuyen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -175,6 +180,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

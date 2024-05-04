@@ -1,6 +1,6 @@
 ﻿namespace Nhom09_083_388_392_537_708
 {
-    partial class FormDangNhap
+    partial class frmDangNhap
     {
         /// <summary>
         /// Required designer variable.
@@ -128,7 +128,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = global::Nhom09_083_388_392_537_708.Properties.Resources.login;
+            this.pictureBox1.Image = global::GUI.Properties.Resources.login;
             this.pictureBox1.Location = new System.Drawing.Point(36, 237);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";

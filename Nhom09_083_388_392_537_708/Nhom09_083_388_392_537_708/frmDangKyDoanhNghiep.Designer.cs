@@ -1,6 +1,6 @@
-﻿namespace Nhom09_083_388_392_537_708
+﻿namespace GUI
 {
-    partial class FormDangKyDoanhNghiep
+    partial class frmDangKyDoanhNghiep
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDangKyDoanhNghiep));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDangKyDoanhNghiep));
             this.panel_FormDangKyDoanhNghiep = new System.Windows.Forms.Panel();
             this.txt_inputvalidation = new System.Windows.Forms.TextBox();
             this.txt_diachi_dn = new System.Windows.Forms.TextBox();

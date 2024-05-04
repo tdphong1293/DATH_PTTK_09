@@ -9,16 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Nhom09_083_388_392_537_708
+namespace GUI
 {
-    public partial class XemPhieuDangTuyen : Form
+    public partial class frmXemPhieuDangTuyen : Form
     {
-        public static SqlConnection con = FormDangNhap.conn;
+        public static SqlConnection con = frmDangNhap.conn;
         public string UserRole = "";
         public string UserId = "";
         public string IdPDT = "";
 
-        public XemPhieuDangTuyen(string id, string role)
+        public frmXemPhieuDangTuyen(string id, string role)
         {
             InitializeComponent();
             this.UserId = id;
@@ -141,7 +141,7 @@ namespace Nhom09_083_388_392_537_708
 
         private void btnNopHSUT_Click(object sender, EventArgs e)
         {
-            NopHoSoUngTuyen NopHSUT = new NopHoSoUngTuyen(UserId, IdPDT);
+            frmNopHSUngTuyen NopHSUT = new frmNopHSUngTuyen(UserId, IdPDT);
             NopHSUT.ShowDialog();
         }
 

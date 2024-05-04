@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace Nhom09_083_388_392_537_708
+namespace GUI
 {
-    public partial class DOANHNGHIEP_TIEMNANG : Form
+    public partial class frmDoanhNghiepTiemNang : Form
     {
-        public static SqlConnection con = FormDangNhap.conn;
-        public DOANHNGHIEP_TIEMNANG()
+        public static SqlConnection con = frmDangNhap.conn;
+        public frmDoanhNghiepTiemNang()
         {
             InitializeComponent();
             dgv_DoanhNghiepTN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;

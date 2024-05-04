@@ -9,19 +9,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Nhom09_083_388_392_537_708
+namespace GUI
 {
-    public partial class FormDangTuyenDung : Form
+    public partial class frmDangTuyenDung : Form
     {
-        public static SqlConnection con = FormDangNhap.conn;
+        public static SqlConnection con = frmDangNhap.conn;
         string username;
         string id;
-        public FormDangTuyenDung()
+        public frmDangTuyenDung()
         {
             InitializeComponent();
         }
 
-        public FormDangTuyenDung(string username, string id)
+        public frmDangTuyenDung(string username, string id)
         {
             InitializeComponent();
             this.username = username;

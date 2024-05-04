@@ -8,15 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Nhom09_083_388_392_537_708
+namespace GUI
 {
-    public partial class THANHTOAN : Form
+    public partial class frmThemBangCap : Form
     {
-        public THANHTOAN()
+        public frmThemBangCap()
         {
             InitializeComponent();
         }
 
-        
+        private void btn_XacNhan_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -12,14 +12,14 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace Nhom09_083_388_392_537_708
+namespace GUI
 {
-    public partial class DUYET_HS_UNGTUYEN : Form
+    public partial class frmDuyetHSUngTuyen : Form
     {
-        public static SqlConnection con = FormDangNhap.conn;
+        public static SqlConnection con = frmDangNhap.conn;
         private string id;
         private int idungvien;
-        public DUYET_HS_UNGTUYEN(string id)
+        public frmDuyetHSUngTuyen(string id)
         {
             InitializeComponent();
             this.id = id;
