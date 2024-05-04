@@ -1,0 +1,17 @@
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\GUI.csproj.AssemblyReference.cache
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\GUI.Properties.Resources.resources
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\GUI.csproj.GenerateResource.cache
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\GUI.frmDangKyDoanhNghiep.resources
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\GUI.frmDangKyUngVien.resources
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\Nhom09_083_388_392_537_708.frmDangNhap.resources
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\GUI.frmDangTuyenDung.resources
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\GUI.frmDoanhNghiepTiemNang.resources
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\GUI.frmDuyetHSUngTuyen.resources
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\GUI.frmGiaHanHopDong.resources
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\GUI.frmMainMenu.resources
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\GUI.frmNopHSUngTuyen.resources
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\GUI.frmThanhToan.resources
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\GUI.frmThemBangCap.resources
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\GUI.frmXemPhieuDangTuyen.resources
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\GUI\obj\Debug\GUI.frmXuLyHSUngTuyen.resources

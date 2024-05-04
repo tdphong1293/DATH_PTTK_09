@@ -1,0 +1,2 @@
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+C:\Users\O8360\Desktop\Nhom09_083_388_392_537_708\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
