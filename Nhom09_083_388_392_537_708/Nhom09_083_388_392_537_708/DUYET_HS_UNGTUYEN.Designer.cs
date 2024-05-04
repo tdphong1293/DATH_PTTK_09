@@ -246,7 +246,7 @@
             // btn_OpenFileCV
             // 
             this.btn_OpenFileCV.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_OpenFileCV.Location = new System.Drawing.Point(331, 145);
+            this.btn_OpenFileCV.Location = new System.Drawing.Point(277, 145);
             this.btn_OpenFileCV.Margin = new System.Windows.Forms.Padding(4);
             this.btn_OpenFileCV.Name = "btn_OpenFileCV";
             this.btn_OpenFileCV.Size = new System.Drawing.Size(135, 39);
@@ -278,28 +278,28 @@
             // tb_ViTriUngTuyen
             // 
             this.tb_ViTriUngTuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_ViTriUngTuyen.Location = new System.Drawing.Point(332, 103);
+            this.tb_ViTriUngTuyen.Location = new System.Drawing.Point(277, 103);
             this.tb_ViTriUngTuyen.Margin = new System.Windows.Forms.Padding(4);
             this.tb_ViTriUngTuyen.Name = "tb_ViTriUngTuyen";
-            this.tb_ViTriUngTuyen.Size = new System.Drawing.Size(267, 26);
+            this.tb_ViTriUngTuyen.Size = new System.Drawing.Size(322, 26);
             this.tb_ViTriUngTuyen.TabIndex = 17;
             // 
             // tb_NgayUngTuyen
             // 
             this.tb_NgayUngTuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_NgayUngTuyen.Location = new System.Drawing.Point(331, 58);
+            this.tb_NgayUngTuyen.Location = new System.Drawing.Point(277, 58);
             this.tb_NgayUngTuyen.Margin = new System.Windows.Forms.Padding(4);
             this.tb_NgayUngTuyen.Name = "tb_NgayUngTuyen";
-            this.tb_NgayUngTuyen.Size = new System.Drawing.Size(267, 26);
+            this.tb_NgayUngTuyen.Size = new System.Drawing.Size(321, 26);
             this.tb_NgayUngTuyen.TabIndex = 16;
             // 
             // tb_TinhTrangHoSo
             // 
             this.tb_TinhTrangHoSo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_TinhTrangHoSo.Location = new System.Drawing.Point(331, 17);
+            this.tb_TinhTrangHoSo.Location = new System.Drawing.Point(277, 17);
             this.tb_TinhTrangHoSo.Margin = new System.Windows.Forms.Padding(4);
             this.tb_TinhTrangHoSo.Name = "tb_TinhTrangHoSo";
-            this.tb_TinhTrangHoSo.Size = new System.Drawing.Size(267, 26);
+            this.tb_TinhTrangHoSo.Size = new System.Drawing.Size(321, 26);
             this.tb_TinhTrangHoSo.TabIndex = 15;
             // 
             // lb_TinhTrang
@@ -369,7 +369,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(15, 12);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(187, 111);
+            this.pictureBox1.Size = new System.Drawing.Size(135, 111);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
@@ -377,28 +377,28 @@
             // tb_Email
             // 
             this.tb_Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_Email.Location = new System.Drawing.Point(331, 96);
+            this.tb_Email.Location = new System.Drawing.Point(277, 96);
             this.tb_Email.Margin = new System.Windows.Forms.Padding(4);
             this.tb_Email.Name = "tb_Email";
-            this.tb_Email.Size = new System.Drawing.Size(267, 26);
+            this.tb_Email.Size = new System.Drawing.Size(321, 26);
             this.tb_Email.TabIndex = 13;
             // 
             // tb_NgaySinh
             // 
             this.tb_NgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_NgaySinh.Location = new System.Drawing.Point(331, 54);
+            this.tb_NgaySinh.Location = new System.Drawing.Point(277, 54);
             this.tb_NgaySinh.Margin = new System.Windows.Forms.Padding(4);
             this.tb_NgaySinh.Name = "tb_NgaySinh";
-            this.tb_NgaySinh.Size = new System.Drawing.Size(267, 26);
+            this.tb_NgaySinh.Size = new System.Drawing.Size(321, 26);
             this.tb_NgaySinh.TabIndex = 12;
             // 
             // tb_HoTen
             // 
             this.tb_HoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_HoTen.Location = new System.Drawing.Point(331, 12);
+            this.tb_HoTen.Location = new System.Drawing.Point(277, 12);
             this.tb_HoTen.Margin = new System.Windows.Forms.Padding(4);
             this.tb_HoTen.Name = "tb_HoTen";
-            this.tb_HoTen.Size = new System.Drawing.Size(267, 26);
+            this.tb_HoTen.Size = new System.Drawing.Size(321, 26);
             this.tb_HoTen.TabIndex = 11;
             // 
             // lb_HoTen
@@ -406,7 +406,7 @@
             this.lb_HoTen.AutoSize = true;
             this.lb_HoTen.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_HoTen.ForeColor = System.Drawing.Color.White;
-            this.lb_HoTen.Location = new System.Drawing.Point(209, 16);
+            this.lb_HoTen.Location = new System.Drawing.Point(167, 13);
             this.lb_HoTen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_HoTen.Name = "lb_HoTen";
             this.lb_HoTen.Size = new System.Drawing.Size(75, 25);
@@ -418,7 +418,7 @@
             this.lb_NgaySinh.AutoSize = true;
             this.lb_NgaySinh.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_NgaySinh.ForeColor = System.Drawing.Color.White;
-            this.lb_NgaySinh.Location = new System.Drawing.Point(209, 58);
+            this.lb_NgaySinh.Location = new System.Drawing.Point(167, 53);
             this.lb_NgaySinh.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_NgaySinh.Name = "lb_NgaySinh";
             this.lb_NgaySinh.Size = new System.Drawing.Size(103, 25);
@@ -430,7 +430,7 @@
             this.lb_Email.AutoSize = true;
             this.lb_Email.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Email.ForeColor = System.Drawing.Color.White;
-            this.lb_Email.Location = new System.Drawing.Point(209, 100);
+            this.lb_Email.Location = new System.Drawing.Point(167, 97);
             this.lb_Email.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_Email.Name = "lb_Email";
             this.lb_Email.Size = new System.Drawing.Size(64, 25);

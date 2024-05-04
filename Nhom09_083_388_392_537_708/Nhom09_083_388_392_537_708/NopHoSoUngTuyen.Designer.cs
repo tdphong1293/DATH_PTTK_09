@@ -31,7 +31,7 @@
             this.lbNHSUT = new System.Windows.Forms.Label();
             this.lbTenUV = new System.Windows.Forms.Label();
             this.txtTenUV = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTenDN = new System.Windows.Forms.TextBox();
             this.lbCTUT = new System.Windows.Forms.Label();
             this.lbVTUT = new System.Windows.Forms.Label();
             this.cbVTUT = new System.Windows.Forms.ComboBox();
@@ -44,64 +44,62 @@
             // lbNHSUT
             // 
             this.lbNHSUT.AutoSize = true;
-            this.lbNHSUT.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNHSUT.Location = new System.Drawing.Point(465, 11);
+            this.lbNHSUT.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNHSUT.Location = new System.Drawing.Point(434, 52);
             this.lbNHSUT.Name = "lbNHSUT";
-            this.lbNHSUT.Size = new System.Drawing.Size(343, 38);
+            this.lbNHSUT.Size = new System.Drawing.Size(404, 45);
             this.lbNHSUT.TabIndex = 0;
             this.lbNHSUT.Text = "NỘP HỒ SƠ ỨNG TUYỂN";
             // 
             // lbTenUV
             // 
             this.lbTenUV.AutoSize = true;
-            this.lbTenUV.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenUV.Location = new System.Drawing.Point(29, 132);
+            this.lbTenUV.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTenUV.Location = new System.Drawing.Point(270, 232);
             this.lbTenUV.Name = "lbTenUV";
-            this.lbTenUV.Size = new System.Drawing.Size(149, 25);
+            this.lbTenUV.Size = new System.Drawing.Size(127, 25);
             this.lbTenUV.TabIndex = 1;
-            this.lbTenUV.Text = "Họ Tên Ứng Viên:";
+            this.lbTenUV.Text = "Tên ứng viên:";
             // 
             // txtTenUV
             // 
-            this.txtTenUV.Enabled = false;
+            this.txtTenUV.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtTenUV.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenUV.Location = new System.Drawing.Point(240, 126);
+            this.txtTenUV.Location = new System.Drawing.Point(481, 226);
             this.txtTenUV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTenUV.Name = "txtTenUV";
             this.txtTenUV.ReadOnly = true;
-            this.txtTenUV.Size = new System.Drawing.Size(369, 31);
+            this.txtTenUV.Size = new System.Drawing.Size(357, 31);
             this.txtTenUV.TabIndex = 2;
-            this.txtTenUV.Text = "Nguyễn Văn A";
             // 
-            // textBox1
+            // txtTenDN
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(240, 197);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(369, 31);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "Gout Goo";
+            this.txtTenDN.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtTenDN.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenDN.Location = new System.Drawing.Point(481, 297);
+            this.txtTenDN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTenDN.Name = "txtTenDN";
+            this.txtTenDN.ReadOnly = true;
+            this.txtTenDN.Size = new System.Drawing.Size(357, 31);
+            this.txtTenDN.TabIndex = 4;
             // 
             // lbCTUT
             // 
             this.lbCTUT.AutoSize = true;
-            this.lbCTUT.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCTUT.Location = new System.Drawing.Point(29, 199);
+            this.lbCTUT.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCTUT.Location = new System.Drawing.Point(270, 299);
             this.lbCTUT.Name = "lbCTUT";
-            this.lbCTUT.Size = new System.Drawing.Size(170, 25);
+            this.lbCTUT.Size = new System.Drawing.Size(181, 25);
             this.lbCTUT.TabIndex = 3;
             this.lbCTUT.Text = "Công ty ứng tuyển: ";
             // 
             // lbVTUT
             // 
             this.lbVTUT.AutoSize = true;
-            this.lbVTUT.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbVTUT.Location = new System.Drawing.Point(29, 272);
+            this.lbVTUT.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVTUT.Location = new System.Drawing.Point(270, 372);
             this.lbVTUT.Name = "lbVTUT";
-            this.lbVTUT.Size = new System.Drawing.Size(138, 25);
+            this.lbVTUT.Size = new System.Drawing.Size(151, 25);
             this.lbVTUT.TabIndex = 5;
             this.lbVTUT.Text = "Vị trí ứng tuyển:";
             // 
@@ -110,30 +108,26 @@
             this.cbVTUT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVTUT.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbVTUT.FormattingEnabled = true;
-            this.cbVTUT.Items.AddRange(new object[] {
-            "Front End",
-            "BackEnd",
-            "DevOps"});
-            this.cbVTUT.Location = new System.Drawing.Point(240, 270);
+            this.cbVTUT.Location = new System.Drawing.Point(481, 370);
             this.cbVTUT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbVTUT.Name = "cbVTUT";
-            this.cbVTUT.Size = new System.Drawing.Size(121, 33);
+            this.cbVTUT.Size = new System.Drawing.Size(357, 33);
             this.cbVTUT.TabIndex = 6;
             // 
             // lbHSDK
             // 
             this.lbHSDK.AutoSize = true;
-            this.lbHSDK.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHSDK.Location = new System.Drawing.Point(29, 347);
+            this.lbHSDK.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHSDK.Location = new System.Drawing.Point(270, 447);
             this.lbHSDK.Name = "lbHSDK";
-            this.lbHSDK.Size = new System.Drawing.Size(142, 25);
+            this.lbHSDK.Size = new System.Drawing.Size(149, 25);
             this.lbHSDK.TabIndex = 7;
             this.lbHSDK.Text = "Đính kèm hồ sơ:";
             // 
             // btnBrowse
             // 
             this.btnBrowse.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBrowse.Location = new System.Drawing.Point(505, 342);
+            this.btnBrowse.Location = new System.Drawing.Point(746, 442);
             this.btnBrowse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(104, 34);
@@ -144,13 +138,13 @@
             // 
             // btnXNNopHS
             // 
-            this.btnXNNopHS.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXNNopHS.Location = new System.Drawing.Point(1111, 654);
+            this.btnXNNopHS.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXNNopHS.Location = new System.Drawing.Point(1075, 638);
             this.btnXNNopHS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXNNopHS.Name = "btnXNNopHS";
-            this.btnXNNopHS.Size = new System.Drawing.Size(115, 34);
+            this.btnXNNopHS.Size = new System.Drawing.Size(150, 50);
             this.btnXNNopHS.TabIndex = 11;
-            this.btnXNNopHS.Text = "Xác nhận";
+            this.btnXNNopHS.Text = "XÁC NHẬN";
             this.btnXNNopHS.UseVisualStyleBackColor = true;
             this.btnXNNopHS.Click += new System.EventHandler(this.btnXNNopHS_Click);
             // 
@@ -158,7 +152,7 @@
             // 
             this.llbFileName.AutoSize = true;
             this.llbFileName.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llbFileName.Location = new System.Drawing.Point(235, 347);
+            this.llbFileName.Location = new System.Drawing.Point(476, 447);
             this.llbFileName.Name = "llbFileName";
             this.llbFileName.Size = new System.Drawing.Size(0, 25);
             this.llbFileName.TabIndex = 12;
@@ -167,6 +161,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1237, 699);
             this.Controls.Add(this.llbFileName);
             this.Controls.Add(this.btnXNNopHS);
@@ -174,7 +169,7 @@
             this.Controls.Add(this.lbHSDK);
             this.Controls.Add(this.cbVTUT);
             this.Controls.Add(this.lbVTUT);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTenDN);
             this.Controls.Add(this.lbCTUT);
             this.Controls.Add(this.txtTenUV);
             this.Controls.Add(this.lbTenUV);
@@ -183,6 +178,7 @@
             this.Name = "NopHoSoUngTuyen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "NopHoSoUngTuyen";
+            this.Load += new System.EventHandler(this.NopHoSoUngTuyen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,7 +189,6 @@
         private System.Windows.Forms.Label lbNHSUT;
         private System.Windows.Forms.Label lbTenUV;
         private System.Windows.Forms.TextBox txtTenUV;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lbCTUT;
         private System.Windows.Forms.Label lbVTUT;
         private System.Windows.Forms.ComboBox cbVTUT;
@@ -201,5 +196,6 @@
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Button btnXNNopHS;
         private System.Windows.Forms.LinkLabel llbFileName;
+        private System.Windows.Forms.TextBox txtTenDN;
     }
 }

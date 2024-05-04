@@ -74,7 +74,7 @@ BEGIN
 END
 GO
 
-
+------------------------------------------------------------------------------------------------
 
 --Phong
 create or alter procedure ThemUV
@@ -131,3 +131,185 @@ begin
 	end
 end;
 go
+
+------------------------------------------------------------------------------------------------
+
+--Phuc
+CREATE OR ALTER PROCEDURE XoaPhieuDangTuyen 
+    @ID INT
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM PHIEUDANGTUYEN WHERE IDPhieuDangTuyen = @ID)
+    BEGIN
+        DELETE FROM YEUCAUCV WHERE IDPhieuDangTuyen = @ID;
+        DELETE FROM PHIEUDANGTUYEN WHERE IDPhieuDangTuyen = @ID;
+    END
+    ELSE
+    BEGIN
+        PRINT 'Không tìm thấy PHIEUDANGTUYEN';
+    END
+END;
+GO
+
+
+CREATE OR ALTER PROCEDURE LayDanhSachPhieuDangTuyen
+AS
+BEGIN
+    SELECT *
+    FROM PHIEUDANGTUYEN;
+END;
+GO
+
+CREATE OR ALTER PROCEDURE LayDanhSachPhieuDangTuyenTheoDoanhNghiep
+    @ID INT
+AS
+BEGIN
+    SELECT *
+    FROM PHIEUDANGTUYEN
+    WHERE IDDoanhNghiep = @ID;
+END;
+GO
+
+
+CREATE OR ALTER PROCEDURE LayTTPhieuDangTuyen
+    @ID INT
+AS
+BEGIN
+    SELECT *
+    FROM PHIEUDANGTUYEN
+    WHERE IDPhieuDangTuyen = @ID;
+END;
+GO
+
+CREATE OR ALTER PROCEDURE LayTTDoanhNghiep
+    @ID INT
+AS
+BEGIN
+    SELECT *
+    FROM THANHVIEN AS TV
+    INNER JOIN DOANHNGHIEP AS DN ON TV.IDThanhVien = DN.IDDoanhNghiep
+    WHERE DN.IDDoanhNghiep = @ID;
+END;
+GO
+
+CREATE OR ALTER PROCEDURE TimIDDoanhNghiepTuIDPDT
+    @IDPDT INT,
+    @IDDoanhNghiep INT OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SET @IDDoanhNghiep = -1;
+
+    SELECT @IDDoanhNghiep = IDDoanhNghiep
+    FROM PHIEUDANGTUYEN
+    WHERE IDPhieuDangTuyen = @IDPDT;
+
+    RETURN;
+END;
+GO
+
+CREATE OR ALTER PROCEDURE LayTTUngVien
+    @ID INT
+AS
+BEGIN
+    SELECT *
+    FROM THANHVIEN AS TV
+    INNER JOIN UNGVIEN AS UV ON TV.IDThanhVien = UV.IDUngVien
+    WHERE UV.IDUngVien = @ID;
+END;
+GO
+
+CREATE OR ALTER PROCEDURE LayViTriDangTuyen
+    @ID INT
+AS
+BEGIN
+    DECLARE @DanhSachViTri NVARCHAR(MAX);
+    SELECT @DanhSachViTri = COALESCE(@DanhSachViTri + ', ', '') + ViTriDangTuyen
+    FROM PHIEUDANGTUYEN
+    WHERE IDPhieuDangTuyen = @ID;
+
+    SELECT @DanhSachViTri AS DanhSachViTriDangTuyen;
+END;
+GO
+
+CREATE OR ALTER PROCEDURE ThemHoSoUngTuyen
+    @IDDoanhNghiep INT,
+    @IDUngVien INT,
+    @NgayUngTuyen DATE,
+    @ViTriUngTuyen NVARCHAR(50)
+AS
+BEGIN
+    INSERT INTO HOSOUNGTUYEN (IDDoanhNghiep, IDUngVien, NgayUngTuyen, ViTriUngTuyen)
+    VALUES (@IDDoanhNghiep, @IDUngVien, @NgayUngTuyen, @ViTriUngTuyen);
+END;
+GO
+
+CREATE OR ALTER PROCEDURE LayYeuCauCongViec
+    @ID INT
+AS
+BEGIN
+    SELECT yc.MoTa AS MoTaYeuCau
+    FROM YEUCAUCV yc
+    INNER JOIN PHIEUDANGTUYEN pdt ON yc.IDPhieuDangTuyen = pdt.IDPhieuDangTuyen
+    WHERE pdt.IDPhieuDangTuyen = @ID;
+END;
+GO
+
+CREATE OR ALTER PROCEDURE TimKiemPhieuDangTuyen
+    @Ten NVARCHAR(50) = NULL,
+    @ViTri NVARCHAR(50) = NULL,
+    @ID INT = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF @ID IS NOT NULL
+    BEGIN
+        SELECT PDT.*
+        FROM PHIEUDANGTUYEN PDT
+        WHERE PDT.IDDoanhNghiep = @ID
+        AND (@ViTri IS NULL OR PDT.ViTriDangTuyen LIKE '%' + @ViTri + '%');
+    END
+    ELSE
+    BEGIN
+        IF @Ten IS NOT NULL AND @ViTri IS NOT NULL
+        BEGIN
+            SELECT PDT.*
+            FROM PHIEUDANGTUYEN PDT
+            WHERE PDT.ViTriDangTuyen LIKE '%' + @ViTri + '%'
+            AND EXISTS (
+                SELECT 1
+                FROM DOANHNGHIEP DN
+                INNER JOIN THANHVIEN TV ON DN.IDDoanhNghiep = TV.IDThanhVien
+                WHERE TV.Ten LIKE '%' + @Ten + '%'
+                AND PDT.IDDoanhNghiep = DN.IDDoanhNghiep
+            );
+        END
+        ELSE IF @Ten IS NOT NULL
+        BEGIN
+            SELECT PDT.*
+            FROM PHIEUDANGTUYEN PDT
+            WHERE EXISTS (
+                SELECT 1
+                FROM DOANHNGHIEP DN
+                INNER JOIN THANHVIEN TV ON DN.IDDoanhNghiep = TV.IDThanhVien
+                WHERE TV.Ten LIKE '%' + @Ten + '%'
+                AND PDT.IDDoanhNghiep = DN.IDDoanhNghiep
+            );
+        END
+        ELSE IF @ViTri IS NOT NULL
+        BEGIN
+            SELECT *
+            FROM PHIEUDANGTUYEN
+            WHERE ViTriDangTuyen LIKE '%' + @ViTri + '%';
+        END
+        ELSE
+        BEGIN
+            SELECT *
+            FROM PHIEUDANGTUYEN;
+        END
+    END
+END;
+
+------------------------------------------------------------------------------------------------

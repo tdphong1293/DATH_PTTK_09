@@ -66,7 +66,7 @@ namespace Nhom09_083_388_392_537_708
         }
         DataSet LoadData_HoSoUngTuyen_TheoTen(string name)
         {
-            string query = $"SELECT tv.ten, hsut.ngayungtuyen, hsut.vitriungtuyen, hsut.điemanhgia FROM HOSOUNGTUYEN hsut, THANHVIEN tv where hsut.idungvien = tv.idthanhvien and tv.ten like '%{name}%' and hsut.iddoanhnghiep = {this.id}";
+            string query = $"SELECT hsut.idungvien as IDUngVien, tv.ten as HoTen, hsut.ngayungtuyen as NgayUngTuyen, hsut.vitriungtuyen as ViTriUngTuyen, hsut.diemdanhgia as DiemDanhGia , hsut.tinhtrangungtuyen as TinhTrangUngTuyen FROM HOSOUNGTUYEN hsut, THANHVIEN tv where hsut.idungvien = tv.idthanhvien and tv.ten like '%{name}%' and hsut.iddoanhnghiep = {this.id}";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataSet data_hsut_theoten = new DataSet();
@@ -84,8 +84,9 @@ namespace Nhom09_083_388_392_537_708
         }
         private void btn_timkiem_Click(object sender, EventArgs e)
         {
-            string name = txt_tenuv.Text;
-            dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            string name = tb_tenuv.Text.ToString();
+            MessageBox.Show(name);
+            dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_hosoungtuyen.DataSource = LoadData_HoSoUngTuyen_TheoTen(name).Tables[0];
         }
         private void dgv_hosoungtuyen_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -121,10 +122,14 @@ namespace Nhom09_083_388_392_537_708
                 {
                     tb_TinhTrangHoSo.BackColor = Color.YellowGreen;
                 }
-                else
+                else if (tb_TinhTrangHoSo.Text == "Chưa đủ điều kiện")
                 {
                     tb_TinhTrangHoSo.BackColor = Color.LightCoral;
                 }
+                else
+                {
+                    tb_TinhTrangHoSo.BackColor = Color.White;
+                }    
                 DateTime date_ut = DateTime.Parse(row.Cells["NgayUngTuyen"].Value.ToString());
                 //MessageBox.Show(date_ut.ToString("dd/MM/yyyy"));
                 tb_NgayUngTuyen.Text = date_ut.ToString("dd/MM/yyyy");
@@ -152,6 +157,8 @@ namespace Nhom09_083_388_392_537_708
             tb_TinhTrangHoSo.BackColor = Color.YellowGreen;
             dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_hosoungtuyen.DataSource = LoadData_HoSoUngTuyen().Tables[0];
+            dgv_BangCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_BangCap.DataSource = LoadData_BangCapUV(this.idungvien).Tables[0];
         }
 
         public void ThongBao(string tb)
@@ -174,6 +181,8 @@ namespace Nhom09_083_388_392_537_708
             tb_TinhTrangHoSo.BackColor = Color.LightCoral;
             dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_hosoungtuyen.DataSource = LoadData_HoSoUngTuyen().Tables[0];
+            dgv_BangCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_BangCap.DataSource = LoadData_BangCapUV(this.idungvien).Tables[0];
         }
 
         private void btn_sapxep_Click(object sender, EventArgs e)
