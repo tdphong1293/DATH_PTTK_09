@@ -18,5 +18,12 @@ namespace BUS
         {
             return UngVienDAO.ThemUV(username, password, name, email, birth);
         }
+
+        public static string LayTTUngVien(string idUngVien)
+        {
+            return UngVienDAO.LayTTUngVien(idUngVien);
+        }
+
+        
     }
 }

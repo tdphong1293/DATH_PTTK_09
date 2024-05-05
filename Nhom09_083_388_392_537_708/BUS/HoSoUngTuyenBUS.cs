@@ -1,10 +1,6 @@
 ﻿using DAO;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS
 {
@@ -14,5 +10,11 @@ namespace BUS
         {
             return HoSoUngTuyenDAO.LayKetQuaUngTuyen(timkiem);
         }
+
+        public static void ThemHSUngTuyen(string IdDoanhNghiep, string IdUngVien, DateTime NgayUngTuyen, string viTriUngTuyen)
+        {
+            HoSoUngTuyenDAO.ThemHoSoUngTuyen(IdDoanhNghiep, IdUngVien, NgayUngTuyen, viTriUngTuyen);
+        }
+
     }
 }

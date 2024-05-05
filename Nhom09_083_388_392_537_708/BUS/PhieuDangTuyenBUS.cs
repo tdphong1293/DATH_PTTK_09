@@ -30,5 +30,13 @@ namespace BUS
         {
             PhieuDangTuyenDAO.XoaPhieuDangTuyen(idPhieuDangTuyen);
         }
+        public static string Lay_IdDN_Tu_IdPDT(string idPDT)
+        {
+            return PhieuDangTuyenDAO.Lay_IdDN_Tu_IdPDT(idPDT);
+        }
+        public static DataTable LayViTriDangTuyen(string IdPDT)
+        {
+            return PhieuDangTuyenDAO.LayViTriDangTuyen(IdPDT);
+        }
     }
 }

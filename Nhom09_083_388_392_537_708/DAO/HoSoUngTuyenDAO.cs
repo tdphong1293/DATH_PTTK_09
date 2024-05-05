@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Utility;
 
 namespace DAO
@@ -32,6 +28,18 @@ namespace DAO
             {
                 Console.WriteLine(ex.Message);
                 return null;
+            }
+        }
+        public static void ThemHoSoUngTuyen(string IdDoanhNghiep, string IdUngVien, DateTime NgayUngTuyen, string viTriUngTuyen)
+        {
+            using (SqlCommand command = new SqlCommand("ThemHoSoUngTuyen", conn))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@IDDoanhNghiep", IdDoanhNghiep);
+                command.Parameters.AddWithValue("@IDUngVien", IdUngVien);
+                command.Parameters.AddWithValue("@NgayUngTuyen", NgayUngTuyen);
+                command.Parameters.AddWithValue("@ViTriUngTuyen", viTriUngTuyen);
+                command.ExecuteNonQuery();
             }
         }
     }

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Windows.Forms;
+using Utility;
 
 namespace GUI
 {
@@ -27,20 +29,17 @@ namespace GUI
             LayThongTinDoanhNghiep(IdDoanhNghiep);
             LoadViTriDangTuyen();
         }
+        
+        private string Lay_IdDN_Tu_IDPDT(string idPDT)
+        {
+            return PhieuDangTuyenBUS.Lay_IdDN_Tu_IdPDT(idPDT);
+        }
 
         private void LoadViTriDangTuyen()
         {
             try
             {
-                DataTable dt = new DataTable();
-                using (SqlCommand command = new SqlCommand("LayViTriDangTuyen", con))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@ID", IdPDT);
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
-                    adapter.Fill(dt);
-                }
+                DataTable dt = PhieuDangTuyenBUS.LayViTriDangTuyen(IdPDT);
                 cbVTUT.DataSource = dt;
                 cbVTUT.DisplayMember = "DanhSachViTriDangTuyen";
             }
@@ -52,48 +51,14 @@ namespace GUI
 
         private void LayThongTinUngVien(string idUngVien)
         {
-            SqlCommand commandUngVien = new SqlCommand("LayTTUngVien", con);
-            SqlDataReader reader;
-            commandUngVien.CommandType = CommandType.StoredProcedure;
-            commandUngVien.Parameters.AddWithValue("@ID", idUngVien);
-            reader = commandUngVien.ExecuteReader();
-            if (reader.Read())
-            {
-                txtTenUV.Text = reader["Ten"].ToString();
-            }
-            reader.Close();
+            txtTenUV.Text = UngVienBUS.LayTTUngVien(idUngVien);
         }
 
-        private void LayThongTinDoanhNghiep(string idPhieuDangTuyen)
+        private void LayThongTinDoanhNghiep(string IdDoanhNghiep)
         {
-            SqlCommand commandDoanhNghiep = new SqlCommand("LayTTDoanhNghiep", con);
-            SqlDataReader reader;
-            commandDoanhNghiep.CommandType = CommandType.StoredProcedure;
-            commandDoanhNghiep.Parameters.AddWithValue("@ID", idPhieuDangTuyen);
-            reader = commandDoanhNghiep.ExecuteReader();
-            if (reader.Read())
-            {
-                txtTenDN.Text = reader["Ten"].ToString();
-                IdDoanhNghiep = reader["IDDoanhNghiep"].ToString();
-            }
-            reader.Close();
-        }
-
-        private string Lay_IdDN_Tu_IDPDT(string idPDT)
-        {
-            string idDoanhNghiep = "";
-            using (SqlCommand command = new SqlCommand("TimIDDoanhNghiepTuIDPDT", con))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.AddWithValue("@IDPDT", idPDT);
-                SqlParameter outputParam = new SqlParameter("@IDDoanhNghiep", SqlDbType.Int);
-                outputParam.Direction = ParameterDirection.Output;
-                command.Parameters.Add(outputParam);
-                command.ExecuteNonQuery();
-                idDoanhNghiep = command.Parameters["@IDDoanhNghiep"].Value.ToString();
-            }
-            return idDoanhNghiep;
+            int id = int.Parse(IdDoanhNghiep);
+            DoanhNghiep dn = DoanhNghiepBUS.LayThongTinDN(id);
+            txtTenDN.Text = dn.Ten;
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -109,7 +74,6 @@ namespace GUI
             }
         }
 
-
         private void btnXNNopHS_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(llbFileName.Text) && cbVTUT.SelectedItem != null)
@@ -117,18 +81,7 @@ namespace GUI
                 string viTriUngTuyen = cbVTUT.SelectedItem.ToString();
                 try
                 {
-                    // Khởi tạo và thực thi SqlCommand để gọi stored procedure
-                    using (SqlCommand command = new SqlCommand("ThemHoSoUngTuyen", con))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@IDDoanhNghiep", IdDoanhNghiep);
-                        command.Parameters.AddWithValue("@IDUngVien", IdUngVien);
-                        command.Parameters.AddWithValue("@NgayUngTuyen", DateTime.Now.Date);
-                        command.Parameters.AddWithValue("@ViTriUngTuyen", viTriUngTuyen);
-                        command.ExecuteNonQuery();
-                    }
-
+                    HoSoUngTuyenBUS.ThemHSUngTuyen(IdDoanhNghiep, IdUngVien, DateTime.Now.Date, viTriUngTuyen);
                     MessageBox.Show("Nộp hồ sơ thành công");
                 }
                 catch (Exception ex)

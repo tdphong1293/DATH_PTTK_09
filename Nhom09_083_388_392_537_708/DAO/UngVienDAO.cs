@@ -65,5 +65,22 @@ namespace DAO
                 return false;
             }
         }
+
+        public static string LayTTUngVien(string idUngVien)
+        {
+            using (SqlCommand command = new SqlCommand("LayTTUngVien", conn))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@ID", idUngVien);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return reader["Ten"].ToString();
+                    }
+                }
+            }
+            return null;
+        }
     }
 }
