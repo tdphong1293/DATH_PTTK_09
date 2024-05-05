@@ -1,6 +1,6 @@
 ﻿using BUS;
+using Utility;
 using System;
-using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -44,13 +44,13 @@ namespace GUI
                 DataGridViewRow row = dtgv_KetQuaTuyenDung.Rows[e.RowIndex];
                 status_bar.Items["status_itemselect"].Text = "Đã chọn công ty " + row.Cells["Tên công ty"].Value.ToString();
                 iddoanhnghiep = int.Parse(row.Cells["IDDoanhNghiep"].Value.ToString());
-                string[] DoanhNghiep = DoanhNghiepBUS.LayThongTinDN(iddoanhnghiep);
-                txt_name_dn.Text = DoanhNghiep[0];
-                txt_email_dn.Text = DoanhNghiep[1];
-                txt_tax_dn.Text = DoanhNghiep[2];
-                txt_daidien_dn.Text = DoanhNghiep[3];
-                txt_diachi_dn.Text = DoanhNghiep[4];
-                txt_discount_dn.Text = DoanhNghiep[5];
+                DoanhNghiep doanhNghiep = DoanhNghiepBUS.LayThongTinDN(iddoanhnghiep);
+                txt_name_dn.Text = doanhNghiep.Ten;
+                txt_email_dn.Text = doanhNghiep.Email;
+                txt_tax_dn.Text = doanhNghiep.MaSoThue;
+                txt_daidien_dn.Text = doanhNghiep.NguoiDaiDien;
+                txt_diachi_dn.Text = doanhNghiep.DiaChi;
+                txt_discount_dn.Text = doanhNghiep.UuDai;
                 btn_luudiscount.Enabled = true;
             }
             else

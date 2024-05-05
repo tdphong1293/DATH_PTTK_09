@@ -1,9 +1,5 @@
-﻿using DAO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Utility;
+using DAO;
 
 namespace BUS
 {
@@ -19,7 +15,7 @@ namespace BUS
             return DoanhNghiepDAO.ThemDN(username, password, name, email, tax, daidien, diachi);
         }
 
-        public static string[] LayThongTinDN(int iddoanhnghiep)
+        public static DoanhNghiep LayThongTinDN(int iddoanhnghiep)
         {
             return DoanhNghiepDAO.LayThongTinDN(iddoanhnghiep);
         }
