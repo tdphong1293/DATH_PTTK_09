@@ -10,13 +10,25 @@ namespace BUS
         {
             return PhieuDangTuyenDAO.GetDataSetFromStoredProcedure(storedProcedureName, parameters);
         }
-        public static void XoaPhieuDangTuyen(string idPhieuDangTuyen)
+
+        public static DataSet LayDSPhieuDangTuyen()
         {
-            PhieuDangTuyenDAO.XoaPhieuDangTuyen(idPhieuDangTuyen);
+            return PhieuDangTuyenDAO.LayDSPhieuDangTuyen();
         }
+
+        public static DataSet LayPDTTheoDoanhNghiep(string idDoanhNghiep)
+        {
+            return PhieuDangTuyenDAO.LayPDTTheoDoanhNghiep(idDoanhNghiep);
+        }
+
         public static DataSet LayYeuCauCongViec(string idPhieuDangTuyen)
         {
             return PhieuDangTuyenDAO.LayYeuCauCongViec(idPhieuDangTuyen);
+        }
+
+        public static void XoaPhieuDangTuyen(string idPhieuDangTuyen)
+        {
+            PhieuDangTuyenDAO.XoaPhieuDangTuyen(idPhieuDangTuyen);
         }
     }
 }

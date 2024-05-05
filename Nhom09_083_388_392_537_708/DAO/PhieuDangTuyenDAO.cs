@@ -23,6 +23,23 @@ namespace DAO
             
             return dataSet;
         }
+        
+        public static DataSet LayDSPhieuDangTuyen()
+        {
+            return GetDataSetFromStoredProcedure("LayDanhSachPhieuDangTuyen");
+        }
+
+        public static DataSet LayPDTTheoDoanhNghiep(string idDoanhNghiep)
+        {
+            return GetDataSetFromStoredProcedure("LayDanhSachPhieuDangTuyenTheoDoanhNghiep", new SqlParameter("@ID", idDoanhNghiep));
+        }
+
+        public static DataSet LayYeuCauCongViec(string idPhieuDangTuyen)
+        {
+            return GetDataSetFromStoredProcedure("LayYeuCauCongViec", 
+                new SqlParameter("@ID", idPhieuDangTuyen));
+        }
+
         public static void XoaPhieuDangTuyen(string idPhieuDangTuyen)
         {
             SqlConnection conn = DatabaseProvider.GetConnection();
@@ -33,10 +50,6 @@ namespace DAO
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
-        }
-        public static DataSet LayYeuCauCongViec(string idPhieuDangTuyen)
-        {
-            return GetDataSetFromStoredProcedure("LayYeuCauCongViec", new SqlParameter("@ID", idPhieuDangTuyen));
         }
     }
 }

@@ -25,7 +25,7 @@ namespace GUI
             {
                 btnNopHSUT.Visible = false;
                 btnXoaPDT.Visible = false;
-                LoadDataTheoDoanhNghiep();
+                LoadPDT_DN();
                 return;
             }
             if (UserRole == "UNGVIEN")
@@ -36,14 +36,14 @@ namespace GUI
             {
                 btnNopHSUT.Visible = false;
             }
-            LoadDataToDGV();
+            LoadDS_PDT();
         }
 
-        private void LoadDataToDGV()
+        private void LoadDS_PDT()
         {
             try
             {
-                DataSet dataSet = PhieuDangTuyenBUS.GetDataSetFromStoredProcedure("LayDanhSachPhieuDangTuyen");
+                DataSet dataSet = PhieuDangTuyenBUS.LayDSPhieuDangTuyen();
                 dgv_DSDangTuyen.Columns.Clear();
                 dgv_DSDangTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgv_DSDangTuyen.DataSource = dataSet.Tables[0];
@@ -55,12 +55,12 @@ namespace GUI
             }
         }
 
-        private void LoadDataTheoDoanhNghiep()
+        private void LoadPDT_DN()
         {
             try
             {
-                DataSet dataSet = PhieuDangTuyenBUS.GetDataSetFromStoredProcedure("LayDanhSachPhieuDangTuyenTheoDoanhNghiep",
-                                                                new SqlParameter("@ID", UserId));
+                string idDoanhNghiep = this.UserId;
+                DataSet dataSet = PhieuDangTuyenBUS.LayPDTTheoDoanhNghiep(idDoanhNghiep);
                 dgv_DSDangTuyen.Columns.Clear();
                 dgv_DSDangTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgv_DSDangTuyen.DataSource = dataSet.Tables[0];
@@ -74,41 +74,28 @@ namespace GUI
 
         private void dgv_DSDangTuyen_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
+            if (e.RowIndex >= 0 && e.RowIndex < this.dgv_DSDangTuyen.Rows.Count)
             {
-                return;
-            }
-
-            DataGridViewRow selectedRow = dgv_DSDangTuyen.Rows[e.RowIndex];
-
-            object idPhieuDangTuyenObj = selectedRow.Cells["IDPhieuDangTuyen"].Value;
-            if (idPhieuDangTuyenObj != DBNull.Value && idPhieuDangTuyenObj != null)
-            {
-                IdPDT = idPhieuDangTuyenObj.ToString();
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng không chọn dòng trống");
-                return;
-            }
-
-            string viTriDangTuyen = selectedRow.Cells["ViTriDangTuyen"].Value.ToString();
-            string soLuongTuyenDung = selectedRow.Cells["SoLuongTuyenDung"].Value.ToString();
-
-            txtVTDT.Text = viTriDangTuyen;
-            txtSLTD.Text = soLuongTuyenDung;
-
-            DataSet dataSet = PhieuDangTuyenBUS.LayYeuCauCongViec(IdPDT);
-            DataTable dataTable = dataSet.Tables[0];
-
-            if (dataTable.Rows.Count > 0)
-            {
-                txtMoTaYC.Text = dataTable.Rows[0]["MoTaYeuCau"].ToString();
-            }
-            else
-            {
-                MessageBox.Show("không có dữ liệu yêu cầu công việc cho phiếu đăng tuyển này này.");
-                txtMoTaYC.Text = string.Empty;
+                DataGridViewRow selectedRow = dgv_DSDangTuyen.Rows[e.RowIndex];
+                
+                this.IdPDT = selectedRow.Cells["IDPhieuDangTuyen"].Value.ToString();
+                string viTriDangTuyen = selectedRow.Cells["ViTriDangTuyen"].Value.ToString();
+                string soLuongTuyenDung = selectedRow.Cells["SoLuongTuyenDung"].Value.ToString();
+               
+                txtVTDT.Text = viTriDangTuyen;
+                txtSLTD.Text = soLuongTuyenDung;
+               
+                DataSet dataSet = PhieuDangTuyenBUS.LayYeuCauCongViec(IdPDT);
+                DataTable dataTable = dataSet.Tables[0];
+                if (dataTable.Rows.Count > 0)
+                {
+                    txtMoTaYC.Text = dataTable.Rows[0]["MoTaYeuCau"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Không có dữ liệu yêu cầu công việc cho phiếu đăng tuyển này này");
+                    txtMoTaYC.Text = string.Empty;
+                }
             }
         }
 
@@ -124,7 +111,7 @@ namespace GUI
             {
                 PhieuDangTuyenBUS.XoaPhieuDangTuyen(IdPDT);
                 MessageBox.Show("Đã xóa phiếu đăng tuyển thành công.");
-                LoadDataToDGV();
+                LoadDS_PDT();
             }
             catch (Exception ex)
             {
