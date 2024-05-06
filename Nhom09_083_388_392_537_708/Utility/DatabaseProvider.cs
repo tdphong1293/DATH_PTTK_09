@@ -13,7 +13,7 @@ namespace Utility
             {
                 
                 //string connStr = @"Data Source=P1293;Initial Catalog=PTTK_ABC;Trusted_Connection=True";
-                string connStr = @"Data Source=HUYNHPHUC;Initial Catalog=PTTK_ABC;Trusted_Connection=True";
+                string connStr = @"Data Source=DESKTOP-OST9FTB;Initial Catalog=PTTK_ABC;Trusted_Connection=True";
                 conn = new SqlConnection(connStr);
             }
             try

@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using BUS;
 
 namespace GUI
 {
@@ -20,15 +21,6 @@ namespace GUI
             InitializeComponent();
             this.username = username;
             this.id = id;
-        }
-
-        public double LayUuDai(string username)
-        {
-            //Sửa lại nếu chạy lại script
-            string query = $"select UuDai from THANHVIEN tv, DOANHNGHIEP dn where tv.IDThanhVien = dn.IdDoanhNghiep and TenDangNhap = '{username}';";
-            SqlCommand cmd = new SqlCommand(query, con);
-            double UD = (double)cmd.ExecuteScalar();
-            return UD;
         }
 
         int soNgay = 0;
@@ -51,7 +43,7 @@ namespace GUI
             {
                 TienTheoHinhThuc = 1.0;
             }
-            double tongtien = TienTheoNgay * soNgay * TienTheoHinhThuc * (1- LayUuDai(username));
+            double tongtien = TienTheoNgay * soNgay * TienTheoHinhThuc * (1- DoanhNghiepBUS.LayUuDai(username));
             return Math.Round(tongtien, 2);
         }
 
