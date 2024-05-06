@@ -1,4 +1,4 @@
-﻿namespace Utility
+﻿namespace DTO
 {
     public class LoggedUser
     {

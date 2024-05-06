@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using BUS;
-using Utility;
+using DTO;
 
 namespace GUI
 {

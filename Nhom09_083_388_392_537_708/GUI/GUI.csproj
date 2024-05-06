@@ -214,9 +214,9 @@
       <Project>{398f9e29-6422-4f44-8482-69e28a0922c2}</Project>
       <Name>BUS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Utility\Utility.csproj">
+    <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{00446729-fc5c-4cbd-bd53-9db072c8c56d}</Project>
-      <Name>Utility</Name>
+      <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

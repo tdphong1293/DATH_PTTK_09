@@ -1,4 +1,4 @@
-﻿using Utility;
+﻿using DTO;
 using DAO;
 
 namespace BUS

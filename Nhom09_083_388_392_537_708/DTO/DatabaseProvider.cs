@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 
-namespace Utility
+namespace DTO
 {
     public class DatabaseProvider
     {

@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
-using Utility;
+using DTO;
 
 namespace DAO
 {
