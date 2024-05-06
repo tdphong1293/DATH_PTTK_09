@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAO;
-using DTO;
 
 namespace BUS
 {
-    public class HoaDonBUS
+    public class ThanhToanBUS
     {
-        public static int ThemHD (double Tongtien, string lhtt, int iddn)
+        public static void ThemTT(string HTTT, double sotien, int dot, int IDHD)
         {
-            return HoaDonDAO.ThemHD(Tongtien, lhtt, iddn);
+            ThanhToanDAO.ThemTT(HTTT, sotien, dot, IDHD);
         }
     }
 }
