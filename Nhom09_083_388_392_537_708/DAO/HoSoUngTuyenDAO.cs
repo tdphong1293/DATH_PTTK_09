@@ -42,5 +42,15 @@ namespace DAO
                 command.ExecuteNonQuery();
             }
         }
+        public static DataTable DocDSHSSUngTuyenTheoDoanhNghiep(int idDoanhNghiep)
+        {
+            string query = $"SELECT hsut.idungvien as IDUngVien, tv.ten as HoTen, hsut.ngayungtuyen as NgayUngTuyen, hsut.vitriungtuyen as ViTriUngTuyen, hsut.diemdanhgia as DiemDanhGia , hsut.tinhtrangungtuyen as TinhTrangUngTuyen FROM HOSOUNGTUYEN hsut, THANHVIEN tv " +
+                $"where hsut.idungvien = tv.idthanhvien and hsut.iddoanhnghiep = {idDoanhNghiep}";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable data_hsut = new DataTable(); // Tạo một DataTable thay vì DataSet
+            adapter.Fill(data_hsut);
+            return data_hsut;
+        }
     }
 }
