@@ -1,9 +1,11 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Utility;
 
 namespace GUI
 {
@@ -12,14 +14,23 @@ namespace GUI
         public static SqlConnection con = frmDangNhap.conn;
         private string id;
         private int idungvien;
-        public frmDuyetHSUngTuyen(string id)
+        private int idDoanhNghiep;
+        public frmDuyetHSUngTuyen(int idDoanhNghiep)
         {
             InitializeComponent();
-            this.id = id;
-            dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv_hosoungtuyen.DataSource = LoadData_HoSoUngTuyen().Tables[0];
+            this.idDoanhNghiep = idDoanhNghiep;
+            //dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //dgv_hosoungtuyen.DataSource = LoadData_HoSoUngTuyen().Tables[0];
+            HienThi(idDoanhNghiep);
         }
+        public void HienThi(int idDoanhNghiep)
+        {
+            // Gọi phương thức DocDSHSSUngTuyenTheoDoanhNghiep để lấy DataTable chứa dữ liệu
+            DataTable dataTable = HoSoUngTuyenBUS.DocDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep); // Giả sử idDoanhNghiep đã được xác định trước
 
+            // Gán DataTable vào DataGridView
+            dgv_hosoungtuyen.DataSource = dataTable;
+        }
         private void btn_OpenFileCV_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -87,29 +98,27 @@ namespace GUI
             if (e.RowIndex >= 0 && e.RowIndex < this.dgv_hosoungtuyen.Rows.Count) // Make sure user select at least 1 row 
             {
                 DataGridViewRow row = this.dgv_hosoungtuyen.Rows[e.RowIndex];
-                string query1 = $"select tv.ten, tv.email, uv.ngaysinh from THANHVIEN tv, UNGVIEN uv where uv.idungvien = tv.idthanhvien and idthanhvien = {row.Cells["IDUngVien"].Value};";
-                SqlCommand cmd1 = new SqlCommand(query1, con);
-
-                if (con.State != ConnectionState.Open)
+                this.idungvien = Convert.ToInt32(row.Cells["IDUngVien"].Value);
+                DataTable dataTable = UngVienBUS.LayTTUngVienDHSUT(this.idungvien);
+                if (dataTable.Rows.Count > 0)
                 {
-                    con.Open();
-                }
+                    DataRow rows = dataTable.Rows[0];
 
-                SqlDataReader reader = cmd1.ExecuteReader();
-                if (reader.Read())
-                {
-                    tb_HoTen.Text = reader["ten"].ToString(); // Make sure the column names match the ones in your database
-                    tb_Email.Text = reader["email"].ToString();
-                    string dateStr = reader["ngaysinh"].ToString();
-                    DateTime date_ns = DateTime.Parse(dateStr);
-                    tb_NgaySinh.Text = date_ns.ToString("dd/MM/yyyy");
-                    // Continue for all other columns
-                }
+                    tb_HoTen.Text = rows["ten"].ToString();
+                    tb_Email.Text = rows["email"].ToString();
 
-                if (con.State != ConnectionState.Closed)
-                {
-                    con.Close();
+                    DateTime ngaySinh;
+                    if (DateTime.TryParse(rows["ngaysinh"].ToString(), out ngaySinh))
+                    {
+                        tb_NgaySinh.Text = ngaySinh.ToString("dd/MM/yyyy");
+                    }
+                    else
+                        tb_NgaySinh.Text = "Không có thông tin";
                 }
+                //if (con.State != ConnectionState.Closed)
+                //{
+                //    con.Close();
+                //}
                 tb_TinhTrangHoSo.Text = row.Cells["TinhTrangUngTuyen"].Value.ToString();
                 if (tb_TinhTrangHoSo.Text == "Đủ điều kiện")
                 {
@@ -122,16 +131,15 @@ namespace GUI
                 else
                 {
                     tb_TinhTrangHoSo.BackColor = Color.White;
-                }    
+                }
                 DateTime date_ut = DateTime.Parse(row.Cells["NgayUngTuyen"].Value.ToString());
-                //MessageBox.Show(date_ut.ToString("dd/MM/yyyy"));
+                ////MessageBox.Show(date_ut.ToString("dd/MM/yyyy"));
                 tb_NgayUngTuyen.Text = date_ut.ToString("dd/MM/yyyy");
                 tb_ViTriUngTuyen.Text = row.Cells["ViTriUngTuyen"].Value.ToString();
                 tb_DiemDanhGia.Text = row.Cells["DiemDanhGia"].Value.ToString();
 
-                this.idungvien = Convert.ToInt32(row.Cells["IDUngVien"].Value);
                 dgv_BangCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dgv_BangCap.DataSource = LoadData_BangCapUV(this.idungvien).Tables[0];
+                dgv_BangCap.DataSource = BangCapBUS.LayDSBangCapTheoUngVien(this.idungvien);
             }
         }
 

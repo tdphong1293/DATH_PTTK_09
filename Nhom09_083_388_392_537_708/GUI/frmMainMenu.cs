@@ -302,7 +302,7 @@ namespace GUI
 
         private void btnDuyetHSDaQuaXL_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmDuyetHSUngTuyen(id), sender);
+            OpenChildForm(new frmDuyetHSUngTuyen(int.Parse(id)), sender);
             CenterLabelInPanel(lblTitle, pnlTitle);
         }
         private void btnLogout_Click(object sender, EventArgs e)
