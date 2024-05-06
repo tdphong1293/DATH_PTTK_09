@@ -44,6 +44,8 @@
     <Compile Include="DatabaseProvider.cs" />
     <Compile Include="DoanhNghiep.cs" />
     <Compile Include="LoggedUser.cs" />
+    <Compile Include="PhieuDangTuyenDTO.cs" />
+    <Compile Include="PhieuQuangCaoDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

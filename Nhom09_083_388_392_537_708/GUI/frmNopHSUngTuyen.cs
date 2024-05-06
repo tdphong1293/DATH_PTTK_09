@@ -72,21 +72,19 @@ namespace GUI
                 string selectedFilePath = openFileDialog.FileName;
                 if (Path.GetExtension(selectedFilePath).ToLower() == ".pdf")
                 {
-                    // Store the full path in the Tag property
                     llbFileName.Tag = selectedFilePath;
-                    // Display only the file name
                     llbFileName.Text = Path.GetFileName(selectedFilePath);
                 }
                 else
                 {
-                    MessageBox.Show("Please select a PDF file.");
+                    MessageBox.Show("Vui lòng chọn file định dạng PDF");
                 }
             }
         }
 
         private void btnXNNopHS_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(llbFileName.Text) && cbVTUT.SelectedItem != null)
+            if (!string.IsNullOrEmpty(llbFileName.Text) && cbVTUT.SelectedItem != null && txtTenDN != null && txtTenUV != null)
             {
                 string viTriUngTuyen = cbVTUT.SelectedItem.ToString();
                 try
@@ -95,9 +93,10 @@ namespace GUI
                     MessageBox.Show("Nộp hồ sơ thành công");
 
                     string userId = IdUngVien;
-                    string baseDirectory = @"DATH_PTTK_09\Nhom09_083_388_392_537_708\DAO\DS_CV";
-                    string targetDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), baseDirectory, userId);
+                    string baseDirectory = @"DAO\DS_CV";
+                    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
 
+                    string targetDirectory = Path.Combine(projectDirectory, baseDirectory, userId);
                     if (!Directory.Exists(targetDirectory))
                     {
                         Directory.CreateDirectory(targetDirectory);
@@ -112,7 +111,7 @@ namespace GUI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi khi nộp hồ sơ: " + ex.Message);
+                    MessageBox.Show("Bạn đã nộp hồ sơ này. Vui lòng ứng tuyển hồ sơ khác");
                 }
             }
             else

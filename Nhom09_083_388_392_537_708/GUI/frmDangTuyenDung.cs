@@ -3,14 +3,16 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using BUS;
+using DTO;
 
 namespace GUI
 {
     public partial class frmDangTuyenDung : Form
     {
-        public static SqlConnection con = frmDangNhap.conn;
         string username;
         string id;
+
+        PhieuQuangCaoBUS PQCBUS { get; set; }
         public frmDangTuyenDung()
         {
             InitializeComponent();
@@ -21,30 +23,6 @@ namespace GUI
             InitializeComponent();
             this.username = username;
             this.id = id;
-        }
-
-        int soNgay = 0;
-
-        public double TinhTongTien()
-        {
-            double TienTheoHinhThuc = 1.0;
-            int TienTheoNgay = 200000;
-            TimeSpan songay = dtpNKT.Value.Subtract(dtpNBD.Value);
-            soNgay = (int)songay.TotalDays;
-            if (cbxHTDT.SelectedItem.ToString() == "Báo giấy")
-            {
-                TienTheoHinhThuc = 1.3;
-            }
-            else if (cbxHTDT.SelectedItem.ToString() == "Banner quảng cáo")
-            {
-                TienTheoHinhThuc = 1.5;
-            }
-            else
-            {
-                TienTheoHinhThuc = 1.0;
-            }
-            double tongtien = TienTheoNgay * soNgay * TienTheoHinhThuc * (1- DoanhNghiepBUS.LayUuDai(username));
-            return Math.Round(tongtien, 2);
         }
 
         private void FormDangTuyenDung_Load(object sender, EventArgs e)
@@ -61,19 +39,34 @@ namespace GUI
 
         private void cbxHTTT_SelectedValueChanged(object sender, EventArgs e)
         {
-            tbxTongTien.Text = TinhTongTien().ToString();
+            PhieuQuangCaoDTO pqc = new PhieuQuangCaoDTO(dtpNBD.Value, dtpNKT.Value, cbxHTDT.Text, 0);
+            tbxTongTien.Text = PhieuQuangCaoBUS.TinhTongTien(pqc, DoanhNghiepBUS.LayUuDai(username)).ToString();
         }
 
         private void cbxHTDT_SelectedValueChanged(object sender, EventArgs e)
         {
-            tbxTongTien.Text = TinhTongTien().ToString();
+            PhieuQuangCaoDTO pqc = new PhieuQuangCaoDTO(dtpNBD.Value, dtpNKT.Value, cbxHTDT.Text, 0);
+            tbxTongTien.Text = PhieuQuangCaoBUS.TinhTongTien(pqc, DoanhNghiepBUS.LayUuDai(username)).ToString();
         }
 
         private void dtpNKT_ValueChanged(object sender, EventArgs e)
         {
+            int soNgay = 0;
+            TimeSpan songay = dtpNKT.Value.Subtract(dtpNBD.Value);
+            soNgay = (int)songay.TotalDays;
+            if (soNgay < 30)
+            {
+                cbxLHTT.SelectedIndex = 1;
+                cbxLHTT.Enabled = false;
+            }
+            else
+            {
+                cbxLHTT.Enabled = true;
+            }
             if (dtpNKT.Value != null && cbxHTDT.SelectedItem != null && cbxHTTT.SelectedItem != null)
             {
-                tbxTongTien.Text = TinhTongTien().ToString();
+                PhieuQuangCaoDTO pqc = new PhieuQuangCaoDTO(dtpNBD.Value, dtpNKT.Value, cbxHTDT.Text, 0);
+                tbxTongTien.Text = PhieuQuangCaoBUS.TinhTongTien(pqc, DoanhNghiepBUS.LayUuDai(username)).ToString();
             }
             else
             {
@@ -85,61 +78,24 @@ namespace GUI
         {
             int IDPhieuQuangCao = 0;
             int IDPDT = 0;
+            int IDHD = 0;
             try
             {
-                using (SqlCommand cmd = new SqlCommand("ThemPQC", con))
+                PhieuQuangCaoDTO pqc = new PhieuQuangCaoDTO(dtpNBD.Value, dtpNKT.Value, cbxHTDT.Text, double.Parse(tbxTongTien.Text));
+                IDPhieuQuangCao = PhieuQuangCaoBUS.ThemPQC(pqc);
+                PhieuDangTuyenDTO pdt = new PhieuDangTuyenDTO(tbxVTTD.Text, int.Parse(tbxSLTD.Text), int.Parse(this.id));
+                IDPDT = PhieuDangTuyenBUS.ThemPDT(pdt, IDPhieuQuangCao);
+                YeuCauCVBUS.ThemYC(tbxMoTa.Text, IDPDT);
+                IDHD = HoaDonBUS.ThemHD(double.Parse(tbxTongTien.Text), cbxLHTT.SelectedItem.ToString(), int.Parse(this.id));
+                if (cbxLHTT.SelectedItem.ToString() == "Theo đợt")
                 {
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@NBD", dtpNBD.Value);
-                    cmd.Parameters.AddWithValue("@NKT", dtpNKT.Value);
-                    cmd.Parameters.AddWithValue("@htdt", cbxHTDT.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("tongtien", float.Parse(tbxTongTien.Text));
-                    // Thêm tham số đầu ra để lưu trữ IDPhieuQuangCao
-                    SqlParameter paramID = new SqlParameter("@IDPhieuQuangCao", SqlDbType.Int);
-                    paramID.Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add(paramID);
-                    cmd.ExecuteNonQuery();
-                    IDPhieuQuangCao = Convert.ToInt32(paramID.Value);
+                    ThanhToanBUS.ThemTT(cbxHTTT.SelectedItem.ToString(), pqc.TongTienQC * 0.3, 1, IDHD);
+                    ThanhToanBUS.ThemTT(cbxHTTT.SelectedItem.ToString(), pqc.TongTienQC * 0.3, 2, IDHD);
+                    ThanhToanBUS.ThemTT(cbxHTTT.SelectedItem.ToString(), pqc.TongTienQC * 0.4, 3, IDHD);
                 }
-                using (SqlCommand cmd = new SqlCommand("ThemPDT", con))
+                else if (cbxLHTT.SelectedItem.ToString() == "Toàn bộ")
                 {
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@vtdt", tbxVTTD.Text);
-                    cmd.Parameters.AddWithValue("@sltd", int.Parse(tbxSLTD.Text));
-                    cmd.Parameters.AddWithValue("@iddn", int.Parse(this.id));
-                    cmd.Parameters.AddWithValue("@pqc", IDPhieuQuangCao);
-                    // Thêm tham số đầu ra để lưu trữ IDPDT
-                    SqlParameter paramID = new SqlParameter("@idpdt", SqlDbType.Int);
-                    paramID.Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add(paramID);
-                    cmd.ExecuteNonQuery();
-                    IDPDT = Convert.ToInt32(paramID.Value);
-                }
-                using (SqlCommand cmd = new SqlCommand("ThemYC", con))
-                {
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@pdt", IDPDT);
-                    cmd.Parameters.AddWithValue("@mota", tbxMoTa.Text);
-                    cmd.ExecuteNonQuery();
-                }
-                using (SqlCommand cmd = new SqlCommand("ThemHD", con))
-                {
-                    float datra = 0;
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@tongtien", float.Parse(tbxTongTien.Text));
-                    cmd.Parameters.AddWithValue("@datra", datra);
-                    if (soNgay >= 30)
-                    {
-                        cmd.Parameters.AddWithValue("@lhtt", "Theo đợt");
-                    }
-                    else
-                    {
-                        cmd.Parameters.AddWithValue("@lhtt", "Toàn bộ");
-                    }
-                    cmd.Parameters.AddWithValue("@ngaylap", DateTime.Today);
-                    cmd.Parameters.AddWithValue("@ttht", "Chưa hoàn thành");
-                    cmd.Parameters.AddWithValue("@iddn", int.Parse(this.id));
-                    cmd.ExecuteNonQuery();
+                    ThanhToanBUS.ThemTT(cbxHTTT.SelectedItem.ToString(), pqc.TongTienQC, 1, IDHD);
                 }
                 MessageBox.Show("Đăng tuyển thành công!!!");
                 FormDangTuyenDung_Load(sender, e);

@@ -49,7 +49,7 @@ namespace DAO
                 $"where hsut.idungvien = tv.idthanhvien and hsut.iddoanhnghiep = {idDoanhNghiep}";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable data_hsut = new DataTable(); // Tạo một DataTable thay vì DataSet
+            DataTable data_hsut = new DataTable();
             adapter.Fill(data_hsut);
             return data_hsut;
         }

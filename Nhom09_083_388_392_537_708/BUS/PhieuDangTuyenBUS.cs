@@ -1,6 +1,7 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
 using DAO;
+using DTO;
 
 namespace BUS
 {
@@ -37,6 +38,10 @@ namespace BUS
         public static DataTable LayViTriDangTuyen(string IdPDT)
         {
             return PhieuDangTuyenDAO.LayViTriDangTuyen(IdPDT);
+        }
+        public static int ThemPDT(PhieuDangTuyenDTO pdt, int IDPQC)
+        {
+            return PhieuDangTuyenDAO.ThemPDT(pdt, IDPQC);
         }
     }
 }
