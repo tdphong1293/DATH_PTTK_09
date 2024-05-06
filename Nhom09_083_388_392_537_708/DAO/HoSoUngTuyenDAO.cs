@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Xml.Linq;
 using DTO;
 
 namespace DAO
@@ -52,5 +53,45 @@ namespace DAO
             adapter.Fill(data_hsut);
             return data_hsut;
         }
+
+        public static DataTable DocDSHoSoUT_SapXep_DiemDanhGia(int idDoanhNghiep)
+        {
+            string query = $"SELECT hsut.idungvien as IDUngVien, tv.ten as HoTen, hsut.ngayungtuyen as NgayUngTuyen, hsut.vitriungtuyen as ViTriUngTuyen, hsut.diemdanhgia as DiemDanhGia , hsut.tinhtrangungtuyen as TinhTrangUngTuyen FROM HOSOUNGTUYEN hsut, THANHVIEN tv" +
+                $" where hsut.idungvien = tv.idthanhvien and hsut.iddoanhnghiep = {idDoanhNghiep} ORDER BY hsut.diemdanhgia DESC";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable data_hsut = new DataTable(); // Tạo một DataTable thay vì DataSet
+            adapter.Fill(data_hsut);
+            return data_hsut;
+        }
+
+        public static DataTable DocHoSoUT_TheoTenUV(int idDoanhNghiep, string tenUV)
+        {
+            string query = $"SELECT hsut.idungvien as IDUngVien, tv.ten as HoTen, hsut.ngayungtuyen as NgayUngTuyen, hsut.vitriungtuyen as ViTriUngTuyen, hsut.diemdanhgia as DiemDanhGia , hsut.tinhtrangungtuyen as TinhTrangUngTuyen FROM HOSOUNGTUYEN hsut, THANHVIEN tv " +
+                $"where hsut.idungvien = tv.idthanhvien and tv.ten like '%{tenUV}%' and hsut.iddoanhnghiep = {idDoanhNghiep}";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable data_hsut_theoten = new DataTable();
+            adapter.Fill(data_hsut_theoten);
+            return data_hsut_theoten;
+        }
+
+        public static int CapNhat_TinhTrangUngTuyenDB(string dieukien, int idDoanhNghiep, int idUngVien)
+        {
+            string query = $"UPDATE HOSOUNGTUYEN SET TinhTrangUngTuyen = N'{dieukien}' WHERE idungvien = {idUngVien} and iddoanhnghiep = {idDoanhNghiep}";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return 0;
+            }
+            return 1; 
+        }
+
     }
 }
