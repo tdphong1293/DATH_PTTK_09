@@ -1,5 +1,5 @@
 ﻿using BUS;
-using Utility;
+using DTO;
 using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;

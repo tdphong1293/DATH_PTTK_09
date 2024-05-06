@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BangCapDAO.cs" />
     <Compile Include="DoanhNghiepDAO.cs" />
     <Compile Include="HoaDonDAO.cs" />
     <Compile Include="HoSoUngTuyenDAO.cs" />
@@ -52,9 +53,9 @@
     <Compile Include="YeuCauCVDAO.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Utility\Utility.csproj">
+    <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{00446729-fc5c-4cbd-bd53-9db072c8c56d}</Project>
-      <Name>Utility</Name>
+      <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

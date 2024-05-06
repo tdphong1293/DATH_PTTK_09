@@ -1,5 +1,5 @@
 ﻿using System.Data.SqlClient;
-using Utility;
+using DTO;
 
 namespace DAO
 {

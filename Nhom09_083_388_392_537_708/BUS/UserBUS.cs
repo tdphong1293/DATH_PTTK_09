@@ -1,5 +1,5 @@
 ﻿using DAO;
-using Utility;
+using DTO;
 
 namespace BUS
 {

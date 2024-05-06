@@ -1,6 +1,7 @@
 ﻿using DAO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,11 @@ namespace BUS
             return UngVienDAO.LayTTUngVien(idUngVien);
         }
 
-        
+        public static DataTable LayTTUngVienDHSUT(int idUngVien)
+        {
+            return UngVienDAO.DocTTUngVien(idUngVien);
+        }
+        //DataTable dataTable = UngVienBUS.LayTTUngVienDHSUT(row.Cells["IDUngVien"].Value.ToString);
+
     }
 }

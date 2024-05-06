@@ -5,14 +5,13 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Utility;
+using DTO;
 
 namespace DAO
 {
     public class UngVienDAO
     {
         private static SqlConnection conn = DatabaseProvider.GetConnection();
-
         public static bool KiemTraUVTonTai(string TenDangNhap)
         {
             try
@@ -81,6 +80,16 @@ namespace DAO
                 }
             }
             return null;
+        }
+
+        public static DataTable DocTTUngVien(int idUngVien)
+        {
+            string query = $"select tv.ten, tv.email, uv.ngaysinh from THANHVIEN tv, UNGVIEN uv where uv.idungvien = tv.idthanhvien and idthanhvien = {idUngVien};";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable data_uv = new DataTable(); // Tạo một DataTable thay vì DataSet
+            adapter.Fill(data_uv);
+            return data_uv;
         }
     }
 }
