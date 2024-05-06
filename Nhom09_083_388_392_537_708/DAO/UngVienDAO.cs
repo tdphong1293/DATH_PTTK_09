@@ -91,5 +91,16 @@ namespace DAO
             adapter.Fill(data_uv);
             return data_uv;
         }
+
+        public static DataTable DocTTUV_TheoHSUT(int idDoanhNghiep, string tenUV)
+        {
+            string query = $"SELECT hsut.idungvien as IDUngVien, tv.ten as HoTen, hsut.ngayungtuyen as NgayUngTuyen, hsut.vitriungtuyen as ViTriUngTuyen, hsut.diemdanhgia as DiemDanhGia , hsut.tinhtrangungtuyen as TinhTrangUngTuyen FROM HOSOUNGTUYEN hsut, THANHVIEN tv " +
+                $"where hsut.idungvien = tv.idthanhvien and tv.ten like '%{tenUV}%' and hsut.iddoanhnghiep = {idDoanhNghiep}";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable data_hsut_theoten = new DataTable();
+            adapter.Fill(data_hsut_theoten);
+            return data_hsut_theoten;
+        }
     }
 }

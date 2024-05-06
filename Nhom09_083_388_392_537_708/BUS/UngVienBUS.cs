@@ -30,6 +30,9 @@ namespace BUS
             return UngVienDAO.DocTTUngVien(idUngVien);
         }
         //DataTable dataTable = UngVienBUS.LayTTUngVienDHSUT(row.Cells["IDUngVien"].Value.ToString);
-
+        public static DataTable LayTTUV_TheoHSUT(int idDoanhNghiep, string tenUV)
+        {
+            return UngVienDAO.DocTTUV_TheoHSUT(idDoanhNghiep,tenUV);
+        }
     }
 }
