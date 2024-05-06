@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace GUI
 {
@@ -69,7 +70,7 @@ namespace GUI
                     btn_OpenFileCV.Enabled = true;
                     DataGridViewRow row = this.dgv_HoSo_UngTuyen.Rows[e.RowIndex];
                     this.idUngVien = Convert.ToInt32(row.Cells["IDUngVien"].Value);
-                    DataTable dataTable = UngVienBUS.LayTTUngVienDHSUT(this.idUngVien);
+                    DataTable dataTable = UngVienBUS.LayTTUngVienHSUT(this.idUngVien);
                     if (dataTable.Rows.Count > 0)
                     {
                         DataRow rows = dataTable.Rows[0];
@@ -135,9 +136,6 @@ namespace GUI
                 // Cập nhật DataGridView
                 dgv_HoSo_UngTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dgv_HoSo_UngTuyen.DataSource = HoSoUngTuyenBUS.LayDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep);
-
-                dgv_BangCapUV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dgv_BangCapUV.DataSource = BangCapBUS.LayDSBangCapTheoUngVien(this.idUngVien);
             }
             else
             {
@@ -167,9 +165,6 @@ namespace GUI
                 // Cập nhật DataGridView
                 dgv_HoSo_UngTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dgv_HoSo_UngTuyen.DataSource = HoSoUngTuyenBUS.LayDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep);
-
-                dgv_BangCapUV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dgv_BangCapUV.DataSource = BangCapBUS.LayDSBangCapTheoUngVien(this.idUngVien);
             }
             else
             {
@@ -188,6 +183,26 @@ namespace GUI
         {
             dgv_HoSo_UngTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_HoSo_UngTuyen.DataSource = HoSoUngTuyenBUS.LayDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep);
+
+            //txt_DiemDanhGia.Text = "";
+            //txt_EmailUV.Text = "";
+            //txt_HoTenUV.Text = "";
+            //txt_NgaySinhUV.Text = "";
+            //txt_NgayUngTuyen.Text = "";
+            //txt_TenUngVien.Text = "";
+            //txt_TinhTrangHS.Text = "";
+            //txt_ViTriUngTuyen.Text = "";
+
+            //btn_Duyet.Enabled = false;
+            //btn_Loai.Enabled = false;
+            //btn_OpenFileCV.Enabled = false;
+
+            //txt_TinhTrangHS.BackColor = Color.WhiteSmoke;
+
+            //DataTable emptyDataTable = new DataTable();
+            //// Gán DataTable rỗng làm DataSource cho DataGridView
+            //dgv_HoSo_UngTuyen.DataSource = emptyDataTable;
+
         }
     }
 }

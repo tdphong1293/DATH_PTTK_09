@@ -25,7 +25,7 @@ namespace BUS
             return UngVienDAO.LayTTUngVien(idUngVien);
         }
 
-        public static DataTable LayTTUngVienDHSUT(int idUngVien)
+        public static DataTable LayTTUngVienHSUT(int idUngVien)
         {
             return UngVienDAO.DocTTUngVien(idUngVien);
         }

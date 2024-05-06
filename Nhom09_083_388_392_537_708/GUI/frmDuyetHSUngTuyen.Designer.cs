@@ -32,7 +32,7 @@
             this.btn_Refresh = new System.Windows.Forms.Button();
             this.btn_SapXep = new System.Windows.Forms.Button();
             this.btn_TimKiemTenUV = new System.Windows.Forms.Button();
-            this.txt_tenuv = new System.Windows.Forms.Label();
+            this.lb_tenuv = new System.Windows.Forms.Label();
             this.txt_TenUngVien = new System.Windows.Forms.TextBox();
             this.dgv_HoSo_UngTuyen = new System.Windows.Forms.DataGridView();
             this.gb_ungvien = new System.Windows.Forms.GroupBox();
@@ -75,7 +75,7 @@
             this.gb_hoso.Controls.Add(this.btn_Refresh);
             this.gb_hoso.Controls.Add(this.btn_SapXep);
             this.gb_hoso.Controls.Add(this.btn_TimKiemTenUV);
-            this.gb_hoso.Controls.Add(this.txt_tenuv);
+            this.gb_hoso.Controls.Add(this.lb_tenuv);
             this.gb_hoso.Controls.Add(this.txt_TenUngVien);
             this.gb_hoso.Controls.Add(this.dgv_HoSo_UngTuyen);
             this.gb_hoso.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -124,15 +124,15 @@
             this.btn_TimKiemTenUV.UseVisualStyleBackColor = true;
             this.btn_TimKiemTenUV.Click += new System.EventHandler(this.btn_TimKiemTenUV_Click);
             // 
-            // txt_tenuv
+            // lb_tenuv
             // 
-            this.txt_tenuv.AutoSize = true;
-            this.txt_tenuv.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_tenuv.Location = new System.Drawing.Point(5, 31);
-            this.txt_tenuv.Name = "txt_tenuv";
-            this.txt_tenuv.Size = new System.Drawing.Size(131, 25);
-            this.txt_tenuv.TabIndex = 2;
-            this.txt_tenuv.Text = "Tên ứng viên :";
+            this.lb_tenuv.AutoSize = true;
+            this.lb_tenuv.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_tenuv.Location = new System.Drawing.Point(5, 31);
+            this.lb_tenuv.Name = "lb_tenuv";
+            this.lb_tenuv.Size = new System.Drawing.Size(131, 25);
+            this.lb_tenuv.TabIndex = 2;
+            this.lb_tenuv.Text = "Tên ứng viên :";
             // 
             // txt_TenUngVien
             // 
@@ -496,7 +496,7 @@
 
         private System.Windows.Forms.GroupBox gb_hoso;
         private System.Windows.Forms.Button btn_TimKiemTenUV;
-        private System.Windows.Forms.Label txt_tenuv;
+        private System.Windows.Forms.Label lb_tenuv;
         private System.Windows.Forms.TextBox txt_TenUngVien;
         private System.Windows.Forms.DataGridView dgv_HoSo_UngTuyen;
         private System.Windows.Forms.Button btn_Refresh;
