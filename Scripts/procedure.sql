@@ -66,13 +66,28 @@ CREATE OR ALTER PROCEDURE ThemHD
     @lhtt NVARCHAR(50),
     @ngaylap DATE,
     @ttht NVARCHAR(50),
-    @iddn INT
+    @iddn INT,
+	@idhd INT OUTPUT
 AS
 BEGIN
+	SET NOCOUNT ON;
     INSERT INTO HOADON (TongTien, DaTra, LoaiHinhThanhToan, NgayLap, TrangThaiHoanThanh, IDDoanhNghiep)
     VALUES (@tongtien, @datra, @lhtt, @ngaylap, @ttht, @iddn);
+	SET @idhd = SCOPE_IDENTITY();
 END
 GO
+
+create or alter procedure ThemTT
+	@httt nvarchar(10),
+	@sotien float,
+	@dot int,
+	@idhd int
+as
+begin
+	INSERT INTO THANHTOAN(NgayGiaoDich, HinhThucTT, SoTienCanThanhToan, Dot, IDHoaDon, IDNhanVien)
+	VALUES(null, @httt, @sotien, @dot, @idhd, null);
+end
+go
 
 ------------------------------------------------------------------------------------------------
 
