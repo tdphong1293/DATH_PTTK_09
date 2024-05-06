@@ -47,6 +47,7 @@
     <Compile Include="HoSoUngTuyenDAO.cs" />
     <Compile Include="PhieuDangTuyenDAO.cs" />
     <Compile Include="PhieuQuangCaoDAO.cs" />
+    <Compile Include="ThanhToanDAO.cs" />
     <Compile Include="UngVienDAO.cs" />
     <Compile Include="UserDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,6 +1,7 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
 using DTO;
+using System;
 
 namespace DAO
 {
@@ -80,6 +81,35 @@ namespace DAO
                 adapter.Fill(dt);
             }
             return dt;
+        }
+
+        public static int ThemPDT(PhieuDangTuyenDTO pdt, int IDPQC)
+        {
+            try
+            {
+                int IDPDT = 0;
+                using (SqlCommand cmd = new SqlCommand("ThemPDT", conn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@vtdt", pdt.VTDT);
+                    cmd.Parameters.AddWithValue("@sltd", pdt.SLTD);
+                    cmd.Parameters.AddWithValue("@iddn", pdt.IDDN);
+                    cmd.Parameters.AddWithValue("@pqc", IDPQC);
+                    // Thêm tham số đầu ra để lưu trữ IDPDT
+                    SqlParameter paramID = new SqlParameter("@idpdt", SqlDbType.Int);
+                    paramID.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(paramID);
+                    cmd.ExecuteNonQuery();
+                    IDPDT = Convert.ToInt32(paramID.Value);
+                }
+                return IDPDT;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return -1;
+            }
+            
         }
     }
 }

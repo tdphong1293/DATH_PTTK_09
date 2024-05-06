@@ -48,6 +48,8 @@
             this.dtpNBD = new System.Windows.Forms.DateTimePicker();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.lblDTD = new System.Windows.Forms.Label();
+            this.lblLHTT = new System.Windows.Forms.Label();
+            this.cbxLHTT = new System.Windows.Forms.ComboBox();
             this.gbxTttd.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -119,6 +121,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbxLHTT);
+            this.groupBox1.Controls.Add(this.lblLHTT);
             this.groupBox1.Controls.Add(this.tbxTongTien);
             this.groupBox1.Controls.Add(this.lblTongTien);
             this.groupBox1.Controls.Add(this.cbxHTTT);
@@ -163,7 +167,7 @@
             this.cbxHTTT.Items.AddRange(new object[] {
             "Trực tiếp",
             "Thẻ"});
-            this.cbxHTTT.Location = new System.Drawing.Point(229, 334);
+            this.cbxHTTT.Location = new System.Drawing.Point(229, 265);
             this.cbxHTTT.Name = "cbxHTTT";
             this.cbxHTTT.Size = new System.Drawing.Size(285, 30);
             this.cbxHTTT.TabIndex = 12;
@@ -172,7 +176,7 @@
             // lblHTTT
             // 
             this.lblHTTT.AutoSize = true;
-            this.lblHTTT.Location = new System.Drawing.Point(19, 337);
+            this.lblHTTT.Location = new System.Drawing.Point(19, 268);
             this.lblHTTT.Name = "lblHTTT";
             this.lblHTTT.Size = new System.Drawing.Size(184, 24);
             this.lblHTTT.TabIndex = 11;
@@ -185,7 +189,7 @@
             "Báo giấy",
             "Banner quảng cáo",
             "Trang mạng"});
-            this.cbxHTDT.Location = new System.Drawing.Point(229, 242);
+            this.cbxHTDT.Location = new System.Drawing.Point(229, 195);
             this.cbxHTDT.Name = "cbxHTDT";
             this.cbxHTDT.Size = new System.Drawing.Size(285, 30);
             this.cbxHTDT.TabIndex = 10;
@@ -194,7 +198,7 @@
             // lblHTDT
             // 
             this.lblHTDT.AutoSize = true;
-            this.lblHTDT.Location = new System.Drawing.Point(19, 245);
+            this.lblHTDT.Location = new System.Drawing.Point(19, 198);
             this.lblHTDT.Name = "lblHTDT";
             this.lblHTDT.Size = new System.Drawing.Size(191, 24);
             this.lblHTDT.TabIndex = 9;
@@ -202,7 +206,7 @@
             // 
             // dtpNKT
             // 
-            this.dtpNKT.Location = new System.Drawing.Point(178, 144);
+            this.dtpNKT.Location = new System.Drawing.Point(178, 126);
             this.dtpNKT.Name = "dtpNKT";
             this.dtpNKT.Size = new System.Drawing.Size(336, 28);
             this.dtpNKT.TabIndex = 8;
@@ -211,7 +215,7 @@
             // lblNKT
             // 
             this.lblNKT.AutoSize = true;
-            this.lblNKT.Location = new System.Drawing.Point(19, 149);
+            this.lblNKT.Location = new System.Drawing.Point(19, 131);
             this.lblNKT.Name = "lblNKT";
             this.lblNKT.Size = new System.Drawing.Size(124, 24);
             this.lblNKT.TabIndex = 7;
@@ -259,7 +263,27 @@
             this.lblDTD.TabIndex = 10;
             this.lblDTD.Text = "ĐĂNG TUYỂN DỤNG";
             // 
-            // FormDangTuyenDung
+            // lblLHTT
+            // 
+            this.lblLHTT.AutoSize = true;
+            this.lblLHTT.Location = new System.Drawing.Point(19, 343);
+            this.lblLHTT.Name = "lblLHTT";
+            this.lblLHTT.Size = new System.Drawing.Size(180, 24);
+            this.lblLHTT.TabIndex = 14;
+            this.lblLHTT.Text = "Loại hình thanh toán";
+            // 
+            // cbxLHTT
+            // 
+            this.cbxLHTT.FormattingEnabled = true;
+            this.cbxLHTT.Items.AddRange(new object[] {
+            "Theo đợt",
+            "Toàn bộ"});
+            this.cbxLHTT.Location = new System.Drawing.Point(229, 340);
+            this.cbxLHTT.Name = "cbxLHTT";
+            this.cbxLHTT.Size = new System.Drawing.Size(285, 30);
+            this.cbxLHTT.TabIndex = 15;
+            // 
+            // frmDangTuyenDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -268,7 +292,7 @@
             this.Controls.Add(this.btnXacNhan);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbxTttd);
-            this.Name = "FormDangTuyenDung";
+            this.Name = "frmDangTuyenDung";
             this.Text = "FormDangTuyenDung";
             this.Load += new System.EventHandler(this.FormDangTuyenDung_Load);
             this.gbxTttd.ResumeLayout(false);
@@ -302,5 +326,7 @@
         private System.Windows.Forms.Label lblTongTien;
         private System.Windows.Forms.Button btnXacNhan;
         private System.Windows.Forms.Label lblDTD;
+        private System.Windows.Forms.Label lblLHTT;
+        private System.Windows.Forms.ComboBox cbxLHTT;
     }
 }
