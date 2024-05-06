@@ -65,12 +65,22 @@ namespace GUI
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Select a file to upload";
-            openFileDialog.Filter = "All files (*.*)|*.*";
+            openFileDialog.Filter = "PDF files (*.pdf)|*.pdf";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string selectedFilePath = openFileDialog.FileName;
-                llbFileName.Text = Path.GetFileName(selectedFilePath);
+                if (Path.GetExtension(selectedFilePath).ToLower() == ".pdf")
+                {
+                    // Store the full path in the Tag property
+                    llbFileName.Tag = selectedFilePath;
+                    // Display only the file name
+                    llbFileName.Text = Path.GetFileName(selectedFilePath);
+                }
+                else
+                {
+                    MessageBox.Show("Please select a PDF file.");
+                }
             }
         }
 
@@ -83,6 +93,22 @@ namespace GUI
                 {
                     HoSoUngTuyenBUS.ThemHSUngTuyen(IdDoanhNghiep, IdUngVien, DateTime.Now.Date, viTriUngTuyen);
                     MessageBox.Show("Nộp hồ sơ thành công");
+
+                    string userId = IdUngVien;
+                    string baseDirectory = @"DATH_PTTK_09\Nhom09_083_388_392_537_708\DAO\DS_CV";
+                    string targetDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), baseDirectory, userId);
+
+                    if (!Directory.Exists(targetDirectory))
+                    {
+                        Directory.CreateDirectory(targetDirectory);
+                    }
+
+                    int fileCount = Directory.GetFiles(targetDirectory, "*", SearchOption.TopDirectoryOnly).Length;
+                    string newFilePath = Path.Combine(targetDirectory, $"CV{fileCount + 1}.pdf");
+                    File.Copy(llbFileName.Tag.ToString(), newFilePath);
+                    llbFileName.Text = Path.GetFileName(newFilePath);
+
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
