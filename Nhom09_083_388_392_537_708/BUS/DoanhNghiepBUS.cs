@@ -24,5 +24,10 @@ namespace BUS
         {
             return DoanhNghiepDAO.CapNhatUuDai(iddoanhnghiep, uudai);
         }
+
+        public static double LayUuDai(string username)
+        {
+            return DoanhNghiepDAO.LayUuDai(username);
+        }
     }
 }

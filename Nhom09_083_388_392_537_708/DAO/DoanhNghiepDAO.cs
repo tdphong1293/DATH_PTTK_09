@@ -117,5 +117,25 @@ namespace DAO
                 return false;
             }
         }
+
+        public static double LayUuDai(string username)
+        {
+            try
+            {
+                double UD = 0;
+                string query = $"select UuDai from THANHVIEN tv, DOANHNGHIEP dn where tv.IDThanhVien = dn.IdDoanhNghiep and TenDangNhap = '{username}';";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    UD = (double)cmd.ExecuteScalar();
+                }
+                return UD;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return -1;
+            }
+            
+        }
     }
 }
