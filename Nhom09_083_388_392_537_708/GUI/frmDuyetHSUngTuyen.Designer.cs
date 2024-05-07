@@ -29,131 +29,131 @@
         private void InitializeComponent()
         {
             this.gb_hoso = new System.Windows.Forms.GroupBox();
-            this.btn_refresh = new System.Windows.Forms.Button();
-            this.btn_sapxep = new System.Windows.Forms.Button();
-            this.btn_timkiem = new System.Windows.Forms.Button();
-            this.txt_tenuv = new System.Windows.Forms.Label();
-            this.tb_tenuv = new System.Windows.Forms.TextBox();
-            this.dgv_hosoungtuyen = new System.Windows.Forms.DataGridView();
+            this.btn_Refresh = new System.Windows.Forms.Button();
+            this.btn_SapXep = new System.Windows.Forms.Button();
+            this.btn_TimKiemTenUV = new System.Windows.Forms.Button();
+            this.lb_tenuv = new System.Windows.Forms.Label();
+            this.txt_TenUngVien = new System.Windows.Forms.TextBox();
+            this.dgv_HoSo_UngTuyen = new System.Windows.Forms.DataGridView();
             this.gb_ungvien = new System.Windows.Forms.GroupBox();
             this.btn_Loai = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lb_OutOf10 = new System.Windows.Forms.Label();
             this.gb_BangCap = new System.Windows.Forms.GroupBox();
-            this.dgv_BangCap = new System.Windows.Forms.DataGridView();
+            this.dgv_BangCapUV = new System.Windows.Forms.DataGridView();
             this.btn_OpenFileCV = new System.Windows.Forms.Button();
             this.lb_FileCV = new System.Windows.Forms.Label();
-            this.tb_DiemDanhGia = new System.Windows.Forms.TextBox();
-            this.tb_ViTriUngTuyen = new System.Windows.Forms.TextBox();
-            this.tb_NgayUngTuyen = new System.Windows.Forms.TextBox();
-            this.tb_TinhTrangHoSo = new System.Windows.Forms.TextBox();
+            this.txt_DiemDanhGia = new System.Windows.Forms.TextBox();
+            this.txt_ViTriUngTuyen = new System.Windows.Forms.TextBox();
+            this.txt_NgayUngTuyen = new System.Windows.Forms.TextBox();
+            this.txt_TinhTrangHS = new System.Windows.Forms.TextBox();
             this.lb_TinhTrang = new System.Windows.Forms.Label();
             this.lb_NgayUngTuyen = new System.Windows.Forms.Label();
             this.lb_DiemDanhGia = new System.Windows.Forms.Label();
             this.lb_ViTriUngTuyen = new System.Windows.Forms.Label();
             this.pnl_TTCaNhan = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tb_Email = new System.Windows.Forms.TextBox();
-            this.tb_NgaySinh = new System.Windows.Forms.TextBox();
-            this.tb_HoTen = new System.Windows.Forms.TextBox();
+            this.txt_EmailUV = new System.Windows.Forms.TextBox();
+            this.txt_NgaySinhUV = new System.Windows.Forms.TextBox();
+            this.txt_HoTenUV = new System.Windows.Forms.TextBox();
             this.lb_HoTen = new System.Windows.Forms.Label();
             this.lb_NgaySinh = new System.Windows.Forms.Label();
             this.lb_Email = new System.Windows.Forms.Label();
             this.btn_Duyet = new System.Windows.Forms.Button();
             this.gb_hoso.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_hosoungtuyen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_HoSo_UngTuyen)).BeginInit();
             this.gb_ungvien.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gb_BangCap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_BangCap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_BangCapUV)).BeginInit();
             this.pnl_TTCaNhan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gb_hoso
             // 
-            this.gb_hoso.Controls.Add(this.btn_refresh);
-            this.gb_hoso.Controls.Add(this.btn_sapxep);
-            this.gb_hoso.Controls.Add(this.btn_timkiem);
-            this.gb_hoso.Controls.Add(this.txt_tenuv);
-            this.gb_hoso.Controls.Add(this.tb_tenuv);
-            this.gb_hoso.Controls.Add(this.dgv_hosoungtuyen);
+            this.gb_hoso.Controls.Add(this.btn_Refresh);
+            this.gb_hoso.Controls.Add(this.btn_SapXep);
+            this.gb_hoso.Controls.Add(this.btn_TimKiemTenUV);
+            this.gb_hoso.Controls.Add(this.lb_tenuv);
+            this.gb_hoso.Controls.Add(this.txt_TenUngVien);
+            this.gb_hoso.Controls.Add(this.dgv_HoSo_UngTuyen);
             this.gb_hoso.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb_hoso.Location = new System.Drawing.Point(3, 12);
             this.gb_hoso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gb_hoso.Name = "gb_hoso";
             this.gb_hoso.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gb_hoso.Size = new System.Drawing.Size(614, 685);
+            this.gb_hoso.Size = new System.Drawing.Size(644, 718);
             this.gb_hoso.TabIndex = 0;
             this.gb_hoso.TabStop = false;
             this.gb_hoso.Text = "HỒ SƠ";
             // 
-            // btn_refresh
+            // btn_Refresh
             // 
-            this.btn_refresh.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_refresh.Location = new System.Drawing.Point(476, 82);
-            this.btn_refresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(107, 36);
-            this.btn_refresh.TabIndex = 5;
-            this.btn_refresh.Text = "REFRESH";
-            this.btn_refresh.UseVisualStyleBackColor = true;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            this.btn_Refresh.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Refresh.Location = new System.Drawing.Point(531, 82);
+            this.btn_Refresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(107, 36);
+            this.btn_Refresh.TabIndex = 5;
+            this.btn_Refresh.Text = "REFRESH";
+            this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
-            // btn_sapxep
+            // btn_SapXep
             // 
-            this.btn_sapxep.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_sapxep.Location = new System.Drawing.Point(354, 82);
-            this.btn_sapxep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_sapxep.Name = "btn_sapxep";
-            this.btn_sapxep.Size = new System.Drawing.Size(107, 36);
-            this.btn_sapxep.TabIndex = 4;
-            this.btn_sapxep.Text = "SẮP XẾP";
-            this.btn_sapxep.UseVisualStyleBackColor = true;
-            this.btn_sapxep.Click += new System.EventHandler(this.btn_sapxep_Click);
+            this.btn_SapXep.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SapXep.Location = new System.Drawing.Point(418, 82);
+            this.btn_SapXep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_SapXep.Name = "btn_SapXep";
+            this.btn_SapXep.Size = new System.Drawing.Size(107, 36);
+            this.btn_SapXep.TabIndex = 4;
+            this.btn_SapXep.Text = "SẮP XẾP";
+            this.btn_SapXep.UseVisualStyleBackColor = true;
+            this.btn_SapXep.Click += new System.EventHandler(this.btn_SapXep_Click);
             // 
-            // btn_timkiem
+            // btn_TimKiemTenUV
             // 
-            this.btn_timkiem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_timkiem.Location = new System.Drawing.Point(476, 28);
-            this.btn_timkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_timkiem.Name = "btn_timkiem";
-            this.btn_timkiem.Size = new System.Drawing.Size(107, 42);
-            this.btn_timkiem.TabIndex = 3;
-            this.btn_timkiem.Text = "TÌM KIẾM";
-            this.btn_timkiem.UseVisualStyleBackColor = true;
-            this.btn_timkiem.Click += new System.EventHandler(this.btn_timkiem_Click);
+            this.btn_TimKiemTenUV.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_TimKiemTenUV.Location = new System.Drawing.Point(531, 28);
+            this.btn_TimKiemTenUV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_TimKiemTenUV.Name = "btn_TimKiemTenUV";
+            this.btn_TimKiemTenUV.Size = new System.Drawing.Size(107, 42);
+            this.btn_TimKiemTenUV.TabIndex = 3;
+            this.btn_TimKiemTenUV.Text = "TÌM KIẾM";
+            this.btn_TimKiemTenUV.UseVisualStyleBackColor = true;
+            this.btn_TimKiemTenUV.Click += new System.EventHandler(this.btn_TimKiemTenUV_Click);
             // 
-            // txt_tenuv
+            // lb_tenuv
             // 
-            this.txt_tenuv.AutoSize = true;
-            this.txt_tenuv.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_tenuv.Location = new System.Drawing.Point(5, 31);
-            this.txt_tenuv.Name = "txt_tenuv";
-            this.txt_tenuv.Size = new System.Drawing.Size(131, 25);
-            this.txt_tenuv.TabIndex = 2;
-            this.txt_tenuv.Text = "Tên ứng viên :";
+            this.lb_tenuv.AutoSize = true;
+            this.lb_tenuv.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_tenuv.Location = new System.Drawing.Point(5, 31);
+            this.lb_tenuv.Name = "lb_tenuv";
+            this.lb_tenuv.Size = new System.Drawing.Size(131, 25);
+            this.lb_tenuv.TabIndex = 2;
+            this.lb_tenuv.Text = "Tên ứng viên :";
             // 
-            // tb_tenuv
+            // txt_TenUngVien
             // 
-            this.tb_tenuv.Location = new System.Drawing.Point(170, 31);
-            this.tb_tenuv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_tenuv.Name = "tb_tenuv";
-            this.tb_tenuv.Size = new System.Drawing.Size(291, 34);
-            this.tb_tenuv.TabIndex = 1;
+            this.txt_TenUngVien.Location = new System.Drawing.Point(170, 31);
+            this.txt_TenUngVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_TenUngVien.Name = "txt_TenUngVien";
+            this.txt_TenUngVien.Size = new System.Drawing.Size(339, 34);
+            this.txt_TenUngVien.TabIndex = 1;
             // 
-            // dgv_hosoungtuyen
+            // dgv_HoSo_UngTuyen
             // 
-            this.dgv_hosoungtuyen.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_hosoungtuyen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_hosoungtuyen.Location = new System.Drawing.Point(5, 122);
-            this.dgv_hosoungtuyen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgv_hosoungtuyen.Name = "dgv_hosoungtuyen";
-            this.dgv_hosoungtuyen.RowHeadersWidth = 51;
-            this.dgv_hosoungtuyen.RowTemplate.Height = 24;
-            this.dgv_hosoungtuyen.Size = new System.Drawing.Size(603, 559);
-            this.dgv_hosoungtuyen.TabIndex = 0;
-            this.dgv_hosoungtuyen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_hosoungtuyen_CellClick);
+            this.dgv_HoSo_UngTuyen.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_HoSo_UngTuyen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_HoSo_UngTuyen.Location = new System.Drawing.Point(5, 122);
+            this.dgv_HoSo_UngTuyen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_HoSo_UngTuyen.Name = "dgv_HoSo_UngTuyen";
+            this.dgv_HoSo_UngTuyen.RowHeadersWidth = 51;
+            this.dgv_HoSo_UngTuyen.RowTemplate.Height = 24;
+            this.dgv_HoSo_UngTuyen.Size = new System.Drawing.Size(633, 592);
+            this.dgv_HoSo_UngTuyen.TabIndex = 0;
+            this.dgv_HoSo_UngTuyen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_HoSo_UngTuyen_CellClick);
             // 
             // gb_ungvien
             // 
@@ -162,20 +162,21 @@
             this.gb_ungvien.Controls.Add(this.pnl_TTCaNhan);
             this.gb_ungvien.Controls.Add(this.btn_Duyet);
             this.gb_ungvien.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gb_ungvien.Location = new System.Drawing.Point(623, 11);
+            this.gb_ungvien.Location = new System.Drawing.Point(653, 11);
             this.gb_ungvien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gb_ungvien.Name = "gb_ungvien";
             this.gb_ungvien.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gb_ungvien.Size = new System.Drawing.Size(702, 686);
+            this.gb_ungvien.Size = new System.Drawing.Size(686, 719);
             this.gb_ungvien.TabIndex = 1;
             this.gb_ungvien.TabStop = false;
             this.gb_ungvien.Text = "ỨNG VIÊN";
             // 
             // btn_Loai
             // 
+            this.btn_Loai.Enabled = false;
             this.btn_Loai.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Loai.ForeColor = System.Drawing.Color.Red;
-            this.btn_Loai.Location = new System.Drawing.Point(408, 619);
+            this.btn_Loai.Location = new System.Drawing.Point(409, 656);
             this.btn_Loai.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Loai.Name = "btn_Loai";
             this.btn_Loai.Size = new System.Drawing.Size(119, 39);
@@ -191,15 +192,15 @@
             this.panel1.Controls.Add(this.gb_BangCap);
             this.panel1.Controls.Add(this.btn_OpenFileCV);
             this.panel1.Controls.Add(this.lb_FileCV);
-            this.panel1.Controls.Add(this.tb_DiemDanhGia);
-            this.panel1.Controls.Add(this.tb_ViTriUngTuyen);
-            this.panel1.Controls.Add(this.tb_NgayUngTuyen);
-            this.panel1.Controls.Add(this.tb_TinhTrangHoSo);
+            this.panel1.Controls.Add(this.txt_DiemDanhGia);
+            this.panel1.Controls.Add(this.txt_ViTriUngTuyen);
+            this.panel1.Controls.Add(this.txt_NgayUngTuyen);
+            this.panel1.Controls.Add(this.txt_TinhTrangHS);
             this.panel1.Controls.Add(this.lb_TinhTrang);
             this.panel1.Controls.Add(this.lb_NgayUngTuyen);
             this.panel1.Controls.Add(this.lb_DiemDanhGia);
             this.panel1.Controls.Add(this.lb_ViTriUngTuyen);
-            this.panel1.Location = new System.Drawing.Point(29, 178);
+            this.panel1.Location = new System.Drawing.Point(34, 203);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(632, 417);
@@ -218,7 +219,7 @@
             // 
             // gb_BangCap
             // 
-            this.gb_BangCap.Controls.Add(this.dgv_BangCap);
+            this.gb_BangCap.Controls.Add(this.dgv_BangCapUV);
             this.gb_BangCap.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb_BangCap.Location = new System.Drawing.Point(15, 192);
             this.gb_BangCap.Margin = new System.Windows.Forms.Padding(4);
@@ -229,22 +230,23 @@
             this.gb_BangCap.TabStop = false;
             this.gb_BangCap.Text = "Bằng cấp";
             // 
-            // dgv_BangCap
+            // dgv_BangCapUV
             // 
-            this.dgv_BangCap.AllowUserToAddRows = false;
-            this.dgv_BangCap.AllowUserToDeleteRows = false;
-            this.dgv_BangCap.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_BangCap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_BangCap.Location = new System.Drawing.Point(8, 33);
-            this.dgv_BangCap.Margin = new System.Windows.Forms.Padding(4);
-            this.dgv_BangCap.Name = "dgv_BangCap";
-            this.dgv_BangCap.ReadOnly = true;
-            this.dgv_BangCap.RowHeadersWidth = 51;
-            this.dgv_BangCap.Size = new System.Drawing.Size(576, 130);
-            this.dgv_BangCap.TabIndex = 24;
+            this.dgv_BangCapUV.AllowUserToAddRows = false;
+            this.dgv_BangCapUV.AllowUserToDeleteRows = false;
+            this.dgv_BangCapUV.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_BangCapUV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_BangCapUV.Location = new System.Drawing.Point(8, 33);
+            this.dgv_BangCapUV.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_BangCapUV.Name = "dgv_BangCapUV";
+            this.dgv_BangCapUV.ReadOnly = true;
+            this.dgv_BangCapUV.RowHeadersWidth = 51;
+            this.dgv_BangCapUV.Size = new System.Drawing.Size(576, 130);
+            this.dgv_BangCapUV.TabIndex = 24;
             // 
             // btn_OpenFileCV
             // 
+            this.btn_OpenFileCV.Enabled = false;
             this.btn_OpenFileCV.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_OpenFileCV.Location = new System.Drawing.Point(277, 145);
             this.btn_OpenFileCV.Margin = new System.Windows.Forms.Padding(4);
@@ -266,41 +268,49 @@
             this.lb_FileCV.TabIndex = 23;
             this.lb_FileCV.Text = "File CV ứng viên:";
             // 
-            // tb_DiemDanhGia
+            // txt_DiemDanhGia
             // 
-            this.tb_DiemDanhGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_DiemDanhGia.Location = new System.Drawing.Point(536, 371);
-            this.tb_DiemDanhGia.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_DiemDanhGia.Name = "tb_DiemDanhGia";
-            this.tb_DiemDanhGia.Size = new System.Drawing.Size(25, 26);
-            this.tb_DiemDanhGia.TabIndex = 18;
+            this.txt_DiemDanhGia.Enabled = false;
+            this.txt_DiemDanhGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_DiemDanhGia.ForeColor = System.Drawing.Color.Black;
+            this.txt_DiemDanhGia.Location = new System.Drawing.Point(536, 371);
+            this.txt_DiemDanhGia.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_DiemDanhGia.Name = "txt_DiemDanhGia";
+            this.txt_DiemDanhGia.Size = new System.Drawing.Size(25, 27);
+            this.txt_DiemDanhGia.TabIndex = 18;
             // 
-            // tb_ViTriUngTuyen
+            // txt_ViTriUngTuyen
             // 
-            this.tb_ViTriUngTuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_ViTriUngTuyen.Location = new System.Drawing.Point(277, 103);
-            this.tb_ViTriUngTuyen.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_ViTriUngTuyen.Name = "tb_ViTriUngTuyen";
-            this.tb_ViTriUngTuyen.Size = new System.Drawing.Size(322, 26);
-            this.tb_ViTriUngTuyen.TabIndex = 17;
+            this.txt_ViTriUngTuyen.Enabled = false;
+            this.txt_ViTriUngTuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ViTriUngTuyen.ForeColor = System.Drawing.Color.Black;
+            this.txt_ViTriUngTuyen.Location = new System.Drawing.Point(277, 103);
+            this.txt_ViTriUngTuyen.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_ViTriUngTuyen.Name = "txt_ViTriUngTuyen";
+            this.txt_ViTriUngTuyen.Size = new System.Drawing.Size(322, 27);
+            this.txt_ViTriUngTuyen.TabIndex = 17;
             // 
-            // tb_NgayUngTuyen
+            // txt_NgayUngTuyen
             // 
-            this.tb_NgayUngTuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_NgayUngTuyen.Location = new System.Drawing.Point(277, 58);
-            this.tb_NgayUngTuyen.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_NgayUngTuyen.Name = "tb_NgayUngTuyen";
-            this.tb_NgayUngTuyen.Size = new System.Drawing.Size(321, 26);
-            this.tb_NgayUngTuyen.TabIndex = 16;
+            this.txt_NgayUngTuyen.Enabled = false;
+            this.txt_NgayUngTuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_NgayUngTuyen.ForeColor = System.Drawing.Color.Black;
+            this.txt_NgayUngTuyen.Location = new System.Drawing.Point(277, 58);
+            this.txt_NgayUngTuyen.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_NgayUngTuyen.Name = "txt_NgayUngTuyen";
+            this.txt_NgayUngTuyen.Size = new System.Drawing.Size(321, 27);
+            this.txt_NgayUngTuyen.TabIndex = 16;
             // 
-            // tb_TinhTrangHoSo
+            // txt_TinhTrangHS
             // 
-            this.tb_TinhTrangHoSo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_TinhTrangHoSo.Location = new System.Drawing.Point(277, 17);
-            this.tb_TinhTrangHoSo.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_TinhTrangHoSo.Name = "tb_TinhTrangHoSo";
-            this.tb_TinhTrangHoSo.Size = new System.Drawing.Size(321, 26);
-            this.tb_TinhTrangHoSo.TabIndex = 15;
+            this.txt_TinhTrangHS.Enabled = false;
+            this.txt_TinhTrangHS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_TinhTrangHS.ForeColor = System.Drawing.Color.Black;
+            this.txt_TinhTrangHS.Location = new System.Drawing.Point(277, 17);
+            this.txt_TinhTrangHS.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_TinhTrangHS.Name = "txt_TinhTrangHS";
+            this.txt_TinhTrangHS.Size = new System.Drawing.Size(321, 27);
+            this.txt_TinhTrangHS.TabIndex = 15;
             // 
             // lb_TinhTrang
             // 
@@ -350,14 +360,14 @@
             // 
             this.pnl_TTCaNhan.BackColor = System.Drawing.Color.DodgerBlue;
             this.pnl_TTCaNhan.Controls.Add(this.pictureBox1);
-            this.pnl_TTCaNhan.Controls.Add(this.tb_Email);
-            this.pnl_TTCaNhan.Controls.Add(this.tb_NgaySinh);
-            this.pnl_TTCaNhan.Controls.Add(this.tb_HoTen);
+            this.pnl_TTCaNhan.Controls.Add(this.txt_EmailUV);
+            this.pnl_TTCaNhan.Controls.Add(this.txt_NgaySinhUV);
+            this.pnl_TTCaNhan.Controls.Add(this.txt_HoTenUV);
             this.pnl_TTCaNhan.Controls.Add(this.lb_HoTen);
             this.pnl_TTCaNhan.Controls.Add(this.lb_NgaySinh);
             this.pnl_TTCaNhan.Controls.Add(this.lb_Email);
             this.pnl_TTCaNhan.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnl_TTCaNhan.Location = new System.Drawing.Point(29, 33);
+            this.pnl_TTCaNhan.Location = new System.Drawing.Point(34, 58);
             this.pnl_TTCaNhan.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_TTCaNhan.Name = "pnl_TTCaNhan";
             this.pnl_TTCaNhan.Size = new System.Drawing.Size(632, 154);
@@ -374,32 +384,38 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
-            // tb_Email
+            // txt_EmailUV
             // 
-            this.tb_Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_Email.Location = new System.Drawing.Point(277, 96);
-            this.tb_Email.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_Email.Name = "tb_Email";
-            this.tb_Email.Size = new System.Drawing.Size(321, 26);
-            this.tb_Email.TabIndex = 13;
+            this.txt_EmailUV.Enabled = false;
+            this.txt_EmailUV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_EmailUV.ForeColor = System.Drawing.Color.Black;
+            this.txt_EmailUV.Location = new System.Drawing.Point(277, 96);
+            this.txt_EmailUV.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_EmailUV.Name = "txt_EmailUV";
+            this.txt_EmailUV.Size = new System.Drawing.Size(321, 27);
+            this.txt_EmailUV.TabIndex = 13;
             // 
-            // tb_NgaySinh
+            // txt_NgaySinhUV
             // 
-            this.tb_NgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_NgaySinh.Location = new System.Drawing.Point(277, 54);
-            this.tb_NgaySinh.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_NgaySinh.Name = "tb_NgaySinh";
-            this.tb_NgaySinh.Size = new System.Drawing.Size(321, 26);
-            this.tb_NgaySinh.TabIndex = 12;
+            this.txt_NgaySinhUV.Enabled = false;
+            this.txt_NgaySinhUV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_NgaySinhUV.ForeColor = System.Drawing.Color.Black;
+            this.txt_NgaySinhUV.Location = new System.Drawing.Point(277, 54);
+            this.txt_NgaySinhUV.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_NgaySinhUV.Name = "txt_NgaySinhUV";
+            this.txt_NgaySinhUV.Size = new System.Drawing.Size(321, 27);
+            this.txt_NgaySinhUV.TabIndex = 12;
             // 
-            // tb_HoTen
+            // txt_HoTenUV
             // 
-            this.tb_HoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_HoTen.Location = new System.Drawing.Point(277, 12);
-            this.tb_HoTen.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_HoTen.Name = "tb_HoTen";
-            this.tb_HoTen.Size = new System.Drawing.Size(321, 26);
-            this.tb_HoTen.TabIndex = 11;
+            this.txt_HoTenUV.Enabled = false;
+            this.txt_HoTenUV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_HoTenUV.ForeColor = System.Drawing.Color.Black;
+            this.txt_HoTenUV.Location = new System.Drawing.Point(277, 12);
+            this.txt_HoTenUV.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_HoTenUV.Name = "txt_HoTenUV";
+            this.txt_HoTenUV.Size = new System.Drawing.Size(321, 27);
+            this.txt_HoTenUV.TabIndex = 11;
             // 
             // lb_HoTen
             // 
@@ -439,9 +455,10 @@
             // 
             // btn_Duyet
             // 
+            this.btn_Duyet.Enabled = false;
             this.btn_Duyet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Duyet.ForeColor = System.Drawing.Color.ForestGreen;
-            this.btn_Duyet.Location = new System.Drawing.Point(222, 619);
+            this.btn_Duyet.Location = new System.Drawing.Point(223, 656);
             this.btn_Duyet.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Duyet.Name = "btn_Duyet";
             this.btn_Duyet.Size = new System.Drawing.Size(119, 39);
@@ -450,24 +467,24 @@
             this.btn_Duyet.UseVisualStyleBackColor = true;
             this.btn_Duyet.Click += new System.EventHandler(this.btn_Duyet_Click);
             // 
-            // DUYET_HS_UNGTUYEN
+            // frmDuyetHSUngTuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1301, 699);
+            this.ClientSize = new System.Drawing.Size(1351, 741);
             this.Controls.Add(this.gb_ungvien);
             this.Controls.Add(this.gb_hoso);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "DUYET_HS_UNGTUYEN";
+            this.Name = "frmDuyetHSUngTuyen";
             this.Text = "DUYET_HS_UNGTUYEN";
             this.gb_hoso.ResumeLayout(false);
             this.gb_hoso.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_hosoungtuyen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_HoSo_UngTuyen)).EndInit();
             this.gb_ungvien.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.gb_BangCap.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_BangCap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_BangCapUV)).EndInit();
             this.pnl_TTCaNhan.ResumeLayout(false);
             this.pnl_TTCaNhan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -478,25 +495,25 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gb_hoso;
-        private System.Windows.Forms.Button btn_timkiem;
-        private System.Windows.Forms.Label txt_tenuv;
-        private System.Windows.Forms.TextBox tb_tenuv;
-        private System.Windows.Forms.DataGridView dgv_hosoungtuyen;
-        private System.Windows.Forms.Button btn_refresh;
-        private System.Windows.Forms.Button btn_sapxep;
+        private System.Windows.Forms.Button btn_TimKiemTenUV;
+        private System.Windows.Forms.Label lb_tenuv;
+        private System.Windows.Forms.TextBox txt_TenUngVien;
+        private System.Windows.Forms.DataGridView dgv_HoSo_UngTuyen;
+        private System.Windows.Forms.Button btn_Refresh;
+        private System.Windows.Forms.Button btn_SapXep;
         private System.Windows.Forms.GroupBox gb_ungvien;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox tb_ViTriUngTuyen;
-        private System.Windows.Forms.TextBox tb_NgayUngTuyen;
-        private System.Windows.Forms.TextBox tb_TinhTrangHoSo;
+        private System.Windows.Forms.TextBox txt_ViTriUngTuyen;
+        private System.Windows.Forms.TextBox txt_NgayUngTuyen;
+        private System.Windows.Forms.TextBox txt_TinhTrangHS;
         private System.Windows.Forms.Label lb_TinhTrang;
         private System.Windows.Forms.Label lb_NgayUngTuyen;
         private System.Windows.Forms.Label lb_ViTriUngTuyen;
         private System.Windows.Forms.Panel pnl_TTCaNhan;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox tb_Email;
-        private System.Windows.Forms.TextBox tb_NgaySinh;
-        private System.Windows.Forms.TextBox tb_HoTen;
+        private System.Windows.Forms.TextBox txt_EmailUV;
+        private System.Windows.Forms.TextBox txt_NgaySinhUV;
+        private System.Windows.Forms.TextBox txt_HoTenUV;
         private System.Windows.Forms.Label lb_HoTen;
         private System.Windows.Forms.Label lb_NgaySinh;
         private System.Windows.Forms.Label lb_Email;
@@ -504,10 +521,10 @@
         private System.Windows.Forms.Label lb_FileCV;
         private System.Windows.Forms.Button btn_OpenFileCV;
         private System.Windows.Forms.GroupBox gb_BangCap;
-        private System.Windows.Forms.DataGridView dgv_BangCap;
+        private System.Windows.Forms.DataGridView dgv_BangCapUV;
         private System.Windows.Forms.Button btn_Loai;
         private System.Windows.Forms.Label lb_OutOf10;
-        private System.Windows.Forms.TextBox tb_DiemDanhGia;
+        private System.Windows.Forms.TextBox txt_DiemDanhGia;
         private System.Windows.Forms.Label lb_DiemDanhGia;
     }
 }

@@ -38,7 +38,7 @@
             this.lb_tiemnang.AutoSize = true;
             this.lb_tiemnang.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_tiemnang.ForeColor = System.Drawing.Color.SlateBlue;
-            this.lb_tiemnang.Location = new System.Drawing.Point(420, 64);
+            this.lb_tiemnang.Location = new System.Drawing.Point(484, 57);
             this.lb_tiemnang.Name = "lb_tiemnang";
             this.lb_tiemnang.Size = new System.Drawing.Size(430, 41);
             this.lb_tiemnang.TabIndex = 0;
@@ -47,23 +47,23 @@
             // dgv_DoanhNghiepTN
             // 
             this.dgv_DoanhNghiepTN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_DoanhNghiepTN.Location = new System.Drawing.Point(121, 141);
+            this.dgv_DoanhNghiepTN.Location = new System.Drawing.Point(12, 157);
             this.dgv_DoanhNghiepTN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_DoanhNghiepTN.Name = "dgv_DoanhNghiepTN";
             this.dgv_DoanhNghiepTN.RowHeadersWidth = 51;
             this.dgv_DoanhNghiepTN.RowTemplate.Height = 24;
-            this.dgv_DoanhNghiepTN.Size = new System.Drawing.Size(1059, 483);
+            this.dgv_DoanhNghiepTN.Size = new System.Drawing.Size(1312, 531);
             this.dgv_DoanhNghiepTN.TabIndex = 1;
             // 
-            // DOANHNGHIEP_TIEMNANG
+            // frmDoanhNghiepTiemNang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1237, 699);
+            this.ClientSize = new System.Drawing.Size(1336, 692);
             this.Controls.Add(this.dgv_DoanhNghiepTN);
             this.Controls.Add(this.lb_tiemnang);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "DOANHNGHIEP_TIEMNANG";
+            this.Name = "frmDoanhNghiepTiemNang";
             this.Text = "DOANHNGHIEP_TIEMNANG";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DoanhNghiepTN)).EndInit();
             this.ResumeLayout(false);

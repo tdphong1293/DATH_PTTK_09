@@ -14,5 +14,10 @@ namespace BUS
         {
             return BangCapDAO.DocDSBangCapTheoUngVien(idUngVien);
         }
+        public static DataTable LayDSBangCapCuaUngVien(int idUngVien)
+        {
+            return BangCapDAO.DocDSBangCapCuaUngVien(idUngVien);
+        }
+
     }
 }

@@ -29,13 +29,19 @@ namespace BUS
         {
             return HoSoUngTuyenDAO.DocDSHoSoUT_SapXep_DiemDanhGia(idDoanhNghiep);
         }
-        public static DataTable LayHoSoUT_TheoTenUV(int idDoanhNghiep, string tenUV)
-        {
-            return HoSoUngTuyenDAO.DocHoSoUT_TheoTenUV(idDoanhNghiep, tenUV);
-        }
         public static int CapNhat_TinhTrangUngTuyen(string dieuKien, int idDoanhNghiep, int idUngVien)
         {
             return HoSoUngTuyenDAO.CapNhat_TinhTrangUngTuyenDB(dieuKien, idDoanhNghiep, idUngVien);
+        }
+
+        public static DataTable LayDSHSUTChoDuyet(string TenDoanhNghiep)
+        {
+            return HoSoUngTuyenDAO.DocDSHSUTChoDuyet(TenDoanhNghiep);
+        }
+
+        public static DataTable LayDSHSUTDaDuyet(string TenDoanhNghiep)
+        {
+            return HoSoUngTuyenDAO.DocDSHSUTDaDuyet(TenDoanhNghiep);
         }
     }
 }

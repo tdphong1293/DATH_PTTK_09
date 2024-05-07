@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -10,6 +11,7 @@ namespace GUI
     public partial class frmXuLyHSUngTuyen : Form
     {
         public static SqlConnection curConn = frmDangNhap.conn;
+        private int IDUngVien, IDDoanhNghiep;
         public static System.Timers.Timer NhaTD1_Timer, NhaTD2_Timer;
         public static string lastSearch_NhaTD1, lastSearch_NhaTD2;
 
@@ -67,55 +69,12 @@ namespace GUI
 
         public void SearchAndReloadHSUT_ChoDuyet(string searchText)
         {
-            string query = string.IsNullOrEmpty(searchText) ? $"select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen " +
-                $"from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn, UNGVIEN uv, DOANHNGHIEP dn " +
-                $"where hsut.IDDoanhNghiep = dn.IDDoanhNghiep " +
-                        $"and hsut.IDUngVien = uv.IDUngVien " +
-                        $"and dn.IDDoanhNghiep = tv_dn.IDThanhVien " +
-                        $"and uv.IDUngVien = tv_uv.IDThanhVien " +
-                        $"and (hsut.TinhTrangUngTuyen = N'Chưa đủ điều kiện' or hsut.TinhTrangUngTuyen is Null)" :
-                $"select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen " +
-                $"from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn, UNGVIEN uv, DOANHNGHIEP dn " +
-                $"where hsut.IDDoanhNghiep = dn.IDDoanhNghiep " +
-                        $"and hsut.IDUngVien = uv.IDUngVien " +
-                        $"and dn.IDDoanhNghiep = tv_dn.IDThanhVien " +
-                        $"and uv.IDUngVien = tv_uv.IDThanhVien " +
-                        $"and (hsut.TinhTrangUngTuyen = N'Chưa đủ điều kiện' or hsut.TinhTrangUngTuyen is Null) " +
-                        $"and UPPER(tv_dn.Ten) LIKE UPPER('%{searchText}%')";
-            ReloadDataIntoDTGV(query, dtgv_HSChoDuyet);
+            dtgv_HSChoDuyet.DataSource = HoSoUngTuyenBUS.LayDSHSUTChoDuyet(searchText);
         }
 
         public void SearchAndReloadHSUT_DaDuyet(string searchText)
         {
-            string query = string.IsNullOrEmpty(searchText) ? $"select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen " +
-                $"from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn, UNGVIEN uv, DOANHNGHIEP dn " +
-                $"where hsut.IDDoanhNghiep = dn.IDDoanhNghiep " +
-                        $"and hsut.IDUngVien = uv.IDUngVien " +
-                        $"and dn.IDDoanhNghiep = tv_dn.IDThanhVien " +
-                        $"and uv.IDUngVien = tv_uv.IDThanhVien " +
-                        $"and (hsut.TinhTrangUngTuyen = N'Đủ điều kiện' or hsut.TinhTrangUngTuyen = N'Đang xử lý')" :
-                $"select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen " +
-                $"from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn, UNGVIEN uv, DOANHNGHIEP dn " +
-                $"where hsut.IDDoanhNghiep = dn.IDDoanhNghiep " +
-                        $"and hsut.IDUngVien = uv.IDUngVien " +
-                        $"and dn.IDDoanhNghiep = tv_dn.IDThanhVien " +
-                        $"and uv.IDUngVien = tv_uv.IDThanhVien " +
-                        $"and (hsut.TinhTrangUngTuyen = N'Đủ điều kiện' or hsut.TinhTrangUngTuyen = N'Đang xử lý') " +
-                        $"and UPPER(tv_dn.Ten) LIKE UPPER('%{searchText}%')";
-            ReloadDataIntoDTGV(query, dtgv_HSDaDuyet);
-        }
-
-        private void ReloadDataIntoDTGV(string query, DataGridView dtgv)
-        {
-            using (SqlCommand command = new SqlCommand(query, curConn))
-            {
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    DataTable resultTable = new DataTable();
-                    resultTable.Load(reader);
-                    dtgv.DataSource = resultTable;
-                }
-            }
+            dtgv_HSDaDuyet.DataSource = HoSoUngTuyenBUS.LayDSHSUTDaDuyet(searchText);
         }
 
         private void btn_Duyet_Click(object sender, EventArgs e)
@@ -129,7 +88,6 @@ namespace GUI
             tHEMBANGCAP.Show();
         }
 
-        
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
@@ -140,15 +98,15 @@ namespace GUI
 
         private void dtgv_HSChoDuyet_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            LoadDataAfterCellClick(sender, e, dtgv_HSChoDuyet);
+            LoadHSUTAfterCellClick(sender, e, dtgv_HSChoDuyet);
         }
 
         private void dtgv_HSDaDuyet_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            LoadDataAfterCellClick(sender, e, dtgv_HSDaDuyet);
+            LoadHSUTAfterCellClick(sender, e, dtgv_HSDaDuyet);
         }
 
-        private void LoadDataAfterCellClick(object sender, DataGridViewCellEventArgs e, DataGridView dtgv) 
+        private void LoadHSUTAfterCellClick(object sender, DataGridViewCellEventArgs e, DataGridView dtgv) 
         {
             if (e.RowIndex >= 0 && e.RowIndex < dtgv.Rows.Count)
             {
@@ -161,29 +119,13 @@ namespace GUI
                 tb_NgayUngTuyen.Text = row.Cells["NgayUngTuyen"].Value.ToString().Substring(0, viTriKhoangTrang) ?? string.Empty;
                 tb_ViTriUngTuyen.Text = row.Cells["ViTriUngTuyen"].Value.ToString() ?? string.Empty;
 
-                string query_email_ngaysinh = $"select tv.Email, uv.NgaySinh " +
-                    $"from THANHVIEN tv, UNGVIEN uv " +
-                    $"where tv.IDThanhVien = uv.IDUngVien and UPPER(tv.Ten) = UPPER('{tb_HoTen.Text}')";
-                
-                //dangNhap.conServer();
-                using (SqlCommand command = new SqlCommand(query_email_ngaysinh, curConn))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            tb_Email.Text = reader["Email"].ToString();
-                            int space = reader["NgaySinh"].ToString().IndexOf(' ');
-                            tb_NgaySinh.Text = reader["NgaySinh"].ToString().Substring(0, space);
-                        }
-                    }
-                }
-
-                string query_TimKiemBangCap = $"select bc.TenBang as N'Tên bằng', bc.CapBac as N'Cấp bậc', bc.NgayCap as N'Ngày cấp', bc.DonViCap as N'Đơn vị cấp' " +
-                    $"from THANHVIEN tv, BANGCAP bc " +
-                    $"where UPPER(tv.Ten) = UPPER('{tb_HoTen.Text}') and bc.IDUngVien = tv.IDThanhVien ";
-
-                ReloadDataIntoDTGV(query_TimKiemBangCap, dtgv_BangCap);
+                this.IDUngVien = Convert.ToInt32(row.Cells["IDUngVien"].Value);
+                DataTable dataUngVien = UngVienBUS.LayEmailNgSinh_UV(this.IDUngVien);
+                DataRow rows = dataUngVien.Rows[0];
+                tb_Email.Text = rows["Email"].ToString();
+                int space = rows["NgaySinh"].ToString().IndexOf(' ');
+                tb_NgaySinh.Text = rows["NgaySinh"].ToString().Substring(0, space);
+                dtgv_BangCap.DataSource = BangCapBUS.LayDSBangCapCuaUngVien(this.IDUngVien);
 
 
                 if (tb_TinhTrangUngTuyen.Text == "Đủ điều kiện")
@@ -217,7 +159,5 @@ namespace GUI
             btn_Loai.Enabled = flag;
             tb_DiemDanhGia.Enabled = flag;
         }
-
-
     }
 }

@@ -25,11 +25,19 @@ namespace BUS
             return UngVienDAO.LayTTUngVien(idUngVien);
         }
 
-        public static DataTable LayTTUngVienDHSUT(int idUngVien)
+        public static DataTable LayTTUngVienHSUT(int idUngVien)
         {
             return UngVienDAO.DocTTUngVien(idUngVien);
         }
         //DataTable dataTable = UngVienBUS.LayTTUngVienDHSUT(row.Cells["IDUngVien"].Value.ToString);
+        public static DataTable LayTTUV_TheoHSUT(int idDoanhNghiep, string tenUV)
+        {
+            return UngVienDAO.DocTTUV_TheoHSUT(idDoanhNghiep,tenUV);
+        }
 
+        public static DataTable LayEmailNgSinh_UV(int IDUngVien)
+        {
+            return UngVienDAO.DocEmailNgSinh_UV(IDUngVien);
+        }
     }
 }

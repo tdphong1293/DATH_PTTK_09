@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net;
 using System.Xml.Linq;
 using DTO;
 
@@ -64,18 +65,6 @@ namespace DAO
             adapter.Fill(data_hsut);
             return data_hsut;
         }
-
-        public static DataTable DocHoSoUT_TheoTenUV(int idDoanhNghiep, string tenUV)
-        {
-            string query = $"SELECT hsut.idungvien as IDUngVien, tv.ten as HoTen, hsut.ngayungtuyen as NgayUngTuyen, hsut.vitriungtuyen as ViTriUngTuyen, hsut.diemdanhgia as DiemDanhGia , hsut.tinhtrangungtuyen as TinhTrangUngTuyen FROM HOSOUNGTUYEN hsut, THANHVIEN tv " +
-                $"where hsut.idungvien = tv.idthanhvien and tv.ten like '%{tenUV}%' and hsut.iddoanhnghiep = {idDoanhNghiep}";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable data_hsut_theoten = new DataTable();
-            adapter.Fill(data_hsut_theoten);
-            return data_hsut_theoten;
-        }
-
         public static int CapNhat_TinhTrangUngTuyenDB(string dieukien, int idDoanhNghiep, int idUngVien)
         {
             string query = $"UPDATE HOSOUNGTUYEN SET TinhTrangUngTuyen = N'{dieukien}' WHERE idungvien = {idUngVien} and iddoanhnghiep = {idDoanhNghiep}";
@@ -91,6 +80,52 @@ namespace DAO
                 return 0;
             }
             return 1; 
+        }
+
+        public static DataTable DocDSHSUTChoDuyet(string TenDoanhNghiep)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("LayDSHSUTChoDuyet", conn))
+                {
+                    DataTable dataTable = new DataTable();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@tendn", TenDoanhNghiep));
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(reader);
+                    }
+                    return dataTable;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        public static DataTable DocDSHSUTDaDuyet(string TenDoanhNghiep)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("LayDSHSUTDaDuyet", conn))
+                {
+                    DataTable dataTable = new DataTable();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@tendn", TenDoanhNghiep));
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(reader);
+                    }
+                    return dataTable;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
     }

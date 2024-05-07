@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using BUS;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -10,17 +11,12 @@ namespace GUI
         public frmDoanhNghiepTiemNang()
         {
             InitializeComponent();
-            dgv_DoanhNghiepTN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_DoanhNghiepTN.DataSource = LoadData_DNTN().Tables[0];
+            HienThi();
         }
-        DataSet LoadData_DNTN()
+        public void HienThi()
         {
-            string query = $"select tv.ten as TenDoanhNghiep, tv.email as Email, dn.* from DOANHNGHIEP dn, THANHVIEN tv where dn.iddoanhnghiep = tv.idthanhvien and dn.uudai <> 0";
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataSet dntn = new DataSet();
-            adapter.Fill(dntn);
-            return dntn;
+            dgv_DoanhNghiepTN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_DoanhNghiepTN.DataSource = DoanhNghiepBUS.LayDSTTDoanhNghiepTiemNang();
         }
     }
 

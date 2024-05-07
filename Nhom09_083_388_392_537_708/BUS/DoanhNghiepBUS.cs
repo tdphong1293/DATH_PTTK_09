@@ -1,5 +1,6 @@
 ﻿using DTO;
 using DAO;
+using System.Data;
 
 namespace BUS
 {
@@ -28,6 +29,10 @@ namespace BUS
         public static double LayUuDai(string username)
         {
             return DoanhNghiepDAO.LayUuDai(username);
+        }
+        public static DataTable LayDSTTDoanhNghiepTiemNang()
+        {
+            return DoanhNghiepDAO.DocDSTTDoanhNghiepTiemNang();
         }
     }
 }
