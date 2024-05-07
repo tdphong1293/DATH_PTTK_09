@@ -38,7 +38,7 @@
             this.lb_tiemnang.AutoSize = true;
             this.lb_tiemnang.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_tiemnang.ForeColor = System.Drawing.Color.SlateBlue;
-            this.lb_tiemnang.Location = new System.Drawing.Point(484, 57);
+            this.lb_tiemnang.Location = new System.Drawing.Point(452, 55);
             this.lb_tiemnang.Name = "lb_tiemnang";
             this.lb_tiemnang.Size = new System.Drawing.Size(430, 41);
             this.lb_tiemnang.TabIndex = 0;
