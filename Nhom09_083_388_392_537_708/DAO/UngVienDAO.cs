@@ -102,5 +102,28 @@ namespace DAO
             adapter.Fill(data_hsut_theoten);
             return data_hsut_theoten;
         }
+
+        public static DataTable DocEmailNgSinh_UV(int IDUngVien)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("LayEmailNgSinh_UV", conn))
+                {
+                    DataTable dataTable = new DataTable();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IDUngVien", IDUngVien));
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(reader);
+                    }
+                    return dataTable;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
     }
 }

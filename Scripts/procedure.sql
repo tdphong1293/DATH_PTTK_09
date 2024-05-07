@@ -170,21 +170,39 @@ GO
 CREATE OR ALTER PROCEDURE LayDanhSachPhieuDangTuyen
 AS
 BEGIN
-    SELECT *
-    FROM PHIEUDANGTUYEN;
+  SELECT 
+    P.*,
+	T.Ten AS TenDoanhNghiep, 
+	T.Email AS EmailDoanhNghiep, 
+	D.DiaChi AS DiaChiDoanhNghiep
+  FROM 
+    PhieuDangTuyen P
+  INNER JOIN 
+    DOANHNGHIEP D ON P.IDDoanhNghiep = D.IDDoanhNghiep
+  INNER JOIN 
+    THANHVIEN T ON D.IDDoanhNghiep = T.IDThanhVien
 END;
 GO
 
 CREATE OR ALTER PROCEDURE LayDanhSachPhieuDangTuyenTheoDoanhNghiep
-    @ID INT
+  @ID INT
 AS
 BEGIN
-    SELECT *
-    FROM PHIEUDANGTUYEN
-    WHERE IDDoanhNghiep = @ID;
+  SELECT 
+    P.*,
+	T.Ten AS TenDoanhNghiep, 
+	T.Email AS EmailDoanhNghiep, 
+	D.DiaChi AS DiaChiDoanhNghiep
+  FROM 
+    PhieuDangTuyen P
+  INNER JOIN 
+    DOANHNGHIEP D ON P.IDDoanhNghiep = D.IDDoanhNghiep
+  INNER JOIN 
+    THANHVIEN T ON D.IDDoanhNghiep = T.IDThanhVien
+  WHERE 
+    D.IDDoanhNghiep = @ID
 END;
 GO
-
 
 CREATE OR ALTER PROCEDURE LayTTPhieuDangTuyen
     @ID INT
@@ -326,5 +344,71 @@ BEGIN
         END
     END
 END;
+go
 
 ------------------------------------------------------------------------------------------------
+-- Phu
+
+create or alter procedure LayEmailNgSinh_UV @IDUngVien int
+as
+begin
+	select tv.Email, uv.NgaySinh
+	from THANHVIEN tv, UNGVIEN uv 
+	where tv.IDThanhVien = @IDUngVien and tv.IDThanhVien = uv.IDUngVien
+end;
+go
+
+
+create or alter procedure LayTTBangCap_UV @id_uv int
+as
+begin
+	select bc.TenBang as N'Tên bằng', bc.CapBac as N'Cấp bậc', bc.NgayCap as N'Ngày cấp', bc.DonViCap as N'Đơn vị cấp'
+	from BANGCAP bc
+	where bc.IDUngVien = @id_uv
+end;
+go
+
+create or alter procedure LayDSHSUTChoDuyet @tendn nvarchar(50)
+as
+begin
+	if @tendn = ''
+	begin
+		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.IDUngVien, hsut.IDDoanhNghiep
+		from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn
+		where hsut.IDDoanhNghiep = tv_dn.IDThanhVien and
+			hsut.IDUngVien = tv_uv.IDThanhVien and
+			(hsut.TinhTrangUngTuyen = N'Chưa đủ điều kiện' or hsut.TinhTrangUngTuyen is Null)
+	end
+	else
+	begin
+		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.IDUngVien, hsut.IDDoanhNghiep
+		from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn
+		where hsut.IDDoanhNghiep = tv_dn.IDThanhVien and
+			hsut.IDUngVien = tv_uv.IDThanhVien and
+			(hsut.TinhTrangUngTuyen = N'Chưa đủ điều kiện' or hsut.TinhTrangUngTuyen is Null) and
+			UPPER(tv_dn.Ten) LIKE UPPER('%' + @tendn + '%')
+	end
+end;
+go
+
+create or alter procedure LayDSHSUTDaDuyet @tendn nvarchar(50)
+as
+begin
+	if @tendn = ''
+	begin
+		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.IDUngVien, hsut.IDDoanhNghiep
+		from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn
+		where hsut.IDDoanhNghiep = tv_dn.IDThanhVien and
+			hsut.IDUngVien = tv_uv.IDThanhVien and
+			(hsut.TinhTrangUngTuyen = N'Đủ điều kiện' or hsut.TinhTrangUngTuyen = N'Đang xử lý')
+	end
+	else
+	begin
+		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.IDUngVien, hsut.IDDoanhNghiep
+		from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn
+		where hsut.IDDoanhNghiep = tv_dn.IDThanhVien and
+			hsut.IDUngVien = tv_uv.IDThanhVien and
+			(hsut.TinhTrangUngTuyen = N'Đủ điều kiện' or hsut.TinhTrangUngTuyen = N'Đang xử lý') and
+			UPPER(tv_dn.Ten) LIKE UPPER('%' + @tendn + '%')
+	end
+end;

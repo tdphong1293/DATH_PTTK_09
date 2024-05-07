@@ -125,21 +125,10 @@ namespace GUI
             {
                 string tenCty = txtTimTenCty.Text;
                 string viTri = txtTimVTDT.Text;
+                string idDN = UserRole == "DOANHNGHIEP" ? UserId : null;
 
-                DataSet resultDataSet;
-                if (UserRole == "DOANHNGHIEP")
-                {
-                    resultDataSet = PhieuDangTuyenBUS.GetDataSetFromStoredProcedure("TimKiemPhieuDangTuyen",
-                        new SqlParameter("@Ten", tenCty),
-                        new SqlParameter("@ViTri", viTri),
-                        new SqlParameter("@ID", UserId));
-                }
-                else
-                {
-                    resultDataSet = PhieuDangTuyenBUS.GetDataSetFromStoredProcedure("TimKiemPhieuDangTuyen",
-                        new SqlParameter("@Ten", tenCty),
-                        new SqlParameter("@ViTri", viTri));
-                }
+                DataSet resultDataSet = PhieuDangTuyenBUS.SearchPhieuDangTuyen(tenCty, viTri, idDN);
+
                 dgv_DSDangTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgv_DSDangTuyen.DataSource = resultDataSet.Tables[0];
                 dgv_DSDangTuyen.Columns[0].Visible = false;

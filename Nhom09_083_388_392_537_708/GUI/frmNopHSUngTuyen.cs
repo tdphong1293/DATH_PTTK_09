@@ -109,7 +109,7 @@ namespace GUI
 
                     this.Close();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("Bạn đã nộp hồ sơ này. Vui lòng ứng tuyển hồ sơ khác");
                 }

@@ -34,5 +34,10 @@ namespace BUS
         {
             return UngVienDAO.DocTTUV_TheoHSUT(idDoanhNghiep,tenUV);
         }
+
+        public static DataTable LayEmailNgSinh_UV(int IDUngVien)
+        {
+            return UngVienDAO.DocEmailNgSinh_UV(IDUngVien);
+        }
     }
 }
