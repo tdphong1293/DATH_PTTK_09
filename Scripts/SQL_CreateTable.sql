@@ -73,18 +73,6 @@ CREATE TABLE HOSOUNGTUYEN (
   TinhTrangUngTuyen NVARCHAR(50) CHECK (TinhTrangUngTuyen IN (N'Chưa đủ điều kiện', N'Đang xử lý', N'Đủ điều kiện') or TinhTrangUngTuyen is NULL),
   ViTriUngTuyen NVARCHAR(50),
   DiemDanhGia INT CHECK (DiemDanhGia IN(1,2,3,4,5,6,7,8,9,10))
-        private void btnBrowse_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Select a file to upload";
-            openFileDialog.Filter = "All files (*.*)|*.*";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string selectedFilePath = openFileDialog.FileName;
-                llbFileName.Text = Path.GetFileName(selectedFilePath);
-            }
-        }
 );
 
 CREATE TABLE PHIEUDANGTUYEN (
