@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net;
 using System.Xml.Linq;
 using DTO;
 
@@ -79,6 +80,52 @@ namespace DAO
                 return 0;
             }
             return 1; 
+        }
+
+        public static DataTable DocDSHSUTChoDuyet(string TenDoanhNghiep)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("LayDSHSUTChoDuyet", conn))
+                {
+                    DataTable dataTable = new DataTable();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@tendn", TenDoanhNghiep));
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(reader);
+                    }
+                    return dataTable;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        public static DataTable DocDSHSUTDaDuyet(string TenDoanhNghiep)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("LayDSHSUTDaDuyet", conn))
+                {
+                    DataTable dataTable = new DataTable();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@tendn", TenDoanhNghiep));
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(reader);
+                    }
+                    return dataTable;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
     }

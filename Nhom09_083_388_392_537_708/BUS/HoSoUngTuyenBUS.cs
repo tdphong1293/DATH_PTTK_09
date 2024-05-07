@@ -33,5 +33,15 @@ namespace BUS
         {
             return HoSoUngTuyenDAO.CapNhat_TinhTrangUngTuyenDB(dieuKien, idDoanhNghiep, idUngVien);
         }
+
+        public static DataTable LayDSHSUTChoDuyet(string TenDoanhNghiep)
+        {
+            return HoSoUngTuyenDAO.DocDSHSUTChoDuyet(TenDoanhNghiep);
+        }
+
+        public static DataTable LayDSHSUTDaDuyet(string TenDoanhNghiep)
+        {
+            return HoSoUngTuyenDAO.DocDSHSUTDaDuyet(TenDoanhNghiep);
+        }
     }
 }
