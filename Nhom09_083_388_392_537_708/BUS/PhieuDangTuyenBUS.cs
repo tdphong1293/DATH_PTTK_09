@@ -43,5 +43,9 @@ namespace BUS
         {
             return PhieuDangTuyenDAO.ThemPDT(pdt, IDPQC);
         }
+        public static DataSet SearchPhieuDangTuyen(string tenCty, string viTri, string idDN = null)
+        {
+            return PhieuDangTuyenDAO.SearchPhieuDangTuyen(tenCty, viTri, idDN);
+        }
     }
 }

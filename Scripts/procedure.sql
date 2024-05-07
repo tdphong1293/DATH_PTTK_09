@@ -170,21 +170,39 @@ GO
 CREATE OR ALTER PROCEDURE LayDanhSachPhieuDangTuyen
 AS
 BEGIN
-    SELECT *
-    FROM PHIEUDANGTUYEN;
+  SELECT 
+    P.*,
+	T.Ten AS TenDoanhNghiep, 
+	T.Email AS EmailDoanhNghiep, 
+	D.DiaChi AS DiaChiDoanhNghiep
+  FROM 
+    PhieuDangTuyen P
+  INNER JOIN 
+    DOANHNGHIEP D ON P.IDDoanhNghiep = D.IDDoanhNghiep
+  INNER JOIN 
+    THANHVIEN T ON D.IDDoanhNghiep = T.IDThanhVien
 END;
 GO
 
 CREATE OR ALTER PROCEDURE LayDanhSachPhieuDangTuyenTheoDoanhNghiep
-    @ID INT
+  @ID INT
 AS
 BEGIN
-    SELECT *
-    FROM PHIEUDANGTUYEN
-    WHERE IDDoanhNghiep = @ID;
+  SELECT 
+    P.*,
+	T.Ten AS TenDoanhNghiep, 
+	T.Email AS EmailDoanhNghiep, 
+	D.DiaChi AS DiaChiDoanhNghiep
+  FROM 
+    PhieuDangTuyen P
+  INNER JOIN 
+    DOANHNGHIEP D ON P.IDDoanhNghiep = D.IDDoanhNghiep
+  INNER JOIN 
+    THANHVIEN T ON D.IDDoanhNghiep = T.IDThanhVien
+  WHERE 
+    D.IDDoanhNghiep = @ID
 END;
 GO
-
 
 CREATE OR ALTER PROCEDURE LayTTPhieuDangTuyen
     @ID INT

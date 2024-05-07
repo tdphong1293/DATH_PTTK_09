@@ -2,6 +2,7 @@
 using System.Data;
 using DTO;
 using System;
+using System.Collections.Generic;
 
 namespace DAO
 {
@@ -109,7 +110,22 @@ namespace DAO
                 Console.WriteLine(ex.Message);
                 return -1;
             }
-            
+        }
+
+        public static DataSet SearchPhieuDangTuyen(string tenCty, string viTri, string idDN = null)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@Ten", tenCty),
+                new SqlParameter("@ViTri", viTri)
+            };
+
+            if (!string.IsNullOrEmpty(idDN))
+            {
+                parameters.Add(new SqlParameter("@ID", idDN));
+            }
+
+            return GetDataSetFromStoredProcedure("TimKiemPhieuDangTuyen", parameters.ToArray());
         }
     }
 }
