@@ -90,11 +90,11 @@
             // 
             // btn_Refresh
             // 
-            this.btn_Refresh.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Refresh.Location = new System.Drawing.Point(531, 82);
+            this.btn_Refresh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Refresh.Location = new System.Drawing.Point(489, 82);
             this.btn_Refresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Refresh.Name = "btn_Refresh";
-            this.btn_Refresh.Size = new System.Drawing.Size(107, 36);
+            this.btn_Refresh.Size = new System.Drawing.Size(149, 36);
             this.btn_Refresh.TabIndex = 5;
             this.btn_Refresh.Text = "REFRESH";
             this.btn_Refresh.UseVisualStyleBackColor = true;
@@ -102,11 +102,11 @@
             // 
             // btn_SapXep
             // 
-            this.btn_SapXep.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SapXep.Location = new System.Drawing.Point(418, 82);
+            this.btn_SapXep.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SapXep.Location = new System.Drawing.Point(334, 82);
             this.btn_SapXep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_SapXep.Name = "btn_SapXep";
-            this.btn_SapXep.Size = new System.Drawing.Size(107, 36);
+            this.btn_SapXep.Size = new System.Drawing.Size(149, 36);
             this.btn_SapXep.TabIndex = 4;
             this.btn_SapXep.Text = "SẮP XẾP";
             this.btn_SapXep.UseVisualStyleBackColor = true;
@@ -114,11 +114,11 @@
             // 
             // btn_TimKiemTenUV
             // 
-            this.btn_TimKiemTenUV.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_TimKiemTenUV.Location = new System.Drawing.Point(531, 28);
+            this.btn_TimKiemTenUV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_TimKiemTenUV.Location = new System.Drawing.Point(489, 28);
             this.btn_TimKiemTenUV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_TimKiemTenUV.Name = "btn_TimKiemTenUV";
-            this.btn_TimKiemTenUV.Size = new System.Drawing.Size(107, 42);
+            this.btn_TimKiemTenUV.Size = new System.Drawing.Size(149, 42);
             this.btn_TimKiemTenUV.TabIndex = 3;
             this.btn_TimKiemTenUV.Text = "TÌM KIẾM";
             this.btn_TimKiemTenUV.UseVisualStyleBackColor = true;
@@ -130,16 +130,16 @@
             this.lb_tenuv.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_tenuv.Location = new System.Drawing.Point(5, 31);
             this.lb_tenuv.Name = "lb_tenuv";
-            this.lb_tenuv.Size = new System.Drawing.Size(131, 25);
+            this.lb_tenuv.Size = new System.Drawing.Size(167, 25);
             this.lb_tenuv.TabIndex = 2;
-            this.lb_tenuv.Text = "Tên ứng viên :";
+            this.lb_tenuv.Text = "Tìm tên ứng viên :";
             // 
             // txt_TenUngVien
             // 
-            this.txt_TenUngVien.Location = new System.Drawing.Point(170, 31);
+            this.txt_TenUngVien.Location = new System.Drawing.Point(199, 31);
             this.txt_TenUngVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_TenUngVien.Name = "txt_TenUngVien";
-            this.txt_TenUngVien.Size = new System.Drawing.Size(339, 34);
+            this.txt_TenUngVien.Size = new System.Drawing.Size(284, 34);
             this.txt_TenUngVien.TabIndex = 1;
             // 
             // dgv_HoSo_UngTuyen
@@ -187,7 +187,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Moccasin;
+            this.panel1.BackColor = System.Drawing.Color.OldLace;
             this.panel1.Controls.Add(this.lb_OutOf10);
             this.panel1.Controls.Add(this.gb_BangCap);
             this.panel1.Controls.Add(this.btn_OpenFileCV);
@@ -210,7 +210,7 @@
             // 
             this.lb_OutOf10.AutoSize = true;
             this.lb_OutOf10.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_OutOf10.Location = new System.Drawing.Point(559, 372);
+            this.lb_OutOf10.Location = new System.Drawing.Point(549, 374);
             this.lb_OutOf10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_OutOf10.Name = "lb_OutOf10";
             this.lb_OutOf10.Size = new System.Drawing.Size(39, 25);
@@ -225,7 +225,7 @@
             this.gb_BangCap.Margin = new System.Windows.Forms.Padding(4);
             this.gb_BangCap.Name = "gb_BangCap";
             this.gb_BangCap.Padding = new System.Windows.Forms.Padding(4);
-            this.gb_BangCap.Size = new System.Drawing.Size(591, 171);
+            this.gb_BangCap.Size = new System.Drawing.Size(597, 171);
             this.gb_BangCap.TabIndex = 24;
             this.gb_BangCap.TabStop = false;
             this.gb_BangCap.Text = "Bằng cấp";
@@ -241,7 +241,7 @@
             this.dgv_BangCapUV.Name = "dgv_BangCapUV";
             this.dgv_BangCapUV.ReadOnly = true;
             this.dgv_BangCapUV.RowHeadersWidth = 51;
-            this.dgv_BangCapUV.Size = new System.Drawing.Size(576, 130);
+            this.dgv_BangCapUV.Size = new System.Drawing.Size(581, 130);
             this.dgv_BangCapUV.TabIndex = 24;
             // 
             // btn_OpenFileCV
@@ -271,45 +271,46 @@
             // txt_DiemDanhGia
             // 
             this.txt_DiemDanhGia.Enabled = false;
-            this.txt_DiemDanhGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_DiemDanhGia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_DiemDanhGia.ForeColor = System.Drawing.Color.Black;
-            this.txt_DiemDanhGia.Location = new System.Drawing.Point(536, 371);
+            this.txt_DiemDanhGia.Location = new System.Drawing.Point(516, 371);
             this.txt_DiemDanhGia.Margin = new System.Windows.Forms.Padding(4);
             this.txt_DiemDanhGia.Name = "txt_DiemDanhGia";
-            this.txt_DiemDanhGia.Size = new System.Drawing.Size(25, 27);
+            this.txt_DiemDanhGia.Size = new System.Drawing.Size(36, 34);
             this.txt_DiemDanhGia.TabIndex = 18;
+            this.txt_DiemDanhGia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txt_ViTriUngTuyen
             // 
             this.txt_ViTriUngTuyen.Enabled = false;
-            this.txt_ViTriUngTuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ViTriUngTuyen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ViTriUngTuyen.ForeColor = System.Drawing.Color.Black;
             this.txt_ViTriUngTuyen.Location = new System.Drawing.Point(277, 103);
             this.txt_ViTriUngTuyen.Margin = new System.Windows.Forms.Padding(4);
             this.txt_ViTriUngTuyen.Name = "txt_ViTriUngTuyen";
-            this.txt_ViTriUngTuyen.Size = new System.Drawing.Size(322, 27);
+            this.txt_ViTriUngTuyen.Size = new System.Drawing.Size(322, 34);
             this.txt_ViTriUngTuyen.TabIndex = 17;
             // 
             // txt_NgayUngTuyen
             // 
             this.txt_NgayUngTuyen.Enabled = false;
-            this.txt_NgayUngTuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_NgayUngTuyen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_NgayUngTuyen.ForeColor = System.Drawing.Color.Black;
             this.txt_NgayUngTuyen.Location = new System.Drawing.Point(277, 58);
             this.txt_NgayUngTuyen.Margin = new System.Windows.Forms.Padding(4);
             this.txt_NgayUngTuyen.Name = "txt_NgayUngTuyen";
-            this.txt_NgayUngTuyen.Size = new System.Drawing.Size(321, 27);
+            this.txt_NgayUngTuyen.Size = new System.Drawing.Size(321, 34);
             this.txt_NgayUngTuyen.TabIndex = 16;
             // 
             // txt_TinhTrangHS
             // 
             this.txt_TinhTrangHS.Enabled = false;
-            this.txt_TinhTrangHS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_TinhTrangHS.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TinhTrangHS.ForeColor = System.Drawing.Color.Black;
             this.txt_TinhTrangHS.Location = new System.Drawing.Point(277, 17);
             this.txt_TinhTrangHS.Margin = new System.Windows.Forms.Padding(4);
             this.txt_TinhTrangHS.Name = "txt_TinhTrangHS";
-            this.txt_TinhTrangHS.Size = new System.Drawing.Size(321, 27);
+            this.txt_TinhTrangHS.Size = new System.Drawing.Size(321, 34);
             this.txt_TinhTrangHS.TabIndex = 15;
             // 
             // lb_TinhTrang
@@ -338,7 +339,8 @@
             // 
             this.lb_DiemDanhGia.AutoSize = true;
             this.lb_DiemDanhGia.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_DiemDanhGia.Location = new System.Drawing.Point(385, 372);
+            this.lb_DiemDanhGia.ForeColor = System.Drawing.Color.Red;
+            this.lb_DiemDanhGia.Location = new System.Drawing.Point(370, 377);
             this.lb_DiemDanhGia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_DiemDanhGia.Name = "lb_DiemDanhGia";
             this.lb_DiemDanhGia.Size = new System.Drawing.Size(143, 25);
@@ -358,7 +360,7 @@
             // 
             // pnl_TTCaNhan
             // 
-            this.pnl_TTCaNhan.BackColor = System.Drawing.Color.DodgerBlue;
+            this.pnl_TTCaNhan.BackColor = System.Drawing.Color.SlateBlue;
             this.pnl_TTCaNhan.Controls.Add(this.pictureBox1);
             this.pnl_TTCaNhan.Controls.Add(this.txt_EmailUV);
             this.pnl_TTCaNhan.Controls.Add(this.txt_NgaySinhUV);
@@ -386,35 +388,35 @@
             // 
             // txt_EmailUV
             // 
-            this.txt_EmailUV.Enabled = false;
-            this.txt_EmailUV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_EmailUV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_EmailUV.ForeColor = System.Drawing.Color.Black;
             this.txt_EmailUV.Location = new System.Drawing.Point(277, 96);
             this.txt_EmailUV.Margin = new System.Windows.Forms.Padding(4);
             this.txt_EmailUV.Name = "txt_EmailUV";
-            this.txt_EmailUV.Size = new System.Drawing.Size(321, 27);
+            this.txt_EmailUV.ReadOnly = true;
+            this.txt_EmailUV.Size = new System.Drawing.Size(321, 34);
             this.txt_EmailUV.TabIndex = 13;
             // 
             // txt_NgaySinhUV
             // 
             this.txt_NgaySinhUV.Enabled = false;
-            this.txt_NgaySinhUV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_NgaySinhUV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_NgaySinhUV.ForeColor = System.Drawing.Color.Black;
             this.txt_NgaySinhUV.Location = new System.Drawing.Point(277, 54);
             this.txt_NgaySinhUV.Margin = new System.Windows.Forms.Padding(4);
             this.txt_NgaySinhUV.Name = "txt_NgaySinhUV";
-            this.txt_NgaySinhUV.Size = new System.Drawing.Size(321, 27);
+            this.txt_NgaySinhUV.Size = new System.Drawing.Size(321, 34);
             this.txt_NgaySinhUV.TabIndex = 12;
             // 
             // txt_HoTenUV
             // 
             this.txt_HoTenUV.Enabled = false;
-            this.txt_HoTenUV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_HoTenUV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_HoTenUV.ForeColor = System.Drawing.Color.Black;
             this.txt_HoTenUV.Location = new System.Drawing.Point(277, 12);
             this.txt_HoTenUV.Margin = new System.Windows.Forms.Padding(4);
             this.txt_HoTenUV.Name = "txt_HoTenUV";
-            this.txt_HoTenUV.Size = new System.Drawing.Size(321, 27);
+            this.txt_HoTenUV.Size = new System.Drawing.Size(321, 34);
             this.txt_HoTenUV.TabIndex = 11;
             // 
             // lb_HoTen

@@ -140,7 +140,7 @@ namespace DAO
 
         public static DataTable DocDSTTDoanhNghiepTiemNang()
         {
-            string query = $"select tv.ten as TenDoanhNghiep, tv.email as Email, dn.* from DOANHNGHIEP dn, THANHVIEN tv where dn.iddoanhnghiep = tv.idthanhvien and dn.uudai <> 0";
+            string query = $"select dn.iddoanhnghiep, tv.ten as TenDoanhNghiep, tv.email as Email, dn.masothue, dn.nguoidaidien, dn.diachi, dn.uudai  from DOANHNGHIEP dn, THANHVIEN tv where dn.iddoanhnghiep = tv.idthanhvien and dn.uudai <> 0";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dntn = new DataTable();

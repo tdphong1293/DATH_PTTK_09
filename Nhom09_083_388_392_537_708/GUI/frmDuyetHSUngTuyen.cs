@@ -23,10 +23,7 @@ namespace GUI
         }
         public void HienThi(int idDoanhNghiep)
         {
-            // Gọi phương thức DocDSHSSUngTuyenTheoDoanhNghiep để lấy DataTable chứa dữ liệu
-            DataTable dataTable = HoSoUngTuyenBUS.LayDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep); // Giả sử idDoanhNghiep đã được xác định trước
-
-            // Gán DataTable vào DataGridView
+            DataTable dataTable = HoSoUngTuyenBUS.LayDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep);
             dgv_HoSo_UngTuyen.DataSource = dataTable;
         }
         private void btn_OpenFileCV_Click(object sender, EventArgs e)
@@ -68,42 +65,49 @@ namespace GUI
                     btn_Duyet.Enabled = true;
                     btn_Loai.Enabled = true;
                     btn_OpenFileCV.Enabled = true;
+
                     DataGridViewRow row = this.dgv_HoSo_UngTuyen.Rows[e.RowIndex];
                     this.idUngVien = Convert.ToInt32(row.Cells["IDUngVien"].Value);
+
                     DataTable dataTable = UngVienBUS.LayTTUngVienHSUT(this.idUngVien);
                     if (dataTable.Rows.Count > 0)
                     {
                         DataRow rows = dataTable.Rows[0];
 
-                        txt_HoTenUV.Text = rows["ten"].ToString();
-                        txt_EmailUV.Text = rows["email"].ToString();
+                        txt_HoTenUV.Text = rows["ten"].ToString() ?? string.Empty; ;
+                        txt_EmailUV.Text = rows["email"].ToString() ?? string.Empty; ;
 
                         DateTime ngaySinh;
                         if (DateTime.TryParse(rows["ngaysinh"].ToString(), out ngaySinh))
                         {
-                            txt_NgaySinhUV.Text = ngaySinh.ToString("dd/MM/yyyy");
+                            txt_NgaySinhUV.Text = ngaySinh.ToString("dd/MM/yyyy") ?? string.Empty;
                         }
                         else
-                            txt_NgaySinhUV.Text = "Không có thông tin";
+                            txt_NgaySinhUV.Text = "";
                     }
-                    txt_TinhTrangHS.Text = row.Cells["TinhTrangUngTuyen"].Value.ToString();
+
+                    txt_TinhTrangHS.Text = row.Cells["TinhTrangUngTuyen"].Value.ToString() ?? string.Empty;
                     if (txt_TinhTrangHS.Text == "Đủ điều kiện")
                     {
-                        txt_TinhTrangHS.BackColor = Color.YellowGreen;
+                        txt_TinhTrangHS.BackColor = Color.PaleGreen;
                     }
                     else if (txt_TinhTrangHS.Text == "Chưa đủ điều kiện")
                     {
-                        txt_TinhTrangHS.BackColor = Color.LightCoral;
+                        txt_TinhTrangHS.BackColor = Color.LightSalmon;
+                    }
+                    else if (txt_TinhTrangHS.Text == "Đang xử lý")
+                    {
+                        txt_TinhTrangHS.BackColor = Color.Yellow;
                     }
                     else
                     {
-                        txt_TinhTrangHS.BackColor = Color.White;
+                        txt_TinhTrangHS.BackColor = Color.LightGray;
                     }
+
                     DateTime date_ut = DateTime.Parse(row.Cells["NgayUngTuyen"].Value.ToString());
-                    ////MessageBox.Show(date_ut.ToString("dd/MM/yyyy"));
-                    txt_NgayUngTuyen.Text = date_ut.ToString("dd/MM/yyyy");
-                    txt_ViTriUngTuyen.Text = row.Cells["ViTriUngTuyen"].Value.ToString();
-                    txt_DiemDanhGia.Text = row.Cells["DiemDanhGia"].Value.ToString();
+                    txt_NgayUngTuyen.Text = date_ut.ToString("dd/MM/yyyy")?? string.Empty;
+                    txt_ViTriUngTuyen.Text = row.Cells["ViTriUngTuyen"].Value.ToString() ?? string.Empty; ;
+                    txt_DiemDanhGia.Text = row.Cells["DiemDanhGia"].Value.ToString() ?? string.Empty; ;
 
                     dgv_BangCapUV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     dgv_BangCapUV.DataSource = BangCapBUS.LayDSBangCapTheoUngVien(this.idUngVien);
@@ -111,7 +115,7 @@ namespace GUI
             }
             catch
             {
-                if(txt_HoTenUV.Text == "")
+                if (txt_HoTenUV.Text == "")
                 {
                     btn_Duyet.Enabled = false;
                     btn_Loai.Enabled = false;
@@ -131,7 +135,7 @@ namespace GUI
                 // Hiển thị thông báo và cập nhật trạng thái
                 ThongBao("Đã duyệt thành công!");
                 txt_TinhTrangHS.Text = "Đủ điều kiện";
-                txt_TinhTrangHS.BackColor = Color.YellowGreen;
+                txt_TinhTrangHS.BackColor = Color.PaleGreen; 
 
                 // Cập nhật DataGridView
                 dgv_HoSo_UngTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -160,7 +164,7 @@ namespace GUI
                 // Hiển thị thông báo và cập nhật trạng thái
                 ThongBao("Đã loại thành công!");
                 txt_TinhTrangHS.Text = "Chưa đủ điều kiện";
-                txt_TinhTrangHS.BackColor = Color.LightCoral;
+                txt_TinhTrangHS.BackColor = Color.LightSalmon;
 
                 // Cập nhật DataGridView
                 dgv_HoSo_UngTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -183,25 +187,6 @@ namespace GUI
         {
             dgv_HoSo_UngTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_HoSo_UngTuyen.DataSource = HoSoUngTuyenBUS.LayDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep);
-
-            //txt_DiemDanhGia.Text = "";
-            //txt_EmailUV.Text = "";
-            //txt_HoTenUV.Text = "";
-            //txt_NgaySinhUV.Text = "";
-            //txt_NgayUngTuyen.Text = "";
-            //txt_TenUngVien.Text = "";
-            //txt_TinhTrangHS.Text = "";
-            //txt_ViTriUngTuyen.Text = "";
-
-            //btn_Duyet.Enabled = false;
-            //btn_Loai.Enabled = false;
-            //btn_OpenFileCV.Enabled = false;
-
-            //txt_TinhTrangHS.BackColor = Color.WhiteSmoke;
-
-            //DataTable emptyDataTable = new DataTable();
-            //// Gán DataTable rỗng làm DataSource cho DataGridView
-            //dgv_HoSo_UngTuyen.DataSource = emptyDataTable;
 
         }
     }
