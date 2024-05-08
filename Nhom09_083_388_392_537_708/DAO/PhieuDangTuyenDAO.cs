@@ -48,8 +48,7 @@ namespace DAO
             using (SqlCommand cmd = new SqlCommand("XoaPhieuDangTuyen", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IDPhieuDangTuyen", idPhieuDangTuyen);
-                conn.Open();
+                cmd.Parameters.AddWithValue("@ID", idPhieuDangTuyen);
                 cmd.ExecuteNonQuery();
             }
         }
