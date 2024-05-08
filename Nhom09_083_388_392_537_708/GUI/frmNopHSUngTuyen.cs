@@ -10,7 +10,7 @@ namespace GUI
 {
     public partial class frmNopHSUngTuyen : Form
     {
-        public static SqlConnection con = frmDangNhap.conn;
+        public static SqlConnection conn = DatabaseProvider.GetConnection();
         public string IdUngVien = "";
         public string IdDoanhNghiep = "";
         public string IdPDT = "";
@@ -39,9 +39,7 @@ namespace GUI
         {
             try
             {
-                DataTable dt = PhieuDangTuyenBUS.LayViTriDangTuyen(IdPDT);
-                cbVTUT.DataSource = dt;
-                cbVTUT.DisplayMember = "DanhSachViTriDangTuyen";
+                txtVTUT.Text = PhieuDangTuyenBUS.LayViTriDangTuyen(IdPDT);
             }
             catch (Exception ex)
             {
@@ -84,12 +82,11 @@ namespace GUI
 
         private void btnXNNopHS_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(llbFileName.Text) && cbVTUT.SelectedItem != null && txtTenDN != null && txtTenUV != null)
+            if (!string.IsNullOrEmpty(llbFileName.Text) && txtVTUT != null && txtTenDN != null && txtTenUV != null)
             {
-                string viTriUngTuyen = cbVTUT.SelectedItem.ToString();
                 try
                 {
-                    HoSoUngTuyenBUS.ThemHSUngTuyen(IdDoanhNghiep, IdUngVien, DateTime.Now.Date, viTriUngTuyen);
+                    HoSoUngTuyenBUS.ThemHSUngTuyen(IdDoanhNghiep, IdUngVien, DateTime.Now.Date, txtVTUT.Text);
                     MessageBox.Show("Nộp hồ sơ thành công");
 
                     string userId = IdUngVien;

@@ -34,17 +34,18 @@
             this.txtTenDN = new System.Windows.Forms.TextBox();
             this.lbCTUT = new System.Windows.Forms.Label();
             this.lbVTUT = new System.Windows.Forms.Label();
-            this.cbVTUT = new System.Windows.Forms.ComboBox();
             this.lbHSDK = new System.Windows.Forms.Label();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.btnXNNopHS = new System.Windows.Forms.Button();
             this.llbFileName = new System.Windows.Forms.LinkLabel();
+            this.txtVTUT = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
             // 
             // lbNHSUT
             // 
             this.lbNHSUT.AutoSize = true;
             this.lbNHSUT.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNHSUT.Location = new System.Drawing.Point(439, 72);
+            this.lbNHSUT.Location = new System.Drawing.Point(246, 31);
             this.lbNHSUT.Name = "lbNHSUT";
             this.lbNHSUT.Size = new System.Drawing.Size(404, 45);
             this.lbNHSUT.TabIndex = 0;
@@ -54,7 +55,7 @@
             // 
             this.lbTenUV.AutoSize = true;
             this.lbTenUV.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenUV.Location = new System.Drawing.Point(325, 254);
+            this.lbTenUV.Location = new System.Drawing.Point(147, 147);
             this.lbTenUV.Name = "lbTenUV";
             this.lbTenUV.Size = new System.Drawing.Size(127, 25);
             this.lbTenUV.TabIndex = 1;
@@ -64,7 +65,7 @@
             // 
             this.txtTenUV.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtTenUV.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenUV.Location = new System.Drawing.Point(536, 248);
+            this.txtTenUV.Location = new System.Drawing.Point(358, 141);
             this.txtTenUV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTenUV.Name = "txtTenUV";
             this.txtTenUV.ReadOnly = true;
@@ -75,7 +76,7 @@
             // 
             this.txtTenDN.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtTenDN.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenDN.Location = new System.Drawing.Point(536, 319);
+            this.txtTenDN.Location = new System.Drawing.Point(358, 212);
             this.txtTenDN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTenDN.Name = "txtTenDN";
             this.txtTenDN.ReadOnly = true;
@@ -86,7 +87,7 @@
             // 
             this.lbCTUT.AutoSize = true;
             this.lbCTUT.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCTUT.Location = new System.Drawing.Point(325, 321);
+            this.lbCTUT.Location = new System.Drawing.Point(147, 214);
             this.lbCTUT.Name = "lbCTUT";
             this.lbCTUT.Size = new System.Drawing.Size(181, 25);
             this.lbCTUT.TabIndex = 3;
@@ -96,28 +97,17 @@
             // 
             this.lbVTUT.AutoSize = true;
             this.lbVTUT.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbVTUT.Location = new System.Drawing.Point(325, 394);
+            this.lbVTUT.Location = new System.Drawing.Point(147, 287);
             this.lbVTUT.Name = "lbVTUT";
             this.lbVTUT.Size = new System.Drawing.Size(151, 25);
             this.lbVTUT.TabIndex = 5;
             this.lbVTUT.Text = "Vị trí ứng tuyển:";
             // 
-            // cbVTUT
-            // 
-            this.cbVTUT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbVTUT.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbVTUT.FormattingEnabled = true;
-            this.cbVTUT.Location = new System.Drawing.Point(536, 392);
-            this.cbVTUT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbVTUT.Name = "cbVTUT";
-            this.cbVTUT.Size = new System.Drawing.Size(357, 33);
-            this.cbVTUT.TabIndex = 6;
-            // 
             // lbHSDK
             // 
             this.lbHSDK.AutoSize = true;
             this.lbHSDK.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHSDK.Location = new System.Drawing.Point(325, 469);
+            this.lbHSDK.Location = new System.Drawing.Point(147, 362);
             this.lbHSDK.Name = "lbHSDK";
             this.lbHSDK.Size = new System.Drawing.Size(149, 25);
             this.lbHSDK.TabIndex = 7;
@@ -126,7 +116,7 @@
             // btnBrowse
             // 
             this.btnBrowse.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBrowse.Location = new System.Drawing.Point(801, 464);
+            this.btnBrowse.Location = new System.Drawing.Point(358, 401);
             this.btnBrowse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(104, 34);
@@ -138,7 +128,7 @@
             // btnXNNopHS
             // 
             this.btnXNNopHS.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXNNopHS.Location = new System.Drawing.Point(1075, 638);
+            this.btnXNNopHS.Location = new System.Drawing.Point(703, 456);
             this.btnXNNopHS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXNNopHS.Name = "btnXNNopHS";
             this.btnXNNopHS.Size = new System.Drawing.Size(150, 50);
@@ -151,22 +141,33 @@
             // 
             this.llbFileName.AutoSize = true;
             this.llbFileName.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llbFileName.Location = new System.Drawing.Point(531, 469);
+            this.llbFileName.Location = new System.Drawing.Point(353, 362);
             this.llbFileName.Name = "llbFileName";
             this.llbFileName.Size = new System.Drawing.Size(0, 25);
             this.llbFileName.TabIndex = 12;
+            // 
+            // txtVTUT
+            // 
+            this.txtVTUT.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtVTUT.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVTUT.Location = new System.Drawing.Point(358, 284);
+            this.txtVTUT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtVTUT.Name = "txtVTUT";
+            this.txtVTUT.ReadOnly = true;
+            this.txtVTUT.Size = new System.Drawing.Size(357, 31);
+            this.txtVTUT.TabIndex = 13;
             // 
             // frmNopHSUngTuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
-            this.ClientSize = new System.Drawing.Size(1237, 699);
+            this.ClientSize = new System.Drawing.Size(865, 517);
+            this.Controls.Add(this.txtVTUT);
             this.Controls.Add(this.llbFileName);
             this.Controls.Add(this.btnXNNopHS);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.lbHSDK);
-            this.Controls.Add(this.cbVTUT);
             this.Controls.Add(this.lbVTUT);
             this.Controls.Add(this.txtTenDN);
             this.Controls.Add(this.lbCTUT);
@@ -190,11 +191,11 @@
         private System.Windows.Forms.TextBox txtTenUV;
         private System.Windows.Forms.Label lbCTUT;
         private System.Windows.Forms.Label lbVTUT;
-        private System.Windows.Forms.ComboBox cbVTUT;
         private System.Windows.Forms.Label lbHSDK;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Button btnXNNopHS;
         private System.Windows.Forms.LinkLabel llbFileName;
         private System.Windows.Forms.TextBox txtTenDN;
+        private System.Windows.Forms.TextBox txtVTUT;
     }
 }
