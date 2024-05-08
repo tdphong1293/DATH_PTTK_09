@@ -202,6 +202,7 @@
             this.btn_DangKyDoanhNghiep.TabIndex = 59;
             this.btn_DangKyDoanhNghiep.Text = "Đăng ký";
             this.btn_DangKyDoanhNghiep.UseVisualStyleBackColor = false;
+            this.btn_DangKyDoanhNghiep.Click += new System.EventHandler(this.btn_DangKyDoanhNghiep_Click);
             // 
             // lb_email_dn
             // 
