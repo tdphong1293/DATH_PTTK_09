@@ -10,7 +10,7 @@ namespace GUI
 {
     public partial class frmNopHSUngTuyen : Form
     {
-        public static SqlConnection con = frmDangNhap.conn;
+        public static SqlConnection conn = DatabaseProvider.GetConnection();
         public string IdUngVien = "";
         public string IdDoanhNghiep = "";
         public string IdPDT = "";
@@ -39,9 +39,7 @@ namespace GUI
         {
             try
             {
-                DataTable dt = PhieuDangTuyenBUS.LayViTriDangTuyen(IdPDT);
-                cbVTUT.DataSource = dt;
-                cbVTUT.DisplayMember = "DanhSachViTriDangTuyen";
+                txtVTUT.Text = PhieuDangTuyenBUS.LayViTriDangTuyen(IdPDT);
             }
             catch (Exception ex)
             {
@@ -84,36 +82,34 @@ namespace GUI
 
         private void btnXNNopHS_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(llbFileName.Text) && cbVTUT.SelectedItem != null && txtTenDN != null && txtTenUV != null)
+            if (!string.IsNullOrEmpty(llbFileName.Text) && txtVTUT != null && txtTenDN != null && txtTenUV != null)
             {
-                string viTriUngTuyen = cbVTUT.SelectedItem.ToString();
-                MessageBox.Show(viTriUngTuyen);
-                //try
-                //{
-                //    HoSoUngTuyenBUS.ThemHSUngTuyen(IdDoanhNghiep, IdUngVien, DateTime.Now.Date, viTriUngTuyen);
-                //    MessageBox.Show("Nộp hồ sơ thành công");
+                try
+                {
+                    HoSoUngTuyenBUS.ThemHSUngTuyen(IdDoanhNghiep, IdUngVien, DateTime.Now.Date, txtVTUT.Text);
+                    MessageBox.Show("Nộp hồ sơ thành công");
 
-                //    string userId = IdUngVien;
-                //    string baseDirectory = @"DAO\DS_CV";
-                //    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+                    string userId = IdUngVien;
+                    string baseDirectory = @"DAO\DS_CV";
+                    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
 
-                //    string targetDirectory = Path.Combine(projectDirectory, baseDirectory, userId);
-                //    if (!Directory.Exists(targetDirectory))
-                //    {
-                //        Directory.CreateDirectory(targetDirectory);
-                //    }
+                    string targetDirectory = Path.Combine(projectDirectory, baseDirectory, userId);
+                    if (!Directory.Exists(targetDirectory))
+                    {
+                        Directory.CreateDirectory(targetDirectory);
+                    }
 
-                //    int fileCount = Directory.GetFiles(targetDirectory, "*", SearchOption.TopDirectoryOnly).Length;
-                //    string newFilePath = Path.Combine(targetDirectory, $"CV{fileCount + 1}.pdf");
-                //    File.Copy(llbFileName.Tag.ToString(), newFilePath);
-                //    llbFileName.Text = Path.GetFileName(newFilePath);
+                    int fileCount = Directory.GetFiles(targetDirectory, "*", SearchOption.TopDirectoryOnly).Length;
+                    string newFilePath = Path.Combine(targetDirectory, $"CV{fileCount + 1}.pdf");
+                    File.Copy(llbFileName.Tag.ToString(), newFilePath);
+                    llbFileName.Text = Path.GetFileName(newFilePath);
 
-                //    this.Close();
-                //}
-                //catch (Exception)
-                //{
-                //    MessageBox.Show("Bạn đã nộp hồ sơ này. Vui lòng ứng tuyển hồ sơ khác");
-                //}
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Bạn đã nộp hồ sơ này. Vui lòng ứng tuyển hồ sơ khác");
+                }
             }
             else
             {

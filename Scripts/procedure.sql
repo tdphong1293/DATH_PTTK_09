@@ -257,12 +257,9 @@ CREATE OR ALTER PROCEDURE LayViTriDangTuyen
     @ID INT
 AS
 BEGIN
-    DECLARE @DanhSachViTri NVARCHAR(MAX);
-    SELECT @DanhSachViTri = COALESCE(@DanhSachViTri + ', ', '') + ViTriDangTuyen
+    SELECT ViTriDangTuyen
     FROM PHIEUDANGTUYEN
     WHERE IDPhieuDangTuyen = @ID;
-
-    SELECT @DanhSachViTri AS DanhSachViTriDangTuyen;
 END;
 GO
 
