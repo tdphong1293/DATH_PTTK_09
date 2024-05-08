@@ -87,32 +87,33 @@ namespace GUI
             if (!string.IsNullOrEmpty(llbFileName.Text) && cbVTUT.SelectedItem != null && txtTenDN != null && txtTenUV != null)
             {
                 string viTriUngTuyen = cbVTUT.SelectedItem.ToString();
-                try
-                {
-                    HoSoUngTuyenBUS.ThemHSUngTuyen(IdDoanhNghiep, IdUngVien, DateTime.Now.Date, viTriUngTuyen);
-                    MessageBox.Show("Nộp hồ sơ thành công");
+                MessageBox.Show(viTriUngTuyen);
+                //try
+                //{
+                //    HoSoUngTuyenBUS.ThemHSUngTuyen(IdDoanhNghiep, IdUngVien, DateTime.Now.Date, viTriUngTuyen);
+                //    MessageBox.Show("Nộp hồ sơ thành công");
 
-                    string userId = IdUngVien;
-                    string baseDirectory = @"DAO\DS_CV";
-                    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+                //    string userId = IdUngVien;
+                //    string baseDirectory = @"DAO\DS_CV";
+                //    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
 
-                    string targetDirectory = Path.Combine(projectDirectory, baseDirectory, userId);
-                    if (!Directory.Exists(targetDirectory))
-                    {
-                        Directory.CreateDirectory(targetDirectory);
-                    }
+                //    string targetDirectory = Path.Combine(projectDirectory, baseDirectory, userId);
+                //    if (!Directory.Exists(targetDirectory))
+                //    {
+                //        Directory.CreateDirectory(targetDirectory);
+                //    }
 
-                    int fileCount = Directory.GetFiles(targetDirectory, "*", SearchOption.TopDirectoryOnly).Length;
-                    string newFilePath = Path.Combine(targetDirectory, $"CV{fileCount + 1}.pdf");
-                    File.Copy(llbFileName.Tag.ToString(), newFilePath);
-                    llbFileName.Text = Path.GetFileName(newFilePath);
+                //    int fileCount = Directory.GetFiles(targetDirectory, "*", SearchOption.TopDirectoryOnly).Length;
+                //    string newFilePath = Path.Combine(targetDirectory, $"CV{fileCount + 1}.pdf");
+                //    File.Copy(llbFileName.Tag.ToString(), newFilePath);
+                //    llbFileName.Text = Path.GetFileName(newFilePath);
 
-                    this.Close();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Bạn đã nộp hồ sơ này. Vui lòng ứng tuyển hồ sơ khác");
-                }
+                //    this.Close();
+                //}
+                //catch (Exception)
+                //{
+                //    MessageBox.Show("Bạn đã nộp hồ sơ này. Vui lòng ứng tuyển hồ sơ khác");
+                //}
             }
             else
             {

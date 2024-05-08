@@ -44,5 +44,34 @@ namespace DAO
                 return null;
             }
         }
+
+        public static int ThemBangCap(BangCapDTO bc)
+        {
+            try
+            {
+                int IDBangCap = 0;
+                using (SqlCommand cmd = new SqlCommand("ThemBangCap", conn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@tenbang", bc.TenBang);
+                    cmd.Parameters.AddWithValue("@capbac", bc.CapBac);
+                    cmd.Parameters.AddWithValue("@ngaycap", bc.Ngaycap);
+                    cmd.Parameters.AddWithValue("@dvcap", bc.DonViCap);
+                    cmd.Parameters.AddWithValue("@idungvien", bc.IDUngVien);
+
+                    SqlParameter paramID = new SqlParameter("@idbangcap", SqlDbType.Int);
+                    paramID.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(paramID);
+                    cmd.ExecuteNonQuery();
+                    IDBangCap = Convert.ToInt32(paramID.Value);
+                }
+                return IDBangCap;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return -1;
+            }
+        }
     }
 }

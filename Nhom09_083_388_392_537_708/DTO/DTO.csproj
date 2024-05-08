@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BangCapDTO.cs" />
     <Compile Include="DatabaseProvider.cs" />
     <Compile Include="DoanhNghiep.cs" />
     <Compile Include="LoggedUser.cs" />

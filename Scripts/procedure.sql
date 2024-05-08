@@ -373,7 +373,7 @@ as
 begin
 	if @tendn = ''
 	begin
-		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.IDUngVien, hsut.IDDoanhNghiep
+		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.DiemDanhGia, hsut.IDUngVien, hsut.IDDoanhNghiep
 		from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn
 		where hsut.IDDoanhNghiep = tv_dn.IDThanhVien and
 			hsut.IDUngVien = tv_uv.IDThanhVien and
@@ -381,7 +381,7 @@ begin
 	end
 	else
 	begin
-		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.IDUngVien, hsut.IDDoanhNghiep
+		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.DiemDanhGia, hsut.IDUngVien, hsut.IDDoanhNghiep
 		from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn
 		where hsut.IDDoanhNghiep = tv_dn.IDThanhVien and
 			hsut.IDUngVien = tv_uv.IDThanhVien and
@@ -396,7 +396,7 @@ as
 begin
 	if @tendn = ''
 	begin
-		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.IDUngVien, hsut.IDDoanhNghiep
+		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.DiemDanhGia, hsut.IDUngVien, hsut.IDDoanhNghiep
 		from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn
 		where hsut.IDDoanhNghiep = tv_dn.IDThanhVien and
 			hsut.IDUngVien = tv_uv.IDThanhVien and
@@ -404,7 +404,7 @@ begin
 	end
 	else
 	begin
-		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.IDUngVien, hsut.IDDoanhNghiep
+		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.DiemDanhGia, hsut.IDUngVien, hsut.IDDoanhNghiep
 		from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn
 		where hsut.IDDoanhNghiep = tv_dn.IDThanhVien and
 			hsut.IDUngVien = tv_uv.IDThanhVien and
@@ -412,3 +412,32 @@ begin
 			UPPER(tv_dn.Ten) LIKE UPPER('%' + @tendn + '%')
 	end
 end;
+go
+
+create or alter procedure ThemBangCap @tenbang NVARCHAR(100), @capbac VARCHAR(50), @ngaycap DATE, @dvcap NVARCHAR(100), @idungvien int, @idbangcap int output
+as
+begin
+	SET NOCOUNT ON;
+    INSERT INTO BANGCAP(TenBang, CapBac, NgayCap, DonViCap, IDUngVien)
+    VALUES (@tenbang, @capbac, @ngaycap, @dvcap, @idungvien);
+	SET @idbangcap = SCOPE_IDENTITY();
+end
+go
+
+create or alter procedure DuyetHSUTChoDuyet @IDUngVien int, @IDDoanhNghiep int, @diem int, @kq varchar(10)
+as
+begin
+	if @kq = 'succeed'
+	begin
+		update HOSOUNGTUYEN 
+		set TinhTrangUngTuyen = N'Đang xử lý', DiemDanhGia = @diem 
+		where IDDoanhNghiep = @IDDoanhNghiep and IDUngVien = @IDUngVien		
+	end
+	else
+	begin
+		update HOSOUNGTUYEN 
+		set TinhTrangUngTuyen = N'Chưa đủ điều kiện', DiemDanhGia = @diem 
+		where IDDoanhNghiep = @IDDoanhNghiep and IDUngVien = @IDUngVien		
+	end
+end;
+go
