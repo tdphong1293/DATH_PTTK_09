@@ -216,6 +216,7 @@ namespace GUI
                     btnThanhToan.Visible = false;
                     btnGiaHanHD.Visible = false;
                     btnLogout.Visible = true;
+                    ActivateButton(btnXemPDT);
                     frmXemPhieuDangTuyen pdt = new frmXemPhieuDangTuyen(id, role);
                     pdt.TopLevel = false;
                     pdt.FormBorderStyle = FormBorderStyle.None;

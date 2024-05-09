@@ -475,3 +475,22 @@ begin
 	from PHIEUQUANGCAO
 	where IDPhieuQuangCao = @IDPhieuQC
 end
+go
+
+create or alter procedure DocTTHoaDon @IDPhieuDT int
+as
+begin
+	select * 
+	from HOADON
+	where IDPhieuDangTuyen = @IDPhieuDT
+end;
+go
+
+create or alter procedure DocTTHoaDon @IDPhieuDT int
+as
+begin
+	select * 
+	from HOADON
+	where IDPhieuDangTuyen = @IDPhieuDT
+end;
+go
