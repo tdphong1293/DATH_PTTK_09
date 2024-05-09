@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace GUI
 {
@@ -12,8 +13,8 @@ namespace GUI
     {
         public static SqlConnection con = frmDangNhap.conn;
         private string id;
-        private int idUngVien;
-        private int idDoanhNghiep;
+        private int idUngVien = 0;
+        private int idDoanhNghiep = 0;
         public frmDuyetHSUngTuyen(int idDoanhNghiep)
         {
             InitializeComponent();
@@ -22,81 +23,107 @@ namespace GUI
         }
         public void HienThi(int idDoanhNghiep)
         {
-            // Gọi phương thức DocDSHSSUngTuyenTheoDoanhNghiep để lấy DataTable chứa dữ liệu
-            DataTable dataTable = HoSoUngTuyenBUS.LayDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep); // Giả sử idDoanhNghiep đã được xác định trước
-
-            // Gán DataTable vào DataGridView
-            dgv_hosoungtuyen.DataSource = dataTable;
+            DataTable dataTable = HoSoUngTuyenBUS.LayDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep);
+            dgv_HoSo_UngTuyen.DataSource = dataTable;
         }
         private void btn_OpenFileCV_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Select a file to upload";
+            openFileDialog.Title = "Select a file to open";
             openFileDialog.Filter = "All files (.)|*.*";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            string baseDirectory = "";
+            if (this.idUngVien != 0)
             {
-                string selectedFilePath = openFileDialog.FileName;
-                //llbFileName.Text = Path.GetFileName(selectedFilePath);
-                string uploadFolderPath = Path.Combine(Application.StartupPath, "Upload");
-                if (!Directory.Exists(uploadFolderPath))
+                baseDirectory = @"DAO\DS_CV\" + this.idUngVien.ToString();
+                string FolderPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, baseDirectory);
+                openFileDialog.InitialDirectory = FolderPath;
+                if (!Directory.Exists(FolderPath))
                 {
-                    Directory.CreateDirectory(uploadFolderPath);
-                }
-                //string destinationFilePath = Path.Combine(uploadFolderPath, llbFileName.Text);
-                //File.Copy(selectedFilePath, destinationFilePath, true);
-            }
-        }
-        private void btn_timkiem_Click(object sender, EventArgs e)
-        {
-            string name = tb_tenuv.Text.ToString();
-            dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv_hosoungtuyen.DataSource = HoSoUngTuyenBUS.LayHoSoUT_TheoTenUV(this.idDoanhNghiep, name);
-        }
-        private void dgv_hosoungtuyen_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.RowIndex < this.dgv_hosoungtuyen.Rows.Count) // Make sure user select at least 1 row 
-            {
-                DataGridViewRow row = this.dgv_hosoungtuyen.Rows[e.RowIndex];
-                this.idUngVien = Convert.ToInt32(row.Cells["IDUngVien"].Value);
-                DataTable dataTable = UngVienBUS.LayTTUngVienDHSUT(this.idUngVien);
-                if (dataTable.Rows.Count > 0)
-                {
-                    DataRow rows = dataTable.Rows[0];
-
-                    tb_HoTen.Text = rows["ten"].ToString();
-                    tb_Email.Text = rows["email"].ToString();
-
-                    DateTime ngaySinh;
-                    if (DateTime.TryParse(rows["ngaysinh"].ToString(), out ngaySinh))
-                    {
-                        tb_NgaySinh.Text = ngaySinh.ToString("dd/MM/yyyy");
-                    }
-                    else
-                        tb_NgaySinh.Text = "Không có thông tin";
-                }
-                tb_TinhTrangHoSo.Text = row.Cells["TinhTrangUngTuyen"].Value.ToString();
-                if (tb_TinhTrangHoSo.Text == "Đủ điều kiện")
-                {
-                    tb_TinhTrangHoSo.BackColor = Color.YellowGreen;
-                }
-                else if (tb_TinhTrangHoSo.Text == "Chưa đủ điều kiện")
-                {
-                    tb_TinhTrangHoSo.BackColor = Color.LightCoral;
+                    MessageBox.Show("Chưa có CV của ứng viên");
                 }
                 else
                 {
-                    tb_TinhTrangHoSo.BackColor = Color.White;
+                    openFileDialog.ShowDialog();
                 }
-                DateTime date_ut = DateTime.Parse(row.Cells["NgayUngTuyen"].Value.ToString());
-                ////MessageBox.Show(date_ut.ToString("dd/MM/yyyy"));
-                tb_NgayUngTuyen.Text = date_ut.ToString("dd/MM/yyyy");
-                tb_ViTriUngTuyen.Text = row.Cells["ViTriUngTuyen"].Value.ToString();
-                tb_DiemDanhGia.Text = row.Cells["DiemDanhGia"].Value.ToString();
-
-                dgv_BangCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dgv_BangCap.DataSource = BangCapBUS.LayDSBangCapTheoUngVien(this.idUngVien);
             }
+            else
+                MessageBox.Show("Chưa chọn hồ sơ ứng tuyển!");
+        }
+
+        private void btn_TimKiemTenUV_Click(object sender, EventArgs e)
+        {
+            string name = txt_TenUngVien.Text.ToString();
+            dgv_HoSo_UngTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv_HoSo_UngTuyen.DataSource = UngVienBUS.LayTTUV_TheoHSUT(this.idDoanhNghiep, name);
+        }
+        private void dgv_HoSo_UngTuyen_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0 && e.RowIndex < this.dgv_HoSo_UngTuyen.Rows.Count) // Make sure user select at least 1 row 
+                {
+                    btn_Duyet.Enabled = true;
+                    btn_Loai.Enabled = true;
+                    btn_OpenFileCV.Enabled = true;
+
+                    DataGridViewRow row = this.dgv_HoSo_UngTuyen.Rows[e.RowIndex];
+                    this.idUngVien = Convert.ToInt32(row.Cells["IDUngVien"].Value);
+
+                    DataTable dataTable = UngVienBUS.LayTTUngVienHSUT(this.idUngVien);
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        DataRow rows = dataTable.Rows[0];
+
+                        txt_HoTenUV.Text = rows["ten"].ToString() ?? string.Empty; ;
+                        txt_EmailUV.Text = rows["email"].ToString() ?? string.Empty; ;
+
+                        DateTime ngaySinh;
+                        if (DateTime.TryParse(rows["ngaysinh"].ToString(), out ngaySinh))
+                        {
+                            txt_NgaySinhUV.Text = ngaySinh.ToString("dd/MM/yyyy") ?? string.Empty;
+                        }
+                        else
+                            txt_NgaySinhUV.Text = "";
+                    }
+
+                    txt_TinhTrangHS.Text = row.Cells["TinhTrangUngTuyen"].Value.ToString() ?? string.Empty;
+                    if (txt_TinhTrangHS.Text == "Đủ điều kiện")
+                    {
+                        txt_TinhTrangHS.BackColor = Color.PaleGreen;
+                    }
+                    else if (txt_TinhTrangHS.Text == "Chưa đủ điều kiện")
+                    {
+                        txt_TinhTrangHS.BackColor = Color.LightSalmon;
+                    }
+                    else if (txt_TinhTrangHS.Text == "Đang xử lý")
+                    {
+                        txt_TinhTrangHS.BackColor = Color.Yellow;
+                    }
+                    else
+                    {
+                        txt_TinhTrangHS.BackColor = Color.LightGray;
+                    }
+
+                    DateTime date_ut = DateTime.Parse(row.Cells["NgayUngTuyen"].Value.ToString());
+                    txt_NgayUngTuyen.Text = date_ut.ToString("dd/MM/yyyy")?? string.Empty;
+                    txt_ViTriUngTuyen.Text = row.Cells["ViTriUngTuyen"].Value.ToString() ?? string.Empty; ;
+                    txt_DiemDanhGia.Text = row.Cells["DiemDanhGia"].Value.ToString() ?? string.Empty; ;
+
+                    dgv_BangCapUV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dgv_BangCapUV.DataSource = BangCapBUS.LayDSBangCapTheoUngVien(this.idUngVien);
+                }
+            }
+            catch
+            {
+                if (txt_HoTenUV.Text == "")
+                {
+                    btn_Duyet.Enabled = false;
+                    btn_Loai.Enabled = false;
+                    btn_OpenFileCV.Enabled = false;
+                }
+                MessageBox.Show("Không thể chọn!");
+            } 
+
         }
 
         private void btn_Duyet_Click(object sender, EventArgs e)
@@ -107,15 +134,12 @@ namespace GUI
             {
                 // Hiển thị thông báo và cập nhật trạng thái
                 ThongBao("Đã duyệt thành công!");
-                tb_TinhTrangHoSo.Text = "Đủ điều kiện";
-                tb_TinhTrangHoSo.BackColor = Color.YellowGreen;
+                txt_TinhTrangHS.Text = "Đủ điều kiện";
+                txt_TinhTrangHS.BackColor = Color.PaleGreen; 
 
                 // Cập nhật DataGridView
-                dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                dgv_hosoungtuyen.DataSource = HoSoUngTuyenBUS.LayDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep);
-
-                dgv_BangCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dgv_BangCap.DataSource = BangCapBUS.LayDSBangCapTheoUngVien(this.idUngVien);
+                dgv_HoSo_UngTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgv_HoSo_UngTuyen.DataSource = HoSoUngTuyenBUS.LayDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep);
             }
             else
             {
@@ -139,15 +163,12 @@ namespace GUI
             {
                 // Hiển thị thông báo và cập nhật trạng thái
                 ThongBao("Đã loại thành công!");
-                tb_TinhTrangHoSo.Text = "Chưa đủ điều kiện";
-                tb_TinhTrangHoSo.BackColor = Color.LightCoral;
+                txt_TinhTrangHS.Text = "Chưa đủ điều kiện";
+                txt_TinhTrangHS.BackColor = Color.LightSalmon;
 
                 // Cập nhật DataGridView
-                dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                dgv_hosoungtuyen.DataSource = HoSoUngTuyenBUS.LayDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep);
-
-                dgv_BangCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dgv_BangCap.DataSource = BangCapBUS.LayDSBangCapTheoUngVien(this.idUngVien);
+                dgv_HoSo_UngTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgv_HoSo_UngTuyen.DataSource = HoSoUngTuyenBUS.LayDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep);
             }
             else
             {
@@ -156,16 +177,17 @@ namespace GUI
             }
         }
 
-        private void btn_sapxep_Click(object sender, EventArgs e)
+        private void btn_SapXep_Click(object sender, EventArgs e)
         {
-            dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv_hosoungtuyen.DataSource = HoSoUngTuyenBUS.LayDSHoSoUT_SapXep_DiemDanhGia(this.idDoanhNghiep);
+            dgv_HoSo_UngTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv_HoSo_UngTuyen.DataSource = HoSoUngTuyenBUS.LayDSHoSoUT_SapXep_DiemDanhGia(this.idDoanhNghiep);
         }
 
-        private void btn_refresh_Click(object sender, EventArgs e)
+        private void btn_Refresh_Click(object sender, EventArgs e)
         {
-            dgv_hosoungtuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv_hosoungtuyen.DataSource = HoSoUngTuyenBUS.LayDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep);
+            dgv_HoSo_UngTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv_HoSo_UngTuyen.DataSource = HoSoUngTuyenBUS.LayDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep);
+
         }
     }
 }

@@ -38,6 +38,7 @@
             this.tb_CapBac = new System.Windows.Forms.TextBox();
             this.tb_DonViCap = new System.Windows.Forms.TextBox();
             this.btn_XacNhan = new System.Windows.Forms.Button();
+            this.btn_QuayLai = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lb_TenBang
@@ -120,7 +121,7 @@
             this.btn_XacNhan.BackColor = System.Drawing.Color.SlateBlue;
             this.btn_XacNhan.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_XacNhan.ForeColor = System.Drawing.Color.White;
-            this.btn_XacNhan.Location = new System.Drawing.Point(144, 259);
+            this.btn_XacNhan.Location = new System.Drawing.Point(78, 269);
             this.btn_XacNhan.Name = "btn_XacNhan";
             this.btn_XacNhan.Size = new System.Drawing.Size(117, 44);
             this.btn_XacNhan.TabIndex = 9;
@@ -128,11 +129,25 @@
             this.btn_XacNhan.UseVisualStyleBackColor = false;
             this.btn_XacNhan.Click += new System.EventHandler(this.btn_XacNhan_Click);
             // 
-            // THEMBANGCAP
+            // btn_QuayLai
+            // 
+            this.btn_QuayLai.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_QuayLai.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_QuayLai.ForeColor = System.Drawing.Color.Black;
+            this.btn_QuayLai.Location = new System.Drawing.Point(210, 269);
+            this.btn_QuayLai.Name = "btn_QuayLai";
+            this.btn_QuayLai.Size = new System.Drawing.Size(117, 44);
+            this.btn_QuayLai.TabIndex = 10;
+            this.btn_QuayLai.Text = "Quay lại";
+            this.btn_QuayLai.UseVisualStyleBackColor = false;
+            this.btn_QuayLai.Click += new System.EventHandler(this.btn_QuayLai_Click);
+            // 
+            // frmThemBangCap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 339);
+            this.Controls.Add(this.btn_QuayLai);
             this.Controls.Add(this.btn_XacNhan);
             this.Controls.Add(this.tb_DonViCap);
             this.Controls.Add(this.tb_CapBac);
@@ -145,7 +160,7 @@
             this.Controls.Add(this.lb_TenBang);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "THEMBANGCAP";
+            this.Name = "frmThemBangCap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "THEMBANGCAP";
             this.ResumeLayout(false);
@@ -165,5 +180,6 @@
         private System.Windows.Forms.TextBox tb_CapBac;
         private System.Windows.Forms.TextBox tb_DonViCap;
         private System.Windows.Forms.Button btn_XacNhan;
+        private System.Windows.Forms.Button btn_QuayLai;
     }
 }

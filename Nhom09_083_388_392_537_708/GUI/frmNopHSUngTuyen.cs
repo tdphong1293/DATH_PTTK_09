@@ -10,7 +10,7 @@ namespace GUI
 {
     public partial class frmNopHSUngTuyen : Form
     {
-        public static SqlConnection con = frmDangNhap.conn;
+        public static SqlConnection conn = DatabaseProvider.GetConnection();
         public string IdUngVien = "";
         public string IdDoanhNghiep = "";
         public string IdPDT = "";
@@ -39,9 +39,7 @@ namespace GUI
         {
             try
             {
-                DataTable dt = PhieuDangTuyenBUS.LayViTriDangTuyen(IdPDT);
-                cbVTUT.DataSource = dt;
-                cbVTUT.DisplayMember = "DanhSachViTriDangTuyen";
+                txtVTUT.Text = PhieuDangTuyenBUS.LayViTriDangTuyen(IdPDT);
             }
             catch (Exception ex)
             {
@@ -72,32 +70,30 @@ namespace GUI
                 string selectedFilePath = openFileDialog.FileName;
                 if (Path.GetExtension(selectedFilePath).ToLower() == ".pdf")
                 {
-                    // Store the full path in the Tag property
                     llbFileName.Tag = selectedFilePath;
-                    // Display only the file name
                     llbFileName.Text = Path.GetFileName(selectedFilePath);
                 }
                 else
                 {
-                    MessageBox.Show("Please select a PDF file.");
+                    MessageBox.Show("Vui lòng chọn file định dạng PDF");
                 }
             }
         }
 
         private void btnXNNopHS_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(llbFileName.Text) && cbVTUT.SelectedItem != null)
+            if (!string.IsNullOrEmpty(llbFileName.Text) && txtVTUT != null && txtTenDN != null && txtTenUV != null)
             {
-                string viTriUngTuyen = cbVTUT.SelectedItem.ToString();
                 try
                 {
-                    HoSoUngTuyenBUS.ThemHSUngTuyen(IdDoanhNghiep, IdUngVien, DateTime.Now.Date, viTriUngTuyen);
+                    HoSoUngTuyenBUS.ThemHSUngTuyen(IdDoanhNghiep, IdUngVien, DateTime.Now.Date, txtVTUT.Text);
                     MessageBox.Show("Nộp hồ sơ thành công");
 
                     string userId = IdUngVien;
-                    string baseDirectory = @"DATH_PTTK_09\Nhom09_083_388_392_537_708\DAO\DS_CV";
-                    string targetDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), baseDirectory, userId);
+                    string baseDirectory = @"DAO\DS_CV";
+                    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
 
+                    string targetDirectory = Path.Combine(projectDirectory, baseDirectory, userId);
                     if (!Directory.Exists(targetDirectory))
                     {
                         Directory.CreateDirectory(targetDirectory);
@@ -110,9 +106,9 @@ namespace GUI
 
                     this.Close();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show("Lỗi khi nộp hồ sơ: " + ex.Message);
+                    MessageBox.Show("Bạn đã nộp hồ sơ này. Vui lòng ứng tuyển hồ sơ khác");
                 }
             }
             else

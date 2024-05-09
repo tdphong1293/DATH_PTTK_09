@@ -101,8 +101,15 @@ namespace GUI
 
         private void btnNopHSUT_Click(object sender, EventArgs e)
         {
-            frmNopHSUngTuyen NopHSUT = new frmNopHSUngTuyen(UserId, IdPDT);
-            NopHSUT.ShowDialog();
+            if (!string.IsNullOrEmpty(UserId) && !string.IsNullOrEmpty(IdPDT))
+            {
+                frmNopHSUngTuyen NopHSUT = new frmNopHSUngTuyen(UserId, IdPDT);
+                NopHSUT.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn vào phiếu đăng tuyển để nộp hồ sơ");
+            }
         }
 
         private void btnXoaPDT_Click(object sender, EventArgs e)
@@ -125,21 +132,10 @@ namespace GUI
             {
                 string tenCty = txtTimTenCty.Text;
                 string viTri = txtTimVTDT.Text;
+                string idDN = UserRole == "DOANHNGHIEP" ? UserId : null;
 
-                DataSet resultDataSet;
-                if (UserRole == "DOANHNGHIEP")
-                {
-                    resultDataSet = PhieuDangTuyenBUS.GetDataSetFromStoredProcedure("TimKiemPhieuDangTuyen",
-                        new SqlParameter("@Ten", tenCty),
-                        new SqlParameter("@ViTri", viTri),
-                        new SqlParameter("@ID", UserId));
-                }
-                else
-                {
-                    resultDataSet = PhieuDangTuyenBUS.GetDataSetFromStoredProcedure("TimKiemPhieuDangTuyen",
-                        new SqlParameter("@Ten", tenCty),
-                        new SqlParameter("@ViTri", viTri));
-                }
+                DataSet resultDataSet = PhieuDangTuyenBUS.SearchPhieuDangTuyen(tenCty, viTri, idDN);
+
                 dgv_DSDangTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgv_DSDangTuyen.DataSource = resultDataSet.Tables[0];
                 dgv_DSDangTuyen.Columns[0].Visible = false;

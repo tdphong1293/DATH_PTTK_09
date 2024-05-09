@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtgv_HSChoDuyet = new System.Windows.Forms.DataGridView();
             this.lb_HoTen = new System.Windows.Forms.Label();
             this.lb_NgaySinh = new System.Windows.Forms.Label();
@@ -79,11 +80,14 @@
             // 
             this.dtgv_HSChoDuyet.AllowUserToAddRows = false;
             this.dtgv_HSChoDuyet.AllowUserToDeleteRows = false;
+            this.dtgv_HSChoDuyet.AllowUserToOrderColumns = true;
             this.dtgv_HSChoDuyet.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_HSChoDuyet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_HSChoDuyet.Location = new System.Drawing.Point(15, 74);
             this.dtgv_HSChoDuyet.Name = "dtgv_HSChoDuyet";
             this.dtgv_HSChoDuyet.ReadOnly = true;
+            this.dtgv_HSChoDuyet.RowHeadersVisible = false;
+            this.dtgv_HSChoDuyet.RowHeadersWidth = 51;
             this.dtgv_HSChoDuyet.Size = new System.Drawing.Size(469, 180);
             this.dtgv_HSChoDuyet.TabIndex = 0;
             this.dtgv_HSChoDuyet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_HSChoDuyet_CellClick);
@@ -154,11 +158,11 @@
             // lb_DiemDanhGia
             // 
             this.lb_DiemDanhGia.AutoSize = true;
-            this.lb_DiemDanhGia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_DiemDanhGia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_DiemDanhGia.ForeColor = System.Drawing.Color.Red;
-            this.lb_DiemDanhGia.Location = new System.Drawing.Point(221, 350);
+            this.lb_DiemDanhGia.Location = new System.Drawing.Point(218, 350);
             this.lb_DiemDanhGia.Name = "lb_DiemDanhGia";
-            this.lb_DiemDanhGia.Size = new System.Drawing.Size(114, 20);
+            this.lb_DiemDanhGia.Size = new System.Drawing.Size(126, 21);
             this.lb_DiemDanhGia.TabIndex = 8;
             this.lb_DiemDanhGia.Text = "Điểm đánh giá:";
             // 
@@ -244,7 +248,7 @@
             // 
             this.lb_OutOf10.AutoSize = true;
             this.lb_OutOf10.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_OutOf10.Location = new System.Drawing.Point(367, 350);
+            this.lb_OutOf10.Location = new System.Drawing.Point(371, 353);
             this.lb_OutOf10.Name = "lb_OutOf10";
             this.lb_OutOf10.Size = new System.Drawing.Size(29, 20);
             this.lb_OutOf10.TabIndex = 24;
@@ -299,11 +303,22 @@
             // 
             this.dtgv_BangCap.AllowUserToAddRows = false;
             this.dtgv_BangCap.AllowUserToDeleteRows = false;
+            this.dtgv_BangCap.AllowUserToOrderColumns = true;
             this.dtgv_BangCap.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_BangCap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_BangCap.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtgv_BangCap.Location = new System.Drawing.Point(12, 45);
             this.dtgv_BangCap.Name = "dtgv_BangCap";
             this.dtgv_BangCap.ReadOnly = true;
+            this.dtgv_BangCap.RowHeadersVisible = false;
+            this.dtgv_BangCap.RowHeadersWidth = 51;
             this.dtgv_BangCap.Size = new System.Drawing.Size(370, 96);
             this.dtgv_BangCap.TabIndex = 24;
             // 
@@ -331,11 +346,12 @@
             // tb_DiemDanhGia
             // 
             this.tb_DiemDanhGia.Enabled = false;
-            this.tb_DiemDanhGia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_DiemDanhGia.Location = new System.Drawing.Point(341, 347);
+            this.tb_DiemDanhGia.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_DiemDanhGia.Location = new System.Drawing.Point(341, 350);
             this.tb_DiemDanhGia.Name = "tb_DiemDanhGia";
             this.tb_DiemDanhGia.Size = new System.Drawing.Size(27, 27);
             this.tb_DiemDanhGia.TabIndex = 18;
+            this.tb_DiemDanhGia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tb_ViTriUngTuyen
             // 
@@ -379,6 +395,7 @@
             this.btn_Loai.TabIndex = 12;
             this.btn_Loai.Text = "LOẠI";
             this.btn_Loai.UseVisualStyleBackColor = true;
+            this.btn_Loai.Click += new System.EventHandler(this.btn_Loai_Click);
             // 
             // btn_Duyet
             // 
@@ -442,11 +459,14 @@
             // 
             this.dtgv_HSDaDuyet.AllowUserToAddRows = false;
             this.dtgv_HSDaDuyet.AllowUserToDeleteRows = false;
+            this.dtgv_HSDaDuyet.AllowUserToOrderColumns = true;
             this.dtgv_HSDaDuyet.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_HSDaDuyet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_HSDaDuyet.Location = new System.Drawing.Point(15, 74);
             this.dtgv_HSDaDuyet.Name = "dtgv_HSDaDuyet";
             this.dtgv_HSDaDuyet.ReadOnly = true;
+            this.dtgv_HSDaDuyet.RowHeadersVisible = false;
+            this.dtgv_HSDaDuyet.RowHeadersWidth = 51;
             this.dtgv_HSDaDuyet.Size = new System.Drawing.Size(469, 180);
             this.dtgv_HSDaDuyet.TabIndex = 0;
             this.dtgv_HSDaDuyet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_HSDaDuyet_CellClick);
@@ -470,7 +490,7 @@
             this.lb_TimKiemDoanhNghiep2.TabIndex = 21;
             this.lb_TimKiemDoanhNghiep2.Text = "Tìm tên doanh nghiệp:";
             // 
-            // XULYHOSOUNGTUYEN
+            // frmXuLyHSUngTuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -481,7 +501,7 @@
             this.Controls.Add(this.btn_Loai);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnl_TTCaNhan);
-            this.Name = "XULYHOSOUNGTUYEN";
+            this.Name = "frmXuLyHSUngTuyen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "XỬ LÝ HỒ SƠ ỨNG TUYỂN";
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_HSChoDuyet)).EndInit();

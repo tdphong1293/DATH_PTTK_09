@@ -35,13 +35,17 @@ namespace BUS
         {
             return PhieuDangTuyenDAO.Lay_IdDN_Tu_IdPDT(idPDT);
         }
-        public static DataTable LayViTriDangTuyen(string IdPDT)
+        public static string LayViTriDangTuyen(string IdPDT)
         {
             return PhieuDangTuyenDAO.LayViTriDangTuyen(IdPDT);
         }
         public static int ThemPDT(PhieuDangTuyenDTO pdt, int IDPQC)
         {
             return PhieuDangTuyenDAO.ThemPDT(pdt, IDPQC);
+        }
+        public static DataSet SearchPhieuDangTuyen(string tenCty, string viTri, string idDN = null)
+        {
+            return PhieuDangTuyenDAO.SearchPhieuDangTuyen(tenCty, viTri, idDN);
         }
     }
 }

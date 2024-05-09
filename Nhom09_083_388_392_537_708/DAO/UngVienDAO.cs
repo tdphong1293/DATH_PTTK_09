@@ -91,5 +91,39 @@ namespace DAO
             adapter.Fill(data_uv);
             return data_uv;
         }
+
+        public static DataTable DocTTUV_TheoHSUT(int idDoanhNghiep, string tenUV)
+        {
+            string query = $"SELECT hsut.idungvien as IDUngVien, tv.ten as HoTen, hsut.ngayungtuyen as NgayUngTuyen, hsut.vitriungtuyen as ViTriUngTuyen, hsut.diemdanhgia as DiemDanhGia , hsut.tinhtrangungtuyen as TinhTrangUngTuyen FROM HOSOUNGTUYEN hsut, THANHVIEN tv " +
+                $"where hsut.idungvien = tv.idthanhvien and tv.ten like '%{tenUV}%' and hsut.iddoanhnghiep = {idDoanhNghiep}";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable data_hsut_theoten = new DataTable();
+            adapter.Fill(data_hsut_theoten);
+            return data_hsut_theoten;
+        }
+
+        public static DataTable DocEmailNgSinh_UV(int IDUngVien)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("LayEmailNgSinh_UV", conn))
+                {
+                    DataTable dataTable = new DataTable();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IDUngVien", IDUngVien));
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(reader);
+                    }
+                    return dataTable;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
     }
 }

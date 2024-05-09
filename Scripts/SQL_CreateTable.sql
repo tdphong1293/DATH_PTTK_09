@@ -1,4 +1,4 @@
-﻿DROP DATABASE PTTK_ABC;
+﻿--DROP DATABASE PTTK_ABC;
 
 CREATE DATABASE PTTK_ABC;
 GO
@@ -52,7 +52,7 @@ CREATE TABLE HOADON (
   LoaiHinhThanhToan NVARCHAR(50) CHECK (LoaiHinhThanhToan IN(N'Toàn bộ', N'Theo đợt')),
   NgayLap DATE,
   TrangThaiHoanThanh NVARCHAR(50) CHECK (TrangThaiHoanThanh IN(N'Chưa hoàn thành', N'Đã hoàn thành')),
-  IDDoanhNghiep INT,
+  IDPhieuDangTuyen INT,
   PRIMARY KEY (IDHoaDon)
 );
 
@@ -73,18 +73,6 @@ CREATE TABLE HOSOUNGTUYEN (
   TinhTrangUngTuyen NVARCHAR(50) CHECK (TinhTrangUngTuyen IN (N'Chưa đủ điều kiện', N'Đang xử lý', N'Đủ điều kiện') or TinhTrangUngTuyen is NULL),
   ViTriUngTuyen NVARCHAR(50),
   DiemDanhGia INT CHECK (DiemDanhGia IN(1,2,3,4,5,6,7,8,9,10))
-        private void btnBrowse_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Select a file to upload";
-            openFileDialog.Filter = "All files (*.*)|*.*";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string selectedFilePath = openFileDialog.FileName;
-                llbFileName.Text = Path.GetFileName(selectedFilePath);
-            }
-        }
 );
 
 CREATE TABLE PHIEUDANGTUYEN (
@@ -126,7 +114,7 @@ ALTER TABLE THANHTOAN ADD
   CONSTRAINT FK_THANHTOAN_NHANVIEN FOREIGN KEY (IDNhanVien) REFERENCES NHANVIEN(IDNhanVien);
 
 ALTER TABLE HOADON ADD 
-  CONSTRAINT FK_HOADON_DOANHNGHIEP FOREIGN KEY (IDDoanhNghiep) REFERENCES DOANHNGHIEP(IDDoanhNghiep);
+  CONSTRAINT FK_HOADON_PHIEUDANGTUYEN FOREIGN KEY (IDPhieuDangTuyen) REFERENCES PHIEUDANGTUYEN(IDPhieuDangTuyen);
 
 ALTER TABLE BANGCAP ADD 
   CONSTRAINT FK_BANGCAP_UNGVIEN FOREIGN KEY (IDUngVien) REFERENCES UNGVIEN(IDUngVien);
