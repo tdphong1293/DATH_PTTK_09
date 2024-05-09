@@ -10,9 +10,9 @@ namespace BUS
 {
     public class HoaDonBUS
     {
-        public static int ThemHD (double Tongtien, string lhtt, int iddn)
+        public static int ThemHD (double Tongtien, string lhtt, int idpdt)
         {
-            return HoaDonDAO.ThemHD(Tongtien, lhtt, iddn);
+            return HoaDonDAO.ThemHD(Tongtien, lhtt, idpdt);
         }
     }
 }

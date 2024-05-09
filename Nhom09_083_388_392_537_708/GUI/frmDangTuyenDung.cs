@@ -86,7 +86,7 @@ namespace GUI
                 PhieuDangTuyenDTO pdt = new PhieuDangTuyenDTO(tbxVTTD.Text, int.Parse(tbxSLTD.Text), int.Parse(this.id));
                 IDPDT = PhieuDangTuyenBUS.ThemPDT(pdt, IDPhieuQuangCao);
                 YeuCauCVBUS.ThemYC(tbxMoTa.Text, IDPDT);
-                IDHD = HoaDonBUS.ThemHD(double.Parse(tbxTongTien.Text), cbxLHTT.SelectedItem.ToString(), int.Parse(this.id));
+                IDHD = HoaDonBUS.ThemHD(double.Parse(tbxTongTien.Text), cbxLHTT.SelectedItem.ToString(), IDPDT);
                 if (cbxLHTT.SelectedItem.ToString() == "Theo đợt")
                 {
                     ThanhToanBUS.ThemTT(cbxHTTT.SelectedItem.ToString(), pqc.TongTienQC * 0.3, 1, IDHD);

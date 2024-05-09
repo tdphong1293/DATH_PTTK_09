@@ -66,13 +66,13 @@ CREATE OR ALTER PROCEDURE ThemHD
     @lhtt NVARCHAR(50),
     @ngaylap DATE,
     @ttht NVARCHAR(50),
-    @iddn INT,
+    @idpdt INT,
 	@idhd INT OUTPUT
 AS
 BEGIN
 	SET NOCOUNT ON;
-    INSERT INTO HOADON (TongTien, DaTra, LoaiHinhThanhToan, NgayLap, TrangThaiHoanThanh, IDDoanhNghiep)
-    VALUES (@tongtien, @datra, @lhtt, @ngaylap, @ttht, @iddn);
+    INSERT INTO HOADON (TongTien, DaTra, LoaiHinhThanhToan, NgayLap, TrangThaiHoanThanh, IDPhieuDangTuyen)
+    VALUES (@tongtien, @datra, @lhtt, @ngaylap, @ttht, @idpdt);
 	SET @idhd = SCOPE_IDENTITY();
 END
 GO
