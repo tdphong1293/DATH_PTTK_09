@@ -110,11 +110,13 @@
             // 
             // cb_PhieuDangTuyen
             // 
+            this.cb_PhieuDangTuyen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_PhieuDangTuyen.FormattingEnabled = true;
             this.cb_PhieuDangTuyen.Location = new System.Drawing.Point(219, 106);
             this.cb_PhieuDangTuyen.Name = "cb_PhieuDangTuyen";
             this.cb_PhieuDangTuyen.Size = new System.Drawing.Size(187, 28);
             this.cb_PhieuDangTuyen.TabIndex = 9;
+            this.cb_PhieuDangTuyen.SelectedIndexChanged += new System.EventHandler(this.cb_PhieuDangTuyen_SelectedIndexChanged);
             // 
             // tb_HinhThucDangTuyen
             // 
@@ -133,6 +135,7 @@
             this.tb_TenNhaTuyenDung.Name = "tb_TenNhaTuyenDung";
             this.tb_TenNhaTuyenDung.Size = new System.Drawing.Size(187, 27);
             this.tb_TenNhaTuyenDung.TabIndex = 8;
+            this.tb_TenNhaTuyenDung.TextChanged += new System.EventHandler(this.tb_TenNhaTuyenDung_TextChanged);
             // 
             // lb_NgayBD
             // 
@@ -474,7 +477,7 @@
             this.lb_TrangThaiThanhToan.TabIndex = 11;
             this.lb_TrangThaiThanhToan.Text = "Trạng thái thanh toán:";
             // 
-            // THANHTOAN
+            // frmThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -482,7 +485,7 @@
             this.Controls.Add(this.gb_TTThanhToan);
             this.Controls.Add(this.gb_TTNhaTuyenDung);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "THANHTOAN";
+            this.Name = "frmThanhToan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "THANHTOAN";
             this.gb_TTNhaTuyenDung.ResumeLayout(false);

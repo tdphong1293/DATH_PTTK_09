@@ -60,6 +60,7 @@ begin
 end
 
 go
+
 CREATE OR ALTER PROCEDURE ThemHD
     @tongtien FLOAT,
     @datra FLOAT,
@@ -346,6 +347,24 @@ go
 ------------------------------------------------------------------------------------------------
 -- Phu
 
+create or alter procedure TimIDDoanhNghiep @TenDoanhNghiep VARCHAR(30), @IDDoanhNghiep int output
+as
+begin
+	select @IDDoanhNghiep = dn.IDDoanhNghiep
+	from DOANHNGHIEP dn, THANHVIEN tv
+	where tv.Ten = @TenDoanhNghiep and dn.IDDoanhNghiep = tv.IDThanhVien
+end;
+go
+
+create or alter procedure LayDSIDPDT @IDDoanhNghiep int
+as
+begin
+	select pdt.IDPhieuDangTuyen
+	from PHIEUDANGTUYEN pdt
+	where pdt.IDDoanhNghiep = 2
+end;
+go
+
 create or alter procedure LayEmailNgSinh_UV @IDUngVien int
 as
 begin
@@ -438,3 +457,21 @@ begin
 	end
 end;
 go
+
+
+create or alter procedure DocTTPhieuDangTuyen @IDPhieuDangTuyen int
+as
+begin
+	select *
+	from PHIEUDANGTUYEN
+	where IDPhieuDangTuyen = @IDPhieuDangTuyen
+end;
+go
+
+create or alter procedure DocTTPhieuQuangCao @IDPhieuQC int
+as
+begin
+	select * 
+	from PHIEUQUANGCAO
+	where IDPhieuQuangCao = @IDPhieuQC
+end
