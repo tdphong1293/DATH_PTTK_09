@@ -32,7 +32,6 @@ namespace GUI
             dtgv_HSChoDuyet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dtgv_HSDaDuyet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dtgv_BangCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
         }
 
         private void tb_SearchDN1_TextChanged(object sender, EventArgs e)
@@ -79,12 +78,23 @@ namespace GUI
 
         private void btn_Duyet_Click(object sender, EventArgs e)
         {
-            // Text account
+            HoSoUngTuyenBUS.DuyetHSUTChoDuyet(IDDoanhNghiep, IDUngVien, Convert.ToInt32(tb_DiemDanhGia.Text), "succeed");
+            SearchAndReloadHSUT_ChoDuyet("");
+            SearchAndReloadHSUT_DaDuyet("");
+            enabledButton(false);
+        }
+
+        private void btn_Loai_Click(object sender, EventArgs e)
+        {
+            HoSoUngTuyenBUS.DuyetHSUTChoDuyet(IDDoanhNghiep, IDUngVien, Convert.ToInt32(tb_DiemDanhGia.Text), "fail");
+            SearchAndReloadHSUT_ChoDuyet("");
+            SearchAndReloadHSUT_DaDuyet("");
+            enabledButton(false);
         }
 
         private void btn_ThemBangCap_Click(object sender, EventArgs e)
         {
-            frmThemBangCap tHEMBANGCAP = new frmThemBangCap();
+            frmThemBangCap tHEMBANGCAP = new frmThemBangCap(IDUngVien, this);
             tHEMBANGCAP.Show();
         }
 
@@ -94,12 +104,17 @@ namespace GUI
             
         }
 
-        
+        public void SearchAndReloadBangCap(int IDUngVien)
+        {
+            dtgv_BangCap.DataSource = BangCapBUS.LayDSBangCapCuaUngVien(this.IDUngVien);
+        }
+
 
         private void dtgv_HSChoDuyet_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LoadHSUTAfterCellClick(sender, e, dtgv_HSChoDuyet);
         }
+
 
         private void dtgv_HSDaDuyet_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -118,8 +133,10 @@ namespace GUI
                 tb_TinhTrangUngTuyen.Text = row.Cells["TinhTrangUngTuyen"].Value.ToString() ?? string.Empty;
                 tb_NgayUngTuyen.Text = row.Cells["NgayUngTuyen"].Value.ToString().Substring(0, viTriKhoangTrang) ?? string.Empty;
                 tb_ViTriUngTuyen.Text = row.Cells["ViTriUngTuyen"].Value.ToString() ?? string.Empty;
+                tb_DiemDanhGia.Text = row.Cells["DiemDanhGia"].Value.ToString() ?? string.Empty;
 
                 this.IDUngVien = Convert.ToInt32(row.Cells["IDUngVien"].Value);
+                this.IDDoanhNghiep = Convert.ToInt32(row.Cells["IDDoanhNghiep"].Value);
                 DataTable dataUngVien = UngVienBUS.LayEmailNgSinh_UV(this.IDUngVien);
                 DataRow rows = dataUngVien.Rows[0];
                 tb_Email.Text = rows["Email"].ToString();

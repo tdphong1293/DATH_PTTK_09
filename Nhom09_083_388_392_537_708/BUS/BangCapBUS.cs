@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAO;
+using DTO;
+
 namespace BUS
 {
     public class BangCapBUS
@@ -19,5 +21,9 @@ namespace BUS
             return BangCapDAO.DocDSBangCapCuaUngVien(idUngVien);
         }
 
+        public static int ThemBangCap(BangCapDTO bangcap)
+        {
+            return BangCapDAO.ThemBangCap(bangcap);
+        }    
     }
 }

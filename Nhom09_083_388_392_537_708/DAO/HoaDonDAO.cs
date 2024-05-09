@@ -13,7 +13,7 @@ namespace DAO
     {
         private static SqlConnection con = DatabaseProvider.GetConnection();
 
-        public static int ThemHD(double Tongtien, string lhtt, int iddn)
+        public static int ThemHD(double Tongtien, string lhtt, int idpdt)
         {
             try
             {
@@ -27,7 +27,7 @@ namespace DAO
                     cmd.Parameters.AddWithValue("@lhtt", lhtt);
                     cmd.Parameters.AddWithValue("@ngaylap", DateTime.Today);
                     cmd.Parameters.AddWithValue("@ttht", "Chưa hoàn thành");
-                    cmd.Parameters.AddWithValue("@iddn", iddn);
+                    cmd.Parameters.AddWithValue("@idpdt", idpdt);
                     SqlParameter paramID = new SqlParameter("@idhd", SqlDbType.Int);
                     paramID.Direction = ParameterDirection.Output;
                     cmd.Parameters.Add(paramID);

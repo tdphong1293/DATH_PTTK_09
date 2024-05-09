@@ -43,5 +43,10 @@ namespace BUS
         {
             return HoSoUngTuyenDAO.DocDSHSUTDaDuyet(TenDoanhNghiep);
         }
+
+        public static void DuyetHSUTChoDuyet(int IDDoanhNghiep, int IDUngVien, int diem, string kq)
+        {
+            HoSoUngTuyenDAO.DuyetHSUTChoDuyet(IDDoanhNghiep, IDUngVien, diem, kq);
+        }    
     }
 }

@@ -101,8 +101,15 @@ namespace GUI
 
         private void btnNopHSUT_Click(object sender, EventArgs e)
         {
-            frmNopHSUngTuyen NopHSUT = new frmNopHSUngTuyen(UserId, IdPDT);
-            NopHSUT.ShowDialog();
+            if (!string.IsNullOrEmpty(UserId) && !string.IsNullOrEmpty(IdPDT))
+            {
+                frmNopHSUngTuyen NopHSUT = new frmNopHSUngTuyen(UserId, IdPDT);
+                NopHSUT.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn vào phiếu đăng tuyển để nộp hồ sơ");
+            }
         }
 
         private void btnXoaPDT_Click(object sender, EventArgs e)

@@ -12,6 +12,8 @@ namespace GUI
         public frmDangKyUngVien()
         {
             InitializeComponent();
+            dtp_birth_uv.Format = DateTimePickerFormat.Custom;
+            dtp_birth_uv.CustomFormat = "dd/MM/yyyy";
             dtp_birth_uv.MaxDate = DateTime.Today;
         }
 

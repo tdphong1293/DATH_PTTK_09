@@ -60,19 +60,20 @@ begin
 end
 
 go
+
 CREATE OR ALTER PROCEDURE ThemHD
     @tongtien FLOAT,
     @datra FLOAT,
     @lhtt NVARCHAR(50),
     @ngaylap DATE,
     @ttht NVARCHAR(50),
-    @iddn INT,
+    @idpdt INT,
 	@idhd INT OUTPUT
 AS
 BEGIN
 	SET NOCOUNT ON;
-    INSERT INTO HOADON (TongTien, DaTra, LoaiHinhThanhToan, NgayLap, TrangThaiHoanThanh, IDDoanhNghiep)
-    VALUES (@tongtien, @datra, @lhtt, @ngaylap, @ttht, @iddn);
+    INSERT INTO HOADON (TongTien, DaTra, LoaiHinhThanhToan, NgayLap, TrangThaiHoanThanh, IDPhieuDangTuyen)
+    VALUES (@tongtien, @datra, @lhtt, @ngaylap, @ttht, @idpdt);
 	SET @idhd = SCOPE_IDENTITY();
 END
 GO
@@ -257,12 +258,9 @@ CREATE OR ALTER PROCEDURE LayViTriDangTuyen
     @ID INT
 AS
 BEGIN
-    DECLARE @DanhSachViTri NVARCHAR(MAX);
-    SELECT @DanhSachViTri = COALESCE(@DanhSachViTri + ', ', '') + ViTriDangTuyen
+    SELECT ViTriDangTuyen
     FROM PHIEUDANGTUYEN
     WHERE IDPhieuDangTuyen = @ID;
-
-    SELECT @DanhSachViTri AS DanhSachViTriDangTuyen;
 END;
 GO
 
@@ -349,6 +347,24 @@ go
 ------------------------------------------------------------------------------------------------
 -- Phu
 
+create or alter procedure TimIDDoanhNghiep @TenDoanhNghiep VARCHAR(30), @IDDoanhNghiep int output
+as
+begin
+	select @IDDoanhNghiep = dn.IDDoanhNghiep
+	from DOANHNGHIEP dn, THANHVIEN tv
+	where tv.Ten = @TenDoanhNghiep and dn.IDDoanhNghiep = tv.IDThanhVien
+end;
+go
+
+create or alter procedure LayDSIDPDT @IDDoanhNghiep int
+as
+begin
+	select pdt.IDPhieuDangTuyen
+	from PHIEUDANGTUYEN pdt
+	where pdt.IDDoanhNghiep = 2
+end;
+go
+
 create or alter procedure LayEmailNgSinh_UV @IDUngVien int
 as
 begin
@@ -373,7 +389,7 @@ as
 begin
 	if @tendn = ''
 	begin
-		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.IDUngVien, hsut.IDDoanhNghiep
+		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.DiemDanhGia, hsut.IDUngVien, hsut.IDDoanhNghiep
 		from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn
 		where hsut.IDDoanhNghiep = tv_dn.IDThanhVien and
 			hsut.IDUngVien = tv_uv.IDThanhVien and
@@ -381,7 +397,7 @@ begin
 	end
 	else
 	begin
-		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.IDUngVien, hsut.IDDoanhNghiep
+		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.DiemDanhGia, hsut.IDUngVien, hsut.IDDoanhNghiep
 		from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn
 		where hsut.IDDoanhNghiep = tv_dn.IDThanhVien and
 			hsut.IDUngVien = tv_uv.IDThanhVien and
@@ -396,7 +412,7 @@ as
 begin
 	if @tendn = ''
 	begin
-		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.IDUngVien, hsut.IDDoanhNghiep
+		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.DiemDanhGia, hsut.IDUngVien, hsut.IDDoanhNghiep
 		from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn
 		where hsut.IDDoanhNghiep = tv_dn.IDThanhVien and
 			hsut.IDUngVien = tv_uv.IDThanhVien and
@@ -404,7 +420,7 @@ begin
 	end
 	else
 	begin
-		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.IDUngVien, hsut.IDDoanhNghiep
+		select tv_uv.Ten as N'Ứng viên', tv_dn.Ten as N'Doanh nghiệp', hsut.NgayUngTuyen, hsut.ViTriUngTuyen, hsut.TinhTrangUngTuyen, hsut.DiemDanhGia, hsut.IDUngVien, hsut.IDDoanhNghiep
 		from HOSOUNGTUYEN hsut, THANHVIEN tv_uv, THANHVIEN tv_dn
 		where hsut.IDDoanhNghiep = tv_dn.IDThanhVien and
 			hsut.IDUngVien = tv_uv.IDThanhVien and
@@ -412,3 +428,69 @@ begin
 			UPPER(tv_dn.Ten) LIKE UPPER('%' + @tendn + '%')
 	end
 end;
+go
+
+create or alter procedure ThemBangCap @tenbang NVARCHAR(100), @capbac VARCHAR(50), @ngaycap DATE, @dvcap NVARCHAR(100), @idungvien int, @idbangcap int output
+as
+begin
+	SET NOCOUNT ON;
+    INSERT INTO BANGCAP(TenBang, CapBac, NgayCap, DonViCap, IDUngVien)
+    VALUES (@tenbang, @capbac, @ngaycap, @dvcap, @idungvien);
+	SET @idbangcap = SCOPE_IDENTITY();
+end
+go
+
+create or alter procedure DuyetHSUTChoDuyet @IDUngVien int, @IDDoanhNghiep int, @diem int, @kq varchar(10)
+as
+begin
+	if @kq = 'succeed'
+	begin
+		update HOSOUNGTUYEN 
+		set TinhTrangUngTuyen = N'Đang xử lý', DiemDanhGia = @diem 
+		where IDDoanhNghiep = @IDDoanhNghiep and IDUngVien = @IDUngVien		
+	end
+	else
+	begin
+		update HOSOUNGTUYEN 
+		set TinhTrangUngTuyen = N'Chưa đủ điều kiện', DiemDanhGia = @diem 
+		where IDDoanhNghiep = @IDDoanhNghiep and IDUngVien = @IDUngVien		
+	end
+end;
+go
+
+
+create or alter procedure DocTTPhieuDangTuyen @IDPhieuDangTuyen int
+as
+begin
+	select *
+	from PHIEUDANGTUYEN
+	where IDPhieuDangTuyen = @IDPhieuDangTuyen
+end;
+go
+
+create or alter procedure DocTTPhieuQuangCao @IDPhieuQC int
+as
+begin
+	select * 
+	from PHIEUQUANGCAO
+	where IDPhieuQuangCao = @IDPhieuQC
+end
+go
+
+create or alter procedure DocTTHoaDon @IDPhieuDT int
+as
+begin
+	select * 
+	from HOADON
+	where IDPhieuDangTuyen = @IDPhieuDT
+end;
+go
+
+create or alter procedure DocTTHoaDon @IDPhieuDT int
+as
+begin
+	select * 
+	from HOADON
+	where IDPhieuDangTuyen = @IDPhieuDT
+end;
+go

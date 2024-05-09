@@ -90,12 +90,12 @@
             // dtp_birth_uv
             // 
             this.dtp_birth_uv.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dtp_birth_uv.Location = new System.Drawing.Point(498, 381);
-            this.dtp_birth_uv.MaxDate = new System.DateTime(2024, 4, 12, 15, 52, 38, 0);
+            this.dtp_birth_uv.Location = new System.Drawing.Point(555, 381);
+            this.dtp_birth_uv.MaxDate = new System.DateTime(2024, 5, 8, 0, 0, 0, 0);
             this.dtp_birth_uv.Name = "dtp_birth_uv";
-            this.dtp_birth_uv.Size = new System.Drawing.Size(200, 27);
+            this.dtp_birth_uv.Size = new System.Drawing.Size(143, 27);
             this.dtp_birth_uv.TabIndex = 50;
-            this.dtp_birth_uv.Value = new System.DateTime(2024, 4, 12, 0, 0, 0, 0);
+            this.dtp_birth_uv.Value = new System.DateTime(2003, 1, 1, 0, 0, 0, 0);
             // 
             // lb_birth_uv
             // 
@@ -161,6 +161,7 @@
             this.btn_DangKyUngVien.TabIndex = 51;
             this.btn_DangKyUngVien.Text = "Đăng ký";
             this.btn_DangKyUngVien.UseVisualStyleBackColor = false;
+            this.btn_DangKyUngVien.Click += new System.EventHandler(this.btn_DangKyUngVien_Click);
             // 
             // lb_email_uv
             // 
@@ -222,13 +223,13 @@
             this.lb_FormDangKyUngVien.TabIndex = 52;
             this.lb_FormDangKyUngVien.Text = "Đăng Ký Ứng Viên";
             // 
-            // FormDangKyUngVien
+            // frmDangKyUngVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 561);
             this.Controls.Add(this.panel_FormDangKyUngVien);
-            this.Name = "FormDangKyUngVien";
+            this.Name = "frmDangKyUngVien";
             this.Text = "Đăng Ký Ứng Viên";
             this.panel_FormDangKyUngVien.ResumeLayout(false);
             this.panel_FormDangKyUngVien.PerformLayout();

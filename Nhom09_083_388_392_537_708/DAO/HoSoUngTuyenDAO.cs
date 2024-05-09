@@ -128,5 +128,24 @@ namespace DAO
             }
         }
 
+        public static void DuyetHSUTChoDuyet(int IDDoanhNghiep, int IDUngVien, int diem, string kq)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("DuyetHSUTChoDuyet", conn))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IDDoanhNghiep", IDDoanhNghiep));
+                    command.Parameters.Add(new SqlParameter("@IDUngVien", IDUngVien));
+                    command.Parameters.Add(new SqlParameter("@diem", diem));
+                    command.Parameters.Add(new SqlParameter("@kq", kq));
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }    
     }
 }

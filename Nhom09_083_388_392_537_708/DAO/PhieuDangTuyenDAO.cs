@@ -48,8 +48,7 @@ namespace DAO
             using (SqlCommand cmd = new SqlCommand("XoaPhieuDangTuyen", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IDPhieuDangTuyen", idPhieuDangTuyen);
-                conn.Open();
+                cmd.Parameters.AddWithValue("@ID", idPhieuDangTuyen);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -70,18 +69,22 @@ namespace DAO
             return idDoanhNghiep;
         }
 
-        public static DataTable LayViTriDangTuyen(string IdPDT)
+        public static string LayViTriDangTuyen(string IdPDT)
         {
-            DataTable dt = new DataTable();
+            string result = "";
             using (SqlCommand command = new SqlCommand("LayViTriDangTuyen", conn))
             {
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@ID", IdPDT);
-
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                adapter.Fill(dt);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        result = reader[0].ToString();
+                    }
+                }
             }
-            return dt;
+            return result;
         }
 
         public static int ThemPDT(PhieuDangTuyenDTO pdt, int IDPQC)
