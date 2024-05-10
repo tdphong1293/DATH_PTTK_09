@@ -131,7 +131,9 @@ namespace GUI
                 txt_TenUngVien.Text = "";
                 txt_TinhTrangHS.Text = "";
                 txt_ViTriUngTuyen.Text = "";
-
+                btn_Duyet.Enabled = false;
+                btn_Loai.Enabled = false;
+                btn_OpenFileCV.Enabled = false;
                 dgv_BangCapUV.DataSource = null;
                 this.dgv_BangCapUV.Rows.Clear();
                 // Cập nhật DataGridView
@@ -172,7 +174,9 @@ namespace GUI
                 txt_TenUngVien.Text = "";
                 txt_TinhTrangHS.Text = "";
                 txt_ViTriUngTuyen.Text = "";
-
+                btn_Duyet.Enabled = false;
+                btn_Loai.Enabled = false;
+                btn_OpenFileCV.Enabled = false;
                 dgv_BangCapUV.DataSource = null;
                 this.dgv_BangCapUV.Rows.Clear();
 
