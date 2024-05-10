@@ -34,5 +34,10 @@ namespace BUS
         {
             return DoanhNghiepDAO.DocDSTTDoanhNghiepTiemNang();
         }
+
+        public static int TimIDDoanhNghiep(string TenDN)
+        {
+            return DoanhNghiepDAO.TimIDDoanhNghiep(TenDN);
+        }
     }
 }

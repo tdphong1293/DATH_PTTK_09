@@ -55,15 +55,16 @@ namespace GUI
             tb_TongTienCanThanhToan.Text = "";
             tb_TienDaTra.Text = "";
             tb_TienCanThanhToan.Text = "";
+            tb_NgayGiaoDich.Text = "";
 
 
             cb_PhieuDangTuyen.Items.Clear();
             cb_Dot.Items.Clear();
             btn_ThanhToan.Enabled = false;
 
-            this.IDDoanhNghiep = ThanhToanBUS.TimIDDoanhNghiep(NhaTD);
+            this.IDDoanhNghiep = DoanhNghiepBUS.TimIDDoanhNghiep(NhaTD);
             List<int> PDT_list = new List<int>();
-            PDT_list = ThanhToanBUS.LayDSIDPDT(this.IDDoanhNghiep);
+            PDT_list = PhieuDangTuyenBUS.LayDSIDPDT(this.IDDoanhNghiep);
             foreach (int item in PDT_list)
             {
                 cb_PhieuDangTuyen.Items.Add(item.ToString());
@@ -74,14 +75,14 @@ namespace GUI
 
         private void cb_PhieuDangTuyen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dataPDT = ThanhToanBUS.LayTTPhieuDangTuyen(Convert.ToInt32(cb_PhieuDangTuyen.SelectedItem.ToString()));
+            DataTable dataPDT = PhieuDangTuyenBUS.LayTTPhieuDangTuyen(Convert.ToInt32(cb_PhieuDangTuyen.SelectedItem.ToString()));
             DataRow row1 = dataPDT.Rows[0];
             tb_ViTriTD.Text = row1["ViTriDangTuyen"].ToString() ?? string.Empty;
             tb_SoLuongTD.Text = row1["SoLuongTuyenDung"].ToString() ?? string.Empty;
             this.IDPhieuDT = Convert.ToInt32(row1["IDPhieuDangTuyen"].ToString());
             this.IDPhieuQC = Convert.ToInt32(row1["IDPhieuQuangCao"].ToString());
 
-            DataTable dataPQC = ThanhToanBUS.LayTTPhieuQuangCao(this.IDPhieuQC);
+            DataTable dataPQC = PhieuQuangCaoBUS.LayTTPhieuQuangCao(this.IDPhieuQC);
             DataRow row2 = dataPQC.Rows[0];
             tb_HinhThucDangTuyen.Text = row2["HinhThucDangTuyen"].ToString(); 
             tb_NgayBD.Text = row2["NgayBatDau"].ToString().Substring(0, row2["NgayBatDau"].ToString().IndexOf(' ')) ?? string.Empty;
@@ -92,7 +93,7 @@ namespace GUI
             TimeSpan khoangCach = ngayKetThuc - ngayBatDau;
             tb_TongNgayDT.Text = ((int)khoangCach.TotalDays).ToString() ?? string.Empty;
 
-            DataTable dataHD = ThanhToanBUS.LayTTHoaDon(this.IDPhieuDT);
+            DataTable dataHD = HoaDonBUS.LayTTHoaDon(this.IDPhieuDT);
             DataRow row3 = dataHD.Rows[0];
             this.IDHoaDon = Convert.ToInt32(row3["IDHoaDon"].ToString());
             tb_TrangThaiThanhToan.Text = row3["TrangThaiHoanThanh"].ToString() ?? string.Empty;
@@ -105,6 +106,8 @@ namespace GUI
                 tb_TrangThaiThanhToan.BackColor = Color.PaleGreen;
 
             btn_ThanhToan.Enabled = false;
+            tb_NgayGiaoDich.Text = "";
+            tb_TienCanThanhToan.Text = "";
             LoadDotIntoCB(this.IDHoaDon);
         }
 
@@ -127,7 +130,7 @@ namespace GUI
             DataRow row1 = dataPDT.Rows[0];
             tb_NgayGiaoDich.Text = row1["NgayGiaoDich"].ToString() ?? string.Empty;
             tb_TienCanThanhToan.Text = row1["SoTienCanThanhToan"].ToString() ?? string.Empty;
-            tb_HinhThucThanhToan.Text = row1["HinhThucTT"].ToString() ?? string.Empty;
+            tb_HinhThucThanhToan.Text = row1["H inhThucTT"].ToString() ?? string.Empty;
             this.IDThanhToan = Convert.ToInt32(row1["IDThanhToan"].ToString());
 
             bool flag = ThanhToanBUS.KiemTraThanhToan(this.IDHoaDon, Convert.ToInt32(cb_Dot.SelectedItem.ToString()));
@@ -144,7 +147,7 @@ namespace GUI
             DataRow row1 = dataPDT.Rows[0];
             tb_NgayGiaoDich.Text = row1["NgayGiaoDich"].ToString() ?? string.Empty;
 
-            DataTable dataHD = ThanhToanBUS.LayTTHoaDon(this.IDPhieuDT);
+            DataTable dataHD = HoaDonBUS.LayTTHoaDon(this.IDPhieuDT);
             DataRow row3 = dataHD.Rows[0];
             tb_TienDaTra.Text = row3["DaTra"].ToString();
             tb_TrangThaiThanhToan.Text = row3["TrangThaiHoanThanh"].ToString() ?? string.Empty;

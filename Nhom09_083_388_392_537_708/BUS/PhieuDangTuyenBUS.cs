@@ -2,6 +2,7 @@
 using System.Data;
 using DAO;
 using DTO;
+using System.Collections.Generic;
 
 namespace BUS
 {
@@ -47,5 +48,16 @@ namespace BUS
         {
             return PhieuDangTuyenDAO.SearchPhieuDangTuyen(tenCty, viTri, idDN);
         }
+
+        public static List<int> LayDSIDPDT(int IDDoanhNghiep)
+        {
+            return PhieuDangTuyenDAO.LayDSIDPDT(IDDoanhNghiep);
+        }
+
+        public static DataTable LayTTPhieuDangTuyen(int IDPhieuDangTuyen)
+        {
+            return PhieuDangTuyenDAO.DocTTPhieuDangTuyen(IDPhieuDangTuyen);
+        }
+
     }
 }

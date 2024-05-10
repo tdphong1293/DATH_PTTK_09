@@ -147,5 +147,34 @@ namespace DAO
             adapter.Fill(dntn);
             return dntn;
         }
+
+        public static int TimIDDoanhNghiep(string TenDN)
+        {
+            try
+            {
+                int IDDoanhNghiep = 0;
+                using (SqlCommand cmd = new SqlCommand("TimIDDoanhNghiep", conn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@TenDoanhNghiep", TenDN);
+
+                    SqlParameter paramID = new SqlParameter("@IDDoanhNghiep", SqlDbType.Int);
+                    paramID.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(paramID);
+                    cmd.ExecuteNonQuery();
+                    if (paramID.Value != DBNull.Value)
+                        IDDoanhNghiep = Convert.ToInt32(paramID.Value);
+                    else
+                        IDDoanhNghiep = -1;
+
+                }
+                return IDDoanhNghiep;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return -1;
+            }
+        }
     }
 }

@@ -38,5 +38,11 @@ namespace BUS
         {
             return PhieuQuangCaoDAO.ThemPQC(pqc);
         }
+
+        public static DataTable LayTTPhieuQuangCao(int IDPhieuQC)
+        {
+            return PhieuQuangCaoDAO.DocTTPhieuQuangCao(IDPhieuQC);
+        }
+
     }
 }

@@ -39,5 +39,29 @@ namespace DAO
             }
 
         }
+
+
+        public static DataTable DocTTPhieuQuangCao(int IDPhieuQC)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("DocTTPhieuQuangCao", con))
+                {
+                    DataTable dataTable = new DataTable();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IDPhieuQC", IDPhieuQC));
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(reader);
+                    }
+                    return dataTable;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
     }
 }

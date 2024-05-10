@@ -130,5 +130,54 @@ namespace DAO
 
             return GetDataSetFromStoredProcedure("TimKiemPhieuDangTuyen", parameters.ToArray());
         }
+
+        public static List<int> LayDSIDPDT(int IDDoanhNghiep)
+        {
+            List<int> idList = new List<int>();
+            try
+            {
+                using (SqlCommand command = new SqlCommand("LayDSIDPDT", conn))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IDDoanhNghiep", IDDoanhNghiep));
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            idList.Add(Convert.ToInt32(reader["IDPhieuDangTuyen"]));
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return idList;
+        }
+
+        public static DataTable DocTTPhieuDangTuyen(int IDPhieuDangTuyen)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("DocTTPhieuDangTuyen", conn))
+                {
+                    DataTable dataTable = new DataTable();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IDPhieuDangTuyen", IDPhieuDangTuyen));
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(reader);
+                    }
+                    return dataTable;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
     }
 }

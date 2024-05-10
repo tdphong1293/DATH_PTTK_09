@@ -42,5 +42,30 @@ namespace DAO
                 return -1;
             }
         }
+
+        public static DataTable DocTTHoaDon(int IDPhieuDT)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("DocTTHoaDon", con))
+                {
+                    DataTable dataTable = new DataTable();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IDPhieuDT", IDPhieuDT));
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(reader);
+                    }
+                    return dataTable;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+
     }
 }
