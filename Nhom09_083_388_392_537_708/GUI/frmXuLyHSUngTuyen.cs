@@ -118,9 +118,23 @@ namespace GUI
 
         private void btn_OpenFileCV_Click(object sender, EventArgs e)
         {
+
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Select a file to upload";
             openFileDialog.Filter = "PDF files (*.pdf)|*.pdf";
+            string baseDirectory = @"DAO\DS_CV";
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            string subDirectory = IDUngVien.ToString();
+            string targetDirectory = Path.Combine(projectDirectory, baseDirectory, subDirectory);
+
+            if (Directory.Exists(targetDirectory))
+            {
+                System.Diagnostics.Process.Start(targetDirectory);
+            }
+            else
+            {
+                MessageBox.Show("Directory does not exist!");
+            }
         }
 
         private void dtgv_HSDaDuyet_CellClick(object sender, DataGridViewCellEventArgs e)
