@@ -87,15 +87,7 @@ namespace GUI
                     }
 
                     txt_TinhTrangHS.Text = row.Cells["TinhTrangUngTuyen"].Value.ToString() ?? string.Empty;
-                    if (txt_TinhTrangHS.Text == "Đủ điều kiện")
-                    {
-                        txt_TinhTrangHS.BackColor = Color.PaleGreen;
-                    }
-                    else if (txt_TinhTrangHS.Text == "Chưa đủ điều kiện")
-                    {
-                        txt_TinhTrangHS.BackColor = Color.LightSalmon;
-                    }
-                    else if (txt_TinhTrangHS.Text == "Đang xử lý")
+                    if (txt_TinhTrangHS.Text == "Đang xử lý")
                     {
                         txt_TinhTrangHS.BackColor = Color.Yellow;
                     }
@@ -134,9 +126,21 @@ namespace GUI
             {
                 // Hiển thị thông báo và cập nhật trạng thái
                 ThongBao("Đã duyệt thành công!");
-                txt_TinhTrangHS.Text = "Đủ điều kiện";
-                txt_TinhTrangHS.BackColor = Color.PaleGreen; 
+                txt_TinhTrangHS.BackColor = Color.LightGray;
 
+                // clear mọi thứ
+                this.idUngVien = 0;
+                txt_DiemDanhGia.Text = "";
+                txt_EmailUV.Text = "";
+                txt_HoTenUV.Text = "";
+                txt_NgaySinhUV.Text = "";
+                txt_NgayUngTuyen.Text = "";
+                txt_TenUngVien.Text = "";
+                txt_TinhTrangHS.Text = "";
+                txt_ViTriUngTuyen.Text = "";
+
+                dgv_BangCapUV.DataSource = null;
+                this.dgv_BangCapUV.Rows.Clear();
                 // Cập nhật DataGridView
                 dgv_HoSo_UngTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dgv_HoSo_UngTuyen.DataSource = HoSoUngTuyenBUS.LayDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep);
@@ -163,8 +167,21 @@ namespace GUI
             {
                 // Hiển thị thông báo và cập nhật trạng thái
                 ThongBao("Đã loại thành công!");
-                txt_TinhTrangHS.Text = "Chưa đủ điều kiện";
-                txt_TinhTrangHS.BackColor = Color.LightSalmon;
+                txt_TinhTrangHS.BackColor = Color.LightGray;
+
+                // clear mọi thứ
+                this.idUngVien = 0;
+                txt_DiemDanhGia.Text = "";
+                txt_EmailUV.Text = "";
+                txt_HoTenUV.Text = "";
+                txt_NgaySinhUV.Text = "";
+                txt_NgayUngTuyen.Text = "";
+                txt_TenUngVien.Text = "";
+                txt_TinhTrangHS.Text = "";
+                txt_ViTriUngTuyen.Text = "";
+
+                dgv_BangCapUV.DataSource = null;
+                this.dgv_BangCapUV.Rows.Clear();
 
                 // Cập nhật DataGridView
                 dgv_HoSo_UngTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -187,7 +204,6 @@ namespace GUI
         {
             dgv_HoSo_UngTuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_HoSo_UngTuyen.DataSource = HoSoUngTuyenBUS.LayDSHSSUngTuyenTheoDoanhNghiep(idDoanhNghiep);
-
         }
     }
 }

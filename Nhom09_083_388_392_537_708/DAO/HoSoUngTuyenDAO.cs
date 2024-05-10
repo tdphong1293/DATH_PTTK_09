@@ -47,7 +47,7 @@ namespace DAO
         public static DataTable DocDSHSSUngTuyenTheoDoanhNghiep(int idDoanhNghiep)
         {
             string query = $"SELECT hsut.idungvien as IDUngVien, tv.ten as HoTen, hsut.ngayungtuyen as NgayUngTuyen, hsut.vitriungtuyen as ViTriUngTuyen, hsut.diemdanhgia as DiemDanhGia , hsut.tinhtrangungtuyen as TinhTrangUngTuyen FROM HOSOUNGTUYEN hsut, THANHVIEN tv " +
-                $"where hsut.idungvien = tv.idthanhvien and hsut.iddoanhnghiep = {idDoanhNghiep}";
+                $"where hsut.idungvien = tv.idthanhvien and hsut.iddoanhnghiep = {idDoanhNghiep} and hsut.tinhtrangungtuyen = N'Đang xử lý'";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable data_hsut = new DataTable();
@@ -58,7 +58,7 @@ namespace DAO
         public static DataTable DocDSHoSoUT_SapXep_DiemDanhGia(int idDoanhNghiep)
         {
             string query = $"SELECT hsut.idungvien as IDUngVien, tv.ten as HoTen, hsut.ngayungtuyen as NgayUngTuyen, hsut.vitriungtuyen as ViTriUngTuyen, hsut.diemdanhgia as DiemDanhGia , hsut.tinhtrangungtuyen as TinhTrangUngTuyen FROM HOSOUNGTUYEN hsut, THANHVIEN tv" +
-                $" where hsut.idungvien = tv.idthanhvien and hsut.iddoanhnghiep = {idDoanhNghiep} ORDER BY hsut.diemdanhgia DESC";
+                $" where hsut.idungvien = tv.idthanhvien and hsut.iddoanhnghiep = {idDoanhNghiep} and hsut.tinhtrangungtuyen = N'Đang xử lý' ORDER BY hsut.diemdanhgia DESC";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable data_hsut = new DataTable(); // Tạo một DataTable thay vì DataSet
