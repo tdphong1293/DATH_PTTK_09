@@ -33,6 +33,31 @@ namespace BUS
         public static DataTable LayTTPhieuQuangCao(int IDPhieuQC)
         {
             return ThanhToanDAO.DocTTPhieuQuangCao(IDPhieuQC);
-        }    
+        }
+        
+        public static DataTable LayTTHoaDon(int IDPhieuDT)
+        {
+            return ThanhToanDAO.DocTTHoaDon(IDPhieuDT);
+        }
+
+        public static List<int> LayDSDotThanhToan(int IDHoaDon)
+        {
+            return ThanhToanDAO.LayDSDotThanhToan(IDHoaDon);
+        }
+
+        public static DataTable LayTTThanhToan(int IDHoaDon, int Dot)
+        {
+            return ThanhToanDAO.DocTTThanhToan(IDHoaDon, Dot);
+        }
+
+        public static bool KiemTraThanhToan(int IDHoaDon, int Dot)
+        {
+            return ThanhToanDAO.KiemTraThanhToan(IDHoaDon, Dot);
+        }
+
+        public static void THANHTOAN(int IDHoaDon, int Dot)
+        {
+            ThanhToanDAO.THANHTOAN(IDHoaDon, Dot);
+        }
     }
 }

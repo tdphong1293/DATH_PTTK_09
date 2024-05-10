@@ -361,7 +361,7 @@ as
 begin
 	select pdt.IDPhieuDangTuyen
 	from PHIEUDANGTUYEN pdt
-	where pdt.IDDoanhNghiep = 2
+	where pdt.IDDoanhNghiep = @IDDoanhNghiep
 end;
 go
 
@@ -486,11 +486,83 @@ begin
 end;
 go
 
-create or alter procedure DocTTHoaDon @IDPhieuDT int
+create or alter procedure LayDSDotThanhToan @IDHoaDon int
+as
+begin
+	select *
+	from THANHTOAN 
+	where IDHoaDon = @IDHoaDon
+end;
+go
+
+
+create or alter procedure DocTTThanhToan @IDHoaDon int, @dot int
 as
 begin
 	select * 
+	from THANHTOAN
+	where IDHoaDon = @IDHoaDon and Dot = @dot
+end;
+go
+
+create or alter procedure KTThanhToan @IDHoaDon int, @dot int, @kq int output
+as
+begin
+	declare @sodot int
+	declare @ngaygiaodich date
+	declare @ngaygiaodichtruoc date
+
+	select @sodot = COUNT(*) from THANHTOAN where IDHoaDon = @IDHoaDon
+	select @ngaygiaodich = NgayGiaoDich from THANHTOAN where IDHoaDon = @IDHoaDon and Dot = @dot
+
+	if @sodot = 1
+	begin
+		if @ngaygiaodich is null
+			set @kq = 1
+		else
+			set @kq = 0
+	end
+	else
+	begin
+		if @dot = 1
+		begin
+			if @ngaygiaodich is null
+				set @kq = 1
+			else
+				set @kq = 0
+		end
+		else
+		begin
+			if @ngaygiaodich is null
+			begin
+				select @ngaygiaodichtruoc = NgayGiaoDich from THANHTOAN where IDHoaDon = @IDHoaDon and Dot = @dot - 1
+				if @ngaygiaodichtruoc is null
+					set @kq = 0
+				else
+					set @kq = 1
+			end
+			else
+				set @kq = 0
+		end
+	end
+end;
+go
+
+create or alter procedure ThucHienThanhToan @IDHoaDon int, @dot int
+as
+begin
+	declare @sotientra float
+	select @sotientra = SoTienCanThanhToan from THANHTOAN where IDHoaDon = @IDHoaDon and Dot = @dot
+	update THANHTOAN set NgayGiaoDich = CONVERT(DATE, GETDATE()) where IDHoaDon = @IDHoaDon and Dot = @dot
+	update HOADON set DaTra = DaTra + @sotientra where IDHoaDon = @IDHoaDon
+
+	declare @tongtien float
+	declare @tiendatra float
+	select @tongtien = TongTien, @tiendatra = DaTra
 	from HOADON
-	where IDPhieuDangTuyen = @IDPhieuDT
+	where IDHoaDon = @IDHoaDon
+	if @tongtien = @tiendatra
+		update HOADON set TrangThaiHoanThanh = N'Đã hoàn thành' where IDHoaDon = @IDHoaDon
+
 end;
 go

@@ -134,5 +134,129 @@ namespace DAO
                 return null;
             }
         }
+
+        public static DataTable DocTTHoaDon(int IDPhieuDT)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("DocTTHoaDon", con))
+                {
+                    DataTable dataTable = new DataTable();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IDPhieuDT", IDPhieuDT));
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(reader);
+                    }
+                    return dataTable;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        public static List<int> LayDSDotThanhToan(int IDHoaDon)
+        {
+            List<int> idList = new List<int>();
+            try
+            {
+                using (SqlCommand command = new SqlCommand("LayDSDotThanhToan", con))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IDHoaDon", IDHoaDon));
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            idList.Add(Convert.ToInt32(reader["Dot"]));
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return idList;
+        }
+
+        public static DataTable DocTTThanhToan(int IDHoaDon, int Dot)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("DocTTThanhToan", con))
+                {
+                    DataTable dataTable = new DataTable();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IDHoaDon", IDHoaDon));
+                    command.Parameters.Add(new SqlParameter("@dot", Dot));
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(reader);
+                    }
+                    return dataTable;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        public static bool KiemTraThanhToan(int IDHoaDon, int Dot)
+        {
+            try
+            {
+                bool flag = true;
+                using (SqlCommand cmd = new SqlCommand("KTThanhToan", con))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IDHoaDon", IDHoaDon);
+                    cmd.Parameters.AddWithValue("@dot", Dot);
+
+
+                    SqlParameter paramID = new SqlParameter("@kq", SqlDbType.Int);
+                    paramID.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(paramID);
+                    cmd.ExecuteNonQuery();
+                    if (Convert.ToInt32(paramID.Value) == 1)
+                        flag = true;
+                    else
+                        flag = false;
+
+                }
+                return flag;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        public static void THANHTOAN(int IDHoaDon, int Dot)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("ThucHienThanhToan", con))
+                {
+                    DataTable dataTable = new DataTable();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IDHoaDon", IDHoaDon));
+                    command.Parameters.Add(new SqlParameter("@dot", Dot));
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return;
+        }
+
     }
 }

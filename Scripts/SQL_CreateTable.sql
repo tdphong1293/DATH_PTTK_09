@@ -37,7 +37,7 @@ CREATE TABLE NHANVIEN (
 CREATE TABLE THANHTOAN (
   IDThanhToan INT IDENTITY(1,1) NOT NULL,
   NgayGiaoDich DATE,
-  HinhThucTT VARCHAR(10) CHECK (HinhThucTT IN('cash', 'card')),
+  HinhThucTT NVARCHAR(10) CHECK (HinhThucTT IN(N'Thẻ', N'Trực tiếp')),
   SoTienCanThanhToan FLOAT,
   Dot INT,
   IDHoaDon INT,

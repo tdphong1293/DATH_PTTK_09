@@ -46,6 +46,7 @@
             this.lb_SLTD = new System.Windows.Forms.Label();
             this.lblVttd = new System.Windows.Forms.Label();
             this.gb_TTThanhToan = new System.Windows.Forms.GroupBox();
+            this.cb_Dot = new System.Windows.Forms.ComboBox();
             this.tb_NgayGiaoDich = new System.Windows.Forms.TextBox();
             this.lb_NgayGiaoDich = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.tb_TienCanThanhToan = new System.Windows.Forms.TextBox();
             this.tb_TienDaTra = new System.Windows.Forms.TextBox();
             this.tb_TongTienCanThanhToan = new System.Windows.Forms.TextBox();
-            this.tb_Dot = new System.Windows.Forms.TextBox();
             this.lb_TienCanThanhToan = new System.Windows.Forms.Label();
             this.tb_LoaiHinhThanhToan = new System.Windows.Forms.TextBox();
             this.lb_Dot = new System.Windows.Forms.Label();
@@ -264,6 +264,7 @@
             // gb_TTThanhToan
             // 
             this.gb_TTThanhToan.BackColor = System.Drawing.Color.White;
+            this.gb_TTThanhToan.Controls.Add(this.cb_Dot);
             this.gb_TTThanhToan.Controls.Add(this.tb_NgayGiaoDich);
             this.gb_TTThanhToan.Controls.Add(this.lb_NgayGiaoDich);
             this.gb_TTThanhToan.Controls.Add(this.label8);
@@ -271,7 +272,6 @@
             this.gb_TTThanhToan.Controls.Add(this.tb_TienCanThanhToan);
             this.gb_TTThanhToan.Controls.Add(this.tb_TienDaTra);
             this.gb_TTThanhToan.Controls.Add(this.tb_TongTienCanThanhToan);
-            this.gb_TTThanhToan.Controls.Add(this.tb_Dot);
             this.gb_TTThanhToan.Controls.Add(this.lb_TienCanThanhToan);
             this.gb_TTThanhToan.Controls.Add(this.tb_LoaiHinhThanhToan);
             this.gb_TTThanhToan.Controls.Add(this.lb_Dot);
@@ -292,6 +292,16 @@
             this.gb_TTThanhToan.TabIndex = 10;
             this.gb_TTThanhToan.TabStop = false;
             this.gb_TTThanhToan.Text = "THÔNG TIN THANH TOÁN";
+            // 
+            // cb_Dot
+            // 
+            this.cb_Dot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_Dot.FormattingEnabled = true;
+            this.cb_Dot.Location = new System.Drawing.Point(195, 156);
+            this.cb_Dot.Name = "cb_Dot";
+            this.cb_Dot.Size = new System.Drawing.Size(158, 28);
+            this.cb_Dot.TabIndex = 26;
+            this.cb_Dot.SelectedIndexChanged += new System.EventHandler(this.cb_Dot_SelectedIndexChanged);
             // 
             // tb_NgayGiaoDich
             // 
@@ -328,6 +338,7 @@
             // btn_ThanhToan
             // 
             this.btn_ThanhToan.BackColor = System.Drawing.Color.MediumBlue;
+            this.btn_ThanhToan.Enabled = false;
             this.btn_ThanhToan.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ThanhToan.ForeColor = System.Drawing.Color.White;
             this.btn_ThanhToan.Location = new System.Drawing.Point(197, 482);
@@ -336,6 +347,7 @@
             this.btn_ThanhToan.TabIndex = 22;
             this.btn_ThanhToan.Text = "Thanh toán";
             this.btn_ThanhToan.UseVisualStyleBackColor = false;
+            this.btn_ThanhToan.Click += new System.EventHandler(this.btn_ThanhToan_Click);
             // 
             // tb_TienCanThanhToan
             // 
@@ -366,16 +378,6 @@
             this.tb_TongTienCanThanhToan.ReadOnly = true;
             this.tb_TongTienCanThanhToan.Size = new System.Drawing.Size(158, 27);
             this.tb_TongTienCanThanhToan.TabIndex = 19;
-            // 
-            // tb_Dot
-            // 
-            this.tb_Dot.Enabled = false;
-            this.tb_Dot.Location = new System.Drawing.Point(195, 155);
-            this.tb_Dot.Margin = new System.Windows.Forms.Padding(2);
-            this.tb_Dot.Name = "tb_Dot";
-            this.tb_Dot.ReadOnly = true;
-            this.tb_Dot.Size = new System.Drawing.Size(158, 27);
-            this.tb_Dot.TabIndex = 13;
             // 
             // lb_TienCanThanhToan
             // 
@@ -522,7 +524,6 @@
         private System.Windows.Forms.Label lb_Dot;
         private System.Windows.Forms.Label lb_LoaiHinhThanhToan;
         private System.Windows.Forms.Label lb_TienCanThanhToan;
-        private System.Windows.Forms.TextBox tb_Dot;
         private System.Windows.Forms.TextBox tb_LoaiHinhThanhToan;
         private System.Windows.Forms.TextBox tb_HinhThucThanhToan;
         private System.Windows.Forms.TextBox tb_TrangThaiThanhToan;
@@ -533,5 +534,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tb_NgayGiaoDich;
         private System.Windows.Forms.Label lb_NgayGiaoDich;
+        private System.Windows.Forms.ComboBox cb_Dot;
     }
 }
