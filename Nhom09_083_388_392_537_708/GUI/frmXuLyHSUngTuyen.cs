@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Timers;
 using System.Windows.Forms;
 
@@ -115,6 +116,22 @@ namespace GUI
             LoadHSUTAfterCellClick(sender, e, dtgv_HSChoDuyet);
         }
 
+        private void btn_OpenFileCV_Click(object sender, EventArgs e)
+        {
+            string baseDirectory = @"DAO\DS_CV";
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            string subDirectory = IDUngVien.ToString();
+            string targetDirectory = Path.Combine(projectDirectory, baseDirectory, subDirectory);
+
+            if (Directory.Exists(targetDirectory))
+            {
+                System.Diagnostics.Process.Start(targetDirectory);
+            }
+            else
+            {
+                MessageBox.Show("Directory does not exist!");
+            }
+        }
 
         private void dtgv_HSDaDuyet_CellClick(object sender, DataGridViewCellEventArgs e)
         {

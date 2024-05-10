@@ -28,26 +28,19 @@ namespace GUI
         }
         private void btn_OpenFileCV_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Select a file to open";
-            openFileDialog.Filter = "All files (.)|*.*";
-            string baseDirectory = "";
-            if (this.idUngVien != 0)
+            string baseDirectory = @"DAO\DS_CV";
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            string subDirectory = idUngVien.ToString();
+            string targetDirectory = Path.Combine(projectDirectory, baseDirectory, subDirectory);
+
+            if (Directory.Exists(targetDirectory))
             {
-                baseDirectory = @"DAO\DS_CV\" + this.idUngVien.ToString();
-                string FolderPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, baseDirectory);
-                openFileDialog.InitialDirectory = FolderPath;
-                if (!Directory.Exists(FolderPath))
-                {
-                    MessageBox.Show("Chưa có CV của ứng viên");
-                }
-                else
-                {
-                    openFileDialog.ShowDialog();
-                }
+                System.Diagnostics.Process.Start(targetDirectory);
             }
             else
-                MessageBox.Show("Chưa chọn hồ sơ ứng tuyển!");
+            {
+                MessageBox.Show("Directory does not exist!");
+            }
         }
 
         private void btn_TimKiemTenUV_Click(object sender, EventArgs e)
