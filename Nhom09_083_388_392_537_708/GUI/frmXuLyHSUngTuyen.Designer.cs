@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtgv_HSChoDuyet = new System.Windows.Forms.DataGridView();
             this.lb_HoTen = new System.Windows.Forms.Label();
             this.lb_NgaySinh = new System.Windows.Forms.Label();
@@ -264,6 +263,7 @@
             this.btn_OpenFileCV.TabIndex = 23;
             this.btn_OpenFileCV.Text = "Mở file ⏬";
             this.btn_OpenFileCV.UseVisualStyleBackColor = true;
+            this.btn_OpenFileCV.Click += new System.EventHandler(this.btn_OpenFileCV_Click);
             // 
             // lb_FileCV
             // 
@@ -306,14 +306,6 @@
             this.dtgv_BangCap.AllowUserToOrderColumns = true;
             this.dtgv_BangCap.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_BangCap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv_BangCap.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtgv_BangCap.Location = new System.Drawing.Point(12, 45);
             this.dtgv_BangCap.Name = "dtgv_BangCap";
             this.dtgv_BangCap.ReadOnly = true;

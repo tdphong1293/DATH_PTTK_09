@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Timers;
 using System.Windows.Forms;
 
@@ -115,6 +116,12 @@ namespace GUI
             LoadHSUTAfterCellClick(sender, e, dtgv_HSChoDuyet);
         }
 
+        private void btn_OpenFileCV_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Select a file to upload";
+            openFileDialog.Filter = "PDF files (*.pdf)|*.pdf";
+        }
 
         private void dtgv_HSDaDuyet_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -170,7 +177,7 @@ namespace GUI
 
         private void enabledButton(bool flag)
         {
-            btn_OpenFileCV.Enabled = flag;
+            btn_OpenFileCV.Enabled = true;
             btn_ThemBangCap.Enabled = flag;
             btn_Duyet.Enabled = flag;
             btn_Loai.Enabled = flag;
