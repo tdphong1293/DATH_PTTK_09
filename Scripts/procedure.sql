@@ -182,6 +182,10 @@ BEGIN
     DOANHNGHIEP D ON P.IDDoanhNghiep = D.IDDoanhNghiep
   INNER JOIN 
     THANHVIEN T ON D.IDDoanhNghiep = T.IDThanhVien
+  INNER JOIN 
+    HOADON HD ON HD.IDPhieuDangTuyen = P.IDPhieuDangTuyen
+WHERE
+	HD.TrangThaiHoanThanh = N'Đã hoàn thành'
 END;
 GO
 
