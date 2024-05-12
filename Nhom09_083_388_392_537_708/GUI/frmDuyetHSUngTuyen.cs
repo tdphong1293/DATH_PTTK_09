@@ -12,7 +12,7 @@ namespace GUI
     public partial class frmDuyetHSUngTuyen : Form
     {
         public static SqlConnection con = frmDangNhap.conn;
-        private string id;
+        //private string id;
         private int idUngVien = 0;
         private int idDoanhNghiep = 0;
         public frmDuyetHSUngTuyen(int idDoanhNghiep)
