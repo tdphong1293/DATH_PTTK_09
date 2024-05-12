@@ -54,6 +54,12 @@ namespace GUI
             int soNgay = 0;
             TimeSpan songay = dtpNKT.Value.Subtract(dtpNBD.Value);
             soNgay = (int)songay.TotalDays;
+            if (soNgay < 0)
+            {
+                MessageBox.Show("Ngày kết thúc phải sau ngày bắt đầu!!!");
+                dtpNKT.Value = DateTime.Today;
+                return;
+            }
             if (soNgay < 30)
             {
                 cbxLHTT.SelectedIndex = 1;
@@ -76,6 +82,12 @@ namespace GUI
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
+            if (tbxVTTD.Text == "" || int.Parse(tbxSLTD.Text) < 1 || tbxSLTD.Text == "" || tbxMoTa.Text == "")
+            {
+                MessageBox.Show("Thông tin chưa hợp lệ!!!");
+                FormDangTuyenDung_Load(sender, e);
+                return;
+            }
             int IDPhieuQuangCao = 0;
             int IDPDT = 0;
             int IDHD = 0;
