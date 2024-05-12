@@ -43,34 +43,42 @@ namespace GUI
             if (!ValidateInputString(txt_username_dn.Text))
             {
                 ThongBao("Tên đăng nhập không hợp lệ");
+                return false;
             }
             else if (!ValidateInputString(txt_password_dn.Text))
             {
                 ThongBao("Mật khẩu không hợp lệ");
+                return false;
             }
             else if (txt_password_dn.Text != txt_repassword_dn.Text)
             {
                 ThongBao("Mật khẩu nhập lại không khớp");
+                return false;
             }
             else if (string.IsNullOrEmpty(txt_name_dn.Text) || (txt_name_dn.Text).Length > 50)
             {
                 ThongBao("Tên công ty không hợp lệ");
+                return false;
             }
             else if (string.IsNullOrEmpty(txt_email_dn.Text) || (txt_email_dn.Text).Length > 50)
             {
                 ThongBao("Email không hợp lệ");
+                return false;
             }
             else if (string.IsNullOrEmpty(txt_tax_dn.Text) || (txt_tax_dn.Text).Length != 10)
             {
                 ThongBao("Mã số thuế không hợp lệ");
+                return false;
             }
             else if (string.IsNullOrEmpty(txt_daidien_dn.Text) || (txt_daidien_dn.Text).Length > 50)
             {
                 ThongBao("Tên người đại diện không hợp lệ");
+                return false;
             }
             else if (string.IsNullOrEmpty(txt_diachi_dn.Text) || (txt_diachi_dn.Text).Length > 100)
             {
                 ThongBao("Địa chỉ không hợp lệ");
+                return false;
             }
             return true;
         }
