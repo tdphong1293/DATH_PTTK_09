@@ -130,7 +130,7 @@ namespace GUI
             DataRow row1 = dataPDT.Rows[0];
             tb_NgayGiaoDich.Text = row1["NgayGiaoDich"].ToString() ?? string.Empty;
             tb_TienCanThanhToan.Text = row1["SoTienCanThanhToan"].ToString() ?? string.Empty;
-            tb_HinhThucThanhToan.Text = row1["H inhThucTT"].ToString() ?? string.Empty;
+            tb_HinhThucThanhToan.Text = row1["HinhThucTT"].ToString() ?? string.Empty;
             this.IDThanhToan = Convert.ToInt32(row1["IDThanhToan"].ToString());
 
             bool flag = ThanhToanBUS.KiemTraThanhToan(this.IDHoaDon, Convert.ToInt32(cb_Dot.SelectedItem.ToString()));
