@@ -13,6 +13,7 @@ namespace DAO
         {
             try
             {
+                SqlConnection conn = DatabaseProvider.GetConnection();
                 string query = "select TenDangNhap from THANHVIEN where TenDangNhap = @tendangnhap";
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
@@ -41,6 +42,7 @@ namespace DAO
         {
             try
             {
+                SqlConnection conn = DatabaseProvider.GetConnection();
                 using (SqlCommand command = new SqlCommand("ThemDN", conn))
                 {
                     command.CommandType = CommandType.StoredProcedure;
